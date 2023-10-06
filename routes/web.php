@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/firms', function () {
+    return view('farmer/index');
+});
+Route::get('firms/about', function () {
+    return view('farmer/about');
+});
+Route::get('firms/contact', function () {
+    return view('farmer/contact');
+});
+Route::get('firms/help', function () {
+    return view('farmer/help');
+});
+Route::get('firms/insurance-program', function () {
+    return view('farmer/program');
 });

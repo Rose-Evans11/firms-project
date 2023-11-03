@@ -12,11 +12,50 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->increments('id');
+            $table->string('referenceNumber')->unique();
+            $table->string('firstName');
+            $table->string('middleName');
+            $table->string('lastName');
+            $table->string('extensionName');
+            $table->string('sex');
+            $table->integer('barangayID'); //farmers address
+            $table->integer('cityID');
+            $table->integer('provinceID');
+            $table->integer('regionID');
+            $table->string('contactNumber');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('validID'); //valid id information
+            $table->binary('validIDPhoto');
+            $table->string('validIDNumber')->unique();
+            $table->boolean('isActive');
+            $table->binary('photo');
+            $table->integer('age');
+            $table->date('birthday');
+            $table->string('birthplace');
+            $table->integer('educationID');
+            $table->integer('religionID');
+            $table->integer('civilID');
+            $table->string('spouseName');
+            $table->string('motherName');
+            $table->boolean('fourPs');
+            $table->boolean('indigenous');
+            $table->integer('typeIPID');
+            $table->boolean('householdHead'); //household information
+            $table->string('householdName');
+            $table->string('householdRelation');
+            $table->integer('householdCount');
+            $table->integer('householdMale');
+            $table->integer('householdFemale');
+            $table->integer('farmAssociationID');
+            $table->string('contactPerson');
+            $table->string('emergenceNumber');
+            $table->string('beneficiaries1');
+            $table->string('relationBeneficiaries1');
+            $table->string('beneficiaries2');
+            $table->string('relationbeneficiaries2');
             $table->rememberToken();
             $table->timestamps();
         });

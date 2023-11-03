@@ -15,13 +15,13 @@
         <div class="col-md-6" style="padding-top: 50px;padding-left: 90px">
             <h4><b>Login to your Account</b> </h4>
             <br />
-            <form method="" >
+            <form method="" style="padding-left: 20px">
                 <div class="form-floating">
-                <input type="email" class="form-control-sm" id="floatingInput" placeholder="Email" aria-describedby="inputGroup-sizing-default">
+                <input type="email" class="form-control-sm" id="floatingInput" placeholder="Email" aria-describedby="inputGroup-sizing-default" style="width: 200px">
               </div>
               <br/>
               <div class="form-floating">
-                <input type="password" class="form-control-sm" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control-sm" id="floatingPassword" placeholder="Password" style="width: 200px">
               </div>
           
               <div class="checkbox mb-3">
@@ -29,7 +29,7 @@
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="btn btn-ms mt-1 btn-success" type="submit">Sign in</button>
+              <button class="btn btn-sm mt-1 btn-success" type="submit" style="width: 200px">Sign in</button>
             </form>
         </div>
     </div>

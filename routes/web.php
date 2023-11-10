@@ -28,3 +28,12 @@ Route::get('firms/help', function () {
 Route::get('firms/insurance-program', function () {
     return view('farmer/program');
 });
+
+Route::get('firms/dashboard', function () {
+    return view('farmer/dashboard');
+});
+// post for user registration
+//Route::post('firms/register', [UserController::class, 'register']);
+
+
+?>

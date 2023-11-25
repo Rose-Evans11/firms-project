@@ -1,7 +1,7 @@
 @extends('layouts.master_farmer')
 @section('title','Dashboard')
 @section('content')
-<div class='container-fluid' style="margin: auto">
+<div>
     <div class="row">
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
@@ -22,7 +22,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Fully Rejected</h5>
+                  <h5 class="card-title text-center">Rejected</h5>
                   <p class="card-text fs-1 text-center fw-bolder">0</p>
                 </div>
             </div>

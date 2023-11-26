@@ -42,6 +42,9 @@ Route::get('firms/corn-insurance', function () {
     return view('farmer/corn_insurance');
 });
 
+Route::get('firms/hvc-insurance', function () {
+    return view('farmer/hvc_insurance');
+});
 
 //post for user registration
 //Route::post('firms/register', [UserController::class, 'register']);

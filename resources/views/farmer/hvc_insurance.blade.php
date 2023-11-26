@@ -1,5 +1,5 @@
 @extends('layouts.master_farmer')
-@section('title','Corn Insurance')
+@section('title','High-Value Crops Insurance')
 @section('content')
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
@@ -260,7 +260,41 @@
               </div>
             </div>
           </div>
-          <br/>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-2 control-label">Area: </label>
+                <div class="col-lg-12">
+                  <input type="text" @readonly(true) class="form-control" id="txt_area" value="Tanauan City">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txt_contact" class="col-lg-2 control-label">Soil pH:</label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Soil pH</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+          </div>
+        <br/>
         </div>
       </div>
       <div id="BoundryInfo">

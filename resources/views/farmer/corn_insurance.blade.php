@@ -1,11 +1,8 @@
 @extends('layouts.master_farmer')
 @section('title','Corn Insurance')
 @section('content')
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
-</head>
 <style>
+  /* this is for panel */
   .flip {
     font-size: 16px;
     padding: 10px;
@@ -20,6 +17,22 @@
     display: none;
     margin: auto;
   }
+
+  /*this is for google map */
+  #destination-map {
+      height: 400px;
+      width: 100%;
+    }
+    .map-container {
+      flex: 1;
+      margin-left: 20px;
+      width: 100%;
+    }
+
+    .map-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
   </style>
 <div class='container-fluid' style="margin: auto">
   <form class="form-horizontal">
@@ -245,9 +258,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
+                <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
                 <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City">
+                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="">
                 </div>
               </div>
             </div>
@@ -255,7 +268,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
                 <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas">
+                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="">
                 </div>
               </div>
             </div>
@@ -329,21 +342,21 @@
               </div>
             </div>
           </div>
-          <!-- this is for google map api -->
-           <!-- <div class="row">
+          <!-- 
+          <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="address_address">Address: </label>
-                <input type="text" id="address-input" name="address_address" class="form-control map-input">
-                <input type="hidden" name="address_latitude" id="address-latitude" value="0" />
-                <input type="hidden" name="address_longitude" id="address-longitude" value="0" />
-            </div>
+             <div class="form-group">
+              <label for="pickup" class="col-lg-6">Location:</label>
+              <input type="text" id="pickup" name="pickup" required class="col-lg-12">
+              <input type="hidden" id="pickup-lat" name="pickup-lat">
+              <input type="hidden" id="pickup-lng" name="pickup-lng">
+              <button type="button" onclick="getLocation('pickup')" class="col-lg-12 btn-success">Get Location</button>
+             </div>
             </div>
             <div class="col-md-6">
-              <div id="address-map-container" style="width:100%;height:auto; ">
-                <div style="width: 100%; height: auto;" id="address-map">
-                </div>
-              </div>
+              <div class="map-container">
+                <label for="destination-map">Destination Map:</label>
+                <div id="destination-map"></div>
             </div>
           </div> -->
           <div class="row">
@@ -423,7 +436,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-6 control-label">Source of Irrigation:</label>
+                <label for="txt_contact" class="col-md-6 control-label">Source of Irrigation:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example">
                     <option selected>Irrigation</option>
@@ -550,6 +563,7 @@
     }
 
     //this is for crops details --4th panel --
+    
     function toggleCropInfo() {
 
       // get the current value of the panel's display property
@@ -568,6 +582,7 @@
         panelLandInfo.style.display = 'none';
       }
     }
+    /* this is for google map api
     function getLocation(field) {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -597,35 +612,9 @@
       } else {
         console.log('Geolocation is not supported by this browser.');
       }
-    }
+    } */
 
-    function initializeMap() {
-      const map = L.map('destination-map').setView([13.9416, 121.1182], 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      map.on('click', function (e) {
-        const lat = e.latlng.lat;
-        const lng = e.latlng.lng;
-        document.getElementById('destination-lat').value = lat;
-        document.getElementById('destination-lng').value = lng;
-
-        // Reverse geocoding using OpenStreetMap Nominatim API
-        const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
-
-        fetch(geocodingUrl)
-          .then(response => response.json())
-          .then(data => {
-            const address = data.display_name;
-            document.getElementById('destination').value = address;
-          })
-          .catch(error => {
-            console.log('Error getting address:', error);
-          });
-      });
-    }
+    
   </script>
 </div>
 @endsection

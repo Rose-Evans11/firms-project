@@ -15,13 +15,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- custom CSS should come after Bootstrap CSS -->
     <link href="{{ asset('css/app.scss') }}" rel="stylesheet">
-    <style>
-       
-    
-    </style>
+    <!-- <script>
+      function initializeMap() {
+      const map = L.map('destination-map').setView([13.9416, 121.1182], 12);
 
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      map.on('click', function (e) {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+      document.getElementById('destination-lat').value = lat;
+      document.getElementById('destination-lng').value = lng;
+
+      // Reverse geocoding using OpenStreetMap Nominatim API
+      const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+
+      fetch(geocodingUrl)
+        .then(response => response.json())
+        .then(data => {
+          const address = data.display_name;
+          document.getElementById('destination').value = address;
+        })
+        .catch(error => {
+          console.log('Error getting address:', error);
+        });
+      });
+      }
+    </script>  this will remove only if needed for google map-->
+    <!-- this following line of code is for  google map 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" /> -->
 </head>
-<body>
+<body onload="initializeMap()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
         <div class="container-fluid">
           <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
@@ -50,15 +77,15 @@
                 <a class="nav-link" aria-current="page" href="#"> Indemnity</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"> Farm List</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-farm-list'); ?>"> Farm List</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                  Settings
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/rice-insurance'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Change Password</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
                   <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
               </li>

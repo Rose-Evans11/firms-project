@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//farmers landing page
 Route::get('/firms', function () {
     return view('farmer/index');
 });
@@ -33,7 +33,7 @@ Route::get('firms/dashboard', function () {
     return view('farmer/dashboard');
 });
 
-//insurance
+//insurance for farmers side
 Route::get('firms/rice-insurance', function () {
     return view('farmer/rice_insurance');
 });
@@ -44,6 +44,16 @@ Route::get('firms/corn-insurance', function () {
 
 Route::get('firms/hvc-insurance', function () {
     return view('farmer/hvc_insurance');
+});
+
+//for farmers profile
+Route::get('firms/farmer-profile', function () {
+    return view('farmer/profile');
+});
+
+//for farm list
+Route::get('firms/farmer-farm-list', function () {
+    return view('farmer/farm_list');
 });
 
 //post for user registration

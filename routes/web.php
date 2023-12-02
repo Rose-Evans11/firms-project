@@ -56,6 +56,11 @@ Route::get('firms/farmer-farm-list', function () {
     return view('farmer/farm_list');
 });
 
+//for notice of lost
+Route::get('firms/farmer-notice-loss', function () {
+    return view('farmer/notice_loss');
+});
+
 //post for user registration
 //Route::post('firms/register', [UserController::class, 'register']);
 

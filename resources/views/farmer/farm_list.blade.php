@@ -23,7 +23,7 @@
           table
         </div>
         <div class="col-lg-2 d-flex justify-content-end">
-          <button class="btn btn-success m-2" style="width:100%" onclick="javascript:toggleFarmInfo()" id="btn_add"> Add New Farm</Button>
+          <button class="btn btn-success m-2" style="width:100%" onclick="javascript:toggleFarmInfo()" id="btn_add"> Add Farm</Button>
         </div>
     </div>
 
@@ -42,7 +42,7 @@
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" aria-label="Default select example"  id="dd_barangay_farm">
                     <option selected>Barangay</option>
                     <option value="1">None</option>
                   </select>
@@ -53,7 +53,7 @@
             <div class="form-group">
               <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
               <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_city" value="Tanauan City">
+                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City">
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-2 control-label">Farm Type:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"  id="dd_farm_type">
                         <option selected>Farm Type</option>
                         <option value="1">Irrigated</option>
                         <option value="2">Rainfed Upland</option>
@@ -91,7 +91,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 control-label">Ownership Document Type:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"  id="dd_doc_type">
                         <option selected>Document Type</option>
                         <option value="1">Certificate of Land Transfer</option>
                         <option value="2">Emancipation Patent</option>
@@ -114,7 +114,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 control-label">Document :</label>
                     <div class="col-lg-12">
-                      <input type="file" placeholder="Choose File">
+                      <input type="file" placeholder="Choose File"  id="file_document">
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 scontrol-label">Ownership Type:</label>
                     <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example"  id="dd_own_type">
                         <option selected>Owner Type</option>
                         <option value="1">Registered Owner</option>
                         <option value="2">Tenant</option>
@@ -151,7 +151,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 control-label">Within Ancestral Domain:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_domain">
                         <option selected>Select</option>
                         <option value="1">Yes</option>
                         <option value="2"> No </option>
@@ -163,7 +163,7 @@
                 <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 control-label">Agrarian Reform Beneficiary:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example">
+                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_benefi">
                         <option selected>Select</option>
                         <option value="1">Yes</option>
                         <option value="2"> No </option>

@@ -1,6 +1,10 @@
 @extends('layouts.master_farmer')
 @section('title','Corn Insurance')
 @section('content')
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+</head>
 <style>
   /* this is for panel */
   .flip {
@@ -19,13 +23,12 @@
   }
 
   /*this is for google map */
-  #destination-map {
+  #location-map {
       height: 400px;
       width: 100%;
     }
     .map-container {
       flex: 1;
-      margin-left: 20px;
       width: 100%;
     }
 
@@ -149,9 +152,9 @@
         <div>
           <h5> Legal Beneficiaries 1</h5>
           <div class="form-group">
-            <label for="txt_farmersID" class="col-lg-2 control-label">Beneficiary 's Name: </label>
+            <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
             <div class="col-lg-12">
-              <input type="text" @readonly(true) class="form-control" id="txt_beneficiaries" value="">
+              <input type="text" class="form-control" id="txt_beneficiaries" value="">
             </div>
           </div>
           <div class="form-group">
@@ -181,9 +184,9 @@
           <div>
             <h5> Legal Beneficiaries 2</h5>
             <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">Beneficiary 's Name: </label>
+              <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
               <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_beneficiaries" value="">
+                <input type="text"  class="form-control" id="txt_beneficiaries" value="">
               </div>
             </div>
             <div class="form-group">
@@ -217,7 +220,7 @@
         <div class="form-group">
           <label for="txt_farmersID" class="col-lg-2 control-label">Account Number: </label>
           <div class="col-lg-12">
-            <input type="text" @readonly(true) class="form-control" id="txt_acc_num" value="">
+            <input type="text" class="form-control" id="txt_acc_num" value="">
           </div>
         </div>
         <div class="form-group">
@@ -229,95 +232,7 @@
       </div>
     </div>
     <!-- third panel -->
-    <div class="m-3" id="panelLandInfo">
-      <div id="farmDeetInfo">
-        <legend> <strong>Farm Details</strong> </legend>
-        <br/>
-        <div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
-                <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Barangay</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
-                <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
-                <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="">
-                </div>
-              </div>
-            </div>
-          </div>
-          <br/>
-        </div>
-      </div>
-      <div id="BoundryInfo">
-        <legend> <strong>Boundaries </strong></legend>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">North: </label>
-              <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_north" value="">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label"> South: </label>
-              <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_south" value="">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">East: </label>
-              <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_east" value="">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label"> West: </label>
-              <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_west" value="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- fourth panel -->
-    <div class="m-3" id="panelCropInfo">
+    <div class="m-3" id="panelCropInfo"> 
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
@@ -326,7 +241,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_crops" value="">
+                  <input type="text" @@readonly(true) class="form-control" id="txt_crops" value="Corn">
                 </div>
               </div>
             </div>
@@ -342,23 +257,6 @@
               </div>
             </div>
           </div>
-          <!-- 
-          <div class="row">
-            <div class="col-md-6">
-             <div class="form-group">
-              <label for="pickup" class="col-lg-6">Location:</label>
-              <input type="text" id="pickup" name="pickup" required class="col-lg-12">
-              <input type="hidden" id="pickup-lat" name="pickup-lat">
-              <input type="hidden" id="pickup-lng" name="pickup-lng">
-              <button type="button" onclick="getLocation('pickup')" class="col-lg-12 btn-success">Get Location</button>
-             </div>
-            </div>
-            <div class="col-md-6">
-              <div class="map-container">
-                <label for="destination-map">Destination Map:</label>
-                <div id="destination-map"></div>
-            </div>
-          </div> -->
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -436,7 +334,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_contact" class="col-md-6 control-label">Source of Irrigation:</label>
+                <label for="txt_contact" class="col-md-12 control-label">Source of Irrigation:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example">
                     <option selected>Irrigation</option>
@@ -457,9 +355,121 @@
               </div>
             </div>
           </div>
+          <br>
+          <div id="farmDeetInfo">
+            <legend> <strong>Farm Details</strong> </legend>
+            <br/>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+                    <div class="col-lg-12">
+                      <input type="text"  class="form-control" id="txt_sitio" value="">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Barangay</option>
+                        <option value="1">None</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br/>
+            </div>
+          </div>
+          <div id="BoundryInfo">
+            <legend> <strong>Boundaries </strong></legend>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-2 control-label">North: </label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="txt_north" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-2 control-label"> South: </label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="txt_bank_south" value="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-2 control-label">East: </label>
+                  <div class="col-lg-12">
+                    <input type="text"  class="form-control" id="txt_east" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-2 control-label"> West: </label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="txt_bank_west" value="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="location">Location: </label>
+              <input type="text" id="location" name="location" class="form-control map-input">
+            </div>
+          </div>
+         <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
+                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                   <label for="location-lng"  class="col-lg-12 control-label">Longitude:</label>
+                   <input type="text" id="location-lng" name="location-lng" class=" form-control col-lg-12">
+                  </div>
+                 </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="map-container">
+                  <label for="location-map"> Map:</label> 
+                  <div id="location-map"></div>
+              </div>
+            </div>
+          
           <br/>
       </div>
-     
     </div>
    </fieldset>
   </form>
@@ -467,9 +477,9 @@
   <div class="d-flex justify-content-end">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        <li class="page-item"><a class="page-link" onclick="javascript:togglePanelFarmInfo()" id="link_prev"> Previous  </a></li>
-        <li class="page-item"><a class="page-link" onclick="javascript:toggleBeneficiaries()" id="link_benefi">1</a></li>
-        <li class="page-item"><a class="page-link" onclick="javascript:toggleFarmDeets()" id="link_farm">2</a></li>
+        <li class="page-item"><a class="page-link" onclick="#" id="link_prev"> Previous  </a></li>
+        <li class="page-item"><a class="page-link" onclick="javascript:togglePanelFarmInfo()" id="link_farm"> 1  </a></li>
+        <li class="page-item"><a class="page-link" onclick="javascript:toggleBeneficiaries()" id="link_benefi">2</a></li>
         <li class="page-item"><a class="page-link" onclick="javascript:toggleCropInfo()" id="link_crop">3</a></li>
         <li class="page-item"><a class="page-link" href="#" id="link_submit">Submit</a></li>
       </ul>
@@ -480,14 +490,13 @@
     // get the panel
     var panelFarmInfo = document.getElementById('panelFarmInfo'); 
     var panelBenefiInfo = document.getElementById('panelBenefiInfo');
-    var panelLandInfo = document.getElementById('panelLandInfo');
     var panelCropInfo = document.getElementById('panelCropInfo');
 
     
     //this is to load the Farmer's Info
     window.onload = function() {
-      panelLandInfo.style.display = 'none';
       panelBenefiInfo.style.display = 'none';
+      initializeMap();
       panelCropInfo.style.display = 'none';
       panelFarmInfo.style.display = 'block';
       document.getElementById("link_prev").disabled = true;
@@ -504,7 +513,6 @@
         // panel is visible. hide it
         panelFarmInfo.style.display = 'block';
         panelBenefiInfo.style.display = 'none';
-        panelLandInfo.style.display = 'none';
         panelCropInfo.style.display = 'none';
 
         //disable other page (remove the comment once we have validation)
@@ -533,56 +541,12 @@
         // panel is hidden. show it
         panelBenefiInfo.style.display = 'block';
         panelFarmInfo.style.display = 'none';
-        panelLandInfo.style.display = 'none';
         panelCropInfo.style.display = 'none';
 
         //disable other page (remove the comment once we have validation)
         //document.getElementById("link_farm").disabled = true;
       }
     }
- 
-    //this is for farm deatils -- 3rd panel --
-    function toggleFarmDeets() {
-
-      // get the current value of the panel's display property
-      var displaySetting = panelLandInfo.style.display;
-
-      // now toggle the panel depending on current state
-      if (displaySetting == 'block') {
-        // panel is visible. hide it
-        //panelLandInfo.style.display = 'none';
-      }
-      else {
-        // panel is hidden. show it
-        panelLandInfo.style.display = 'block';
-        panelFarmInfo.style.display = 'none';
-        panelBenefiInfo.style.display = 'none';
-        panelCropInfo.style.display = 'none';
-
-      }
-    }
-
-    //this is for crops details --4th panel --
-    
-    function toggleCropInfo() {
-
-      // get the current value of the panel's display property
-      var displaySetting = panelCropInfo.style.display;
-
-      // now toggle the panel depending on current state
-      if (displaySetting == 'block') {
-        // panel is visible. hide it
-        //panelCropInfo.style.display = 'none';
-      }
-      else {
-        // panel is hidden. show it
-        panelCropInfo.style.display = 'block';
-        panelFarmInfo.style.display = 'none';
-        panelBenefiInfo.style.display = 'none';
-        panelLandInfo.style.display = 'none';
-      }
-    }
-    /* this is for google map api
     function getLocation(field) {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -612,9 +576,54 @@
       } else {
         console.log('Geolocation is not supported by this browser.');
       }
-    } */
+    } 
 
+    function initializeMap() {
+      const map = L.map('location-map').setView([13.9416, 121.1182], 12);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      map.on('click', function (e) {
+        const lat = e.latlng.lat;
+        const lng = e.latlng.lng;
+        document.getElementById('location-lat').value = lat;
+        document.getElementById('location-lng').value = lng;
+
+        // Reverse geocoding using OpenStreetMap Nominatim API
+        const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+
+        fetch(geocodingUrl)
+          .then(response => response.json())
+          .then(data => {
+            const address = data.display_name;
+            document.getElementById('location').value = address;
+          })
+          .catch(error => {
+            console.log('Error getting address:', error);
+          });
+      });
+    }
+    //this is for crops details --4th panel --
     
+    function toggleCropInfo() {
+
+      // get the current value of the panel's display property
+      var displaySetting = panelCropInfo.style.display;
+
+      // now toggle the panel depending on current state
+      if (displaySetting == 'block') {
+        // panel is visible. hide it
+        //panelCropInfo.style.display = 'none';
+      }
+      else {
+        // panel is hidden. show it
+        panelCropInfo.style.display = 'block';
+        panelFarmInfo.style.display = 'none';
+        panelBenefiInfo.style.display = 'none';
+      }
+    }
   </script>
 </div>
 @endsection

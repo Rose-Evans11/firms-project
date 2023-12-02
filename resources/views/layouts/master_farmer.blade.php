@@ -44,9 +44,9 @@
       });
       }
     </script>  this will remove only if needed for google map-->
-    <!-- this following line of code is for  google map 
+    <!-- this following line of code is for  google map -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" /> 
 </head>
 <body onload="initializeMap()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
@@ -71,7 +71,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"> Notice of Loss</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-notice-loss'); ?>"> Notice of Loss</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#"> Indemnity</a>
@@ -83,7 +83,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                  Settings
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="#">Change Password</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
                   <li><a class="dropdown-item" href="#">Log Out</a></li>

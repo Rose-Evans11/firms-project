@@ -232,17 +232,17 @@
       </div>
     </div>
     <!-- third panel -->
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
-          <div class="col-lg-12">
-            <input type="text" class="form-control" id="txt_insuredID" value="" @readonly(true)>
+    <div class="m-3" id="panelCropInfo"> 
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control" id="txt_insuredID" value="" @readonly(true)>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="m-3" id="panelCropInfo"> 
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>

@@ -18,4 +18,5 @@
             <img src="{{ asset('Images/img_about.png') }}" class="img-fluid" alt="" />
         </div>
     </div>
+</div>
 @endsection

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //farmers landing page
-Route::get('/firms', function () {
+Route::get('/firms/farmer', function () {
     return view('farmer/index');
 });
 Route::get('firms/about', function () {
@@ -51,14 +51,24 @@ Route::get('firms/farmer-profile', function () {
     return view('farmer/profile');
 });
 
+//for farmers password
+Route::get('firms/farmer-change-password', function () {
+    return view('farmer/change_password');
+});
+
 //for farm list
 Route::get('firms/farmer-farm-list', function () {
     return view('farmer/farm_list');
 });
 
-//for notice of lost
+//for notice of loss
 Route::get('firms/farmer-notice-loss', function () {
     return view('farmer/notice_loss');
+});
+
+//for indemnity
+Route::get('firms/farmer-indemnity', function () {
+    return view('farmer/indemnity');
 });
 
 //post for user registration

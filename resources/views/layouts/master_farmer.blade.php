@@ -48,7 +48,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" /> 
 </head>
-<body onload="initializeMap()">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
         <div class="container-fluid">
           <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
@@ -74,7 +74,7 @@
                 <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-notice-loss'); ?>"> Notice of Loss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"> Indemnity</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-indemnity'); ?>"> Indemnity</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-farm-list'); ?>"> Farm List</a>
@@ -84,7 +84,7 @@
                  Settings
                 </a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Change Password</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer-change-password'); ?>">Change Password</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
                   <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> @yield('title')</title>
-    <link rel = "icon" href = "{{ asset('/firmslogo.ico') }}"    type = "image/x-icon">
+    <link rel = "icon" href = "{{ asset('/firms_green.ico') }}"    type = "image/x-icon">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -17,8 +17,8 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
-        <div class="container-fluid" style="padding-right:20px">
-          <a class="navbar-brand" href="<?= url('firms'); ?>"> <b> FIRMS</b></a>
+        <div class="container-fluid px-5">
+          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

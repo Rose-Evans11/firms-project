@@ -74,5 +74,16 @@ Route::get('firms/farmer-indemnity', function () {
 //post for user registration
 //Route::post('firms/register', [UserController::class, 'register']);
 
+//for admin side 
+//login page
+Route::get('firms/admin-index', function () {
+    return view('admin/admin_login');
+});
+
+//for admin side 
+//register
+Route::get('firms/admin-register', function () {
+    return view('admin/register');
+});
 
 ?>

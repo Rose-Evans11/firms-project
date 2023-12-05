@@ -1,12 +1,7 @@
 @extends('layouts.master_farmer')
 @section('title','Change Password')
 @section('content')
-<style>
-    #img_id, #img_profile {
-    display: none;
-    margin: auto;
-  }
-</style>
+
 <div class='container-fluid' style="margin: auto">
     <div class="row d-flex justify-content-center">
         <div class="col-md-12">

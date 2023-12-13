@@ -11,175 +11,146 @@
     border: solid 1px #a6d8a8;
     margin: auto;
   }
-  
-  #panelfarmList {
-    display: none;
-    margin: auto;
-  }
   </style>
 <div class='container-fluid' style="margin: auto">
+ 
+  
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+  {{Session::get('success')}}
+
+  <!--
     <div class="row">
         <div class="col-lg-12">
           table
         </div>
        
     </div>
-
-  <form class="form-horizontal">
+  -->
+    <!-- this is for adding farmer -->
+  <form class="form-horizontal" action="/register" method="POST">
+    @csrf
    <fieldset>
-   
     <div class="m-3" id="panelfarmList">
       <div id="farmDeetInfo">
-        <legend> <strong>Farm Land Description</strong> </legend>
+        <legend> <strong>Add new Farmer</strong> </legend>
         <br/>
-        <h5> Farm Parcel</h5>
-        <h5 class="mx-2"> Farm Location</h5>
-        <div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
+                <label for="txt_farmerID" class="col-lg-12 control-label">Farmer's ID:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example"  id="dd_barangay_farm">
-                    <option selected>Barangay</option>
-                    <option value="1">None</option>
-                  </select>
+                  <input type="text" @readonly(true) class="form-control" id="txt_farmerID" value="" placeholder="Farmer's ID" name="farmerID">
                 </div>
               </div>
-          </div>
-          <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
             <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
+              <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
               <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City">
+                <input type="text" class="form-control" id="txt_RSBSA" value="" placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
               </div>
             </div>
-          </div>
+            </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-6 control-label">Farm Area (ha): </label>
+                  <label for="txt_fname" class="col-lg-6 control-label">First Name: </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="txt_farm_size" value="">
+                    <input type="text" class="form-control" id="txt_fname" value="" placeholder="First Name" name="firstName" required>
                   </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-2 control-label">Farm Type:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_farm_type">
-                        <option selected>Farm Type</option>
-                        <option value="1">Irrigated</option>
-                        <option value="2">Rainfed Upland</option>
-                        <option value="3">Rainfed Lowland</option>
-                      </select>
-                    </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_mname" class="col-lg-6 control-label">Middle Name: </label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_mname" value="" placeholder="Middle Name" name="middleName">
                 </div>
+              </div>
             </div>
-          </div>
-        <br/>
-        </div>
-      </div>
-      <div id="farmOwningInfo">
-        <h5 class="mx-2"> Ownership Information</h5>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Ownership Document Type:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_doc_type">
-                        <option selected>Document Type</option>
-                        <option value="1">Certificate of Land Transfer</option>
-                        <option value="2">Emancipation Patent</option>
-                        <option value="3">Individual Certificate of Land Ownership Award (CLOA)</option></option>
-                        <option value="4">Collective CLOA</option>
-                        <option value="5">Co-Ownership CLOA</option>
-                        <option value="6">Agricultural Sales Patent</option>
-                        <option value="7">Homestead Patent</option>
-                        <option value="8">Free Patent</option>
-                        <option value="9">Certificate/Regular Title</option>
-                        <option value="10">Certificate of Ancestral Domain Title</option>
-                        <option value="11">Certificate of Ancestral Land Title</option>
-                        <option value="12">Tax Declaration</option>
-                        <option value="13">Barangay Certification</option>
-                      </select>
-                    </div>
-                </div>
+            <div class="col-md-3">
+            <div class="form-group">
+              <label for="txt_lname" class="col-lg-6 control-label">Last Name: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_lname" value="" placeholder="Last Name" name="lastName" required>
+              </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Document :</label>
-                    <div class="col-lg-12">
-                      <input type="file" placeholder="Choose File"  id="file_document">
-                    </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_ext" class="col-lg-6 control-label">Extension Name: </label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_ext" value="" placeholder="Extension Name" name="extensionName">
                 </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 scontrol-label">Ownership Type:</label>
-                    <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example"  id="dd_own_type">
-                        <option selected>Owner Type</option>
-                        <option value="1">Registered Owner</option>
-                        <option value="2">Tenant</option>
-                        <option value="3">Lesse</option>
-                    </select>
-                    </div>
+              <div class="form-group">
+                <label for="dt_birth" class="col-lg-6 control-label">Birthdate: </label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="dt_birth" value="" name="birthdate" required>
                 </div>
+              </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-6 control-label">Name of the Owner: </label>
-                    <div class="col-lg-12">
-                        <input type="text" class="form-control" id="txt_land_owner" value="">
-                    </div>
+              <div class="form-group">
+                <label for="dd_sex" class="col-lg-2 control-label">Sex :</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example"  id="dd_sex" required name='sex'>
+                    <option selected>Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </div>
-            </div>
-        </div>
-      </div>
-      <div id="farmOther">
-        <br>
-        <h5 class="mx-2"> Other Details</h5>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Within Ancestral Domain:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_domain">
-                        <option selected>Select</option>
-                        <option value="1">Yes</option>
-                        <option value="2"> No </option>
-                      </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Agrarian Reform Beneficiary:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_benefi">
-                        <option selected>Select</option>
-                        <option value="1">Yes</option>
-                        <option value="2"> No </option>
-                      </select>
-                    </div>
-                </div>
+              </div>
             </div>
           </div>
-          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
+                <div class="col-lg-12">
+                  <input type="email" class="form-control" id="txt_email" value="" placeholder="Email" name="email" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="txt_pass" class="col-lg-6 control-label"> Password: </label>
+                <div class="col-lg-12">
+                  <input type="password" class="form-control" id="txt_pass" value="" placeholder="" name="password" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12">
+              <div class="form-group">
+                <button class="btn btn-sm btn-success" type="submit" style="width:100%">Register</button>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="d-flex justify-content-center mt-3"> 
-        <br/>
-        <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%">Reset</button>
-        <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%" onclick="javascript:save()">Save</button>
-       </div>
-    </div>
    </fieldset>
-   
   </form>
+  <script>
+    var now = new Date(),
+    // minimum date the user can choose, in this case now and in the future
+    minDate = now.toISOString().substring(0,10);
 
+$('#dt_birth').prop('min', minDate);
+  </script>
+</div>
 @endsection 

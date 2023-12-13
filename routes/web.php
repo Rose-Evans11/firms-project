@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\farmerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,5 +86,9 @@ Route::get('firms/admin-index', function () {
 Route::get('firms/admin-register', function () {
     return view('admin/register');
 });
+Route::post('/register', [farmerController::class, 'register']);
+Route::post('/login', [farmerController::class, 'login']);
+Route::post('/logout', [farmerController::class, 'logout']);
+
 
 ?>

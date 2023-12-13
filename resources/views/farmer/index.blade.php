@@ -17,16 +17,17 @@
     </div>
     <div class="col-md-6" style="padding-top: 50px;padding-left: 90px">
       <h4><b>Login to your Account</b> </h4>
-      @if ($errors->any())
+      
       <div class="alert alert-danger">
+        @if ($errors->any())
           <ul>
               @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>
               @endforeach
           </ul>
+        @endif
+        {{Session::get('errmessage')}}
       </div>
-    @endif
-    {{Session::get('success')}}
       <br />
       <form method="POST" action="/login">
         @csrf

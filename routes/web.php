@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\farmerController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\farmerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 //farmers landing page
 Route::get('/firms/farmer', function () {
-    return view('farmer/index');
+    return view('farmer/index'); 
 });
 Route::get('firms/about', function () {
     return view('farmer/about');
@@ -31,45 +32,82 @@ Route::get('firms/insurance-program', function () {
 });
 //once user already login then these following routes is accessible by the farmers
 Route::get('firms/dashboard', function () {
-    return view('farmer/dashboard');
+    if(Auth::check())   
+    {
+        return view('farmer/dashboard');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    
 });
 
 //insurance for farmers side
 Route::get('firms/rice-insurance', function () {
-    return view('farmer/rice_insurance');
+    if(Auth::check())   
+    {
+        return view('farmer/rice_insurance');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 Route::get('firms/corn-insurance', function () {
-    return view('farmer/corn_insurance');
+    if(Auth::check())   
+    {
+        return view('farmer/corn_insurance');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 Route::get('firms/hvc-insurance', function () {
-    return view('farmer/hvc_insurance');
+    if(Auth::check())   
+    {
+        return view('farmer/hvc_insurance');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farmers profile
 Route::get('firms/farmer-profile', function () {
-    return view('farmer/profile');
+    if(Auth::check())   
+    {
+        return view('farmer/profile');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farmers password
 Route::get('firms/farmer-change-password', function () {
-    return view('farmer/change_password');
+    if(Auth::check())   
+    {
+        return view('farmer/change_password');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farm list
 Route::get('firms/farmer-farm-list', function () {
-    return view('farmer/farm_list');
+    if(Auth::check())   
+    {
+        return view('farmer/farm_list');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for notice of loss
 Route::get('firms/farmer-notice-loss', function () {
-    return view('farmer/notice_loss');
+    if(Auth::check())   
+    {
+        return view('farmer/notice_loss');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for indemnity
 Route::get('firms/farmer-indemnity', function () {
-    return view('farmer/indemnity');
+    if(Auth::check())   
+    {
+        return view('farmer/indemnity');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //post for user registration

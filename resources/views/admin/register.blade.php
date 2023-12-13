@@ -44,15 +44,7 @@
         <legend> <strong>Add new Farmer</strong> </legend>
         <br/>
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_farmerID" class="col-lg-12 control-label">Farmer's ID:</label>
-                <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_farmerID" value="" placeholder="Farmer's ID" name="farmerID">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
             <div class="form-group">
               <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
               <div class="col-lg-12">

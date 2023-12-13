@@ -1,4 +1,4 @@
-@extends('layouts.master_farmer_landing')
+@extends('layouts.master_farmer')
 @section('title','Contact Us')
 @section('content')
 <div class="container-fluid">

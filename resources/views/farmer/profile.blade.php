@@ -8,7 +8,8 @@
   }
 </style>
 <div class='container-fluid' style="margin: auto">
-    <form>
+    <form action="/profile" method="POST">
+      @csrf
         <fieldset>
             <div id="panelFarmInfo">
                 <div class="m-3" id='farmInfo'>
@@ -20,7 +21,7 @@
                         <div class="form-group">
                             <label for="txt_farmersID" class="col-lg-12 control-label">Farmer's ID: </label>
                             <div class="col-lg-12">
-                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="">
+                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->id}}" name="farmersID">
                             </div>
                           </div>
                     </div>
@@ -28,7 +29,7 @@
                         <div class="form-group">
                             <label for="txt_farmersID" class="col-lg-12 control-label">RSBSA Number (System-generated) </label>
                             <div class="col-lg-12">
-                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="">
+                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->rsbsa}}" name="rsbsa">
                             </div>
                           </div>
                     </div>
@@ -40,7 +41,7 @@
                           <div class="form-group">
                             <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
                             <div class="col-lg-12">
-                              <input type="text" class="form-control" id="txt_fname" placeholder="First Name">
+                              <input type="text" class="form-control" id="txt_fname" placeholder="First Name" value="{{Auth::User()->firstName}}" name="firstName">
                             </div>
                           </div>
                         </div>
@@ -50,7 +51,7 @@
                           <div class="form-group">
                               <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
                               <div class="col-lg-12">
-                                <input type="text" class="form-control" id="txt_mname" placeholder="Middle Name">
+                                <input type="text" class="form-control" id="txt_mname" placeholder="Middle Name" value="{{Auth::User()->middleName}}" name="middleName">
                               </div>
                             </div>
                         </div>
@@ -60,7 +61,7 @@
                           <div class="form-group">
                             <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
                             <div class="col-lg-12">
-                              <input type="text" class="form-control" id="txt_lname" placeholder="Last Name">
+                              <input type="text" class="form-control" id="txt_lname" placeholder="Last Name" value="{{Auth::User()->lastName}}" name="lastName">
                             </div>
                           </div>
                         </div>
@@ -70,7 +71,7 @@
                             <div class="form-group">
                                 <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
                                 <div class="col-lg-12">
-                                <input type="text" class="form-control" id="txt_extname" placeholder="Extension Name">
+                                <input type="text" class="form-control" id="txt_extname" placeholder="Extension Name" value="{{Auth::User()->extensionName}}" name="extensionName">
                                 </div>
                             </div>
                         </div>
@@ -98,8 +99,54 @@
                           <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
                           <div class="col-lg-12">
                             <select class="form-select" aria-label="Default select example">
-                              <option selected>Barangay</option>
-                              <option value="1">None</option>
+                              <option value="Altura Bata">Altura Bata</option>
+                              <option value="Altura Matanda">Altura Matanda</option>
+                              <option value="Altura South">Altura South</option>
+                              <option value="Ambulong">Ambulong</option></option>
+                              <option value="Banadero">Banadero</option>
+                              <option value="Bagbag">Bagbag</option>
+                              <option value="Bagumbayan">Bagumbayan</option>
+                              <option value="Balele">Balele</option>
+                              <option value="Banjo East">Banjo East</option>
+                              <option value="Banjo West">Banjo West</option>
+                              <option value="Bilog-Bilog">Bilog-Bilog</option>
+                              <option value="Boot">Boot</option>
+                              <option value="Cale">Cale</option>
+                              <option value="Darasa">Darasa</option></option>
+                              <option value="Gonzales">Gonzales</option>
+                              <option value="Hidalgo">Hidalgo</option>
+                              <option value="Janopol">Janopol</option>
+                              <option value="Janopol Oriental">Janopol Oriental</option>
+                              <option value="Laurel">Laurel</option>
+                              <option value="Luyos">Luyos</option>
+                              <option value="Mabini">Mabini</option>
+                              <option value="Malaking Pulo">Malaking Pulo</option>
+                              <option value="Maria Paz">Maria Paz</option></option>
+                              <option value="Maugat">Maugat</option>
+                              <option value="Montana">Montana</option>
+                              <option value="Natatas">Natatas</option>
+                              <option value="Pagaspas">Pagaspas</option>
+                              <option value="Pantay Bata">Pantay Bata</option>
+                              <option value="Pantay Matanda">Pantay Matanda</option>
+                              <option value="Poblacion 1">Poblacion 1</option>
+                              <option value="Poblacion 2">Poblacion 2</option>
+                              <option value="Poblacion 3">Poblacion 3</option>
+                              <option value="Poblacion 4">Poblacion 4</option>
+                              <option value="Poblacion 5">Poblacion 5</option>
+                              <option value="Poblacion 6">Poblacion 6</option>
+                              <option value="Poblacion 7">Poblacion 7</option>
+                              <option value="Sala">Sala</option>
+                              <option value="Sambat">Sambat</option>
+                              <option value="San Jose">San Jose</option>
+                              <option value="Santol">Santol</option>
+                              <option value="Santor">Santor</option>
+                              <option value="Sulpoc">Sulpoc</option>
+                              <option value="Suplang">Suplang</option>
+                              <option value="Talaga">Talaga</option></option>
+                              <option value="Tinurik">Tinurik</option>
+                              <option value="Trapiche">Trapiche</option>
+                              <option value="Ulango">Ulango</option>
+                              <option value="Wawa">Wawa</option>
                             </select>
                           </div>
                         </div>
@@ -122,45 +169,37 @@
                       </div>
                   </div>  
                   <div class="row">
-                    <div class="col-md-3"> 
-                        <div class="form-group">
-                            <label for="txt_age" class="col-lg-2 control-label">Age: </label>
-                            <div class="col-lg-12">
-                            <input type="number" min="1" max="100" class="form-control" id="txt_age" value="" placeholder="Age" readonly>
-                            </div>
+                    <div class="col-md-6"> 
+                      <div class="form-group">
+                        <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
+                        <div class="col-lg-12">
+                          <select class="form-select aria-label="Default select example"  >
+                            <option selected> {{Auth::User()->sex}} </option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                          </select>
                         </div>
+                      </div>
+                       
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
-                            <div class="col-lg-12">
-                              <select class="form-select" aria-label="Default select example">
-                                <option selected>Select Gender </option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Others</option>
-                              </select>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col-md-3"> 
+                    <div class="col-md-6"> 
                         <div class="form-group">
                             <label for="txt_religion" class="col-lg-2 control-label">Religion: </label>
                             <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_religion" value="" placeholder="Religion">
+                            <input type="text" class="form-control" id="txt_religion" value="" placeholder="Religion" name="religion">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
                             <div class="col-lg-12">
                               <select class="form-select" aria-label="Default select example">
-                                <option selected>Select Civil Status</option>
-                                <option value="1">Single</option>
-                                <option value="2">Married</option>
-                                <option value="3">Separated</option>
-                                <option value="4">Widowed</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Separated">Separated</option>
+                                <option value="Widowed">Widowed</option>
                               </select>
                             </div>
                           </div>
@@ -185,25 +224,33 @@
                     </div>
                   </div> 
                   <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="dt_birth" class="col-lg-2 control-label">Birthdate: </label>
-                            <div class="col-lg-12">
-                              <input type="date" class="form-control" id="dt_birth" value="" onchange="ageCount()">
-                            </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label for="dt_birth" class="col-lg-2 control-label">Birthdate: </label>
+                          <div class="col-lg-12">
+                            <input type="date" class="form-control" id="dt_birth" value="{{Auth::User()->birthdate}}" name=birthdate>
                           </div>
+                        </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="txt_age" class="col-lg-2 control-label">Age: </label>
+                      <div class="col-lg-12">
+                      <input type="number" class="form-control" id="txt_age"  placeholder="Age" readonly value="{{Auth::User()->age}}" name="age">
+                      </div>
                     </div>
-                    <div class="col-md-4">
+                  </div>
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label for="txt_birthCity" class="col-lg-12 control-label">Municipality: </label>
+                            <label for="txt_birthCity" class="col-lg-12 control-label"> Birthplace: (Municipality) </label>
                             <div class="col-lg-12">
                             <input type="text" class="form-control" id="txt_birthCity" placeholder="City">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label for="txt_birthProvince" class="col-lg-12 control-label">Province: </label>
+                            <label for="txt_birthProvince" class="col-lg-12 control-label">Birthplace: (Province) </label>
                             <div class="col-lg-12">
                             <input type="text" class="form-control" id="txt_birthProvince" placeholder="Province">
                             </div>
@@ -217,7 +264,7 @@
                       <div class="form-group">
                           <label for="txt_email" class="col-lg-2 control-label">Email: </label>
                           <div class="col-lg-12">
-                            <input type="email" class="form-control" id="txt_email" value="">
+                            <input type="email" class="form-control" id="txt_email" name="email" @readonly(true) value="{{Auth::User()->email}}">
                           </div>
                         </div> 
                       </div>
@@ -237,15 +284,15 @@
                         <label for="txt_education" class="col-lg-12 control-label">Education:</label>
                       <select class="form-select" aria-label="Default select example" class="col-lg-12" id="txt_education">
                         <option selected>Education</option>
-                        <option value="1">Pre School</option>
-                        <option value="2">Elementary</option>
-                        <option value="3">High School (non K-12)</option>
-                        <option value="4">Junior High School </option>
-                        <option value="5">Senior High School</option>
-                        <option value="6">College</option>
-                        <option value="7">Vocational</option>
-                        <option value="8">Post Graduate</option>
-                        <option value="9">None</option>
+                        <option value="Pre School">Pre School</option>
+                        <option value="Elementary">Elementary</option>
+                        <option value="High School (non K-12)">High School (non K-12)</option>
+                        <option value="Junior High School">Junior High School </option>
+                        <option value="Senior High School">Senior High School</option>
+                        <option value="College">College</option>
+                        <option value="Vocational">Vocational</option>
+                        <option value="Post Graduate">Post Graduate</option>
+                        <option value="None">None</option>
                       </select>
                       </div>
                   </div>
@@ -298,7 +345,6 @@
                       <label for="dd_withGovernID" class="col-lg-12 control-label">With Government ID:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_withGovernID">
-                          <option selected>Government ID</option>
                           <option value="1">Yes</option>
                           <option value="0">No</option>
                         </select>
@@ -308,15 +354,14 @@
                       <label for="dd_governID" class="col-lg-12 control-label">Government ID:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_governID">
-                          <option selected>Government ID</option>
-                          <option value="1">National ID</option>
-                          <option value="2">Passport ID</option>
-                          <option value="3">UMID ID</option>
-                          <option value="4">Driver's License</option>
-                          <option value="5">PRC ID</option>
-                          <option value="6">Senior Citizen ID</option>
-                          <option value="7">School ID</option>
-                          <option value="8">Voter's ID</option>
+                          <option value="National ID">National ID</option>
+                          <option value="Passport ID">Passport ID</option>
+                          <option value="UMID ID">UMID ID</option>
+                          <option value="Driver's License">Driver's License</option>
+                          <option value="PRC ID">PRC ID</option>
+                          <option value="Senior Citizen ID">Senior Citizen ID</option>
+                          <option value="School ID">School ID</option>
+                          <option value="Voter's ID">Voter's ID</option>
                         </select>
                       </div>
                     </div>
@@ -340,7 +385,6 @@
                       <label for="dd_farmCoop" class="col-lg-12 control-label">Members of Farmers Cooperative/Association:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_farmCoop">
-                          <option selected>Government ID</option>
                           <option value="1">Yes</option>
                           <option value="0">No</option>
                         </select>
@@ -362,7 +406,6 @@
                       <label for="dd_houseHead" class="col-lg-12 control-label">Household Head:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_houseHead">
-                          <option selected>Household Head</option>
                           <option value="1">Yes</option>
                           <option value="0">No</option>
                         </select>
@@ -423,27 +466,7 @@
     </form>
 </div>
 <script>
-  //this following function is for calculating age based to their birthday and display it to input text age
-     function ageCount() {
-        var inputDate = document.getElementById("dt_birth").value;
-    // Convert the input date to a Date object
-    var date = new Date(inputDate);
-    // Get the current date
-    var today = new Date();
-    // Calculate the difference in years, months and days
-    var years = today.getFullYear() - date.getFullYear();
-    var months = today.getMonth() - date.getMonth();
-    var days = today.getDate() - date.getDate();
-    // Adjust the values if needed
-    if (months < 0 || (months == 0 && days < 0)) {
-        years--;
-        months += 12;
-    }
-    // Format the age as a string
-    var age = years;
-    // Display the age in the output input
-    document.getElementById("txt_age").value = age;
-  }
+
   var img_profile =document.getElementById('img_profile');
   var img_id =document.getElementById('img_id');
   window.onload = function() {

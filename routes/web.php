@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\farmerController;
+use App\Http\Controllers\farmerProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,7 @@ use App\Http\Controllers\farmerController;
 */
 //farmers landing page
 Route::get('/firms/farmer', function () {
-    return view('farmer/index'); 
+    return view('farmer/login'); 
 });
 Route::get('firms/about', function () {
     return view('farmer/about');
@@ -121,12 +123,16 @@ Route::get('firms/admin-index', function () {
 
 //for admin side 
 //register
-Route::get('firms/admin-register', function () {
-    return view('admin/register');
-});
-Route::post('/register', [farmerController::class, 'register']);
+//Route::get('firms/admin-register', function () {
+//    return view('admin/register');
+//});
+Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index');
+Route::post('/register', [farmerController::class, 'store'])->name('farmer.store');
+Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
+Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
-
-
+Route::post('/update-profile', [farmerController::class, 'updateProfile']);
+//search
+Route::get('/find',[farmerController::class, 'find'])->name('web.find');
 ?>

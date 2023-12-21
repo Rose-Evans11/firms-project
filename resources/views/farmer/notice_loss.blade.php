@@ -18,13 +18,35 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="col-lg-12 d-flex justify-content-end">
+        <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleNoticeLoss()" id="btn_add"> Add Notice of Loss</Button>
+      </div>
+    </div>
+  </div>
     <div class="row">
-        <div class="col-lg-10">
-          table
+        <div class="col-lg-12">
+          <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                  <th>Notice of Loss ID</th>
+                  <th>Crop Insurance ID</th>
+                  <th>Crops</th>
+                  <th>Date of Loss</th>
+                  <th>Expected Harvest Date</th>
+                  <th>Farm Location</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+           <!-- add here the data -->
+            </tbody>
+        </table>
         </div>
-        <div class="col-lg-2 d-flex justify-content-end">
-          <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleNoticeLoss()" id="btn_add"> Add Notice of Loss</Button>
-        </div>
+       
     </div>
 
   <form class="form-horizontal">

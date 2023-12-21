@@ -18,12 +18,34 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="col-lg-12 d-flex justify-content-end">
+        <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleIndemnity()" id="btn_add"> Add Indemnity Claim</Button>
+      </div>
+    </div>
+  </div>
     <div class="row">
-        <div class="col-lg-10">
-          table
-        </div>
-        <div class="col-lg-2 d-flex justify-content-end">
-          <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleIndemnity()" id="btn_add"> Add Indemnity Claim</Button>
+        <div class="col-lg-12">
+          <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Indemnity ID</th>
+                    <th>Crop Insurance ID</th>
+                    <th>Notice of Loss ID</th>
+                    <th>Crops</th>
+                    <th>Date of Loss</th>
+                    <th>Expected Harvest Date</th>
+                    <th>Farm Location</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+           <!-- add here the data -->
+            </tbody>
+        </table>
         </div>
     </div>
 
@@ -39,7 +61,7 @@
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-6 control-label">First Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" value="" @readonly(true)>
+                      <input type="text" class="form-control" id="txt_fname" value="{{Auth::User()->firstName}}" name="firstName" @readonly(true)>
                     </div>
                   </div>
               </div>
@@ -47,7 +69,7 @@
                 <div class="form-group">
                   <label for="txt_mname" class="col-lg-6 control-label">Middle Name: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_mname" value="" @readonly(true)>
+                    <input type="text" class="form-control" id="txt_mname"  value="{{Auth::User()->middleName}}" name="middleName" @readonly(true)>
                   </div>
                 </div>
               </div>
@@ -55,7 +77,7 @@
                   <div class="form-group">
                       <label for="txt_lname" class="col-lg-6 control-label"> Last Name: </label>
                       <div class="col-lg-12">
-                        <input type="text" class="form-control" id="txt_lname" value="" @readonly(true)>
+                        <input type="text" class="form-control" id="txt_lname" value="{{Auth::User()->lastName}}" name="lastName" @readonly(true)>
                       </div>
                     </div>
               </div>
@@ -65,7 +87,7 @@
                   <div class="form-group">
                     <label for="txt_extname" class="col-lg-6 control-label">Extension Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname" value="" @readonly(true)>
+                      <input type="text" class="form-control" id="txt_extname"  value="{{Auth::User()->extensionName}}" name="extensionName" @readonly(true)>
                     </div>
                   </div>
               </div>
@@ -73,7 +95,7 @@
                 <div class="form-group">
                   <label for="txt_tel" class="col-lg-6 control-label">Contact Number: </label>
                   <div class="col-lg-12">
-                    <input type="tel" class="form-control" id="txt_tel" value="" @readonly(true)>
+                    <input type="tel" class="form-control" id="txt_tel"  value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
                   </div>
                 </div>
               </div>
@@ -81,7 +103,7 @@
                   <div class="form-group">
                       <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
                       <div class="col-lg-12">
-                        <input type="email" class="form-control" id="txt_email" value="" @readonly(true)>
+                        <input type="email" class="form-control" id="txt_email" value="{{Auth::User()->email}}" name="email" @readonly(true)>
                       </div>
                     </div>
               </div>
@@ -93,9 +115,8 @@
                 <div class="form-group">
                   <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" @readonly(true)>
-                      <option selected>Barangay</option>
-                      <option value="1">None</option>
+                    <select class="form-select" aria-label="Default select example" @readonly(true) name="barangayAddress">
+                      <option selected>{{Auth::User()->barangayAddress}}</option>
                     </select>
                   </div>
                 </div>

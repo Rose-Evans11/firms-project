@@ -49,99 +49,138 @@
       <div class="m-3" id='farmInfo'>
         <legend> <strong> Farmer's Information</strong></legend>
             <div>
-              <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Farmer's ID: </label>
-                <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_farmersID" class="col-lg-12 control-label">RSBSA Reference Number: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_fname" class="col-lg-2 control-label">First Name: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_fname" placeholder="First Name">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_mname" class="col-lg-2 control-label">Middle Name: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_mname" placeholder="Middle Name">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_lname" class="col-lg-2 control-label">Last Name: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_lname" placeholder="Last Name">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="dt_birth" class="col-lg-12 control-label">Birthdate: </label>
+                    <div class="col-lg-12">
+                      <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{Auth::User()->birthdate}}" name="birthdate">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_gender" class="col-lg-12 control-label">Gender: </label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example" @readonly(true) name="sex">
+                        <option selected>{{Auth::User()->sex}} </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_extname" class="col-lg-2 control-label">Extension Name: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_extname" placeholder="Extension Name">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example" name="civilName">
+                        <option selected>{{Auth::User()->civilName}}</option>
+                        <option value="1">Single</option>
+                        <option value="2">Married</option>
+                        <option value="3">Separated</option>
+                        <option value="4">Widowed</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseNaem">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="dt_birth" class="col-lg-2 control-label">Birthdate: </label>
-                <div class="col-lg-12">
-                  <input type="date" class="form-control" id="dt_birth" value="">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_email" class="col-lg-12 control-label">Email: </label>
+                    <div class="col-lg-12">
+                      <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{Auth::User()->email}}" name="email">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
+                    <div class="col-lg-12">
+                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Gender </option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Others</option>
-                  </select>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_contact" class="col-lg-12 control-label">Barangay:</label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example" name="barangayAddress">
+                        <option selected>{{Auth::User()->barangayAddress}} </option>
+                      </select>
+                    </div>
+                  </div>    
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="ip_tribe" class="col-lg-12 control-label">IP Tribe:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{Auth::User()->indigenous}}" name="indigenous">
+                    </div>
+                  </div>
+                </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="txt_civil" class="col-lg-2 control-label">Civil Status: </label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Civil Status</option>
-                    <option value="1">Single</option>
-                    <option value="2">Married</option>
-                    <option value="3">Separated</option>
-                    <option value="4">Widowed</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="txt_spouse" class="col-lg-2 control-label">Name of Spouse: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_spouse" value="">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="txt_email" class="col-lg-2 control-label">Email: </label>
-                <div class="col-lg-12">
-                  <input type="email" class="form-control" id="txt_email" value="">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="txt_tel" class="col-lg-2 control-label">Contact Number: </label>
-                <div class="col-lg-12">
-                  <input type="tel" class="form-control" id="txt_tel" value="">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Barangay</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>    
-              <div class="form-group">
-                <label for="ip_tribe" class="col-lg-2 control-label">IP Tribe:</label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe">
-                </div>
-              </div>
-            </div>
       </div>
     </div>
     <!-- second panel -->
@@ -151,65 +190,81 @@
         <br/>
         <div>
           <h5> Legal Beneficiaries 1</h5>
-          <div class="form-group">
-            <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_beneficiaries" value="">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_beneficiaries" value="">
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="txt_farmersID" class="col-lg-2 control-label"> Age: </label>
-            <div class="col-lg-12">
-              <input type="number" class="form-control" id="txt_age" value="">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
+                <div class="col-lg-12">
+                  <input type="number" class="form-control" id="txt_age" value="">
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="txt_contact" class="col-lg-2 control-label">Relationships:</label>
-            <div class="col-lg-12">
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Relationships</option>
-                <option value="1">Mother</option>
-                <option value="2">Father</option>
-                <option value="3">Sister</option>
-                <option value="4">Brother</option>
-                <option value="5">Wife</option>
-                <option value="6">Husband</option>
-                <option value="7">Daugther</option>
-                <option value="8">Son</option>
-                <option value="9">Guardian</option>
-              </select>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Relationships</option>
+                    <option value="1">Mother</option>
+                    <option value="2">Father</option>
+                    <option value="3">Sister</option>
+                    <option value="4">Brother</option>
+                    <option value="5">Wife</option>
+                    <option value="6">Husband</option>
+                    <option value="7">Daugther</option>
+                    <option value="8">Son</option>
+                    <option value="9">Guardian</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
             <br/>
           <div>
             <h5> Legal Beneficiaries 2</h5>
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
-              <div class="col-lg-12">
-                <input type="text"  class="form-control" id="txt_beneficiaries" value="">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                  <div class="col-lg-12">
+                    <input type="text"  class="form-control" id="txt_beneficiaries" value="">
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label"> Age: </label>
-              <div class="col-lg-12">
-                <input type="number" class="form-control" id="txt_age" value="">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
+                  <div class="col-lg-12">
+                    <input type="number" class="form-control" id="txt_age" value="">
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="txt_contact" class="col-lg-2 control-label">Relationships:</label>
-              <div class="col-lg-12">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Relationships</option>
-                  <option value="1">Mother</option>
-                  <option value="2">Father</option>
-                  <option value="3">Sister</option>
-                  <option value="4">Brother</option>
-                  <option value="5">Wife</option>
-                  <option value="6">Husband</option>
-                  <option value="7">Daugther</option>
-                  <option value="8">Son</option>
-                  <option value="9">Guardian</option>
-                </select>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Relationships</option>
+                      <option value="1">Mother</option>
+                      <option value="2">Father</option>
+                      <option value="3">Sister</option>
+                      <option value="4">Brother</option>
+                      <option value="5">Wife</option>
+                      <option value="6">Husband</option>
+                      <option value="7">Daugther</option>
+                      <option value="8">Son</option>
+                      <option value="9">Guardian</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

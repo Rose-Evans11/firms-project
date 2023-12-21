@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class farmerController extends Controller
@@ -69,8 +71,8 @@ class farmerController extends Controller
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page
     }
-    //to login the farmers
-    public function login(Request $request){
+   
+    public function login(Request $request){  //to login the farmers
         $incomingFields = $request->validate([
             'loginEmail' => ['required', 'email'],
             'loginPass' => 'required',
@@ -82,62 +84,66 @@ class farmerController extends Controller
         }
         return redirect()->back()->withErrors(['email' => 'Invalid Login Credentials!']);         
     }
-    //to logout the farmers
-    public function logout(){
+    
+    public function logout(){ //to logout the farmers
         
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         return redirect('firms/farmer');
     }  
-    //to edit and retrive the information
-    public function edit(User $user){
+    
+    public function edit(User $user){ //to edit and retrive the information
         return view('admin/register_edit', ['user'=>$user]);
     }
-    //to update farmer's information in admin side in registration page
-    public function update(User $user, Request $request){
+    public function editProfile(User $user){
+        //$user =Auth::user();
+        return view('farmer/profile')->with('user', Auth::user());
+        //return view('farmer/profile', ['user'=>$user]);
+    }
+    public function update(User $user, Request $request){//to update farmer's information in admin side in registration page
         $incomingFields = $request ->validate ([
             'rsbsa' => 'required',
             'firstName' => 'required',
             'middleName'=> 'nullable',
             'lastName' => 'required',
             'extensionName' => 'nullable',
-            'sex'=> 'required',
             'birthdate' => 'required',
             'age'=> 'required',
+            'sex'=> 'required',
             'email' => 'required',
             'barangayAddress' => 'nullable',
             'cityAddress' => 'nullable',
             'provinceAddress' => 'nullable',
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
+            'hasValidID' => 'nullable',
             'validID' => 'nullable',
             'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             'photo' => 'nullable',
-            'birthplace' => 'nullable',
-            'educationID'=> 'nullable',
-            'religionID'=> 'nullable',
-            'civilID'=> 'nullable',
+            'birthplaceCity' => 'nullable',
+            'birthplaceProvince' => 'nullable',
+            'educationName'=> 'nullable',
+            'religionName'=> 'nullable',
+            'civilName'=> 'nullable',
             'spouseName'=> 'nullable',
             'motherName'=> 'nullable',
-            'fourPs'=> 'nullable',
+            'isFourPs'=> 'nullable',
+            'isIndigenous'=> 'nullable',
             'indigenous'=> 'nullable',
-            'typeIPID'=> 'nullable',
-            'householdHead'=> 'nullable',
+            'isHouseholdHead'=> 'nullable',
             'householdName'=> 'nullable',
             'householdRelation'=> 'nullable',
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
-            'farmAssociationID'=> 'nullable',
+            'isFarmAssociation'=> 'nullable',
+            'farmAssociation'=> 'nullable',
+            'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'beneficiaries1'=> 'nullable',
-            'relationBeneficiaries1'=> 'nullable',
-            'beneficiaries2'=> 'nullable',
-            'relationbeneficiaries2'=> 'nullable',
             
         ]);
        
@@ -147,8 +153,8 @@ class farmerController extends Controller
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));
     }
-    //to search and find
-    public function find(Request $request, User $user){
+    
+    public function find(Request $request, User $user){ //to search and find
         $request->validate([
           'query'=>'min:2'
        ]);
@@ -163,9 +169,11 @@ class farmerController extends Controller
                   ->paginate(5);
         return view('admin/register_search',['users'=>$user]);
     }
-    public function updateProfile(User $user){
-        $User = DB::where('rsbsa','$rsbsa' )->limit(1) ->update ([
-            'rsbsa' => ['required', Rule::unique('users', 'rsbsa')],
+
+    public function updateProfile(User $user, Request $request){
+
+        $incomingFields = $request ->validate ([
+            'rsbsa' => 'required',
             'firstName' => 'required',
             'middleName'=> 'nullable',
             'lastName' => 'required',
@@ -173,40 +181,50 @@ class farmerController extends Controller
             'birthdate' => 'required',
             'age'=> 'required',
             'sex'=> 'required',
-            'email' => ['required', 'email',Rule::unique('users', 'email') ],
-            'password' => ['required', 'min:8', 'max:25'],
+            'email' => 'required',
             'barangayAddress' => 'nullable',
             'cityAddress' => 'nullable',
             'provinceAddress' => 'nullable',
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
+            'hasValidID' => 'nullable',
             'validID' => 'nullable',
             'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             'photo' => 'nullable',
-            'birthplace' => 'nullable',
-            'educationID'=> 'nullable',
-            'religionID'=> 'nullable',
-            'civilID'=> 'nullable',
+            'birthplaceCity' => 'nullable',
+            'birthplaceProvince' => 'nullable',
+            'educationName'=> 'nullable',
+            'religionName'=> 'nullable',
+            'civilName'=> 'nullable',
             'spouseName'=> 'nullable',
             'motherName'=> 'nullable',
-            'fourPs'=> 'nullable',
+            'isFourPs'=> 'nullable',
+            'isIndigenous'=> 'nullable',
             'indigenous'=> 'nullable',
-            'typeIPID'=> 'nullable',
-            'householdHead'=> 'nullable',
+            'isHouseholdHead'=> 'nullable',
             'householdName'=> 'nullable',
             'householdRelation'=> 'nullable',
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
-            'farmAssociationID'=> 'nullable',
+            'isFarmAssociation'=> 'nullable',
+            'farmAssociation'=> 'nullable',
+            'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'beneficiaries1'=> 'nullable',
-            'relationBeneficiaries1'=> 'nullable',
-            'beneficiaries2'=> 'nullable',
-            'relationbeneficiaries2'=> 'nullable',
+            //'beneficiaries1'=> 'nullable',
+            //'relationBeneficiaries1'=> 'nullable',
+            //'beneficiaries2'=> 'nullable',
+            //'relationbeneficiaries2'=> 'nullable',
+            
         ]);
+       
+        $user->update ($incomingFields);
+        session()->flash('success', 'Successfully Updated!');
+        return view('farmer/profile');
     }
+
+   
 }

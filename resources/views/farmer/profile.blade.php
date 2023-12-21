@@ -8,8 +8,23 @@
   }
 </style>
 <div class='container-fluid' style="margin: auto">
-    <form action="/profile" method="POST">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+  @if (session()->has('success'))
+    <div class="alert alert-success">
+     {{Session::get('success')}}
+    </div> 
+  @endif
+    <form action="{{ route('farmer.update.profile', Auth::user()->id)}}" method="POST">
       @csrf
+      @method('put')
         <fieldset>
             <div id="panelFarmInfo">
                 <div class="m-3" id='farmInfo'>
@@ -27,9 +42,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="txt_farmersID" class="col-lg-12 control-label">RSBSA Number (System-generated) </label>
+                            <label class="col-lg-12 control-label">RSBSA Number (System-generated) </label>
                             <div class="col-lg-12">
-                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                              <input type="text" @readonly(true) class="form-control" value="{{Auth::User()->rsbsa}}" name="rsbsa">
                             </div>
                           </div>
                     </div>
@@ -82,12 +97,12 @@
                         <div class="form-group">
                           <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
                           <div class="col-lg-12">
-                          <input type="file" class="form-control" id="file_profile" placeholder="" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)">
+                          <input type="file" class="form-control" id="file_profile" placeholder="" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
                         </div>
                       </div>
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                        <img id="img_profile" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" />
+                        <img id="img_profile" alt="Your Image" style="width: 150px; height:auto" class="img-fluid"  />
                         </div>
                       </div>
                     </div>
@@ -153,17 +168,17 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                          <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
+                          <label  class="col-lg-2 control-label">Municipality: </label>
                           <div class="col-lg-12">
-                            <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City">
+                            <input type="text" @readonly(true) class="form-control" value="Tanauan City" name="cityAddress">
                           </div>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
+                          <label  class="col-lg-2 control-label">Province: </label>
                           <div class="col-lg-12">
-                            <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas">
+                            <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="provinceAddress">
                           </div>
                         </div>
                       </div>
@@ -173,7 +188,7 @@
                       <div class="form-group">
                         <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
                         <div class="col-lg-12">
-                          <select class="form-select aria-label="Default select example"  >
+                          <select class="form-select aria-label="Default select example" name="sex">
                             <option selected> {{Auth::User()->sex}} </option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -187,7 +202,7 @@
                         <div class="form-group">
                             <label for="txt_religion" class="col-lg-2 control-label">Religion: </label>
                             <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_religion" value="" placeholder="Religion" name="religion">
+                            <input type="text" class="form-control" id="txt_religion" value="{{Auth::User()->religionName}}" placeholder="Religion" name="religionName">
                             </div>
                         </div>
                     </div>
@@ -195,7 +210,8 @@
                         <div class="form-group">
                             <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
                             <div class="col-lg-12">
-                              <select class="form-select" aria-label="Default select example">
+                              <select class="form-select" aria-label="Default select example" name="civilName">
+                                <option selected> {{Auth::User()->civilName}}</option>
                                 <option value="Single">Single</option>
                                 <option value="Married">Married</option>
                                 <option value="Separated">Separated</option>
@@ -210,7 +226,7 @@
                         <div class="form-group">
                             <label for="txt_mother" class="col-lg-12 control-label">Mother's Maiden Name: </label>
                             <div class="col-lg-12">
-                              <input type="text" class="form-control" id="txt_mother" value="" placeholder="Mother's Maiden Name">
+                              <input type="text" class="form-control" id="txt_mother" value="{{Auth::User()->motherName}}" placeholder="Mother's Maiden Name" name="motherName">
                             </div>
                           </div>
                     </div>
@@ -218,7 +234,7 @@
                         <div class="form-group">
                             <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse (if married): </label>
                             <div class="col-lg-12">
-                              <input type="text" class="form-control" id="txt_spouse" value="" placeholder="Name of Spouse">
+                              <input type="text" class="form-control" id="txt_spouse" value="{{Auth::User()->spouseName}}" placeholder="Name of Spouse" name="spouseName">
                             </div>
                           </div>
                     </div>
@@ -228,7 +244,7 @@
                       <div class="form-group">
                           <label for="dt_birth" class="col-lg-2 control-label">Birthdate: </label>
                           <div class="col-lg-12">
-                            <input type="date" class="form-control" id="dt_birth" value="{{Auth::User()->birthdate}}" name=birthdate>
+                            <input type="date" class="form-control" id="dt_birth" value="{{Auth::User()->birthdate}}" name="birthdate" onchange="ageCount()">
                           </div>
                         </div>
                   </div>
@@ -244,7 +260,7 @@
                         <div class="form-group">
                             <label for="txt_birthCity" class="col-lg-12 control-label"> Birthplace: (Municipality) </label>
                             <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_birthCity" placeholder="City">
+                            <input type="text" class="form-control" id="txt_birthCity" placeholder="City" name="birthplaceCity" value="{{Auth::User()->birthplaceCity}}">
                             </div>
                         </div>
                     </div>
@@ -252,7 +268,7 @@
                         <div class="form-group">
                             <label for="txt_birthProvince" class="col-lg-12 control-label">Birthplace: (Province) </label>
                             <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_birthProvince" placeholder="Province">
+                            <input type="text" class="form-control" id="txt_birthProvince" placeholder="Province" name="birthplaceProvince" value="{{Auth::User()->birthplaceProvince}}">
                             </div>
                         </div>
                     </div>
@@ -272,7 +288,7 @@
                       <div class="form-group">
                           <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
                           <div class="col-lg-12">
-                            <input type="tel" class="form-control" id="txt_tel" value="">
+                            <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber">
                           </div>
                         </div>
                     </div>
@@ -282,8 +298,8 @@
                   <div class="row">
                       <div class="col-md-12">
                         <label for="txt_education" class="col-lg-12 control-label">Education:</label>
-                      <select class="form-select" aria-label="Default select example" class="col-lg-12" id="txt_education">
-                        <option selected>Education</option>
+                      <select class="form-select" aria-label="Default select example" class="col-lg-12" id="txt_education" name="educationName">
+                        <option selected>{{Auth::User()->educationName}}</option>
                         <option value="Pre School">Pre School</option>
                         <option value="Elementary">Elementary</option>
                         <option value="High School (non K-12)">High School (non K-12)</option>
@@ -292,7 +308,6 @@
                         <option value="College">College</option>
                         <option value="Vocational">Vocational</option>
                         <option value="Post Graduate">Post Graduate</option>
-                        <option value="None">None</option>
                       </select>
                       </div>
                   </div>
@@ -302,10 +317,10 @@
                     <div class="col-md-6">
                       <label for="txt_ip" class="col-lg-12 control-label">Members of Indigenous Group:</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example" id="txt_ip">
-                          <option selected>Indigenous People</option>
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                        <select class="form-select" aria-label="Default select example" id="txt_ip" name="isIndigenous">
+                          <option selected> {{Auth::User()->isIndigenous}}</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
@@ -313,8 +328,8 @@
                       <div class="form-group">
                           <label for="ip_tribe" class="col-lg-2 control-label">IP Tribe:</label>
                           <div class="col-lg-12">
-                            <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe">
-                          </div>
+                            <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" name="indigenous" value="{{Auth::User()->indigenous}}">
+                          </div> 
                         </div>
                     </div>
                   </div>
@@ -322,20 +337,20 @@
                     <div class="col-md-6">
                       <label for="txt_4ps" class="col-lg-12 control-label">4P's Beneficiaries:</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example" id="txt_4ps">
-                          <option selected>4P's Member</option>
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                        <select class="form-select" aria-label="Default select example" id="txt_4ps" name="isFourPs">
+                          <option selected>{{Auth::User()->isFourPs}}</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <label for="txt_contact" class="col-lg-12 control-label">Person with Disability:</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>PWD</option>
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                        <select class="form-select" aria-label="Default select example" name="isPWD">
+                          <option selected>{{Auth::User()->isPWD}}</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
@@ -344,16 +359,18 @@
                     <div class="col-md-3">
                       <label for="dd_withGovernID" class="col-lg-12 control-label">With Government ID:</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example" id="dd_withGovernID">
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                        <select class="form-select" aria-label="Default select example" id="dd_withGovernID" name="hasValidID">
+                          <option selected> {{Auth::User()->hasValidID}}</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <label for="dd_governID" class="col-lg-12 control-label">Government ID:</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example" id="dd_governID">
+                        <select class="form-select" aria-label="Default select example" id="dd_governID" name="validID">
+                          <option selected> {{Auth::User()->ValidID}}</option>
                           <option value="National ID">National ID</option>
                           <option value="Passport ID">Passport ID</option>
                           <option value="UMID ID">UMID ID</option>
@@ -370,12 +387,12 @@
                         <div class="form-group">
                           <label for="file_id" class="col-lg-12 control-label">Government ID: </label>
                           <div class="col-lg-12">
-                          <input type="file" class="form-control" id="file_id" placeholder="" accept="image/jpg, image/jpeg, image/png" onchange="loadFileID(event)">
+                          <input type="file" class="form-control" id="file_id" placeholder="" accept="image/jpg, image/jpeg, image/png" onchange="loadFileID(event)" name='validIDPhoto'>
                         </div>
                       </div>
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" />
+                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid"/>
                         </div>
                       </div>
                     </div>
@@ -385,8 +402,8 @@
                       <label for="dd_farmCoop" class="col-lg-12 control-label">Members of Farmers Cooperative/Association:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_farmCoop">
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
@@ -406,8 +423,8 @@
                       <label for="dd_houseHead" class="col-lg-12 control-label">Household Head:</label>
                       <div class="col-lg-12">
                         <select class="form-select" aria-label="Default select example" id="dd_houseHead">
-                          <option value="1">Yes</option>
-                          <option value="0">No</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
                         </select>
                       </div>
                     </div>
@@ -449,7 +466,7 @@
                     <div class="col-md-6">
                       <label for="txt_contactEmergency" class="col-lg-12 control-label">Contact Number:</label>
                       <div class="col-lg-12">
-                        <input type="tel" class="form-control" id="txt_contactEmergency" placeholder="Contact Number">
+                        <input type="tel" class="form-control" id="txt_contactEmergency" placeholder="Contact Number" name="emergenceNumber" value="{{Auth::User()->emergenceNumber}}">
                       </div>
                     </div>
                   </div>
@@ -459,7 +476,7 @@
         <div class="row">
           <div class="d-flex justify-content-center mt-3"> 
             <br/>
-            <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%">Save</button>
+            <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%">Update</button>
            </div>
           </div>
         </div>
@@ -492,5 +509,39 @@
       }
 
     };
+    var now = new Date(),
+        // minimum date the user can choose, in this case now and in the future
+        minDate = now.toISOString().substring(0,10);
+
+        $('#dt_birth').prop('min', minDate);
+
+        //this following function is for calculating age based to their birthday and display it to input text age
+        function ageCount() {
+            var inputDate = document.getElementById("dt_birth").value;
+        // Convert the input date to a Date object
+        var date = new Date(inputDate);
+        // Get the current date
+        var today = new Date();
+        // Calculate the difference in years, months and days
+        var years = today.getFullYear() - date.getFullYear();
+        var months = today.getMonth() - date.getMonth();
+        var days = today.getDate() - date.getDate();
+        // Adjust the values if needed
+        if (months < 0 || (months == 0 && days < 0)) {
+            years--;
+            months += 12;
+        }
+        // Format the age as a string
+        var age = years;
+        // Display the age in the output input
+        document.getElementById("txt_age").value = age;
+    }
+
+    $(document).on('keyup keypress', 'form input[type="text"]', function(e) {
+  if(e.keyCode == 13) {
+    e.preventDefault();
+    return false;
+  }
+});
 </script>
 @endsection

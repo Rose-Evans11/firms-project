@@ -30,7 +30,7 @@
     }
 </style>
 <div class="container-fluid">
-    <div class="row" style="padding:80px 150px">
+    <div class="row" style="padding-top:50px; padding-left:50px; padding-right:50px">
         <div class="col-md-12">
             <h3> <b>Frequently Ask Question </b> </h3>
             <br />

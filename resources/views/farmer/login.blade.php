@@ -5,7 +5,7 @@
 @section('content')
 <div class="container-fluid d-flex justify-content-center"">
   <div class="row" style="padding: 80px">
-    <div class="col-md-6" style="padding-left: 90px">
+    <div class="col-md-6" style="padding-top:50px; padding-left:50px; padding-right:50px">
       <img src="{{ asset('Images/img_home.png') }}" class="img-fluid" alt="" />
       <br />
       <br />

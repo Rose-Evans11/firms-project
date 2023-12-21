@@ -2,21 +2,20 @@
 @section('title','Contact Us')
 @section('content')
 <div class="container-fluid">
-    <div class="row" style="padding:80px">
+    <div class="row" style="padding-top:50px; padding-left:50px; padding-right:50px">
         <div class="col-md-6">
-            <h2> <b> Contact Us</b> </h2>
             <br />
             <address>
                 Thank you for considering FIRMS. We would love to hear from you! <br />
                 Please find our contact information below:<br />
-                Office Address: 1234 Tanauan City Batangas<br />
+                Office Address: New City Hall, Tanauan City Batangas<br />
                 Phone Number: 09171547444 / 545-0000 <br />
-                Email: fifms.services@gmail.com <br />
+                Email: techevans11@gmail.com <br />
                 Business Hours: Monday - Friday: 8:00 AM - 5: 00 PM <br />
                 Saturday - Sunday: Closed <br />
             </address>
             <address>
-                 <a href="mailto:Support@example.com" class="btn btn-success btn-s mt-1">Send us a messages! </a><br />
+                 <a href="mailto:techevans11@gmail.com" class="btn btn-success btn-s mt-1">Send us a messages! </a><br />
             </address>
             <p> </p>
         </div>

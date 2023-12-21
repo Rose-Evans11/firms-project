@@ -29,33 +29,33 @@ return new class extends Migration
             $table->string('provinceAddress')->nullable();
             $table->string('regionAddress')->nullable();
             $table->string('contactNumber')->nullable();
+            $table->string('hasValidID')->nullable(); //->references('id')->on('users'); //valid id information
             $table->string('validID')->nullable(); //->references('id')->on('users'); //valid id information
             $table->binary('validIDPhoto')->nullable();
             $table->string('validIDNumber')->unique()->nullable();
             $table->string('isActive')->default('Active');
             $table->binary('photo')->nullable();
-            $table->string('birthplace')->nullable();
-            $table->integer('educationID')->nullable();
-            $table->integer('religionID')->nullable();
-            $table->integer('civilID')->nullable();
+            $table->string('birthplaceCity')->nullable();
+            $table->string('birthplaceProvince')->nullable();
+            $table->string('educationName')->nullable();
+            $table->string('religionName')->nullable();
+            $table->string('civilName')->nullable();
             $table->string('spouseName')->nullable();
             $table->string('motherName')->nullable();
-            $table->boolean('fourPs')->nullable();
-            $table->boolean('indigenous')->nullable();
-            $table->integer('typeIPID')->nullable();
-            $table->boolean('householdHead')->nullable(); //household information
+            $table->string('isFourPs')->nullable();
+            $table->string('isIndigenous')->nullable();
+            $table->string('indigenous')->nullable();
+            $table->string('isHouseholdHead')->nullable(); //household information
             $table->string('householdName')->nullable();
             $table->string('householdRelation')->nullable();
             $table->integer('householdCount')->nullable();
             $table->integer('householdMale')->nullable();
             $table->integer('householdFemale')->nullable();
-            $table->integer('farmAssociationID')->nullable();
+            $table->string('isfarmAssociation')->nullable();
+            $table->string('farmAssociation')->nullable();
+            $table->string('isPWD')->nullable();
             $table->string('contactPerson')->nullable();
             $table->string('emergenceNumber')->nullable();
-            $table->string('beneficiaries1')->nullable();
-            $table->string('relationBeneficiaries1')->nullable();
-            $table->string('beneficiaries2')->nullable();
-            $table->string('relationbeneficiaries2')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

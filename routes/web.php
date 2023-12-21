@@ -132,7 +132,13 @@ Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farm
 Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
-Route::post('/update-profile', [farmerController::class, 'updateProfile']);
+//Route::get('/edit/{user}/profile', [farmerController::class, 'editProfile'])->name('farmer.edit.profile');
+Route::get('/profile/edit', 'PublicUserController@editUser')->middleware(['auth']);
+Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+//Route::put('/update/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
 //search
 Route::get('/find',[farmerController::class, 'find'])->name('web.find');
+
+//get image
+Route::get('/dbimage/{user}',[farmerController::class, 'getImage']);
 ?>

@@ -119,7 +119,7 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'hasValidID' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
+            'validIDPhoto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             'photo' => 'nullable',
@@ -139,16 +139,15 @@ class farmerController extends Controller
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
-            'isFarmAssociation'=> 'nullable',
             'farmAssociation'=> 'nullable',
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            
+            'hasFarmAssociation'=> 'nullable',
         ]);
        
         
-
+        $request->image->move(public_path('images'), $incomingFields['photo']);
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));
@@ -209,15 +208,12 @@ class farmerController extends Controller
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
-            'isFarmAssociation'=> 'nullable',
+            'hasFarmAssociation'=> 'nullable',
             'farmAssociation'=> 'nullable',
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            //'beneficiaries1'=> 'nullable',
-            //'relationBeneficiaries1'=> 'nullable',
-            //'beneficiaries2'=> 'nullable',
-            //'relationbeneficiaries2'=> 'nullable',
+           
             
         ]);
        

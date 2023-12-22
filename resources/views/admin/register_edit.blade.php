@@ -232,6 +232,12 @@
         // Display the age in the output input
         document.getElementById("txt_age").value = age;
     }
+    $(document).keypress(
+    function(event){
+        if (event.which == '13') {
+        event.preventDefault();
+        }
+    });
     </script>
 </div>
 @endsection 

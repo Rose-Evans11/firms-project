@@ -51,7 +51,7 @@ return new class extends Migration
             $table->integer('householdCount')->nullable();
             $table->integer('householdMale')->nullable();
             $table->integer('householdFemale')->nullable();
-            $table->string('isfarmAssociation')->nullable();
+            $table->string('hasFarmAssociation')->nullable();
             $table->string('farmAssociation')->nullable();
             $table->string('isPWD')->nullable();
             $table->string('contactPerson')->nullable();

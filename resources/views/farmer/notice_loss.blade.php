@@ -301,6 +301,12 @@ else {
   btn_add.style.display = 'block';
 }
 }
+$(document).keypress(
+    function(event){
+        if (event.which == '13') {
+        event.preventDefault();
+        }
+    });
 </script>
 </div>
 @endsection

@@ -55,7 +55,7 @@ class User extends Authenticatable
         'householdCount',
         'householdMale',
         'householdFemale',
-        'isfarmAssociation',
+        'hasFarmAssociation',
         'farmAssociation',
         'isPWD',
         'contactPerson',

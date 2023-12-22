@@ -6,7 +6,8 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12">
            <h5> Change Password</h5>
-           <form method="">
+           <form method="" action="">
+            @csrf
             <div class="col-md-12">
                 <label for="txt_oldPass" class="col-lg-12 control-label">Old Password:</label>
                 <div class="col-lg-12">
@@ -32,4 +33,12 @@
         </div>
     </div>
 </div>
+<script>
+  $(document).keypress(
+  function(event){
+    if (event.which == '13') {
+      event.preventDefault();
+    }
+});
+</script>
 @endsection

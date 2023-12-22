@@ -103,8 +103,7 @@ Route::get('firms/farmer-notice-loss', function () {
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-//for indemnity
-Route::get('firms/farmer-indemnity', function () {
+Route::get('firms/farmer-indemnity', function () { //for indemnity
     if(Auth::check())   
     {
         return view('farmer/indemnity');
@@ -112,33 +111,21 @@ Route::get('firms/farmer-indemnity', function () {
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-//post for user registration
-//Route::post('firms/register', [UserController::class, 'register']);
-
-//for admin side 
-//login page
-Route::get('firms/admin-index', function () {
+Route::get('firms/admin-index', function () { //admin login
     return view('admin/admin_login');
 });
 
-//for admin side 
-//register
-//Route::get('firms/admin-register', function () {
-//    return view('admin/register');
-//});
-Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index');
+Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index'); //adding new farmer
+//crud for farmer information (note: try mo rin iconnect later yung profile sa page)
 Route::post('/register', [farmerController::class, 'store'])->name('farmer.store');
 Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
 Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
-//Route::get('/edit/{user}/profile', [farmerController::class, 'editProfile'])->name('farmer.edit.profile');
-Route::get('/profile/edit', 'PublicUserController@editUser')->middleware(['auth']);
+//for edit user account
 Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
-//Route::put('/update/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
 //search
 Route::get('/find',[farmerController::class, 'find'])->name('web.find');
-
-//get image
-Route::get('/dbimage/{user}',[farmerController::class, 'getImage']);
+//for changing password
+Route::put('/change/{user}/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
 ?>

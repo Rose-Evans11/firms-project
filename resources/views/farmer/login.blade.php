@@ -18,7 +18,9 @@
                     </ul>
                 </div>  
               @endif
+              <strong class="text-danger">
               {{Session::get('errmessage')}}
+              </strong>
               <form method="POST" action="/login">
                 @csrf
                 <div class="form-group">

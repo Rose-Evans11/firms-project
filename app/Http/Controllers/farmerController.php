@@ -58,10 +58,6 @@ class farmerController extends Controller
             'farmAssociationID'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'beneficiaries1'=> 'nullable',
-            'relationBeneficiaries1'=> 'nullable',
-            'beneficiaries2'=> 'nullable',
-            'relationbeneficiaries2'=> 'nullable',
             
         ]);
        
@@ -120,7 +116,7 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'hasValidID' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             'photo' => 'nullable',
@@ -140,15 +136,14 @@ class farmerController extends Controller
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
+            'hasFarmAssociation'=> 'nullable',
             'farmAssociation'=> 'nullable',
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'hasFarmAssociation'=> 'nullable',
         ]);
        
         
-        $request->image->move(public_path('images'), $incomingFields['photo']);
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

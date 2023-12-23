@@ -126,7 +126,7 @@ Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 //for edit user account
-Route::put('/update/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
 //search
 Route::get('/find',[farmerController::class, 'find'])->name('web.find');
 //for changing password

@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class farmerController extends Controller
@@ -16,8 +17,8 @@ class farmerController extends Controller
     $user = User::all();
     return view('admin/register', ['users'=>$user]);
    }
-    //to add new farmers
-    public function store(Request $request){
+    
+    public function store(Request $request){//to add new farmers
         $incomingFields = $request ->validate ([
             'rsbsa' => ['required', Rule::unique('users', 'rsbsa')],
             'firstName' => 'required',
@@ -90,7 +91,7 @@ class farmerController extends Controller
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('firms/farmer');
+        return redirect('/firms/farmer/login');
     }  
     
     public function edit(User $user){ //to edit and retrive the information
@@ -221,6 +222,35 @@ class farmerController extends Controller
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');
     }
+    
+    public function changePassword(Request $request){
+        return view('farmer/change_password');
+    }
+    public function changePasswordSave(User $user, Request $request){
+    
+        $this->validate($request, [
+            'current_password' => 'required|string',
+            'new_password' => 'required|confirmed|min:8|string'
+        ]);
+        $auth = Auth::user();
 
-   
+        // The passwords matches
+        if (!Hash::check($request->get('current_password'), $auth->password)) 
+        {
+            return back()->with('error', "Current Password is Invalid");
+        }
+
+        // Current password and new password same
+        if (strcmp($request->get('current_password'), $request->new_password) == 0) 
+        {
+            return back()->with("error", "New Password cannot be same as your current password.");
+        }
+
+        $user =  User::find($auth->id);
+        $user->password =  Hash::make($request->new_password);
+        $user->save();
+        return back()->with('success', "Password Changed Successfully");
+        
+    }
+
 }

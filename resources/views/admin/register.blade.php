@@ -59,6 +59,7 @@
             <tr>
                 <th>Farmer's ID</th>
                 <th>RSBSA</th>
+                <th>Email</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
@@ -74,6 +75,7 @@
          <tr>
           <td>{{$user->id}} </td>
           <td>{{$user->rsbsa}}</td>
+          <td>{{$user->email}}</td>
           <td>{{$user->firstName}}</td>
           <td>{{$user->middleName}}</td>
           <td>{{$user->lastName}}</td>

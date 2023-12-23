@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\farmerController;
 use App\Http\Controllers\farmerProfileController;
+use App\Http\Controllers\forgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,10 @@ use App\Http\Controllers\farmerProfileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//farmers landing page
-Route::get('/firms/farmer', function () {
+Route::get('/firms', function () { //farmers landing page
+    return view('/home'); 
+});
+Route::get('/firms/farmer/login', function () { //farmers landing page
     return view('farmer/login'); 
 });
 Route::get('firms/about', function () {
@@ -77,7 +80,7 @@ Route::get('firms/farmer-profile', function () {
 });
 
 //for farmers password
-Route::get('firms/farmer-change-password', function () {
+Route::get('firms/farmer/change-password', function () {
     if(Auth::check())   
     {
         return view('farmer/change_password');
@@ -123,9 +126,15 @@ Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 //for edit user account
-Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+Route::put('/update/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
 //search
 Route::get('/find',[farmerController::class, 'find'])->name('web.find');
 //for changing password
-Route::put('/change/{user}/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
+Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
+Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
+//reset password
+Route::get('forget-password', [forgotPasswordController ::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [forgotPasswordController ::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 ?>

@@ -18,9 +18,48 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'rsbsa',
+        'firstName',
+        'middleName',
+        'lastName',
+        'extensionName',
+        'birthdate',
+        'sex',
+        'age',
         'email',
         'password',
+        'barangayAddress',
+        'cityAddress',
+        'provinceAddress',
+        'regionAddress',
+        'contactNumber',
+        'hasValidID',
+        'validID',
+        'validIDPhoto',
+        'validIDNumber',
+        'isActive',
+        'photo',
+        'birthplaceCity',
+        'birthplaceProvince',
+        'educationName',
+        'religionName',
+        'civilName',
+        'spouseName',
+        'motherName',
+        'isFourPs',
+        'isIndigenous',
+        'indigenous',
+        'isHouseholdHead',
+        'householdName',
+        'householdRelation',
+        'householdCount',
+        'householdMale',
+        'householdFemale',
+        'hasFarmAssociation',
+        'farmAssociation',
+        'isPWD',
+        'contactPerson',
+        'emergenceNumber',
     ];
 
     /**
@@ -42,4 +81,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    
 }

@@ -72,7 +72,7 @@ class insuranceController extends Controller
         $message = $twilio->messages
                           ->create($incomingFields['contactNumber'], // to
                                    [
-                                       "body" => "You just file an insurance report. We will validate it, kindly, wait our message for additiional information. Thank you!",
+                                       "body" => "You just file an insurance report. We will validate it, kindly, wait our message for additional information. Thank you!",
                                        "from" => $senderNumber
                                    ]
                           );

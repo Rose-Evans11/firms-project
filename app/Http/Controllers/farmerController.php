@@ -123,7 +123,7 @@ class farmerController extends Controller
             'validIDPhoto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'birthplaceCity' => 'nullable',
             'birthplaceProvince' => 'nullable',
             'educationName'=> 'nullable',
@@ -141,10 +141,13 @@ class farmerController extends Controller
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
             'farmAssociation'=> 'nullable',
+            'hasFarmAssociation'=> 'nullable',
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'hasFarmAssociation'=> 'nullable',
+            'bankName'=> 'nullable',
+            'bankAccount'=> 'nullable',
+            'bankBranch'=> 'nullable',
         ]);
        
         
@@ -189,10 +192,10 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'hasValidID' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
-            'validIDNumber'=> 'nullable',
+            'validIDPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
             'isActive' => 'nullable',
-            'photo' => 'nullable',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'birthplaceCity' => 'nullable',
             'birthplaceProvince' => 'nullable',
             'educationName'=> 'nullable',
@@ -214,6 +217,9 @@ class farmerController extends Controller
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
+            'bankName'=> 'nullable',
+            'bankAccount'=> 'nullable',
+            'bankBranch'=> 'nullable',
            
             
         ]);

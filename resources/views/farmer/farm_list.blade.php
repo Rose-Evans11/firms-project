@@ -55,7 +55,7 @@
         <legend> <strong>Farm Land Description</strong> </legend>
         <br/>
         <h5> Farm Parcel</h5>
-        <h5 class="mx-2"> Farm Location</h5>
+        <h5 class="mx-2"> Farm Details</h5>
         <div>
           <div class="row">
             <div class="col-md-6">
@@ -101,7 +101,6 @@
                 </div>
             </div>
           </div>
-        <br/>
         </div>
       </div>
       <div id="farmOwningInfo">

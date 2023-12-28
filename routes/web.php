@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\farmerController;
 use App\Http\Controllers\farmerProfileController;
 use App\Http\Controllers\forgotPasswordController;
+use App\Http\Controllers\insuranceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,14 +37,14 @@ Route::get('firms/insurance-program', function () {
     return view('farmer/program');
 });
 //once user already login then these following routes is accessible by the farmers
-Route::get('firms/dashboard', function () {
-    if(Auth::check())   
-    {
-        return view('farmer/dashboard');
-    }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
-    
-});
+//Route::get('firms/dashboard', function () {
+//    if(Auth::check())   
+//    {
+//        return view('farmer/dashboard');
+//    }
+//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+//    
+//});
 
 //insurance for farmers side
 Route::get('firms/rice-insurance', function () {
@@ -51,7 +52,7 @@ Route::get('firms/rice-insurance', function () {
     {
         return view('farmer/rice_insurance');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 Route::get('firms/corn-insurance', function () {
@@ -59,7 +60,7 @@ Route::get('firms/corn-insurance', function () {
     {
         return view('farmer/corn_insurance');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 Route::get('firms/hvc-insurance', function () {
@@ -67,7 +68,7 @@ Route::get('firms/hvc-insurance', function () {
     {
         return view('farmer/hvc_insurance');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farmers profile
@@ -76,7 +77,7 @@ Route::get('firms/farmer-profile', function () {
     {
         return view('farmer/profile');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farmers password
@@ -85,7 +86,7 @@ Route::get('firms/farmer/change-password', function () {
     {
         return view('farmer/change_password');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for farm list
@@ -94,7 +95,7 @@ Route::get('firms/farmer-farm-list', function () {
     {
         return view('farmer/farm_list');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 //for notice of loss
@@ -103,7 +104,7 @@ Route::get('firms/farmer-notice-loss', function () {
     {
         return view('farmer/notice_loss');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
 Route::get('firms/farmer-indemnity', function () { //for indemnity
@@ -111,10 +112,10 @@ Route::get('firms/farmer-indemnity', function () { //for indemnity
     {
         return view('farmer/indemnity');
     }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-Route::get('firms/admin-index', function () { //admin login
+Route::get('firms/admin/login', function () { //admin login
     return view('admin/admin_login');
 });
 
@@ -126,7 +127,7 @@ Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 //for edit user account
-Route::put('/update/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
 //search
 Route::get('/find',[farmerController::class, 'find'])->name('web.find');
 //for changing password
@@ -137,4 +138,9 @@ Route::get('forget-password', [forgotPasswordController ::class, 'showForgetPass
 Route::post('forget-password', [forgotPasswordController ::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+//validation insurance
+Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
+//dashboard for farmer
+Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); //adding new farmer
+
 ?>

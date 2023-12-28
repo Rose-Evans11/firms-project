@@ -108,7 +108,7 @@
                   <div class="form-group">
                     <label for="txt_gender" class="col-lg-12 control-label">Gender: </label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" @readonly(true) name="sex">
+                      <select class="form-select" aria-label="Default select example" @disabled(true) name="sex">
                         <option selected>{{Auth::User()->sex}} </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -123,7 +123,7 @@
                   <div class="form-group">
                     <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="civilName">
+                      <select class="form-select" aria-label="Default select example" name="civilName"  @disabled(true)>
                         <option selected>{{Auth::User()->civilName}}</option>
                         <option value="1">Single</option>
                         <option value="2">Married</option>
@@ -155,7 +155,7 @@
                   <div class="form-group">
                     <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
                     <div class="col-lg-12">
-                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber">
+                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -165,7 +165,7 @@
                   <div class="form-group">
                     <label for="txt_contact" class="col-lg-12 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="barangayAddress">
+                      <select class="form-select" aria-label="Default select example" name="barangayAddress"  @disabled(true)>
                         <option selected>{{Auth::User()->barangayAddress}} </option>
                       </select>
                     </div>
@@ -195,7 +195,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_beneficiaries" value="">
+                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1">
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="">
+                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age">
                 </div>
               </div>
             </div>
@@ -211,17 +211,16 @@
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Relationships</option>
-                    <option value="1">Mother</option>
-                    <option value="2">Father</option>
-                    <option value="3">Sister</option>
-                    <option value="4">Brother</option>
-                    <option value="5">Wife</option>
-                    <option value="6">Husband</option>
-                    <option value="7">Daugther</option>
-                    <option value="8">Son</option>
-                    <option value="9">Guardian</option>
+                  <select class="form-select" aria-label="Default select example" name="benefi1Retaion">
+                    <option value="Mother">Mother</option>
+                    <option value="Father">Father</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Wife">Wife</option>
+                    <option value="Husband">Husband</option>
+                    <option value="Daughter">Daughter</option>
+                    <option value="Son">Son</option>
+                    <option value="Guardian">Guardian</option>
                   </select>
                 </div>
               </div>
@@ -235,7 +234,7 @@
                 <div class="form-group">
                   <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_beneficiaries" value="">
+                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2">
                   </div>
                 </div>
               </div>
@@ -243,7 +242,7 @@
                 <div class="form-group">
                   <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="txt_age" value="">
+                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age">
                   </div>
                 </div>
               </div>
@@ -251,17 +250,16 @@
                 <div class="form-group">
                   <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Relationships</option>
-                      <option value="1">Mother</option>
-                      <option value="2">Father</option>
-                      <option value="3">Sister</option>
-                      <option value="4">Brother</option>
-                      <option value="5">Wife</option>
-                      <option value="6">Husband</option>
-                      <option value="7">Daugther</option>
-                      <option value="8">Son</option>
-                      <option value="9">Guardian</option>
+                    <select class="form-select" aria-label="Default select example" name="benefi2Relation">
+                    <option value="Mother">Mother</option>
+                      <option value="Father">Father</option>
+                      <option value="Sister">Sister</option>
+                      <option value="Brother">Brother</option>
+                      <option value="Wife">Wife</option>
+                      <option value="Husband">Husband</option>
+                      <option value="Daughter">Daughter</option>
+                      <option value="Son">Son</option>
+                      <option value="Guardian">Guardian</option>
                     </select>
                   </div>
                 </div>
@@ -275,13 +273,13 @@
         <div class="form-group">
           <label for="txt_farmersID" class="col-lg-2 control-label">Account Number: </label>
           <div class="col-lg-12">
-            <input type="text" class="form-control" id="txt_acc_num" value="">
+            <input type="text" class="form-control" id="txt_acc_num" value="" name="bankAccount">
           </div>
         </div>
         <div class="form-group">
           <label for="txt_farmersID" class="col-lg-2 control-label"> Bank Branch: </label>
           <div class="col-lg-12">
-            <input type="text" class="form-control" id="txt_bank_branch" value="">
+            <input type="text" class="form-control" id="txt_bank_branch" value="" name="bankBranch">
           </div>
         </div>
       </div>
@@ -304,20 +302,17 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Crops: </label>
+                <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
-                  <input type="text" @@readonly(true) class="form-control" id="txt_crops" value="Corn">
+                  <input type="text" @readonly(true) class="form-control" id="txt_crops" value="Corn" name="cropName">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Variety :</label>
+                <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Variety</option>
-                    <option value="1">None</option>
-                  </select>
+                  <input type="text"  class="form-control" id="txt_variety" value="" name="variety">
                 </div>
               </div>
             </div>
@@ -327,18 +322,18 @@
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-6 control-label">Planting Method:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Method</option>
-                    <option value="1">None</option>
+                  <select class="form-select" aria-label="Default select example" name="plantingMethod">
+                    <option value="Direct Seeding">Direct Seeding</option>
+                    <option value="Transplanting">Transplanting</option>
                   </select>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-6 control-label">Date of Sowing: </label>
+                <label for="dateSowing" class="col-lg-6 control-label">Date of Sowing: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_sitio" value="">
+                  <input type="date" class="form-control" id="dateSowing" value="" name="dateSowing">
                 </div>
               </div>
             </div>
@@ -346,9 +341,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-6 control-label">Date of Planting: </label>
+                <label for="datePlanted" class="col-lg-6 control-label">Date of Planting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_plant" value="">
+                  <input type="date" class="form-control" id="datePlanted" value="" name="datePlanted">
                 </div>
               </div>
             </div>
@@ -356,70 +351,12 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-6 control-label">Date of Harvesting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_harvest" value="">
+                  <input type="date" class="form-control" id="txt_harvest" value="" name="dateHarvest">
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-6 control-label">Land Category:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Land Category</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-6 control-label">Soil Types:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Soil Types</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-6 control-label">Topography:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Topography</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="txt_contact" class="col-md-12 control-label">Source of Irrigation:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Irrigation</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="txt_contact" class="col-lg-6 control-label">Tenurial Status:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Tenurial Status</option>
-                    <option value="1">None</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           <br>
           <div id="farmDeetInfo">
             <legend> <strong>Farm Details</strong> </legend>
@@ -427,19 +364,67 @@
             <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+                    <label for="txt_farmersID" class="col-lg-2 control-label">Farm ID: </label>
                     <div class="col-lg-12">
-                      <input type="text"  class="form-control" id="txt_sitio" value="">
+                      <select class="form-select" aria-label="Default select example" name="farmID">
+                        <option selected></option>
+                      </select>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
+                    <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Barangay</option>
-                        <option value="1">None</option>
+                      <select class="form-select" aria-label="Default select example" name="barangay">
+                        <option value="Altura Bata">Altura Bata</option>
+                        <option value="Altura Matanda">Altura Matanda</option>
+                        <option value="Altura South">Altura South</option>
+                        <option value="Ambulong">Ambulong</option></option>
+                        <option value="Banadero">Banadero</option>
+                        <option value="Bagbag">Bagbag</option>
+                        <option value="Bagumbayan">Bagumbayan</option>
+                        <option value="Balele">Balele</option>
+                        <option value="Banjo East">Banjo East</option>
+                        <option value="Banjo West">Banjo West</option>
+                        <option value="Bilog-Bilog">Bilog-Bilog</option>
+                        <option value="Boot">Boot</option>
+                        <option value="Cale">Cale</option>
+                        <option value="Darasa">Darasa</option></option>
+                        <option value="Gonzales">Gonzales</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Janopol">Janopol</option>
+                        <option value="Janopol Oriental">Janopol Oriental</option>
+                        <option value="Laurel">Laurel</option>
+                        <option value="Luyos">Luyos</option>
+                        <option value="Mabini">Mabini</option>
+                        <option value="Malaking Pulo">Malaking Pulo</option>
+                        <option value="Maria Paz">Maria Paz</option></option>
+                        <option value="Maugat">Maugat</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Natatas">Natatas</option>
+                        <option value="Pagaspas">Pagaspas</option>
+                        <option value="Pantay Bata">Pantay Bata</option>
+                        <option value="Pantay Matanda">Pantay Matanda</option>
+                        <option value="Poblacion 1">Poblacion 1</option>
+                        <option value="Poblacion 2">Poblacion 2</option>
+                        <option value="Poblacion 3">Poblacion 3</option>
+                        <option value="Poblacion 4">Poblacion 4</option>
+                        <option value="Poblacion 5">Poblacion 5</option>
+                        <option value="Poblacion 6">Poblacion 6</option>
+                        <option value="Poblacion 7">Poblacion 7</option>
+                        <option value="Sala">Sala</option>
+                        <option value="Sambat">Sambat</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Santol">Santol</option>
+                        <option value="Santor">Santor</option>
+                        <option value="Sulpoc">Sulpoc</option>
+                        <option value="Suplang">Suplang</option>
+                        <option value="Talaga">Talaga</option></option>
+                        <option value="Tinurik">Tinurik</option>
+                        <option value="Trapiche">Trapiche</option>
+                        <option value="Ulango">Ulango</option>
+                        <option value="Wawa">Wawa</option>
                       </select>
                     </div>
                   </div>
@@ -448,22 +433,87 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
+                    <label for="city" class="col-lg-2 control-label">Municipality: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City" name="city">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
+                    <label for="province" class="col-lg-2 control-label">Province: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="province">
                     </div>
                   </div>
                 </div>
               </div>
               <br/>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="landCategory" class="col-lg-6 control-label">Land Category:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="landCategory">
+                      <option value="Irrigated">Irrigated</option>
+                      <option value="Rainfed">Rainfed</option>
+                      <option value="Upland">Upland</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="soilTypes" class="col-lg-6 control-label">Soil Types:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="soilTypes">
+                      <option value="Clay Loam">Clay Loam</option>
+                      <option value="Silty Clay Loam">Silty Clay Loam</option>
+                      <option value="Silty Loam">Silty Loam</option>
+                      <option value="Clay Loam">Sandy Loam</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="topography" class="col-lg-6 control-label">Topography:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="topography">
+                      <option value="Flat">Flat</option>
+                      <option value="Rolling">Rolling</option>
+                      <option value="Hilly">Hilly</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="irrigationType" class="col-md-12 control-label">Source of Irrigation:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="irrigationType">
+                      <option value="NIA/CIS - National Irrigation Administration">NIA/CIS - National Irrigation Administration</option>
+                      <option value="Deepwell">Deepwell</option>
+                      <option value="SWIP - Small Water Impounding Project">SWIP - Small Water Impounding Project</option>
+                      <option value="STW - Shallow Tube Well">STW - Shallow Tube Well</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="tenurialType" class="col-lg-6 control-label">Tenurial Status:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="tenurialType">
+                      <option value="Owner">Owner</option>
+                      <option value="Lessee">Lessee</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="BoundryInfo">
@@ -471,17 +521,17 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-2 control-label">North: </label>
+                  <label for="north" class="col-lg-2 control-label">North: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_north" value="">
+                    <input type="text" class="form-control" id="txt_north" value="" name="north">
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-2 control-label"> South: </label>
+                  <label for="south" class="col-lg-2 control-label"> South: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_bank_south" value="">
+                    <input type="text" class="form-control" id="txt_bank_south" value="" name="south">
                   </div>
                 </div>
               </div>
@@ -489,17 +539,17 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-2 control-label">East: </label>
+                  <label for="east" class="col-lg-2 control-label">East: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_east" value="">
+                    <input type="text"  class="form-control" id="txt_east" value="" name="east">
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-2 control-label"> West: </label>
+                  <label for="west" class="col-lg-2 control-label"> West: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_bank_west" value="">
+                    <input type="text" class="form-control" id="txt_bank_west" value="" name="west">
                   </div>
                 </div>
               </div>
@@ -507,15 +557,15 @@
           </div>
           <div class="row">
             <div class="form-group">
-              <label for="location">Location: </label>
-              <input type="text" id="location" name="location" class="form-control map-input">
+              <!--<label for="location">Location: </label>-->
+              <input type="text" id="location" name="location" class="form-control map-input" hidden>
             </div>
           </div>
          <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
-                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12">
+                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12" >
                   </div>
                 </div>
                 <div class="col-md-6">

@@ -60,7 +60,8 @@
                     <tr>
                         <th>Insurance ID</th>
                         <th>Crops</th>
-                        <th>Filed Date</th>
+                        <th>Insurance Type</th>
+                        <th>Date Planted Type</th>
                         <th>Expected Harvest Date</th>
                         <th>Farm Location</th>
                         <th>Status</th>
@@ -69,7 +70,22 @@
                     </tr>
                 </thead>
                 <tbody>
-               <!-- add here the data -->
+                    @if(count($insurances) > 0)
+                    @foreach ($insurances as $insurance)
+                    <tr>
+                     <td>{{$insurance->id}} </td>
+                     <td>{{$insurance->cropName}}</td>
+                     <td>{{$insurance->insuranceType}}</td>
+                     <td>{{$insurance->datePlanted}}</td>
+                     <td>{{$insurance->dateHarvest}}</td>
+                     <td>{{$insurance->barangayFarm}}</td>
+                     <td>{{$insurance->status}}</td>
+                     <td>{{$insurance->statusNotes}}</td>
+                    </tr>
+                    @endforeach
+                    @else
+                     <tr><td>No result found!</td></tr>
+                    @endif
                 </tbody>
             </table>
         </div>

@@ -97,12 +97,12 @@
                         <div class="form-group">
                           <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
                           <div class="col-lg-12">
-                          <input type="file" class="form-control" id="file_profile" placeholder="" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
+                          <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
                         </div>
                       </div>
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                        <img id="img_profile" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="data:image/png;base64,{{ chunk_split(base64_encode(Auth::User()->photo)) }}"  />
+                        <img id="img_profile" alt="Your Image" style="width: 150px; height:auto" class="img-fluid"  />
                         </div>
                       </div>
                     </div>
@@ -193,7 +193,7 @@
                       </div>
                   </div>  
                   <div class="row">
-                    <div class="col-md-6"> 
+                    <div class="col-md-4"> 
                       <div class="form-group">
                         <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
                         <div class="col-lg-12">
@@ -207,7 +207,7 @@
                       </div>
                        
                     </div>
-                    <div class="col-md-6"> 
+                    <div class="col-md-4"> 
                         <div class="form-group">
                             <label for="txt_religion" class="col-lg-2 control-label">Religion: </label>
                             <div class="col-lg-12">
@@ -215,7 +215,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
                             <div class="col-lg-12">
@@ -303,10 +303,10 @@
                     </div>
                   </div>
                   <br/>
-                  <h5 class="mx-2">Highest Formal Education</h5>
                   <div class="row">
-                      <div class="col-md-12">
-                        <label for="txt_education" class="col-lg-12 control-label">Education:</label>
+                    <div class="col-md-4">
+                      <h5 class="mx-2">Highest Formal Education</h5>
+                      <label for="txt_education" class="col-lg-12 control-label">Education:</label>
                       <select class="form-select" aria-label="Default select example" class="col-lg-12" id="txt_education" name="educationName">
                         <option selected>{{Auth::User()->educationName}}</option>
                         <option value="Pre School">Pre School</option>
@@ -318,7 +318,40 @@
                         <option value="Vocational">Vocational</option>
                         <option value="Post Graduate">Post Graduate</option>
                       </select>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="row"> 
+                        <h5 class="mx-2">Bank Account Information</h5>
+                        <div class="col-lg-12">
+                          <div class="row">
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label for="bankAccount" class="col-lg-12 control-label"> Bank Account Number: </label>
+                                <div class="col-lg-12">
+                                  <input type="number" class="form-control" id="bankAccount" value="{{Auth::User()->bankAccount}}" name="bankAccount" maxlength="12" minlength="12">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label for="bankName" class="col-lg-12 control-label"> Bank Name: </label>
+                                <div class="col-lg-12">
+                                  <input type=number" class="form-control" id="bankName" value="{{Auth::User()->bankName}}" name="bankName">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label for="bankBranch" class="col-lg-12 control-label"> Bank Branch: </label>
+                                <div class="col-lg-12">
+                                  <input type="text" class="form-control" id="bankBranch" value="{{Auth::User()->bankAccount}}" name="bankBranch">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+                    </div>
                   </div>
                   <br/>
                   <h5 class="mx-2">Additional Information </h5>

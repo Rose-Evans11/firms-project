@@ -60,6 +60,9 @@ class User extends Authenticatable
         'isPWD',
         'contactPerson',
         'emergenceNumber',
+        'bankName',
+        'bankAccount',
+        'bankBranch',
     ];
 
     /**

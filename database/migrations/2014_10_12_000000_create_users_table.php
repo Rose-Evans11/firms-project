@@ -56,6 +56,9 @@ return new class extends Migration
             $table->string('isPWD')->nullable();
             $table->string('contactPerson')->nullable();
             $table->string('emergenceNumber')->nullable();
+            $table->string('bankName')->nullable();
+            $table->string('bankAccount')->nullable();
+            $table->string('bankBranch')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

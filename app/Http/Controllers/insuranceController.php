@@ -6,12 +6,21 @@ use App\Models\insurance;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use Illuminate\Validation\Rule;
+use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class insuranceController extends Controller
 {
+    use Sortable;
+
+    public $sortable = [
+        'insuranceType',
+        'created_at',
+    ];
     public function index(){
         //$insurance = insurance::all();
         $insurance = insurance::where('farmersID', auth()->id())->get();
+        $insurance=insurance::sortable()->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
     }
     public function store(Request $request){

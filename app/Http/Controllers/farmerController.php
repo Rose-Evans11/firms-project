@@ -14,7 +14,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class farmerController extends Controller
 {
    public function index(){
-    $user = User::all();
+    $user = User::all()->paginate(10);;
     return view('admin/register', ['users'=>$user]);
    }
     

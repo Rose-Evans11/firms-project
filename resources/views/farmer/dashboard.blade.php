@@ -60,8 +60,8 @@
                     <tr>
                         <th>Insurance ID</th>
                         <th>Crops</th>
-                        <th>Insurance Type</th>
-                        <th>Date Planted Type</th>
+                        <th>@sortablelink('insuranceType','Insurance Type')</th>
+                        <th>@sortablelink('created_at', 'Date Created')</th>
                         <th>Expected Harvest Date</th>
                         <th>Farm Location</th>
                         <th>Status</th>
@@ -76,7 +76,7 @@
                      <td>{{$insurance->id}} </td>
                      <td>{{$insurance->cropName}}</td>
                      <td>{{$insurance->insuranceType}}</td>
-                     <td>{{$insurance->datePlanted}}</td>
+                     <td>{{$insurance->created_at}}</td>
                      <td>{{$insurance->dateHarvest}}</td>
                      <td>{{$insurance->barangayFarm}}</td>
                      <td>{{$insurance->status}}</td>

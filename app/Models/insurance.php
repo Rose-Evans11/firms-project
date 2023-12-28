@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -62,5 +63,12 @@ class insurance extends Model
         'cicdateIssued',
         'cocNumber',
         'cocdateIssued',
+    ];
+
+    use Sortable;
+
+    public $sortable = [
+        'insuranceType',
+        'created_at',
     ];
 }

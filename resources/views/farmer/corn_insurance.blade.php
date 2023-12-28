@@ -17,7 +17,7 @@
     margin: auto;
   }
   
-  #panelFarmInfo, #panelBenefiInfo {
+  #panelFarmInfo, #panelBenefiInfo, #btn_submit {
     display: none;
     margin: auto;
   }
@@ -38,7 +38,22 @@
     }
   </style>
 <div class='container-fluid' style="margin: auto">
-  <form class="form-horizontal">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+@if (session()->has('success'))
+  <div class="alert alert-success">
+   {{Session::get('success')}}
+  </div> 
+@endif
+  <form class="form-horizontal" action="/insurance" method="Post">
+    @csrf
    <fieldset>
     <!-- 
     <button onclick="javascript:displayfarmsInfo()" class="flip" id="panelbutton">Farmer Information </button>
@@ -52,9 +67,10 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-12 control-label">RSBSA Reference Number: </label>
+                    <label for="rsbsa" class="col-lg-12 control-label">RSBSA Reference Number: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                      <input type="text" hidden class="form-control" id="rsbsa" value="{{Auth::User()->id}}" name="farmersID">
+                      <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{Auth::User()->rsbsa}}" name="rsbsa">
                     </div>
                   </div>
                 </div>
@@ -137,7 +153,7 @@
                   <div class="form-group">
                     <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseNaem">
+                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseName">
                     </div>
                   </div>
                 </div>
@@ -195,7 +211,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1">
+                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1" required>
                 </div>
               </div>
             </div>
@@ -203,7 +219,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age">
+                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age" required>
                 </div>
               </div>
             </div>
@@ -211,7 +227,7 @@
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="benefi1Retaion">
+                  <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
                     <option value="Mother">Mother</option>
                     <option value="Father">Father</option>
                     <option value="Sister">Sister</option>
@@ -232,25 +248,25 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                  <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2">
+                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
+                  <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age">
+                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                  <label class="col-lg-12 control-label">Relationships:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" name="benefi2Relation">
+                    <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
                     <option value="Mother">Mother</option>
                       <option value="Father">Father</option>
                       <option value="Sister">Sister</option>
@@ -268,39 +284,59 @@
           </div>
         </div>
       </div>
-      <div id="bankInfo">
-        <legend> <strong>Bank Account Details </strong></legend>
-        <div class="form-group">
-          <label for="txt_farmersID" class="col-lg-2 control-label">Account Number: </label>
-          <div class="col-lg-12">
-            <input type="text" class="form-control" id="txt_acc_num" value="" name="bankAccount">
+      <div id="bankInfo" class="row">
+          <legend> <strong>Bank Account Details </strong></legend>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="txt_farmersID" class="col-lg-2 control-label"> Bank Branch: </label>
-          <div class="col-lg-12">
-            <input type="text" class="form-control" id="txt_bank_branch" value="" name="bankBranch">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
-      <div class="row">
+      <!--<div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_insuredID" value="" @readonly(true)>
+              <input type="text" class="form-control" id="txt_insuredID" value="">
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insuranceType" class="col-lg-12 control-label">Insurance Type: </label>
+                <div class="col-lg-12">
+                  <input type="text" @readonly(true) class="form-control" id="insuranceType" value="Corn" name="insuranceType">
+                  <input type="text" @readonly(true) class="form-control" id="status" value="Pending" name="status" hidden>
+                </div>
+              </div>
+            </div><div class="col-md-4">
               <div class="form-group">
                 <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
@@ -308,11 +344,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
                 <div class="col-lg-12">
-                  <input type="text"  class="form-control" id="txt_variety" value="" name="variety">
+                  <input type="text"  class="form-control" id="txt_variety" value="" name="variety" required>
                 </div>
               </div>
             </div>
@@ -322,7 +358,7 @@
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-6 control-label">Planting Method:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="plantingMethod">
+                  <select class="form-select" aria-label="Default select example" name="plantingMethod" required>
                     <option value="Direct Seeding">Direct Seeding</option>
                     <option value="Transplanting">Transplanting</option>
                   </select>
@@ -333,7 +369,7 @@
               <div class="form-group">
                 <label for="dateSowing" class="col-lg-6 control-label">Date of Sowing: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="dateSowing" value="" name="dateSowing">
+                  <input type="date" class="form-control" id="dateSowing" value="" name="dateSowing" required>
                 </div>
               </div>
             </div>
@@ -343,15 +379,15 @@
               <div class="form-group">
                 <label for="datePlanted" class="col-lg-6 control-label">Date of Planting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="datePlanted" value="" name="datePlanted">
+                  <input type="date" class="form-control" id="datePlanted" value="" name="datePlanted" required> 
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-6 control-label">Date of Harvesting: </label>
+                <label for="txt_harvest" class="col-lg-6 control-label">Date of Harvesting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_harvest" value="" name="dateHarvest">
+                  <input type="date" class="form-control" id="txt_harvest" value="" name="dateHarvest" required>
                 </div>
               </div>
             </div>
@@ -362,21 +398,21 @@
             <legend> <strong>Farm Details</strong> </legend>
             <br/>
             <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-2 control-label">Farm ID: </label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="farmID">
-                        <option selected></option>
-                      </select>
-                    </div>
+             
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="areaInsured" class="col-lg-12 control-label">Area Insured (ha): </label>
+                  <div class="col-lg-12">
+                    <input type="number" class="form-control" id="areaInsured" name="areaInsured">
+
                   </div>
                 </div>
+              </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="barangay">
+                      <select class="form-select" aria-label="Default select example" name="barangayFarm" required>
                         <option value="Altura Bata">Altura Bata</option>
                         <option value="Altura Matanda">Altura Matanda</option>
                         <option value="Altura South">Altura South</option>
@@ -435,7 +471,7 @@
                   <div class="form-group">
                     <label for="city" class="col-lg-2 control-label">Municipality: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Tanauan City" name="city">
+                      <input type="text" @readonly(true) class="form-control" id="city" value="Tanauan City" name="cityFarm">
                     </div>
                   </div>
                 </div>
@@ -443,7 +479,7 @@
                   <div class="form-group">
                     <label for="province" class="col-lg-2 control-label">Province: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="province">
+                      <input type="text" @readonly(true) class="form-control" id="province" value="Batangas" name="provinceFarm">
                     </div>
                   </div>
                 </div>
@@ -455,7 +491,7 @@
                 <div class="form-group">
                   <label for="landCategory" class="col-lg-6 control-label">Land Category:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" name="landCategory">
+                    <select class="form-select" aria-label="Default select example" name="landCategory" required>
                       <option value="Irrigated">Irrigated</option>
                       <option value="Rainfed">Rainfed</option>
                       <option value="Upland">Upland</option>
@@ -467,7 +503,7 @@
                 <div class="form-group">
                   <label for="soilTypes" class="col-lg-6 control-label">Soil Types:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" name="soilTypes">
+                    <select class="form-select" aria-label="Default select example" name="soilType" required>
                       <option value="Clay Loam">Clay Loam</option>
                       <option value="Silty Clay Loam">Silty Clay Loam</option>
                       <option value="Silty Loam">Silty Loam</option>
@@ -482,7 +518,7 @@
                 <div class="form-group">
                   <label for="topography" class="col-lg-6 control-label">Topography:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" name="topography">
+                    <select class="form-select" aria-label="Default select example" name="topography" required>
                       <option value="Flat">Flat</option>
                       <option value="Rolling">Rolling</option>
                       <option value="Hilly">Hilly</option>
@@ -523,7 +559,7 @@
                 <div class="form-group">
                   <label for="north" class="col-lg-2 control-label">North: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_north" value="" name="north">
+                    <input type="text" class="form-control" id="txt_north" value="" name="north" required>
                   </div>
                 </div>
               </div>
@@ -531,7 +567,7 @@
                 <div class="form-group">
                   <label for="south" class="col-lg-2 control-label"> South: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_bank_south" value="" name="south">
+                    <input type="text" class="form-control" id="txt_south" value="" name="south" required>
                   </div>
                 </div>
               </div>
@@ -541,7 +577,7 @@
                 <div class="form-group">
                   <label for="east" class="col-lg-2 control-label">East: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_east" value="" name="east">
+                    <input type="text"  class="form-control" id="txt_east" value="" name="east" required>
                   </div>
                 </div>
               </div>
@@ -549,7 +585,7 @@
                 <div class="form-group">
                   <label for="west" class="col-lg-2 control-label"> West: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_bank_west" value="" name="west">
+                    <input type="text" class="form-control" id="txt_west" value="" name="west" required>
                   </div>
                 </div>
               </div>
@@ -565,13 +601,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
-                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12" >
+                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                   <label for="location-lng"  class="col-lg-12 control-label">Longitude:</label>
-                   <input type="text" id="location-lng" name="location-lng" class=" form-control col-lg-12">
+                   <label for="location-long"  class="col-lg-12 control-label">Longitude:</label>
+                   <input type="text" id="location-lng" name="location-long" class=" form-control col-lg-12" required>
                   </div>
                  </div>
             </div>
@@ -582,7 +618,13 @@
                   <div id="location-map"></div>
               </div>
             </div>
-          
+            <div class="row justify-content-end">
+              <div class="col-md-2">
+                <div class="col-lg-12 d-flex justify-content-end">
+                  <button class="btn btn-success m-2" style="width:100%" id="btn_submit">Submit</Button>
+                </div>
+              </div>
+            </div>  
           <br/>
       </div>
     </div>
@@ -592,11 +634,10 @@
   <div class="d-flex justify-content-end">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        <li class="page-item"><a class="page-link" onclick="#" id="link_prev"> Previous  </a></li>
         <li class="page-item"><a class="page-link" onclick="javascript:togglePanelFarmInfo()" id="link_farm"> 1  </a></li>
         <li class="page-item"><a class="page-link" onclick="javascript:toggleBeneficiaries()" id="link_benefi">2</a></li>
         <li class="page-item"><a class="page-link" onclick="javascript:toggleCropInfo()" id="link_crop">3</a></li>
-        <li class="page-item"><a class="page-link" href="#" id="link_submit">Submit</a></li>
+        <li class="page-item"><a class="page-link" onclick="javascript:toggleSubmitInfo()"id="link_submit">Submit</a></li>
       </ul>
     </nav>
   </div>
@@ -606,22 +647,33 @@
     var panelFarmInfo = document.getElementById('panelFarmInfo'); 
     var panelBenefiInfo = document.getElementById('panelBenefiInfo');
     var panelCropInfo = document.getElementById('panelCropInfo');
+    var btn_submit = document.getElementById('btn_submit');
 
     
     //this is to load the Farmer's Info
     window.onload = function() {
-      panelBenefiInfo.style.display = 'none';
       initializeMap();
+      panelBenefiInfo.style.display = 'none';
       panelCropInfo.style.display = 'none';
       panelFarmInfo.style.display = 'block';
       document.getElementById("link_prev").disabled = true;
       document.getElementById("link_submit").disabled = true;
     };
+
+    //this function for viewing all the information
+    function toggleSubmitInfo() {
+      panelBenefiInfo.style.display = 'block';
+      panelCropInfo.style.display = 'block';
+      panelFarmInfo.style.display = 'block';
+      btn_submit.style.display = 'block';
+
+
+    }
     //this is for farmer's information --1st panel --
     function togglePanelFarmInfo() {
      // get the current value of the panel's display property
       var displaySetting = panelFarmInfo.style.display;
-
+      document.getElementById("btn_submit").display='none';
 
       // now toggle the panel depending on current state
       if (displaySetting == 'none') {
@@ -735,6 +787,7 @@
       else {
         // panel is hidden. show it
         panelCropInfo.style.display = 'block';
+        btn_submit.style.display = 'none';
         panelFarmInfo.style.display = 'none';
         panelBenefiInfo.style.display = 'none';
       }

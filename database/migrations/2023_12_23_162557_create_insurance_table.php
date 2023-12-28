@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('farmersID');
             $table->foreign('farmersID')->references('id')->on('users')->onDelete('cascade');
             $table->string('rsbsa');
+            $table->string('contactNumber');
             $table->string('insuranceType');
             $table->string('cropName');
             $table->string('variety');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\insurance;
 use Illuminate\Http\Request;
+use Twilio\Rest\Client;
 use Illuminate\Validation\Rule;
 
 class insuranceController extends Controller
@@ -12,11 +13,12 @@ class insuranceController extends Controller
         //$insurance = insurance::all();
         $insurance = insurance::where('farmersID', auth()->id())->get();
         return view('farmer/dashboard', ['insurances'=>$insurance]);
-       }
+    }
     public function store(Request $request){
         $incomingFields = $request ->validate ([
             'farmersID' => 'required',
             'rsbsa' => 'required',
+            'contactNumber' => 'required',
             'insuranceType' => 'required',
             'cropName' => 'required',
             'variety' => 'required',
@@ -61,6 +63,25 @@ class insuranceController extends Controller
         ]);
         $insurances = insurance::create ($incomingFields);
         session()->flash('success', 'Filed Successfully!');
+        //this is for sending message
+        $sid = getenv("TWILIO_SID");
+        $token = getenv("TWILIO_TOKEN");
+        $senderNumber = getenv("TWILIO_PHONE");
+        $twilio = new Client($sid, $token);
+        
+        $message = $twilio->messages
+                          ->create($incomingFields['contactNumber'], // to
+                                   [
+                                       "body" => "You just file an insurance report. We will validate it, kindly, wait our message for additiional information. Thank you!",
+                                       "from" => $senderNumber
+                                   ]
+                          );
+        
+        print($message->sid);
         return back();
+    }
+
+    public function sendingSMS(){
+
     }
 }

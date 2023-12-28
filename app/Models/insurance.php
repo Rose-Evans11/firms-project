@@ -19,6 +19,7 @@ class insurance extends Model
     protected $fillable = [
         'farmersID',
         'rsbsa',
+        'contactNumber',
         'insuranceType',
         'cropName',
         'variety',

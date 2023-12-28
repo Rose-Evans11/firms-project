@@ -7,6 +7,7 @@ use App\Http\Controllers\farmerController;
 use App\Http\Controllers\farmerProfileController;
 use App\Http\Controllers\forgotPasswordController;
 use App\Http\Controllers\insuranceController;
+use App\Http\Controllers\SMSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -142,5 +143,9 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
 //dashboard for farmer
 Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); //adding new farmer
+
+
+//SMS
+Route::get('firms/sendsms', [SMSController::class, 'sendsms']); 
 
 ?>

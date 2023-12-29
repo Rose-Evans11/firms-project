@@ -16,7 +16,22 @@ return new class extends Migration
             $table->unsignedBigInteger('farmersID');
             $table->foreign('farmersID')->references('id')->on('users')->onDelete('cascade');
             $table->string('rsbsa');
+            $table->string('firstName');
+            $table->string('middleName')->nullable();
+            $table->string('lastName');
+            $table->string('extensionName')->nullable();
+            $table->string('sex');
+            $table->string('civilName');
+            $table->string('spouseName');
+            $table->string('birthdate');
+            $table->string('isIndigenous');
+            $table->string('indigenous');
+            $table->string('email');
             $table->string('contactNumber');
+            $table->string('barangayAddress'); //farmers address
+            $table->string('cityAddress');
+            $table->string('provinceAddress');
+            $table->string('regionAddress');
             $table->string('insuranceType');
             $table->string('cropName');
             $table->string('variety');
@@ -26,9 +41,10 @@ return new class extends Migration
             $table->string('west');
             $table->string('south');
             //$table->string('location');
-            $table->double('location-lat');
-            $table->double('location-long');
+            $table->double('location_lat');
+            $table->double('location_long');
             $table->date('datePlanted');
+            $table->string('plantingMethod');
             $table->date('dateSowing');
             $table->date('dateHarvest');
             $table->date('from')->nullable();

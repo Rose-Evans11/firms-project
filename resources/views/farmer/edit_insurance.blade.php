@@ -1,5 +1,5 @@
 @extends('layouts.master_farmer')
-@section('title','HVC Insurance')
+@section('title','Pending')
 @section('content')
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
@@ -52,8 +52,9 @@
    {{Session::get('success')}}
   </div> 
 @endif
-  <form class="form-horizontal" action="/insurance" method="Post">
+  <form class="form-horizontal" action="{{route('insurance.update', ['insurance'=>$insurances])}}" method="Post">
     @csrf
+    @method('put')
    <fieldset>
     <!-- 
     <button onclick="javascript:displayfarmsInfo()" class="flip" id="panelbutton">Farmer Information </button>
@@ -69,8 +70,8 @@
                   <div class="form-group">
                     <label for="rsbsa" class="col-lg-12 control-label">RSBSA Reference Number: </label>
                     <div class="col-lg-12">
-                      <input type="text" hidden class="form-control" id="rsbsa" value="{{Auth::User()->id}}" name="farmersID">
-                      <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                      <input type="text" hidden class="form-control" id="rsbsa" value="{{$insurances->id}}" name="farmersID">
+                      <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{$insurances->rsbsa}}" name="rsbsa">
                     </div>
                   </div>
                 </div>
@@ -80,7 +81,7 @@
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name" name="firstName">
+                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{$insurances->firstName}}" placeholder="First Name" name="firstName">
                     </div>
                   </div>
                 </div>
@@ -88,7 +89,7 @@
                   <div class="form-group">
                     <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name" name="middleName">
+                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{$insurances->middleName}}" placeholder="Middle Name" name="middleName">
                     </div>
                   </div>
                 </div>
@@ -98,7 +99,7 @@
                   <div class="form-group">
                     <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name" name="lastName">
+                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{$insurances->lastName}}"placeholder="Last Name" name="lastName">
                     </div>
                   </div>
                 </div>
@@ -106,7 +107,7 @@
                   <div class="form-group">
                     <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name" name="extensionName">
+                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{$insurances->extensionName}}" placeholder="Extension Name" name="extensionName">
                     </div>
                   </div>
                 </div>
@@ -116,7 +117,7 @@
                   <div class="form-group">
                     <label for="dt_birth" class="col-lg-12 control-label">Birthdate: </label>
                     <div class="col-lg-12">
-                      <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{Auth::User()->birthdate}}" name="birthdate">
+                      <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{$insurances->birthdate}}" name="birthdate">
                     </div>
                   </div>
                 </div>
@@ -124,7 +125,7 @@
                   <div class="form-group">
                     <label for="sex" class="col-lg-12 control-label">Gender: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="sex" value="{{Auth::User()->sex}}" name="sex" @readonly(true)>
+                      <input type="text" class="form-control" id="sex" value="{{$insurances->sex}}" name="sex" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -134,7 +135,7 @@
                   <div class="form-group">
                     <label for="civilName" class="col-lg-12 control-label">Civil Status: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="civilName" value="{{Auth::User()->civilName}}" name="civilName" @readonly(true)>
+                      <input type="text" class="form-control" id="civilName" value="{{$insurances->civilName}}" name="civilName" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -142,7 +143,7 @@
                   <div class="form-group">
                     <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseName">
+                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{$insurances->spouseName}}" name="spouseName">
                     </div>
                   </div>
                 </div>
@@ -152,7 +153,7 @@
                   <div class="form-group">
                     <label for="txt_email" class="col-lg-12 control-label">Email: </label>
                     <div class="col-lg-12">
-                      <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{Auth::User()->email}}" name="email">
+                      <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{$insurances->email}}" name="email">
                     </div>
                   </div>
                 </div>
@@ -160,7 +161,7 @@
                   <div class="form-group">
                     <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
                     <div class="col-lg-12">
-                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
+                      <input type="tel" class="form-control" id="txt_tel" value="{{$insurances->contactNumber}}" name="contactNumber" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -170,7 +171,7 @@
                   <div class="form-group">
                     <label for="barangayAddress" class="col-lg-12 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="baragangayAddress" value="{{Auth::User()->barangayAddress}}" name="barangayAddress" @readonly(true)>
+                      <input type="text" class="form-control" id="baragangayAddress" value="{{$insurances->barangayAddress}}" name="barangayAddress" @readonly(true)>
                     </div>
                   </div>    
                 </div>
@@ -203,14 +204,14 @@
                 <div class="col-md-6">
                   <label for="isIndigenous" class="col-lg-12 control-label">Members of Indigenous Group:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{Auth::User()->isIndigenous}}" name="isIndigenous">
+                    <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{$insurances->isIndigenous}}" name="isIndigenous">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="ip_tribe" class="col-lg-12 control-label">IP Tribe:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{Auth::User()->indigenous}}" name="indigenous">
+                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{$insurances->indigenous}}" name="indigenous">
                     </div>
                   </div>
                 </div>
@@ -230,7 +231,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1" required>
+                  <input type="text" class="form-control" id="txt_beneficiaries" value="{{$insurances->benefi1}}" name="benefi1" required>
                 </div>
               </div>
             </div>
@@ -238,7 +239,7 @@
               <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age" required>
+                  <input type="number" class="form-control" id="txt_age" value="{{$insurances->benefi1Age}}" name="benefi1Age" required>
                 </div>
               </div>
             </div>
@@ -247,6 +248,7 @@
                 <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
+                    <option selected> {{$insurances->benefi1Relation}}</option>
                     <option value="Mother">Mother</option>
                     <option value="Father">Father</option>
                     <option value="Sister">Sister</option>
@@ -269,7 +271,7 @@
                 <div class="form-group">
                   <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
+                    <input type="text"  class="form-control" id="txt_beneficiaries" value="{{$insurances->benefi2}}" name="benefi2" required>
                   </div>
                 </div>
               </div>
@@ -277,7 +279,7 @@
                 <div class="form-group">
                   <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
+                    <input type="number" class="form-control" id="txt_age" value="{{$insurances->benefi2Age}}" name="benefi2Age" required>
                   </div>
                 </div>
               </div>
@@ -286,7 +288,8 @@
                   <label class="col-lg-12 control-label">Relationships:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
-                    <option value="Mother">Mother</option>
+                      <option selected> {{$insurances->benefi2Relation}}</option>
+                      <option value="Mother">Mother</option>
                       <option value="Father">Father</option>
                       <option value="Sister">Sister</option>
                       <option value="Brother">Brother</option>
@@ -309,7 +312,7 @@
             <div class="form-group">
               <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
+                <input type="text" class="form-control" id="txt_acc_num" value="{{$insurances->bankAccount}}" name="bankAccount" required>
               </div>
             </div>
           </div>
@@ -317,7 +320,7 @@
             <div class="form-group">
               <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required>
+                <input type="text" class="form-control" id="txt_bank_name" value="{{$insurances->bankName}}" name="bankName" required>
               </div>
             </div>
           </div>
@@ -325,7 +328,7 @@
             <div class="form-group">
               <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required>
+                <input type="text" class="form-control" id="txt_bank_branch" value="{{$insurances->bankBranch}}" name="bankBranch" required>
               </div>
             </div>
           </div>
@@ -333,16 +336,16 @@
     </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
-      <!--<div class="row">
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_insuredID" value="">
+              <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
             </div>
           </div>
         </div>
-      </div> -->
+      </div> 
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
@@ -351,7 +354,7 @@
               <div class="form-group">
                 <label for="insuranceType" class="col-lg-12 control-label">Insurance Type: </label>
                 <div class="col-lg-12">
-                  <input type="text" @readonly(true) class="form-control" id="insuranceType" value="High-Value Crops" name="insuranceType">
+                  <input type="text" @readonly(true) class="form-control" id="insuranceType" value="{{$insurances->insuranceType}}" name="insuranceType">
                   <input type="text" @readonly(true) class="form-control" id="status" value="Pending" name="status" hidden>
                 </div>
               </div>
@@ -359,25 +362,7 @@
               <div class="form-group">
                 <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="cropName">
-                    <option value="Alukbati">Alukbati</option>
-                    <option value="Ampalaya">Ampalaya</option>
-                    <option value="Atis">Atis</option>
-                    <option value="Avocado">Avocado</option>
-                    <option value="Banana">Banana</option>
-                    <option value="Cassava">Cassava</option>
-                    <option value="Eggplant">Eggplant</option>
-                    <option value="Manggo">Manggo</option>
-                    <option value="Sigarilyas">Sigarilyas</option>
-                    <option value="Sitaw">Sitaw</option>
-                    <option value="Rambutan">Rambutan</option>
-                    <option value="Sili Labuyo">Sili Labuyo</option>
-                    <option value="Sili Sigang">Sili Sigang</option>
-                    <option value="Sili Talbos"> Sili Talbos</option>
-                    <option value="Squash"> Squash</option>
-                    <option value="Tomato"> Tomato</option>
-                    <option value="Upo">Upo</option>
-                  </select>
+                  <input type="text" @readonly(true) class="form-control" id="cropName" value="{{$insurances->cropName}}" name="cropName">
                 </div>
               </div>
             </div>
@@ -385,7 +370,7 @@
               <div class="form-group">
                 <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
                 <div class="col-lg-12">
-                  <input type="text"  class="form-control" id="txt_variety" value="" name="variety" required>
+                  <input type="text"  class="form-control" id="txt_variety" value="{{$insurances->variety}}" name="variety" required>
                 </div>
               </div>
             </div>
@@ -396,6 +381,7 @@
                 <label for="txt_contact" class="col-lg-6 control-label">Planting Method:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example" name="plantingMethod" required>
+                    <option selected> {{$insurances->plantingMethod}}</option>
                     <option value="Direct Seeding">Direct Seeding</option>
                     <option value="Transplanting">Transplanting</option>
                   </select>
@@ -406,7 +392,7 @@
               <div class="form-group">
                 <label for="dateSowing" class="col-lg-6 control-label">Date of Sowing: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="dateSowing" value="" name="dateSowing" required>
+                  <input type="date" class="form-control" id="dateSowing" value="{{$insurances->dateSowing}}" name="dateSowing" required>
                 </div>
               </div>
             </div>
@@ -416,7 +402,7 @@
               <div class="form-group">
                 <label for="datePlanted" class="col-lg-6 control-label">Date of Planting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="datePlanted" value="" name="datePlanted" required> 
+                  <input type="date" class="form-control" id="datePlanted" value="{{$insurances->datePlanted}}" name="datePlanted" required> 
                 </div>
               </div>
             </div>
@@ -424,104 +410,102 @@
               <div class="form-group">
                 <label for="txt_harvest" class="col-lg-6 control-label">Date of Harvesting: </label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_harvest" value="" name="dateHarvest" required>
+                  <input type="date" class="form-control" id="txt_harvest" value="{{$insurances->dateHarvest}}" name="dateHarvest" required>
                 </div>
               </div>
             </div>
           </div>
-          
           <br>
           <div id="farmDeetInfo">
             <legend> <strong>Farm Details</strong> </legend>
             <br/>
             <div class="row">
-             
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="areaInsured" class="col-lg-12 control-label">Area Insured (ha): </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="areaInsured" name="areaInsured">
-
+                    <input type="number" class="form-control" id="areaInsured" name="areaInsured" value="{{$insurances->areaInsured}}">
                   </div>
                 </div>
               </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="barangayFarm" required>
-                        <option value="Altura Bata">Altura Bata</option>
-                        <option value="Altura Matanda">Altura Matanda</option>
-                        <option value="Altura South">Altura South</option>
-                        <option value="Ambulong">Ambulong</option></option>
-                        <option value="Banadero">Banadero</option>
-                        <option value="Bagbag">Bagbag</option>
-                        <option value="Bagumbayan">Bagumbayan</option>
-                        <option value="Balele">Balele</option>
-                        <option value="Banjo East">Banjo East</option>
-                        <option value="Banjo West">Banjo West</option>
-                        <option value="Bilog-Bilog">Bilog-Bilog</option>
-                        <option value="Boot">Boot</option>
-                        <option value="Cale">Cale</option>
-                        <option value="Darasa">Darasa</option></option>
-                        <option value="Gonzales">Gonzales</option>
-                        <option value="Hidalgo">Hidalgo</option>
-                        <option value="Janopol">Janopol</option>
-                        <option value="Janopol Oriental">Janopol Oriental</option>
-                        <option value="Laurel">Laurel</option>
-                        <option value="Luyos">Luyos</option>
-                        <option value="Mabini">Mabini</option>
-                        <option value="Malaking Pulo">Malaking Pulo</option>
-                        <option value="Maria Paz">Maria Paz</option></option>
-                        <option value="Maugat">Maugat</option>
-                        <option value="Montana">Montana</option>
-                        <option value="Natatas">Natatas</option>
-                        <option value="Pagaspas">Pagaspas</option>
-                        <option value="Pantay Bata">Pantay Bata</option>
-                        <option value="Pantay Matanda">Pantay Matanda</option>
-                        <option value="Poblacion 1">Poblacion 1</option>
-                        <option value="Poblacion 2">Poblacion 2</option>
-                        <option value="Poblacion 3">Poblacion 3</option>
-                        <option value="Poblacion 4">Poblacion 4</option>
-                        <option value="Poblacion 5">Poblacion 5</option>
-                        <option value="Poblacion 6">Poblacion 6</option>
-                        <option value="Poblacion 7">Poblacion 7</option>
-                        <option value="Sala">Sala</option>
-                        <option value="Sambat">Sambat</option>
-                        <option value="San Jose">San Jose</option>
-                        <option value="Santol">Santol</option>
-                        <option value="Santor">Santor</option>
-                        <option value="Sulpoc">Sulpoc</option>
-                        <option value="Suplang">Suplang</option>
-                        <option value="Talaga">Talaga</option></option>
-                        <option value="Tinurik">Tinurik</option>
-                        <option value="Trapiche">Trapiche</option>
-                        <option value="Ulango">Ulango</option>
-                        <option value="Wawa">Wawa</option>
-                      </select>
-                    </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="barangayFarm" required>
+                      <option selected> {{$insurances->barangayFarm}}</option>
+                      <option value="Altura Bata">Altura Bata</option>
+                      <option value="Altura Matanda">Altura Matanda</option>
+                      <option value="Altura South">Altura South</option>
+                      <option value="Ambulong">Ambulong</option></option>
+                      <option value="Banadero">Banadero</option>
+                      <option value="Bagbag">Bagbag</option>
+                      <option value="Bagumbayan">Bagumbayan</option>
+                      <option value="Balele">Balele</option>
+                      <option value="Banjo East">Banjo East</option>
+                      <option value="Banjo West">Banjo West</option>
+                      <option value="Bilog-Bilog">Bilog-Bilog</option>
+                      <option value="Boot">Boot</option>
+                      <option value="Cale">Cale</option>
+                      <option value="Darasa">Darasa</option></option>
+                      <option value="Gonzales">Gonzales</option>
+                      <option value="Hidalgo">Hidalgo</option>
+                      <option value="Janopol">Janopol</option>
+                      <option value="Janopol Oriental">Janopol Oriental</option>
+                      <option value="Laurel">Laurel</option>
+                      <option value="Luyos">Luyos</option>
+                      <option value="Mabini">Mabini</option>
+                      <option value="Malaking Pulo">Malaking Pulo</option>
+                      <option value="Maria Paz">Maria Paz</option></option>
+                      <option value="Maugat">Maugat</option>
+                      <option value="Montana">Montana</option>
+                      <option value="Natatas">Natatas</option>
+                      <option value="Pagaspas">Pagaspas</option>
+                      <option value="Pantay Bata">Pantay Bata</option>
+                      <option value="Pantay Matanda">Pantay Matanda</option>
+                      <option value="Poblacion 1">Poblacion 1</option>
+                      <option value="Poblacion 2">Poblacion 2</option>
+                      <option value="Poblacion 3">Poblacion 3</option>
+                      <option value="Poblacion 4">Poblacion 4</option>
+                      <option value="Poblacion 5">Poblacion 5</option>
+                      <option value="Poblacion 6">Poblacion 6</option>
+                      <option value="Poblacion 7">Poblacion 7</option>
+                      <option value="Sala">Sala</option>
+                      <option value="Sambat">Sambat</option>
+                      <option value="San Jose">San Jose</option>
+                      <option value="Santol">Santol</option>
+                      <option value="Santor">Santor</option>
+                      <option value="Sulpoc">Sulpoc</option>
+                      <option value="Suplang">Suplang</option>
+                      <option value="Talaga">Talaga</option></option>
+                      <option value="Tinurik">Tinurik</option>
+                      <option value="Trapiche">Trapiche</option>
+                      <option value="Ulango">Ulango</option>
+                      <option value="Wawa">Wawa</option>
+                    </select>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="city" class="col-lg-2 control-label">Municipality: </label>
-                    <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="city" value="Tanauan City" name="cityFarm">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="province" class="col-lg-2 control-label">Province: </label>
-                    <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="province" value="Batangas" name="provinceFarm">
-                    </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="city" class="col-lg-2 control-label">Municipality: </label>
+                  <div class="col-lg-12">
+                    <input type="text" @readonly(true) class="form-control" id="city" value="Tanauan City" name="cityFarm">
                   </div>
                 </div>
               </div>
-              <br/>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="province" class="col-lg-2 control-label">Province: </label>
+                  <div class="col-lg-12">
+                    <input type="text" @readonly(true) class="form-control" id="province" value="Batangas" name="provinceFarm">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
             </div>
             <div class="row">
               <div class="col-md-4">
@@ -529,6 +513,7 @@
                   <label for="landCategory" class="col-lg-6 control-label">Land Category:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="landCategory" required>
+                      <option selected> {{$insurances->landCategory}} </option>
                       <option value="Irrigated">Irrigated</option>
                       <option value="Rainfed">Rainfed</option>
                       <option value="Upland">Upland</option>
@@ -541,6 +526,7 @@
                   <label for="soilTypes" class="col-lg-6 control-label">Soil Types:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="soilType" required>
+                      <option selected> {{$insurances->soilType}}</option>
                       <option value="Clay Loam">Clay Loam</option>
                       <option value="Silty Clay Loam">Silty Clay Loam</option>
                       <option value="Silty Loam">Silty Loam</option>
@@ -554,6 +540,7 @@
                     <label for="txt_contact" class="col-lg-2 control-label">Soil pH:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example" name="phLevel">
+                        <option selected> {{$insurances->phLevel}}</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -578,6 +565,7 @@
                   <label for="topography" class="col-lg-6 control-label">Topography:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="topography" required>
+                      <option selected> {{$insurances->topography}}</option>
                       <option value="Flat">Flat</option>
                       <option value="Rolling">Rolling</option>
                       <option value="Hilly">Hilly</option>
@@ -590,6 +578,7 @@
                   <label for="irrigationType" class="col-md-12 control-label">Source of Irrigation:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="irrigationType">
+                      <option selected> {{$insurances->irrigationType}}</option>
                       <option value="NIA/CIS - National Irrigation Administration">NIA/CIS - National Irrigation Administration</option>
                       <option value="Deepwell">Deepwell</option>
                       <option value="SWIP - Small Water Impounding Project">SWIP - Small Water Impounding Project</option>
@@ -603,6 +592,7 @@
                   <label for="tenurialType" class="col-lg-6 control-label">Tenurial Status:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example" name="tenurialType">
+                      <option selected> {{$insurances->tenurialType}}</option>
                       <option value="Owner">Owner</option>
                       <option value="Lessee">Lessee</option>
                     </select>
@@ -610,8 +600,8 @@
                 </div>
               </div>
             </div>
-            </div>
           </div>
+        </div>
           <div id="BoundryInfo">
             <legend> <strong>Boundaries </strong></legend>
             <div class="row">
@@ -619,7 +609,7 @@
                 <div class="form-group">
                   <label for="north" class="col-lg-2 control-label">North: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_north" value="" name="north" required>
+                    <input type="text" class="form-control" id="txt_north" value="{{$insurances->north}}" name="north" required>
                   </div>
                 </div>
               </div>
@@ -627,7 +617,7 @@
                 <div class="form-group">
                   <label for="south" class="col-lg-2 control-label"> South: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_south" value="" name="south" required>
+                    <input type="text" class="form-control" id="txt_south" value="{{$insurances->south}}" name="south" required>
                   </div>
                 </div>
               </div>
@@ -637,7 +627,7 @@
                 <div class="form-group">
                   <label for="east" class="col-lg-2 control-label">East: </label>
                   <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_east" value="" name="east" required>
+                    <input type="text"  class="form-control" id="txt_east" value="{{$insurances->east}}" name="east" required>
                   </div>
                 </div>
               </div>
@@ -645,7 +635,7 @@
                 <div class="form-group">
                   <label for="west" class="col-lg-2 control-label"> West: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_west" value="" name="west" required>
+                    <input type="text" class="form-control" id="txt_west" value="{{$insurances->west}}" name="west" required>
                   </div>
                 </div>
               </div>
@@ -661,13 +651,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
-                  <input type="text" id="location-lat" name="location_lat" class="form-control col-lg-12" required>
+                  <input type="text" id="location-lat" name="location_lat" class="form-control col-lg-12" required value="{{$insurances->location_lat}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                    <label for="location-long"  class="col-lg-12 control-label">Longitude:</label>
-                   <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required>
+                   <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required value="{{$insurances->location_long}}">
                   </div>
                  </div>
             </div>

@@ -14,7 +14,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class farmerController extends Controller
 {
    public function index(){
-    $user = User::all()->paginate(10);;
+    $user = User::paginate(10);;
     return view('admin/register', ['users'=>$user]);
    }
     
@@ -151,7 +151,6 @@ class farmerController extends Controller
         ]);
        
         
-        $request->image->move(public_path('images'), $incomingFields['photo']);
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

@@ -6,7 +6,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder">Pending Report</p>
+                  <p class="card-title text-center fw-bolder"> <a href="{{route('insurance.pending')}}" style="text-decoration: none; color:white"> Pending </a> </p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Pending')->get()->count()}}</p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
                   <p class="card-title text-center fw-bolder">Rejected Report</p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Reject')->get()->count()}}</p>
+                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Rejected')->orwhere('status', 'Partially Rejected')->get()->count()}}</p>
                 </div>
             </div>
         </div>
@@ -66,7 +66,6 @@
                         <th>Farm Location</th>
                         <th>Status</th>
                         <th>Notes</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +79,7 @@
                      <td>{{$insurance->dateHarvest}}</td>
                      <td>{{$insurance->barangayFarm}}</td>
                      <td>{{$insurance->status}}</td>
-                     <td>{{$insurance->statusNotes}}</td>
+                     <td>{{$insurance->statusNote}}</td>
                     </tr>
                     @endforeach
                     @else

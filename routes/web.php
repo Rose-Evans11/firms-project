@@ -148,4 +148,11 @@ Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dash
 //SMS
 Route::get('firms/sendsms', [SMSController::class, 'sendsms']); 
 
+//statuses in insurance report
+Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); //adding new farmer
+Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
+Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
+
+
+
 ?>

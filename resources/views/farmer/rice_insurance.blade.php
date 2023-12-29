@@ -80,7 +80,7 @@
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name">
+                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name" name="firstName">
                     </div>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
                   <div class="form-group">
                     <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name">
+                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name" name="middleName">
                     </div>
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                   <div class="form-group">
                     <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name">
+                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name" name="lastName">
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                   <div class="form-group">
                     <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name">
+                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name" name="extensionName">
                     </div>
                   </div>
                 </div>
@@ -122,14 +122,9 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_gender" class="col-lg-12 control-label">Gender: </label>
+                    <label for="sex" class="col-lg-12 control-label">Gender: </label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" @disabled(true) name="sex">
-                        <option selected>{{Auth::User()->sex}} </option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
-                      </select>
+                      <input type="text" class="form-control" id="sex" value="{{Auth::User()->sex}}" name="sex" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -137,15 +132,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
+                    <label for="civilName" class="col-lg-12 control-label">Civil Status: </label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="civilName"  @disabled(true)>
-                        <option selected>{{Auth::User()->civilName}}</option>
-                        <option value="1">Single</option>
-                        <option value="2">Married</option>
-                        <option value="3">Separated</option>
-                        <option value="4">Widowed</option>
-                      </select>
+                      <input type="text" class="form-control" id="civilName" value="{{Auth::User()->civilName}}" name="civilName" @readonly(true)>
                     </div>
                   </div>
                 </div>
@@ -177,15 +166,45 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
-                    <label for="txt_contact" class="col-lg-12 control-label">Barangay:</label>
+                    <label for="barangayAddress" class="col-lg-12 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example" name="barangayAddress"  @disabled(true)>
-                        <option selected>{{Auth::User()->barangayAddress}} </option>
-                      </select>
+                      <input type="text" class="form-control" id="baragangayAddress" value="{{Auth::User()->barangayAddress}}" name="barangayAddress" @readonly(true)>
                     </div>
                   </div>    
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label  class="col-lg-2 control-label">Municipality: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" value="Tanauan City" name="cityAddress">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label  class="col-lg-2 control-label">Province: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="provinceAddress">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label  class="col-lg-2 control-label">Region: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="IV-A" name="regionAddress">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="isIndigenous" class="col-lg-12 control-label">Members of Indigenous Group:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{Auth::User()->isIndigenous}}" name="isIndigenous">
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
@@ -195,8 +214,8 @@
                     </div>
                   </div>
                 </div>
-                </div>
               </div>
+            </div>
       </div>
     </div>
     <!-- second panel -->
@@ -601,13 +620,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
-                  <input type="text" id="location-lat" name="location-lat" class="form-control col-lg-12" required>
+                  <input type="text" id="location-lat" name="location_lat" class="form-control col-lg-12" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                    <label for="location-long"  class="col-lg-12 control-label">Longitude:</label>
-                   <input type="text" id="location-lng" name="location-long" class=" form-control col-lg-12" required>
+                   <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required>
                   </div>
                  </div>
             </div>

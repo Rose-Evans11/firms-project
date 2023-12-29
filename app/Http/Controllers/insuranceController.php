@@ -8,6 +8,7 @@ use Twilio\Rest\Client;
 use Illuminate\Validation\Rule;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class insuranceController extends Controller
 {
@@ -23,10 +24,36 @@ class insuranceController extends Controller
         $insurance=insurance::sortable()->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
     }
+
+    public function edit(insurance $insurance){ //to edit and retrive the information for insurance
+        return view('farmer/edit_insurance', ['insurances'=>$insurance]);
+        //return view('farmer/edit_insurance')->with('insurances', $insurance);
+    }
+    public function pending(){
+        //$insurance = insurance::all();
+        $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+        $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
+        return view('farmer/pending_insurance', ['insurances'=>$insurance]);
+    }
     public function store(Request $request){
         $incomingFields = $request ->validate ([
             'farmersID' => 'required',
             'rsbsa' => 'required',
+            'firstName' => 'required',
+            'middleName' => 'nullable',
+            'lastName' => 'required',
+            'extensionName' => 'nullable',
+            'sex' => 'required',
+            'civilName' => 'required',
+            'spouseName' => 'required',
+            'birthdate' => 'required',
+            'isIndigenous' => 'required',
+            'indigenous' => 'required',
+            'email' => 'required',
+            'barangayAddress' => 'required',
+            'cityAddress' => 'required',
+            'provinceAddress' => 'required',
+            'regionAddress' => 'required',
             'contactNumber' => 'required',
             'insuranceType' => 'required',
             'cropName' => 'required',
@@ -39,9 +66,10 @@ class insuranceController extends Controller
             'barangayFarm' => 'required',
             'cityFarm' => 'required',
             'provinceFarm' => 'required',
-            'location-lat' => 'required',
-            'location-long' => 'required',
+            'location_lat' => 'required',
+            'location_long' => 'required',
             'datePlanted' => 'required',
+            'plantingMethod' => 'required',
             'dateSowing' => 'required',
             'dateHarvest' => 'required',
             'landCategory' => 'required',
@@ -91,7 +119,54 @@ class insuranceController extends Controller
         return back();
     }
 
-    public function sendingSMS(){
+    public function update(insurance $insurance, Request $request){
+        $incomingFields = $request ->validate ([
+            'variety' => 'required',
+            'areaInsured' => 'required',
+            'north' => 'required',
+            'east' => 'required',
+            'west' => 'required',
+            'south' => 'required',
+            'barangayFarm' => 'required',
+            'cityFarm' => 'required',
+            'provinceFarm' => 'required',
+            'location_lat' => 'required',
+            'location_long' => 'required',
+            'datePlanted' => 'required',
+            'plantingMethod' => 'required',
+            'dateSowing' => 'required',
+            'dateHarvest' => 'required',
+            'landCategory' => 'required',
+            'irrigationType' => 'required',
+            'soilType' => 'required',
+            'topography' => 'required',
+            'from' => 'nullable',
+            'to' => 'nullable',
+            'tenurialType' => 'nullable',
+            'phLevel' => 'nullable',
+            'avgYield' => 'nullable',
+            'benefi1' => 'required',
+            'benefi1Relation' => 'required',
+            'benefi1Age' => 'required',
+            'benefi2' => 'required',
+            'benefi2Relation'=> 'required',
+            'benefi2Age' => 'required',
+            'bankName' => 'required',
+            'bankAccount' => 'required',
+            'bankBranch' => 'required',
+            'status' => 'required',
+            'statusNote' => 'nullable',
+            'coverType' => 'nullable',
+            'phase' => 'nullable',
+            'cicNumber' => 'nullable',
+            'cicdateIssued' => 'nullable',
+            'cocNumber' => 'nullable',
+            'cocdateIssued' => 'nullable',
+        ]);
 
+        $insurance->update ($incomingFields);
+        session()->flash('success', 'Successfully Updated!');
+        return redirect(route('insurance.pending'));
     }
+
 }

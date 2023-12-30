@@ -1,12 +1,12 @@
 @extends('layouts.master_farmer')
-@section('title','Pending')
+@section('title','View Insurance')
 @section('content')
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
 </head>
 <style>
-  /* this is for panel */
+  /* this is for panel 
   .flip {
     font-size: 16px;
     padding: 10px;
@@ -15,14 +15,14 @@
     color: white;
     border: solid 1px #a6d8a8;
     margin: auto;
-  }
-  
+  } */
+  /*
   #panelFarmInfo, #panelBenefiInfo, #btn_submit {
     display: none;
     margin: auto;
-  }
+  } */
 
-  /*this is for google map */
+  /*this is for google map 
   #location-map {
       height: 400px;
       width: 100%;
@@ -35,26 +35,12 @@
     .map-container label {
       display: block;
       margin-bottom: 5px;
-    }
+    } */
   </style>
 <div class='container-fluid' style="margin: auto">
-  @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
-@if (session()->has('success'))
-  <div class="alert alert-success">
-   {{Session::get('success')}}
-  </div> 
-@endif
-  <form class="form-horizontal" action="{{route('insurance.update', ['insurance'=>$insurances])}}" method="Post">
+ 
+  <form class="form-horizontal">
     @csrf
-    @method('put')
    <fieldset>
     <!-- 
     <button onclick="javascript:displayfarmsInfo()" class="flip" id="panelbutton">Farmer Information </button>
@@ -661,6 +647,7 @@
                   </div>
                  </div>
             </div>
+            <!--
             <div class="row">
               <div class="col-md-12">
                 <div class="map-container">
@@ -668,10 +655,11 @@
                   <div id="location-map"></div>
               </div>
             </div>
-            <div class="row justify-content-end">
-              <div class="col-md-2">
+          -->
+            <div class="row justify-content-end mt-2">
+              <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                  <button class="btn btn-success m-2" style="width:100%" id="btn_submit">Update</Button>
+                 <a href="<?= url('firms/dashboard'); ?>" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
                 </div>
               </div>
             </div>  
@@ -680,174 +668,5 @@
     </div>
    </fieldset>
   </form>
-
-  <div class="d-flex justify-content-end">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" onclick="javascript:togglePanelFarmInfo()" id="link_farm"> 1  </a></li>
-        <li class="page-item"><a class="page-link" onclick="javascript:toggleBeneficiaries()" id="link_benefi">2</a></li>
-        <li class="page-item"><a class="page-link" onclick="javascript:toggleCropInfo()" id="link_crop">3</a></li>
-        <li class="page-item"><a class="page-link" onclick="javascript:toggleSubmitInfo()"id="link_submit">Review</a></li>
-      </ul>
-    </nav>
-  </div>
-  <script>
-    
-    // get the panel
-    var panelFarmInfo = document.getElementById('panelFarmInfo'); 
-    var panelBenefiInfo = document.getElementById('panelBenefiInfo');
-    var panelCropInfo = document.getElementById('panelCropInfo');
-    var btn_submit = document.getElementById('btn_submit');
-
-    
-    //this is to load the Farmer's Info
-    window.onload = function() {
-      initializeMap();
-      panelBenefiInfo.style.display = 'none';
-      panelCropInfo.style.display = 'none';
-      panelFarmInfo.style.display = 'block';
-      document.getElementById("link_prev").disabled = true;
-      document.getElementById("link_submit").disabled = true;
-    };
-
-    //this function for viewing all the information
-    function toggleSubmitInfo() {
-      panelBenefiInfo.style.display = 'block';
-      panelCropInfo.style.display = 'block';
-      panelFarmInfo.style.display = 'block';
-      btn_submit.style.display = 'block';
-
-
-    }
-    //this is for farmer's information --1st panel --
-    function togglePanelFarmInfo() {
-     // get the current value of the panel's display property
-      var displaySetting = panelFarmInfo.style.display;
-      document.getElementById("btn_submit").display='none';
-
-      // now toggle the panel depending on current state
-      if (displaySetting == 'none') {
-        // panel is visible. hide it
-        panelFarmInfo.style.display = 'block';
-        panelBenefiInfo.style.display = 'none';
-        panelCropInfo.style.display = 'none';
-
-        //disable other page (remove the comment once we have validation)
-        //document.getElementById("link_benefi").disabled = true;
-
-      }
-      //else {
-        // panel is hidden. show it
-        //panelFarmInfo.style.display = 'block';
-        //panelBenefiInfo.style.display = 'none';
-      //}
-    }
-
-    //this is for farmer's beneficiaries --2nd panel --
-    function toggleBeneficiaries() {
-
-      // get the current value of the panel's display property
-      var displaySetting = panelBenefiInfo.style.display;
-
-      // now toggle the panel depending on current state
-      if (displaySetting == 'block') {
-        // panel is visible. hide it
-        //panelBenefiInfo.style.display = 'none';
-      }
-      else {
-        // panel is hidden. show it
-        panelBenefiInfo.style.display = 'block';
-        panelFarmInfo.style.display = 'none';
-        panelCropInfo.style.display = 'none';
-
-        //disable other page (remove the comment once we have validation)
-        //document.getElementById("link_farm").disabled = true;
-      }
-    }
-    function getLocation(field) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-
-            // Reverse geocoding using OpenStreetMap Nominatim API
-            const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
-
-            fetch(geocodingUrl)
-              .then(response => response.json())
-              .then(data => {
-                const address = data.display_name;
-                document.getElementById(field).value = address;
-                document.getElementById(`${field}-lat`).value = latitude;
-                document.getElementById(`${field}-lng`).value = longitude;
-              })
-              .catch(error => {
-                console.log('Error getting address:', error);
-              });
-          },
-          function (error) {
-            console.log('Error getting GPS coordinates:', error);
-          }
-        );
-      } else {
-        console.log('Geolocation is not supported by this browser.');
-      }
-    } 
-
-    function initializeMap() {
-      const map = L.map('location-map').setView([13.9416, 121.1182], 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      map.on('click', function (e) {
-        const lat = e.latlng.lat;
-        const lng = e.latlng.lng;
-        document.getElementById('location-lat').value = lat;
-        document.getElementById('location-lng').value = lng;
-
-        // Reverse geocoding using OpenStreetMap Nominatim API
-        const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
-
-        fetch(geocodingUrl)
-          .then(response => response.json())
-          .then(data => {
-            const address = data.display_name;
-            document.getElementById('location').value = address;
-          })
-          .catch(error => {
-            console.log('Error getting address:', error);
-          });
-      });
-    }
-    //this is for crops details --4th panel --
-    
-    function toggleCropInfo() {
-
-      // get the current value of the panel's display property
-      var displaySetting = panelCropInfo.style.display;
-
-      // now toggle the panel depending on current state
-      if (displaySetting == 'block') {
-        // panel is visible. hide it
-        //panelCropInfo.style.display = 'none';
-      }
-      else {
-        // panel is hidden. show it
-        panelCropInfo.style.display = 'block';
-        btn_submit.style.display = 'none';
-        panelFarmInfo.style.display = 'none';
-        panelBenefiInfo.style.display = 'none';
-      }
-    }
-    $(document).keypress(
-    function(event){
-        if (event.which == '13') {
-        event.preventDefault();
-        }
-    });
-  </script>
 </div>
 @endsection

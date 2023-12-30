@@ -54,8 +54,8 @@
     </div>
     <br/>
     <form action="{{ route('insurance.find') }}" method="GET"> 
-        <div class="row">
-          <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
           <div class="form-group">
             <div class="row">
               <div class="col-lg-2">
@@ -72,9 +72,16 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-lg-5">
+            <div class="form-group">
+              <a href="<?= url('firms/dashboard'); ?>" style="width:100%; text-decoration:none">View All</a>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
+    </form>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-bordered table-striped">
@@ -103,7 +110,7 @@
                      <td>{{$insurance->barangayFarm}}</td>
                      <td>{{$insurance->status}}</td>
                      <td>{{$insurance->statusNote}}</td>
-                     <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> View</a></td>
+                    <td> <a href="{{route('insurance.view', ['insurance'=>$insurance])}}" style="width:100%; text-decoration:none"> View</a></td>
                     </tr>
                     @endforeach
                     @else

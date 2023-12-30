@@ -16,7 +16,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-  <form action="{{ route('web.find') }}" method="GET"> 
+  <form action="{{ route('farmer.find') }}" method="GET"> 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -39,7 +39,7 @@
       <div class="col-md-6">
         <div class="col-lg-5">
           <div class="form-group">
-            <a href="<?= url('firms/farmer/register'); ?>" style="width:100%">View All</a>
+            <a href="<?= url('firms/farmer/register'); ?>" style="width:100%; text-decoration:none">View All</a>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
                             <td>{{$user->lastName}}</td>
                             <td>{{$user->extensionName}}</td>
                             <td>{{$user->isActive}}</td>
-                            <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
+                            <td> <a href="{{route('farmer.edit', ['user'=>$user])}}" style="width:100%; text-decoration:none"> Edit</a></td>
                         </tr>
                         @endforeach
                     @else
@@ -99,24 +99,75 @@
       <div id="farmDeetInfo">
         <legend> <strong>Add new Farmer</strong> </legend>
         <br/>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
-                <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
-                </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
               </div>
             </div>
-            <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
               <div class="form-group">
-                <label for="dt_barangay" class="col-lg-12 control-label">RSBSA Number: </label>
+                <label for="dd_barangay" class="col-lg-2 control-label">Barangay:</label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
+                  <select class="form-select" aria-label="Default select example" required name="barangayAddress">
+                    <option value="Altura Bata">Altura Bata</option>
+                    <option value="Altura Matanda">Altura Matanda</option>
+                    <option value="Altura South">Altura South</option>
+                    <option value="Ambulong">Ambulong</option></option>
+                    <option value="Banadero">Banadero</option>
+                    <option value="Bagbag">Bagbag</option>
+                    <option value="Bagumbayan">Bagumbayan</option>
+                    <option value="Balele">Balele</option>
+                    <option value="Banjo East">Banjo East</option>
+                    <option value="Banjo West">Banjo West</option>
+                    <option value="Bilog-Bilog">Bilog-Bilog</option>
+                    <option value="Boot">Boot</option>
+                    <option value="Cale">Cale</option>
+                    <option value="Darasa">Darasa</option></option>
+                    <option value="Gonzales">Gonzales</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Janopol">Janopol</option>
+                    <option value="Janopol Oriental">Janopol Oriental</option>
+                    <option value="Laurel">Laurel</option>
+                    <option value="Luyos">Luyos</option>
+                    <option value="Mabini">Mabini</option>
+                    <option value="Malaking Pulo">Malaking Pulo</option>
+                    <option value="Maria Paz">Maria Paz</option></option>
+                    <option value="Maugat">Maugat</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Natatas">Natatas</option>
+                    <option value="Pagaspas">Pagaspas</option>
+                    <option value="Pantay Bata">Pantay Bata</option>
+                    <option value="Pantay Matanda">Pantay Matanda</option>
+                    <option value="Poblacion 1">Poblacion 1</option>
+                    <option value="Poblacion 2">Poblacion 2</option>
+                    <option value="Poblacion 3">Poblacion 3</option>
+                    <option value="Poblacion 4">Poblacion 4</option>
+                    <option value="Poblacion 5">Poblacion 5</option>
+                    <option value="Poblacion 6">Poblacion 6</option>
+                    <option value="Poblacion 7">Poblacion 7</option>
+                    <option value="Sala">Sala</option>
+                    <option value="Sambat">Sambat</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Santol">Santol</option>
+                    <option value="Santor">Santor</option>
+                    <option value="Sulpoc">Sulpoc</option>
+                    <option value="Suplang">Suplang</option>
+                    <option value="Talaga">Talaga</option></option>
+                    <option value="Tinurik">Tinurik</option>
+                    <option value="Trapiche">Trapiche</option>
+                    <option value="Ulango">Ulango</option>
+                    <option value="Wawa">Wawa</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
+        </div>
           <div class="row">
             <div class="col-md-3">
                 <div class="form-group">

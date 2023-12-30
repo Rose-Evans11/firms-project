@@ -30,7 +30,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-  <form action="{{ route('web.find') }}" method="GET"> 
+  <form action="{{ route('farmer.find') }}" method="GET"> 
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">
@@ -82,7 +82,7 @@
           <td>{{$user->extensionName}}</td>
           <td>{{$user->barangayAddress}}</td>
           <td>{{$user->isActive}}</td>
-          <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
+          <td> <a href="{{route('farmer.edit', ['user'=>$user])}}" style="width:100%; text-decoration:none"> Edit</a></td>
          </tr>
          @endforeach
          @else

@@ -121,16 +121,21 @@ Route::get('firms/admin/login', function () { //admin login
 });
 
 Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index'); //adding new farmer
+
 //crud for farmer information (note: try mo rin iconnect later yung profile sa page)
 Route::post('/register', [farmerController::class, 'store'])->name('farmer.store');
 Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
 Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
+
 //for edit user account
 Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+
 //search
-Route::get('/find',[farmerController::class, 'find'])->name('web.find');
+Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
+Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');
+
 //for changing password
 Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
 Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
@@ -145,12 +150,10 @@ Route::post('/insurance', [insuranceController::class, 'store'])->name('insuranc
 Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); //adding new farmer
 
 
-//SMS
-Route::get('firms/sendsms', [SMSController::class, 'sendsms']); 
-
 //statuses in insurance report
 Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); //adding new farmer
 Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
+Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
 
 

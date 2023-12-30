@@ -29,6 +29,12 @@ class insuranceController extends Controller
         return view('farmer/edit_insurance', ['insurances'=>$insurance]);
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
+
+    public function view(insurance $insurance){ //to edit and retrive the information for insurance
+        return view('farmer/view_insurance', ['insurances'=>$insurance]);
+        //return view('farmer/edit_insurance')->with('insurances', $insurance);
+    }
+
     public function pending(){
         //$insurance = insurance::all();
         $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
@@ -168,5 +174,21 @@ class insuranceController extends Controller
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('insurance.pending'));
     }
+    public function find(Request $request, insurance $insurance){ //to search and find
+        $request->validate([
+          'query'=>'min:2'
+       ]);
 
+       $search_text = $request->input('query');
+      // $user = User::table('users')
+       $insurance = insurance::Where('barangayFarm', 'like', '%' . $search_text . '%')
+                  ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                  ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                  ->orWhere('status', 'like', '%' . $search_text . '%')
+                  ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                  ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                  ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                  ->paginate(5);
+        return view('farmer/search_insurance',['insurances'=>$insurance]);
+    }
 }

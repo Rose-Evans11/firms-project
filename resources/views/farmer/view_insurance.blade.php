@@ -533,6 +533,27 @@
           @if ($insurances->status== 'Approved')
             <div>
               <legend> <strong> Additional Information </strong></legend>
+              <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Coverage: </strong></label>
+              <div class="row">
+                <div class="col-md-4"> 
+                  <div class="form-group">
+                    <label for="coverType"  class="col-lg-12 control-label">Type of Cover:</label>
+                    <input type="text" id="coverType" name="coverType" class=" form-control col-lg-12" required value="{{$insurances->coverType}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="amountCover"  class="col-lg-12 control-label">Amount of Cover Issued:</label>
+                    <input type="date" id="amountCover" name="amountCover" class=" form-control col-lg-12" required value="{{$insurances->amountCover}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="sumInsured"  class="col-lg-12 control-label">Amount of Cover Issued:</label>
+                    <input type="date" id="sumInsured" name="sumInsured" class=" form-control col-lg-12" required value="{{$insurances->sumInsured}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-6"> 
                   <div class="form-group">

@@ -73,6 +73,20 @@ class insuranceController extends Controller
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
         
+         
+    }
+    public function rejected(){
+        //$insurance = insurance::all();
+        if(Auth::check())   
+        {
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
+            return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+        
+         
     }
     public function store(Request $request){
 

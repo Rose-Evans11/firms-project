@@ -153,6 +153,7 @@ Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dash
 //statuses in insurance report
 Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
 Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
+Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
 Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
 Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');

@@ -11,20 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('farm_list', function (Blueprint $table) {
+        Schema::create('farms', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->unsignedBigInteger('farmersID');
             $table->foreign('farmersID')->references('id')->on('users');
             $table->string('barangayFarm');
             $table->string('cityFarm');
             $table->string('provinceFarm');
+            $table->string('regionFarm');
             $table->string('farmArea');
             $table->string('farmType');
             $table->string('ownershipType');
             $table->string('ownershipDocument');
+            $table->string('ownerName');
             $table->string('withinAncestralDomain');
             $table->string('isAgraReformBenefi');
-            $table->binary('ownershipDocumentFile');
+            $table->binary('ownershipDocumentFile')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('farm_list');
+        Schema::dropIfExists('farms');
     }
 };

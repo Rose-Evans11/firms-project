@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\farmController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,14 +39,7 @@ Route::get('firms/insurance-program', function () {
     return view('farmer/program');
 });
 //once user already login then these following routes is accessible by the farmers
-//Route::get('firms/dashboard', function () {
-//    if(Auth::check())   
-//    {
-//        return view('farmer/dashboard');
-//    }
-//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-//    
-//});
+
 
 //insurance for farmers side
 Route::get('firms/rice-insurance', function () {
@@ -73,7 +67,7 @@ Route::get('firms/hvc-insurance', function () {
 });
 
 //for farmers profile
-Route::get('firms/farmer-profile', function () {
+Route::get('firms/farmer/profile', function () {
     if(Auth::check())   
     {
         return view('farmer/profile');
@@ -91,13 +85,13 @@ Route::get('firms/farmer/change-password', function () {
 });
 
 //for farm list
-Route::get('firms/farmer-farm-list', function () {
-    if(Auth::check())   
-    {
-        return view('farmer/farm_list');
-    }
-    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-});
+//Route::get('firms/farmer-farm-list', function () {
+//    if(Auth::check())   
+//    {
+//        return view('farmer/farm_list');
+//    }
+//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+//});
 
 //for notice of loss
 Route::get('firms/farmer-notice-loss', function () {
@@ -150,7 +144,7 @@ Route::post('/insurance', [insuranceController::class, 'store'])->name('insuranc
 Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); 
 
 
-//statuses in insurance report
+//status in insurance report
 Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
 Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
 Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
@@ -158,6 +152,11 @@ Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edi
 Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
 
+//for farm list
+Route::get('firms/farmer/farm-list', [farmController::class, 'index'])->name('farm.index'); 
+Route::post('/farm', [farmController::class, 'store'])->name('farm.store');
+Route::get('/farmer/farm/{farm}/edit', [farmController::class, 'edit'])->name('farm.edit');
+Route::put('/farmer/farm/{farm}/update', [farmController::class, 'update'])->name('farm.update');
 
 
 ?>

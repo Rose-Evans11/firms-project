@@ -22,7 +22,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                    <p class="card-title text-center fw-bolder">Approved Report</p>
+                    <p class="card-title text-center fw-bolder"><a href="{{route('insurance.approved')}}" style="text-decoration: none; color:white"> Approved Report</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Approved')->get()->count()}}</p>
                 </div>
             </div>

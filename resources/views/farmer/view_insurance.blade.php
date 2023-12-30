@@ -646,7 +646,117 @@
                    <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required value="{{$insurances->location_long}}">
                   </div>
                  </div>
+          </div>
+          <br/>
+          @if ($insurances->status== 'Approved')
+            <div>
+              <legend> <strong> Additional Information </strong></legend>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="cicNumber"  class="col-lg-12 control-label">CIC Number:</label>
+                    <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12" required value="{{$insurances->cicNumber}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cicdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
+                    <input type="date" id="cicdateIssued" name="cicdateIssued" class=" form-control col-lg-12" required value="{{$insurances->cicdateIssued}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="cocNumber"  class="col-lg-12 control-label">COC Number:</label>
+                    <input type="text" id="cocNumber" name="cocNumber" class=" form-control col-lg-12" required value="{{$insurances->cocNumber}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="cocdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
+                    <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12" required value="{{$insurances->cocdateIssued}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Period of Cover: </strong></label>
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="from"  class="col-lg-12 control-label">From:</label>
+                    <input type="date" id="from" name="from" class=" form-control col-lg-12" required value="{{$insurances->from}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="to"  class="col-lg-12 control-label">To:</label>
+                    <input type="date" id="to" name="to" class=" form-control col-lg-12" required value="{{$insurances->to}}" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <label for="cocNumber"  class="col-lg-12 control-label"> <strong> </strong></label>
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="dateSign"  class="col-lg-12 control-label">Date (Signed):</label>
+                    <input type="date" id="dateSign" name="dateSign" class=" form-control col-lg-12" required value="{{$insurances->dateSign}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="signBy"  class="col-lg-12 control-label">Issued and Sign by:</label>
+                    <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12" required value="{{$insurances->signBy}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
             </div>
+          @elseif($insurances->status== 'Partially Rejected')
+            <div>
+              <legend> <strong> Additional Information</strong></legend>
+              <div class="row">
+                 <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="status"  class="col-lg-12 control-label">Status:</label>
+                    <input type="date" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+                    <input type="statusName" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12"> 
+                  <div class="form-group">
+                    <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
+                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @elseif($insurances->status== 'Rejected')
+          <div>
+            <legend> <strong> Additional Information</strong></legend>
+            <div class="row">
+               <div class="col-md-6"> 
+                <div class="form-group">
+                  <label for="status"  class="col-lg-12 control-label">Status:</label>
+                  <input type="date" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+                  <input type="statusName" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                </div>
+              </div>
+            </div>
+          </div>
+          @else
+         
+          @endif
             <!--
             <div class="row">
               <div class="col-md-12">
@@ -659,7 +769,7 @@
             <div class="row justify-content-end mt-2">
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                 <a href="<?= url('firms/dashboard'); ?>" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
                 </div>
               </div>
             </div>  

@@ -147,11 +147,12 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 //validation insurance
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
 //dashboard for farmer
-Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); //adding new farmer
+Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); 
 
 
 //statuses in insurance report
-Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); //adding new farmer
+Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
+Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
 Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
 Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');

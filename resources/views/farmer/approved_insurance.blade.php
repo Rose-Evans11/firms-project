@@ -1,5 +1,5 @@
 @extends('layouts.master_farmer')
-@section('title','Pending Insurance')
+@section('title','Approved Insurance')
 @section('content')
 <style>
   .flip {
@@ -59,7 +59,7 @@
              <td>{{$insurance->barangayFarm}}</td>
              <td>{{$insurance->status}}</td>
              <td>{{$insurance->statusNote}}</td>
-             <td><a href="{{route('insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+             <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> View</a></td>
             </tr>
             @endforeach
             @else

@@ -74,11 +74,18 @@ class insurance extends Model
         'status',
         'statusNote',
         'coverType',
+        'amountCover',
+        'sumInsured',
         'phase',
         'cicNumber',
         'cicdateIssued',
         'cocNumber',
         'cocdateIssued',
+        'dateAssess',
+        'assessBy',
+        'dateSign',
+        'signBy',
+        'requestletter',
     ];
 
     use Sortable;

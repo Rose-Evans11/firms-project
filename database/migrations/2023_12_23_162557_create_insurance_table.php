@@ -71,11 +71,18 @@ return new class extends Migration
             $table->string('status');
             $table->string('statusNote')->nullable();
             $table->string('coverType')->nullable();
+            $table->string('amountCover')->nullable();
+            $table->string('sumInsured')->nullable();
             $table->string('phase')->nullable();
             $table->string('cicNumber')->nullable();
-            $table->string('cicdateIssued')->nullable();
+            $table->date('cicdateIssued')->nullable();
             $table->string('cocNumber')->nullable();
-            $table->string('cocdateIssued')->nullable();
+            $table->date('cocdateIssued')->nullable();
+            $table->string('assessBy')->nullable();
+            $table->date('dateAssess')->nullable();
+            $table->date('dateSign')->nullable();
+            $table->string('signBy')->nullable();
+            $table->string('requestLetter')->nullable();
             $table->timestamps();
         });
     }

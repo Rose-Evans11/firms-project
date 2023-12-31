@@ -13,6 +13,10 @@ class farm extends Model
 
     protected $fillable = [
         'farmersID',
+        'firstName',
+        'middleName',
+        'lastName',
+        'extensionName',
         'barangayFarm',
         'cityFarm',
         'provinceFarm',
@@ -25,5 +29,7 @@ class farm extends Model
         'isAgraReformBenefi',
         'ownershipDocumentFile',
         'farmType',
+        'ownDateFrom',
+        'ownDateTo',
     ];
 }

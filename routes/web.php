@@ -94,7 +94,7 @@ Route::get('firms/farmer/change-password', function () {
 //});
 
 //for notice of loss
-Route::get('firms/farmer-notice-loss', function () {
+Route::get('firms/farmer/notice-loss', function () {
     if(Auth::check())   
     {
         return view('farmer/notice_loss');
@@ -102,7 +102,7 @@ Route::get('firms/farmer-notice-loss', function () {
     return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-Route::get('firms/farmer-indemnity', function () { //for indemnity
+Route::get('firms/farmer/indemnity', function () { //for indemnity
     if(Auth::check())   
     {
         return view('farmer/indemnity');
@@ -121,7 +121,7 @@ Route::post('/register', [farmerController::class, 'store'])->name('farmer.store
 Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
 Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
-Route::post('/logout', [farmerController::class, 'logout']);
+Route::post('/logout', [farmerController::class, 'logout'])->name('logout');
 
 //for edit user account
 Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');

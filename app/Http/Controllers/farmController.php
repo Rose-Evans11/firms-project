@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\farm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class farmController extends Controller
@@ -14,6 +15,7 @@ class farmController extends Controller
             //$insurance = insurance::all();
         $farm = farm::where('farmersID', auth()->id())->get();
         $farm=farm::paginate(10);
+        //$farm = DB::select('SELECT * FROM farms LEFT JOIN users ON farms.id = users.id');
         return view('farmer/farm_list', ['farms'=>$farm]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
@@ -54,6 +56,10 @@ class farmController extends Controller
         {
             $incomingFields = $request ->validate ([
                 'farmersID'=> 'nullable',
+                'firstName'=> 'nullable',
+                'middleName'=> 'nullable',
+                'lastName'=> 'nullable',
+                'extensionName'=> 'nullable',
                 'barangayFarm'=> 'nullable',
                 'cityFarm'=> 'nullable',
                 'provinceFarm'=> 'nullable',
@@ -66,6 +72,8 @@ class farmController extends Controller
                 'isAgraReformBenefi'=> 'nullable',
                 'ownershipDocumentFile'=> 'nullable',
                 'farmType'=> 'nullable',
+                'ownDateFrom'=> 'nullable',
+                'ownDateTo'=> 'nullable',
             ]);
     
             $farm->update ($incomingFields);

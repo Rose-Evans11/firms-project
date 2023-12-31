@@ -91,7 +91,7 @@
               <li class="nav-item">
                 <form id="logout-form" action="/logout" method="POST">
                   @csrf
-                  <button type="submit" class="btn btn-success text-white"> Logout</button>
+                  <button type="submit" class="btn btn-success text-white mt-2" style="opacity: .5; height:25px; padding: 0; outline: 0; border: none;background: none;"> Logout</button>
               </form>
               </li>
               @endauth

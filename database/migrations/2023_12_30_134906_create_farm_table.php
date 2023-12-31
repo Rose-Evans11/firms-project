@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->unsignedBigInteger('farmersID');
             $table->foreign('farmersID')->references('id')->on('users');
+            $table->string('firstName');
+            $table->string('middleName');
+            $table->string('lastName');
+            $table->string('extenstionName')->nullable();
+            $table->string('sitio')->nullable();
             $table->string('barangayFarm');
             $table->string('cityFarm');
             $table->string('provinceFarm');
@@ -27,6 +32,8 @@ return new class extends Migration
             $table->string('withinAncestralDomain');
             $table->string('isAgraReformBenefi');
             $table->binary('ownershipDocumentFile')->nullable();
+            $table->date('ownDateFrom')->nullable();
+            $table->date('ownDateTo')->nullable();
             $table->timestamps();
         });
     }

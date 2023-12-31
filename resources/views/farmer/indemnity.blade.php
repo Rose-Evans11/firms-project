@@ -13,18 +13,11 @@
   }
   
   #panelfarmList {
-    display: none;
+    display: block;
     margin: auto;
   }
   </style>
 <div class='container-fluid' style="margin: auto">
-  <div class="row">
-    <div class="col-md-2">
-      <div class="col-lg-12 d-flex justify-content-end">
-        <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleIndemnity()" id="btn_add"> Add Indemnity Claim</Button>
-      </div>
-    </div>
-  </div>
     <div class="row">
         <div class="col-lg-12">
           <table class="table table-bordered table-striped">
@@ -57,7 +50,7 @@
           <div id="farmerInfo">
             <h5 class="mx-2"> Farmer's Information</h5>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-6 control-label">First Name: </label>
                     <div class="col-lg-12">
@@ -65,7 +58,7 @@
                     </div>
                   </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label for="txt_mname" class="col-lg-6 control-label">Middle Name: </label>
                   <div class="col-lg-12">
@@ -73,7 +66,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <div class="form-group">
                       <label for="txt_lname" class="col-lg-6 control-label"> Last Name: </label>
                       <div class="col-lg-12">
@@ -81,17 +74,17 @@
                       </div>
                     </div>
               </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="txt_extname" class="col-lg-6 control-label">Extension Name: </label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="txt_extname"  value="{{Auth::User()->extensionName}}" name="extensionName" @readonly(true)>
+                  </div>
+                </div>
+            </div>
             </div>
             <div class="row">
-              <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="txt_extname" class="col-lg-6 control-label">Extension Name: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname"  value="{{Auth::User()->extensionName}}" name="extensionName" @readonly(true)>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label for="txt_tel" class="col-lg-6 control-label">Contact Number: </label>
                   <div class="col-lg-12">
@@ -99,7 +92,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
                   <div class="form-group">
                       <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
                       <div class="col-lg-12">
@@ -111,7 +104,7 @@
             <br/>
             <h5 class="mx-2"> Farmer's Address</h5>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
@@ -121,7 +114,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label for="txt_farmersID" class="col-lg-2 control-label">Municipality: </label>
                   <div class="col-lg-12">
@@ -129,11 +122,19 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
                   <div class="col-lg-12">
                     <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-2 control-label">Region: </label>
+                  <div class="col-lg-12">
+                    <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="CALABARZON">
                   </div>
                 </div>
               </div>
@@ -146,7 +147,7 @@
               <legend> <strong>Crop Details</strong> </legend>
               <br/>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
                     <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
                     <div class="col-lg-12">
@@ -154,9 +155,15 @@
                     </div>
                   </div>
                 </div>
-              </div>
-                <div class="row">
-                  <div class="col-md-6">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="txt_insuredID" class="col-lg-6 control-label">CIC Number:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_insuredID" value="" @readonly(true)>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label for="txt_farmersID" class="col-lg-2 control-label">Crops: </label>
                       <div class="col-lg-12">
@@ -164,43 +171,20 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-3">
                     <div class="form-group">
-                      <label for="txt_contact" class="col-lg-2 control-label">Variety :</label>
+                      <label for="txt_contact" class="col-lg-12 control-label">Variety :</label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Variety</option>
-                          <option value="1">None</option>
-                        </select>
+                        <input type="text" class="form-control" id="txt_crops" value="">
                       </div>
                     </div>
                   </div>
                 </div>
+                <br>
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="txt_contact" class="col-lg-6 control-label">Planting Method:</label>
-                      <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Method</option>
-                          <option value="1">None</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="txt_farmersID" class="col-lg-6 control-label">Date of Sowing: </label>
-                      <div class="col-lg-12">
-                        <input type="date" class="form-control" id="txt_sitio" value="">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="txt_farmersID" class="col-lg-6 control-label">Date of Planting: </label>
                       <div class="col-lg-12">
                         <input type="date" class="form-control" id="txt_plant" value="">
                       </div>
@@ -208,7 +192,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="txt_farmersID" class="col-lg-6 control-label">Date of Harvesting: </label>
+                      <label for="txt_farmersID" class="col-lg-6 control-label">Date of Planting: </label>
                       <div class="col-lg-12">
                         <input type="date" class="form-control" id="txt_harvest" value="">
                       </div>
@@ -218,63 +202,21 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="txt_contact" class="col-lg-6 control-label">Land Category:</label>
+                      <label for="txt_farmersID" class="col-lg-6 control-label">Underwriter/ Cooperative: </label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Land Category</option>
-                          <option value="1">None</option>
-                        </select>
+                        <input type="text" class="form-control" id="txt_plant" value="">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="txt_contact" class="col-lg-6 control-label">Soil Types:</label>
+                      <label for="txt_farmersID" class="col-lg-6 control-label"> Program: </label>
                       <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Soil Types</option>
-                          <option value="1">None</option>
-                        </select>
+                        <input type="date" class="form-control" id="txt_harvest" value="">
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="txt_contact" class="col-lg-6 control-label">Topography:</label>
-                      <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Topography</option>
-                          <option value="1">None</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="txt_contact" class="col-md-12 control-label">Source of Irrigation:</label>
-                      <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Irrigation</option>
-                          <option value="1">None</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label for="txt_contact" class="col-lg-6 control-label">Tenurial Status:</label>
-                      <div class="col-lg-12">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Tenurial Status</option>
-                          <option value="1">None</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <br>
                 <div id="farmDeetInfo">
                   <legend> <strong>Farm Details</strong> </legend>
                   <br/>
@@ -320,33 +262,17 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="txt_farmersID" class="col-lg-2 control-label">Area: </label>
+                          <label for="txt_farmersID" class="col-lg-2 control-label">Region: </label>
                           <div class="col-lg-12">
-                            <input type="text" @readonly(true) class="form-control" id="txt_area" value="Tanauan City">
+                            <input type="text" @readonly(true) class="form-control" id="txt_area" value="CALABARZON">
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
-                              <label for="txt_contact" class="col-lg-2 control-label">Soil pH:</label>
+                              <label for="txt_contact" class="col-lg-2 control-label">Area Insured:</label>
                               <div class="col-lg-12">
-                                <select class="form-select" aria-label="Default select example">
-                                  <option selected>Soil pH</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                                  <option value="13">13</option>
-                                  <option value="14">14</option>
-                                </select>
+                            <input type="text" class="form-control" id="txt_area" value="">
                               </div>
                           </div>
                       </div>
@@ -393,12 +319,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="form-group">
-                    <label for="location">Location: </label>
-                    <input type="text" id="location" name="location" class="form-control map-input">
-                  </div>
-                </div>
+                
                <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -448,9 +369,28 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="txt_contact" class="col-lg-12 control-label">Age/Stage of Cultivation at times of loss:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_city_farm" value="">
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="txt_contact" class="col-lg-12 control-label">Area Damaged (ha):</label>
+                      <div class="col-lg-12">
+                        <input type="text" class="form-control" id="dt_farm" value="">
+                      </div>
+                    </div>
+              </div>
+            </div>
+
+            <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label for="txt_contact" class="col-lg-6 control-label">Extent of Loss/Damage:</label>
+                          <label for="txt_contact" class="col-lg-6 control-label">Extent of Loss/Damage (%):</label>
                           <div class="col-lg-12">
                             <input type="text" class="form-control" id="txt_city_farm" value="">
                           </div>
@@ -488,49 +428,12 @@
         <br/>
         <div class="d-flex justify-content-center mt-3"> 
           <br/>
-          <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%">Reset</button>
-          <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%" onclick="javascript:save()">Save</button>
+          <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%" >Add</button>
         </div>
       </div>
    </fieldset>
   </form>
 <script>
-  window.onload = function() {
-    panelIndemnity.style.display = 'none';
-    };
-  function toggleIndemnity() {
-
-    // get the current value of the panel's display property
-    var displaySetting = panelIndemnity.style.display;
-
-    // now toggle the panel depending on current state
-    if (displaySetting == 'block') {
-      // panel is visible. hide it
-      panelIndemnity.style.display = 'none';
-    }
-    else {
-      // panel is hidden. show it
-      panelIndemnity.style.display = 'block';
-      btn_add.style.display = 'none';
-    }
-  }
-
-  function save() {
-
-// get the current value of the panel's display property
-var displaySetting = panelIndemnity.style.display;
-
-// now toggle the panel depending on current state
-if (displaySetting == 'block') {
-  // panel is visible. hide it
-  //panelfarmList.style.display = 'none';
-}
-else {
-  // panel is hidden. show it
-  panelIndemnity.style.display = 'none';
-  btn_add.style.display = 'block';
-}
-}
 $(document).keypress(
     function(event){
         if (event.which == '13') {

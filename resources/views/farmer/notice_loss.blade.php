@@ -145,7 +145,7 @@
           <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_insuredID" class="col-lg-6 control-label">Insurance ID: </label>
+                  <label for="txt_insuredID" class="col-lg-6 control-label">Crop Insurance ID: </label>
                   <div class="col-lg-12">
                     <input type="text" class="form-control" id="txt_insuredID" value="" @readonly(true)>
                   </div>

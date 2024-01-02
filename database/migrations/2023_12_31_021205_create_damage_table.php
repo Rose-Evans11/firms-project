@@ -11,8 +11,35 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('damage', function (Blueprint $table) {
-            $table->id();
+        Schema::create('damages', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->bigInteger('farmersID');
+            $table->string('firstName');
+            $table->string('middleName')->nullable();
+            $table->string('lastName');
+            $table->string('extensionName')->nullable();
+            $table->string('barangayAddress')->nullable();
+            $table->string('cityAddress')->nullable();
+            $table->string('provinceAddress')->nullable();
+            $table->string('regionAddress')->nullable();
+            $table->string('contactNumber')->nullable();
+            $table->string('email');
+            $table->unsignedBigInteger('cropInsuranceID');
+            $table->foreign('cropInsuranceID')->references('id')->on('insurances')->onDelete('cascade');
+            $table->string('cropName');
+            $table->string('insuranceType');
+            $table->string('policyNumber')->nullable();
+            $table->string('sitio')->nullable();
+            $table->string('barangayFarm');
+            $table->string('cityFarm');
+            $table->string('provinceFarm');
+            $table->string('regionFarm');
+            $table->string('damageCause');
+            $table->string('extentDamage');
+            $table->date('dateLoss');
+            $table->date('dateHarvest');
+            $table->date('dateSubmitted');
+            $table->string('signature');
             $table->timestamps();
         });
     }
@@ -22,6 +49,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('damage');
+        Schema::dropIfExists('damages');
     }
 };

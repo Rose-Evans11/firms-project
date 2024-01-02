@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\farmController;
+use App\Http\Controllers\damageController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SMSController;
+use App\Http\Controllers\farmController;
 use App\Http\Controllers\farmerController;
+use App\Http\Controllers\indemnityController;
+use App\Http\Controllers\insuranceController;
 use App\Http\Controllers\farmerProfileController;
 use App\Http\Controllers\forgotPasswordController;
-use App\Http\Controllers\insuranceController;
-use App\Http\Controllers\SMSController;
+use App\Models\damage;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,13 +97,13 @@ Route::get('firms/farmer/change-password', function () {
 //});
 
 //for notice of loss
-Route::get('firms/farmer/notice-loss', function () {
-    if(Auth::check())   
-    {
-        return view('farmer/notice_loss');
-    }
-    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-});
+//Route::get('firms/farmer/notice-loss', function () {
+//    if(Auth::check())   
+//    {
+//        return view('farmer/notice_loss');
+//    }
+//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+//});
 
 Route::get('firms/farmer/indemnity', function () { //for indemnity
     if(Auth::check())   
@@ -158,5 +161,11 @@ Route::post('/farm', [farmController::class, 'store'])->name('farm.store');
 Route::get('/farmer/farm/{farm}/edit', [farmController::class, 'edit'])->name('farm.edit');
 Route::put('/farmer/farm/{farm}/update', [farmController::class, 'update'])->name('farm.update');
 
+//for notice of loss
+Route::get('firms/farmer/notice-loss', [damageController::class, 'index'])->name('damage.index'); 
+Route::post('/notice-loss', [damageController::class, 'store'])->name('damage.store');
+Route::get('/farmer/notice-loss/{insurance}/add', [damageController::class, 'add'])->name('damage.add');
+Route::get('/farmer/notice-loss/{damage}/edit', [damageController::class, 'edit'])->name('damage.edit');
+Route::put('/farmer/notice-loss/{damage}/update', [damageController::class, 'update'])->name('damage.update');
 
 ?>

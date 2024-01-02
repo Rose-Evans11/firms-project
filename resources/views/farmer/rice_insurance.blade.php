@@ -194,7 +194,7 @@
                   <div class="form-group">
                     <label  class="col-lg-2 control-label">Region: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="IV-A" name="regionAddress">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="CALABARZON" name="regionAddress">
                     </div>
                   </div>
                 </div>
@@ -418,7 +418,7 @@
             <br/>
             <div class="row">
              
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="areaInsured" class="col-lg-12 control-label">Area Insured (ha): </label>
                   <div class="col-lg-12">
@@ -427,7 +427,16 @@
                   </div>
                 </div>
               </div>
-                <div class="col-md-6">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="sitio" class="col-lg-12 control-label">Sitio: </label>
+                  <div class="col-lg-12">
+                    <input type="number" class="form-control" id="sitio" name="sitio">
+
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
                     <div class="col-lg-12">
@@ -486,7 +495,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="city" class="col-lg-2 control-label">Municipality: </label>
                     <div class="col-lg-12">
@@ -494,7 +503,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label for="province" class="col-lg-2 control-label">Province: </label>
                     <div class="col-lg-12">
@@ -502,8 +511,15 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="region" class="col-lg-2 control-label">Region: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @readonly(true) class="form-control" id="region" value="CALABARZON" name="regionFarm">
+                    </div>
+                  </div>
+                </div>
               </div>
-              <br/>
             </div>
             <div class="row">
               <div class="col-md-6">

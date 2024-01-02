@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::create('indemnity', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->bigInteger('farmersID');
             $table->string('firstName');
             $table->string('middleName');
             $table->string('lastName');
-            $table->string('extenstionName')->nullable();
+            $table->string('extensionName')->nullable();
             $table->string('barangayAddress'); //farmers address
             $table->string('cityAddress')->nullable();
             $table->string('provinceAddress')->nullable();
             $table->string('regionAddress')->nullable();
             $table->string('contactNumber')->nullable();
             $table->string('email')->unique();
-            $table->unsignedBigInteger('cropInsuranceID');
-            $table->foreign('cropInsuranceID')->references('id')->on('insurances')->onDelete('cascade');
+            $table->unsignedBigInteger('damageID');
+            $table->foreign('damageID')->references('id')->on('damages')->onDelete('cascade');
             $table->string('cicNumber')->nullable();
             $table->string('policyNumber')->nullable();
             $table->string('cropName');
@@ -44,13 +45,11 @@ return new class extends Migration
             $table->string('west');
             $table->string('south');
             //$table->string('location');
-            $table->double('location_lat');
-            $table->double('location_long');
             $table->string('damageCause');
             $table->string('dateLoss');
             $table->string('growthStage');
             $table->string('areaDamage');
-            $table->string('extendDamage');
+            $table->string('extentDamage');
             $table->date('dateHarvest');
             $table->string('signature');
             $table->string('dateSubmitted');

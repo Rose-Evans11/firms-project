@@ -47,11 +47,13 @@ return new class extends Migration
             $table->string('plantingMethod');
             $table->date('dateSowing');
             $table->date('dateHarvest');
-            $table->date('from')->nullable();
-            $table->date('to')->nullable();
+            $table->date('coverFrom')->nullable();
+            $table->date('coverTo')->nullable();
+            $table->string('sitio')->nullanble();
             $table->string('barangayFarm');
             $table->string('cityFarm');
             $table->string('provinceFarm');
+            $table->string('regionFarm');
             $table->string('tenurialType')->nullable();
             $table->string('landCategory');
             $table->string('irrigationType');
@@ -75,6 +77,7 @@ return new class extends Migration
             $table->string('sumInsured')->nullable();
             $table->string('phase')->nullable();
             $table->string('cicNumber')->nullable();
+            $table->string('policyNumber')->nullable();
             $table->date('cicdateIssued')->nullable();
             $table->string('cocNumber')->nullable();
             $table->date('cocdateIssued')->nullable();

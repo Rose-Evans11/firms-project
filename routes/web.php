@@ -117,6 +117,10 @@ Route::get('firms/admin/login', function () { //admin login
     return view('admin/admin_login');
 });
 
+Route::get('firms/data-privacy', function () { //admin login
+    return view('farmer/data_privacy');
+});
+
 Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index'); //adding new farmer
 
 //crud for farmer information (note: try mo rin iconnect later yung profile sa page)

@@ -29,6 +29,7 @@
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
               <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/data-privacy'); ?>">Data Privacy</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer/login'); ?>">Login</a></li>
             </ul>
             

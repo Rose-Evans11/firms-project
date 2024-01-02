@@ -307,39 +307,37 @@
       </div>
     </div>
     <!-- third panel -->
-    <div class="m-3" id="panelCropInfo"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
-            </div>
-          </div>
-        </div>
-      </div> 
+    <div class="m-3" id="panelCropInfo">  
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_insuredID" class="col-lg-12 control-label">Crops Insurance ID:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="insuranceType" class="col-lg-12 control-label">Insurance Type: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="insuranceType" value="{{$insurances->insuranceType}}" name="insuranceType">
                 </div>
               </div>
-            </div><div class="col-md-4">
+            </div><div class="col-md-3">
               <div class="form-group">
-                <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
+                <label for="txt_crops" class="col-lg-12 control-label">Crops: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="cropName" value="{{$insurances->cropName}}" name="cropName">
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
-                <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
+                <label for="txt_variety" class="col-lg-12 control-label">Variety :</label>
                 <div class="col-lg-12">
                   <input type="text"  class="form-control" id="txt_variety" value="{{$insurances->variety}}" name="variety" required  @readonly(true)>
                 </div>
@@ -387,7 +385,7 @@
             <legend> <strong>Farm Details</strong> </legend>
             <br/>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="areaInsured" class="col-lg-12 control-label">Area Insured (ha): </label>
                   <div class="col-lg-12">
@@ -395,7 +393,15 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="areaInsured" class="col-lg-12 control-label">Sitio: </label>
+                  <div class="col-lg-12">
+                    <input type="number" class="form-control" id="areaInsured" name="sitio" value="{{$insurances->sitio}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
@@ -405,19 +411,27 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="city" class="col-lg-2 control-label">Municipality: </label>
                   <div class="col-lg-12">
-                    <input type="text" @readonly(true) class="form-control" id="city" value="Tanauan City" name="cityFarm">
+                    <input type="text" @readonly(true) class="form-control" id="city" value="{{$insurances->cityFarm}}" name="cityFarm">
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="province" class="col-lg-2 control-label">Province: </label>
                   <div class="col-lg-12">
-                    <input type="text" @readonly(true) class="form-control" id="province" value="Batangas" name="provinceFarm">
+                    <input type="text" @readonly(true) class="form-control" id="province" value="{{$insurances->provinceFarm}}" name="provinceFarm">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="province" class="col-lg-2 control-label">Region: </label>
+                  <div class="col-lg-12">
+                    <input type="text" @readonly(true) class="form-control" id="regionFarm" value="{{$insurances->regionFarm}}" name="regionFarm">
                   </div>
                 </div>
               </div>
@@ -544,13 +558,13 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="amountCover"  class="col-lg-12 control-label">Amount of Cover Issued:</label>
-                    <input type="date" id="amountCover" name="amountCover" class=" form-control col-lg-12" required value="{{$insurances->amountCover}}" @readonly(true)>
+                    <input type="text" id="amountCover" name="amountCover" class=" form-control col-lg-12" required value="{{$insurances->amountCover}}" @readonly(true)>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="sumInsured"  class="col-lg-12 control-label">Amount of Cover Issued:</label>
-                    <input type="date" id="sumInsured" name="sumInsured" class=" form-control col-lg-12" required value="{{$insurances->sumInsured}}" @readonly(true)>
+                    <label for="sumInsured"  class="col-lg-12 control-label">Sum Insured:</label>
+                    <input type="text" id="sumInsured" name="sumInsured" class=" form-control col-lg-12" required value="{{$insurances->sumInsured}}" @readonly(true)>
                   </div>
                 </div>
               </div>
@@ -587,13 +601,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="from"  class="col-lg-12 control-label">From:</label>
-                    <input type="date" id="from" name="from" class=" form-control col-lg-12" required value="{{$insurances->coverfrom}}" @readonly(true)>
+                    <input type="date" id="from" name="coverfrom" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="to"  class="col-lg-12 control-label">To:</label>
-                    <input type="date" id="to" name="to" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
+                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" @readonly(true)>
                   </div>
                 </div>
               </div>

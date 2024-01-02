@@ -46,6 +46,7 @@
                 <tr>
                   <th>Notice of Loss ID</th>
                   <th>Crops</th>
+                  <th>Crop Insurance ID</th>
                   <th>Damage Cause</th>
                   <th>Date of Loss</th>
                   <th>Expected Harvest Date</th>
@@ -62,13 +63,14 @@
               <tr>
                <td>{{$damage->id}} </td>
                <td>{{$damage->cropName}}</td>
+               <td>{{$damage->cropInsuranceID}} </td>
                <td>{{$damage->damageCause}} </td>
                <td>{{$damage->dateLoss}}</td>
                <td>{{$damage->dateHarvest}}</td>
                <td>{{$damage->barangayFarm}}</td>
                <td>{{$damage->dateSubmitted}}</td>
                <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-               <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
+               <td><a href="{{route('indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
               </tr>
               @endforeach
               @else

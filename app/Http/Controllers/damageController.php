@@ -6,6 +6,7 @@ use App\Models\damage;
 use Twilio\Rest\Client;
 use App\Models\insurance;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,7 @@ class damageController extends Controller
         'created_at',
     ];
     public function index(){
-        if(Auth::check())   
-        { if(Auth::check())   
+         if(Auth::check())   
             {
                 $damage = DB::table('damages')->where('farmersID', auth()->id())->get();
                 $damage=damage::sortable()->paginate(10);
@@ -29,7 +29,7 @@ class damageController extends Controller
     
             }
              return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-        }    
+          
     }
     public function store(Request $request){
 
@@ -47,18 +47,31 @@ class damageController extends Controller
                 'regionAddress' => 'required',
                 'email' => 'required',
                 'contactNumber' => 'required',
-                'cropInsuranceID' => 'required',
+                'cropInsuranceID' => ['required', Rule::unique('damages', 'cropInsuranceID')],
                 'cropName' => 'required',
+                'variety' => 'required',
                 'insuranceType' => 'required',
                 'policyNumber' => 'required',
+                'cicNumber' => 'required',
+                'underwriterName' => 'nullable',
+                'program' => 'required',
+                'dateSowing' => 'required',
+                'datePlanted' => 'required',
                 'sitio' => 'nullable',
                 'barangayFarm' => 'required',
                 'cityFarm' => 'required',
                 'provinceFarm' => 'required',
                 'regionFarm' => 'required',
+                'areaInsured' => 'required',
+                'north' => 'required',
+                'east' => 'required',
+                'west' => 'required',
+                'south' => 'required',
                 'damageCause' => 'required',
                 'dateLoss' => 'required',
                 'extentDamage' => 'required',
+                'growthStage' => 'required',
+                'areaDamage' => 'required',
                 'dateHarvest' => 'required',
                 'signature' => 'required',
                 'dateSubmitted' => 'required',
@@ -81,7 +94,7 @@ class damageController extends Controller
             
             print($message->sid);
             return back();
-
+            //return view('farmer/notice_loss');
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
        

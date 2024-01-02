@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,8 +27,10 @@ class indemnity extends Model
         'damageID',
         'cicNumber',
         'policyNumber',
+        'cropInsuranceID',
         'cropName',
         'variety',
+        'insuranceType',
         'underwriterName',
         'program',
         'dateSowing',
@@ -51,5 +54,12 @@ class indemnity extends Model
         'signature',
         'dateSubmitted',
 
+    ];
+    use Sortable;
+
+    public $sortable = [
+        'insuranceType',
+        'dateSubmitted',
+        'created_at',
     ];
 }

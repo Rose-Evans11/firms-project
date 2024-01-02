@@ -237,7 +237,14 @@
       </div>
       <div class="col-md-2">
         <div class="col-lg-12 d-flex justify-content-end">
-          <button class="btn btn-success mt-2" style="width:100%" id="btn_submit">Update</Button>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>  

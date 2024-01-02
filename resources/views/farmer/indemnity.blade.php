@@ -32,6 +32,13 @@
        </div> 
      @endif
 <div class='container-fluid' style="margin: auto">
+  <div class="row">
+    <div class="col-md-2 m-3">
+      <div class="col-lg-12">
+        <a href="{{route('damage.index')}}" style="text-decoration: none; color:white" class="btn btn-success">Add Indemnity</a>
+      </div>
+    </div>
+  </div>
     <div class="row">
         <div class="col-lg-12">
           <table class="table table-bordered table-striped">

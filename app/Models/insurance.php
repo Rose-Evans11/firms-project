@@ -48,6 +48,7 @@ class insurance extends Model
         'barangayFarm',
         'cityFarm',
         'provinceFarm',
+        'regionFarm',
         'location_lat',
         'location_long',
         'datePlanted',

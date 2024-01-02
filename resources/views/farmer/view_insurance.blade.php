@@ -189,7 +189,7 @@
                   <div class="form-group">
                     <label  class="col-lg-2 control-label">Region: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="IV-A" name="regionAddress">
+                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="CALABARZON" name="regionAddress">
                     </div>
                   </div>
                 </div>

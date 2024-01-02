@@ -417,7 +417,6 @@
             <legend> <strong>Farm Details</strong> </legend>
             <br/>
             <div class="row">
-             
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="areaInsured" class="col-lg-12 control-label">Area Insured (ha): </label>
@@ -431,7 +430,7 @@
                 <div class="form-group">
                   <label for="sitio" class="col-lg-12 control-label">Sitio: </label>
                   <div class="col-lg-12">
-                    <input type="number" class="form-control" id="sitio" name="sitio">
+                    <input type="text" class="form-control" id="Sitio" name="sitio">
 
                   </div>
                 </div>
@@ -493,7 +492,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+            </div>
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
@@ -513,9 +512,9 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="region" class="col-lg-2 control-label">Region: </label>
+                    <label for="province" class="col-lg-2 control-label">Region: </label>
                     <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="region" value="CALABARZON" name="regionFarm">
+                      <input type="text" @readonly(true) class="form-control" id="province" value="CALABARZON" name="regionFarm">
                     </div>
                   </div>
                 </div>

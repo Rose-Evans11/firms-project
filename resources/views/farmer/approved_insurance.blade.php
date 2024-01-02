@@ -43,7 +43,8 @@
                 <th>Farm Location</th>
                 <th>Status</th>
                 <th>Notes</th>
-                <th>Edit</th>
+                <th>View</th>
+                <th>File Notice of Loss</th>
                 
             </tr>
         </thead>
@@ -59,6 +60,7 @@
              <td>{{$insurance->barangayFarm}}</td>
              <td>{{$insurance->status}}</td>
              <td>{{$insurance->statusNote}}</td>
+             <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none">View</a></td>
              <td><a href="{{route('damage.add', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> File Notice of Loss</a></td>
             </tr>
             @endforeach

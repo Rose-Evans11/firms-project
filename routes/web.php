@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\adminInsuranceController;
 use App\Http\Controllers\damageController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +13,7 @@ use App\Http\Controllers\indemnityController;
 use App\Http\Controllers\insuranceController;
 use App\Http\Controllers\farmerProfileController;
 use App\Http\Controllers\forgotPasswordController;
+use App\Models\admin;
 use App\Models\damage;
 
 /*
@@ -46,7 +49,8 @@ Route::get('firms/insurance-program', function () {
 
 //insurance for farmers side
 Route::get('firms/rice-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)   
     {
         return view('farmer/rice_insurance');
     }
@@ -54,7 +58,8 @@ Route::get('firms/rice-insurance', function () {
 });
 
 Route::get('firms/corn-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)   
     {
         return view('farmer/corn_insurance');
     }
@@ -62,7 +67,8 @@ Route::get('firms/corn-insurance', function () {
 });
 
 Route::get('firms/hvc-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)   
     {
         return view('farmer/hvc_insurance');
     }
@@ -71,7 +77,8 @@ Route::get('firms/hvc-insurance', function () {
 
 //for farmers profile
 Route::get('firms/farmer/profile', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)    
     {
         return view('farmer/profile');
     }
@@ -80,38 +87,13 @@ Route::get('firms/farmer/profile', function () {
 
 //for farmers password
 Route::get('firms/farmer/change-password', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)    
     {
         return view('farmer/change_password');
     }
     return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
 });
-
-//for farm list
-//Route::get('firms/farmer-farm-list', function () {
-//    if(Auth::check())   
-//    {
-//        return view('farmer/farm_list');
-//    }
-//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-//});
-
-//for notice of loss
-//Route::get('firms/farmer/notice-loss', function () {
-//    if(Auth::check())   
-//    {
-//        return view('farmer/notice_loss');
-//    }
-//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-//});
-
-//Route::get('firms/farmer/indemnity', function () { //for indemnity
-//    if(Auth::check())   
-//    {
-//        return view('farmer/indemnity');
-//    }
-//    return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-//});
 
 Route::get('firms/admin/login', function () { //admin login
     return view('admin/admin_login');
@@ -137,7 +119,7 @@ Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])
 Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
 Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');
 
-//for changing password
+//for changing password farmer side
 Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
 Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
 //reset password
@@ -145,6 +127,20 @@ Route::get('forget-password', [forgotPasswordController ::class, 'showForgetPass
 Route::post('forget-password', [forgotPasswordController ::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+//validation insurance
+Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
+//dashboard for farmer
+Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); 
+
+//for changing password admin side
+Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
+Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
+//reset password
+Route::get('/admin/forget-password', [forgotPasswordController ::class, 'adminShowForgetPasswordForm'])->name('admin.forget.password.get');
+Route::post('/admin/forget-password', [forgotPasswordController ::class, 'adminSubmitForgetPasswordForm'])->name('admin.forget.password.post'); 
+Route::get('/admin/reset-password/{token}', [ForgotPasswordController::class, 'adminShowResetPasswordForm'])->name('admin.reset.password.get');
+Route::post('/admin/reset-password', [ForgotPasswordController::class, 'adminSubmitResetPasswordForm'])->name('admin.reset.password.post');
+
 //validation insurance
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
 //dashboard for farmer
@@ -179,5 +175,10 @@ Route::get('/farmer/indemnity/{indemnity}/edit', [indemnityController::class, 'e
 Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 'update'])->name('indemnity.update');
 Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
 
+//admin
+Route::post('/login/admin', [adminController::class, 'login'])->name('admin.login');
+Route::post('/logout/admin', [adminController::class, 'logout'])->name('admin.logout');
+
+Route::get('firms/admin/dashboard', [adminInsuranceController::class, 'index'])->name('dashboard.admin.index'); 
 
 ?>

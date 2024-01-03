@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Twilio\Rest\Client;
+use Twilio\Http\Client;
 use App\Models\insurance;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\LengthAwarePaginator;
 
-class insuranceController extends Controller
+class adminInsuranceController extends Controller
 {
     use Sortable;
 
@@ -20,21 +18,19 @@ class insuranceController extends Controller
         'created_at',
     ];
     public function index(){
-        $user = Auth::guard('web')->user();
-        if($user)  
+        if (Auth::guard('admin')->check())
         {
             //$insurance = insurance::all();
-        $insurance = insurance::where('farmersID', auth()->id())->get();
+        $insurance = insurance::all();
         $insurance=insurance::sortable()->paginate(10);
-        return view('farmer/dashboard', ['insurances'=>$insurance]);
+        return view('/admin/dashboard', ['insurances'=>$insurance]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
        
     }
 
     public function edit(insurance $insurance){ //to edit and retrive the information for insurance
-        $user = Auth::guard('web')->user();
-        if($user)    
+        if (Auth::guard('admin')->check())  
         {
             return view('farmer/edit_insurance', ['insurances'=>$insurance]);
 
@@ -44,8 +40,7 @@ class insuranceController extends Controller
     }
 
     public function view(insurance $insurance){ //to edit and retrive the information for insurance
-        $user = Auth::guard('web')->user();
-        if($user)  
+        if (Auth::guard('admin')->check()) 
         {
             return view('farmer/view_insurance', ['insurances'=>$insurance]);
 
@@ -55,8 +50,7 @@ class insuranceController extends Controller
 
     public function pending(){
         //$insurance = insurance::all();
-        $user = Auth::guard('web')->user();
-        if($user)   
+        if (Auth::guard('admin')->check())
         {
             $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
@@ -67,8 +61,7 @@ class insuranceController extends Controller
     }
 
     public function approved(){
-        //$insurance = insurance::all();
-        if(Auth::check())   
+        if (Auth::guard('admin')->check())  
         {
             $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
@@ -80,8 +73,7 @@ class insuranceController extends Controller
          
     }
     public function rejected(){
-        //$insurance = insurance::all();
-        if(Auth::check())   
+        if (Auth::guard('admin')->check())
         {
             $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
@@ -94,8 +86,7 @@ class insuranceController extends Controller
     }
     public function store(Request $request){
 
-        $user = Auth::guard('web')->user();
-        if($user)  
+        if (Auth::guard('admin')->check())
         {
             $incomingFields = $request ->validate ([
                 'farmersID' => 'required',
@@ -195,8 +186,7 @@ class insuranceController extends Controller
 
     public function update(insurance $insurance, Request $request){
 
-        $user = Auth::guard('web')->user();
-        if($user)   
+        if (Auth::guard('admin')->check()) 
         {
             $incomingFields = $request ->validate ([
                 'variety' => 'required',
@@ -259,8 +249,7 @@ class insuranceController extends Controller
     }
     public function find(Request $request, insurance $insurance){ //to search and find
 
-        $user = Auth::guard('web')->user();
-        if($user)  
+        if (Auth::guard('admin')->check())  
         {
             $search_text = $request->input('query');
       // $user = User::table('users')
@@ -283,8 +272,7 @@ class insuranceController extends Controller
 
     public function admin_insurance_find(Request $request, insurance $insurance){ //to search and find
 
-        $user = Auth::guard('web')->user();
-        if($user)  
+        if (Auth::guard('admin')->check())
         {
             $search_text = $request->input('query');
       // $user = User::table('users')

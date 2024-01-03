@@ -16,13 +16,29 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-light bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
-        <div class="container-fluid px-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
+        <div class="container-fluid">
           <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
-          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>     
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="<?= url('firms/'); ?>">Home</a>
+              </li>
+            </ul>
         </div>
     </nav>
    
- @yield('content')   
+    <div class="contain-fluid p-5 ">
+        <div>
+           <h1> @yield('title')</h1>
+        </div>
+        <div  class='container-fluid' style="margin: auto">
+        @yield('content')
+        </div>
+      </div>
 </body>
 </html>

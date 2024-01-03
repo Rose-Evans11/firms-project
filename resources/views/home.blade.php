@@ -34,14 +34,14 @@
                   <br />
                   <br />
                   <p class="lead text-center">
-                    <h5>
+                    <h6>
                       <b>With FIRMS, we protect your crops as we protect your future.</b>
-                    </h5>
+                    </h6>
                   </p>
                 </div>
                 <div class="col-md-6" style="padding-top: 50px;padding-left: 90px">
                   <h4><b>Login to your Account</b> </h4>
-                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="#"> Admin</a>
+                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="<?= url('firms/admin/login'); ?>"> Admin</a>
                     <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="<?= url('firms/farmer/login'); ?>"> Farmer</a>
                   </form>
                 </div>

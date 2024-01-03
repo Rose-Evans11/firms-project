@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class farmController extends Controller
 {
     public function index(){
-        if(Auth::check())   
+        $user = Auth::guard('web')->user();
+        if($user)  
         {
             //$insurance = insurance::all();
         $farm = farm::where('farmersID', auth()->id())->get();
@@ -42,7 +43,8 @@ class farmController extends Controller
         return redirect(route('farm.index'));
     }
     public function edit(farm $farm){ //to edit and retrive the information for insurance
-        if(Auth::check())   
+        $user = Auth::guard('web')->user();
+        if($user)    
         {
             return view('farmer/edit_farm', ['farms'=>$farm]);
 
@@ -52,7 +54,8 @@ class farmController extends Controller
     }
     public function update(farm $farm, Request $request){
 
-        if(Auth::check())   
+        $user = Auth::guard('web')->user();
+        if($user)    
         {
             $incomingFields = $request ->validate ([
                 'farmersID'=> 'nullable',

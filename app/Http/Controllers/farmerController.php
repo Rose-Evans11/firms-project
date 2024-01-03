@@ -79,7 +79,7 @@ class farmerController extends Controller
             'loginPass' => 'required',
         ]);
 
-        if(auth()->attempt(['email'=>$incomingFields['loginEmail'], 'password' =>$incomingFields['loginPass']])){
+        if (Auth::guard('web')->attempt(['email' => $incomingFields['loginEmail'], 'password' => $incomingFields['loginPass']])){
             $request->session()->regenerate();
             return redirect('firms/dashboard');
         }
@@ -88,10 +88,13 @@ class farmerController extends Controller
     
     public function logout(){ //to logout the farmers
         
-        auth()->logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        return redirect('/firms/farmer/login');
+        if (Auth::guard('web')->check()) {
+            // User is authenticated
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
+            return redirect('/firms/farmer/login');
+        }
     }  
     
     public function edit(User $user){ //to edit and retrive the information

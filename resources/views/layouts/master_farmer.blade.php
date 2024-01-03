@@ -15,35 +15,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- custom CSS should come after Bootstrap CSS -->
     <link href="{{ asset('css/app.scss') }}" rel="stylesheet">
-    <!-- <script>
-      function initializeMap() {
-      const map = L.map('destination-map').setView([13.9416, 121.1182], 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      map.on('click', function (e) {
-      const lat = e.latlng.lat;
-      const lng = e.latlng.lng;
-      document.getElementById('destination-lat').value = lat;
-      document.getElementById('destination-lng').value = lng;
-
-      // Reverse geocoding using OpenStreetMap Nominatim API
-      const geocodingUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
-
-      fetch(geocodingUrl)
-        .then(response => response.json())
-        .then(data => {
-          const address = data.display_name;
-          document.getElementById('destination').value = address;
-        })
-        .catch(error => {
-          console.log('Error getting address:', error);
-        });
-      });
-      }
-    </script>  this will remove only if needed for google map-->
     <!-- this following line of code is for  google map -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" /> 

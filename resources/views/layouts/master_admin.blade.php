@@ -26,7 +26,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/dashboard'); ?>"> Dashboard</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/dashboard'); ?>"> Dashboard</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,25 +38,21 @@
                   <li><a class="dropdown-item" href="<?= url('firms/hvc-insurance'); ?>">High Value Crops</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-notice-loss'); ?>"> Notice of Loss</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-indemnity'); ?>"> Indemnity</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-farm-list'); ?>"> Farm List</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Settings
-                </a>
+              <li class="nav-item"> <a class="nav-link" aria-current="page" href="<?= url('firms/farmer/notice-loss'); ?>"> Notice of Loss</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/indemnity'); ?>"> Indemnity</a></li>
+              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/farm-list'); ?>"> Farm List</a></li>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-change-password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer/change-password'); ?>">Change Password</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer/profile'); ?>"> {{ Auth::guard('admin')->user()->firstName }} </a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <form id="logout-form" action="/logout/admin" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-success text-white mt-2" style="opacity: .5; height:25px; padding: 0; outline: 0; border: none;background: none;"> Logout</button>
+              </form>
+              </li>         
             </ul>
           </div>
         </div>

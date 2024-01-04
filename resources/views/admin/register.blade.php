@@ -29,8 +29,6 @@
     </div>
   @endif
   {{Session::get('success')}}
-
-  <!--
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">
@@ -91,7 +89,7 @@
         </tbody>
     </table>
     </div>
-  -->
+  
     <!-- this is for adding farmer -->
   <form class="form-horizontal" action="/register" method="POST">
     @csrf

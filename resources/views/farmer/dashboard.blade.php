@@ -55,6 +55,7 @@
     <br/>
     <div class="row">
         <div class="col-md-12">
+          <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -72,6 +73,7 @@
                <!-- add here the data -->
                 </tbody>
             </table>
+          </div>
         </div>
     </div>
 @endsection

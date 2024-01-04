@@ -22,9 +22,6 @@
         <fieldset>
         <div class="m-3">
         <div id="farmDeetInfo">
-            <h4>
-            <strong>  <a href="<?= url('firms/farmer/register'); ?>" class="link-success" style="text-decoration: none"> < Back</a></strong></strong>
-            </h4>
             <legend> <strong> Edit Farmer</strong> </legend>
             <br/>
             @if ($errors->any())
@@ -194,13 +191,20 @@
                     </div> -->
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col-md-12">
-            <div class="form-group">
-                    <button class="btn btn-sm btn-success" type="submit" style="width:100%">Update</button>
+            <div class="row justify-content-end">
+                <div class="col-md-2">
+                  <div class="col-lg-12 d-flex justify-content-end">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a class="btn btn-sm btn-success m-2" href="<?= url('firms/farmer/register'); ?>" style="width:100%">Cancel</a>
+                      </div>
+                      <div class="col-md-6">
+                        <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-            </div>
+              </div> 
         </div>
     </fieldset>
     </form>

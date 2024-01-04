@@ -51,35 +51,19 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
         <div class="container-fluid">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               @guest
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer'); ?>">Login</a></li>
-              @endguest
-              @auth
-              @guest
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/'); ?>">Home</a></li>
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('/firms'); ?>">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
               <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('/firms/farmer/login'); ?>">Login</a></li>
-              @endguest
-              @auth
-              @guest
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer'); ?>">Login</a></li>
               @endguest
               @auth
               <li class="nav-item">

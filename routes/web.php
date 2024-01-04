@@ -9,7 +9,6 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\damageController;
 use App\Http\Controllers\indemnityController;
 use App\Http\Controllers\insuranceController;
-use App\Http\Controllers\farmerProfileController;
 use App\Http\Controllers\adminInsuranceController;
 use App\Http\Controllers\forgotPasswordController;
 
@@ -136,10 +135,7 @@ Route::get('firms/farmer-indemnity', function () { //for indemnity
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-Route::get('firms/admin-index', function () {
-
-
-}); //admin login
+ //admin change password
 Route::get('firms/admin/change_password', function () {
     $user = Auth::guard('admin')->user();
     if($user)    
@@ -158,10 +154,25 @@ Route::get('firms/admin/login', function () { //admin login
 Route::get('firms/admin-register', function () {
     return view('admin/register');
 });
+
+//for forget-password
+Route::get('/forget-password', [forgotPasswordController ::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('/forget-password', [forgotPasswordController ::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+//for admin
+Route::get('admin/forget-password', [forgotPasswordController ::class, 'adminShowForgetPasswordForm'])->name('admin.forget.password.get');
+Route::post('admin/forget-password', [forgotPasswordController ::class, 'adminSubmitForgetPasswordForm'])->name('admin.forget.password.post'); 
+Route::get('admin/reset-password/{token}', [ForgotPasswordController::class, 'adminShowResetPasswordForm'])->name('admin.reset.password.get');
+Route::post('admin/reset-password', [ForgotPasswordController::class, 'adminSubmitResetPasswordForm'])->name('admin.reset.password.post');
+
+//login for farmers
 Route::post('/register', [farmerController::class, 'register']);
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 
-Route::post('/forgot/password', [forgotPasswordController::class, 'showForgetPasswordFor'])->name('forget.password.get');
-
+//login for admin
+Route::post('admin/register', [adminController::class, 'register'])->name('admin.index');
+Route::post('admin/login', [adminController::class, 'login'])->name('admin.login');
+Route::post('admin/logout', [adminController::class, 'logout'])->name('admin.logout');
 ?>

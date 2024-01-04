@@ -37,7 +37,7 @@
                   <div class="col-md-12">
                       <div class="checkbox">
                           <label>
-                            <a href="{{ route('forget.password.get') }}" class="">Forgot password?</a>
+                            <a href="/forget-password" class="">Forgot password?</a>
                           </label>
                       </div>
                   </div>

@@ -23,6 +23,10 @@ use App\Http\Controllers\forgotPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('', function () { //farmers landing page
+    return view('/home'); 
+});
+
 Route::get('/firms', function () { //farmers landing page
     return view('/home'); 
 });

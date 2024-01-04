@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class admin extends Model  implements Authenticatable
+class Admin extends Model implements Authenticatable
 {
-    use Authenticatable, HasApiTokens, HasFactory, Notifiable;
+    use AuthenticableTrait, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.

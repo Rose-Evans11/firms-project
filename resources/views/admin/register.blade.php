@@ -16,6 +16,9 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">
+ 
+  
+
   @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -25,12 +28,7 @@
         </ul>
     </div>
   @endif
-  @if (session()->has('success'))
-    <div class="alert alert-success">
-     {{Session::get('success')}}
-    </div> 
-  @endif
-  <form action="{{ route('farmer.find') }}" method="GET"> 
+  {{Session::get('success')}}
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">
@@ -82,7 +80,7 @@
           <td>{{$user->extensionName}}</td>
           <td>{{$user->barangayAddress}}</td>
           <td>{{$user->isActive}}</td>
-          <td> <a href="{{route('farmer.edit', ['user'=>$user])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+          <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
          </tr>
          @endforeach
          @else
@@ -91,7 +89,7 @@
         </tbody>
     </table>
     </div>
-  </div>
+  
     <!-- this is for adding farmer -->
   <form class="form-horizontal" action="/register" method="POST">
     @csrf

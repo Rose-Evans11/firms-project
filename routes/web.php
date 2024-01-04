@@ -48,18 +48,12 @@ Route::get('firms/insurance-program', function () {
     return view('farmer/program');
 });
 //once user already login then these following routes is accessible by the farmers
-Route::get('firms/dashboard', function () {
-    if(Auth::check())   
-    {
-        return view('farmer/dashboard');
-    }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
-    
-});
+Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); 
 
 //insurance for farmers side
 Route::get('firms/rice-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user) 
     {
         return view('farmer/rice_insurance');
     }
@@ -67,7 +61,8 @@ Route::get('firms/rice-insurance', function () {
 });
 
 Route::get('firms/corn-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)  
     {
         return view('farmer/corn_insurance');
     }
@@ -75,7 +70,8 @@ Route::get('firms/corn-insurance', function () {
 });
 
 Route::get('firms/hvc-insurance', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)    
     {
         return view('farmer/hvc_insurance');
     }
@@ -84,13 +80,14 @@ Route::get('firms/hvc-insurance', function () {
 
 //for farmers profile
 Route::get('firms/farmer-profile', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user) 
     {
         return view('farmer/profile');
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
-
+//for admin profile
 Route::get('firms/admin/profile', function () {
     $user = Auth::guard('admin')->user();
     if($user)    
@@ -102,21 +99,14 @@ Route::get('firms/admin/profile', function () {
 
 //for farmers password
 Route::get('firms/farmer/change-password', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)  
     {
         return view('farmer/change_password');
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-//for farm list
-Route::get('firms/farmer-farm-list', function () {
-    if(Auth::check())   
-    {
-        return view('farmer/farm_list');
-    }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
-});
 
 //for notice of loss
 Route::get('firms/farmer-notice-loss', function () {
@@ -145,14 +135,11 @@ Route::get('firms/admin/change_password', function () {
     return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-Route::get('firms/admin/login', function () { //admin login
-    return view('admin/admin_login');
-});
 
-//for admin side 
-//register
-Route::get('firms/admin-register', function () {
-    return view('admin/register');
+
+//for data privacy
+Route::get('firms/data-privacy', function () { 
+    return view('farmer/data_privacy');
 });
 
 //for forget-password
@@ -160,19 +147,95 @@ Route::get('/forget-password', [forgotPasswordController ::class, 'showForgetPas
 Route::post('/forget-password', [forgotPasswordController ::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-//for admin
+
+//for admin forget password
 Route::get('admin/forget-password', [forgotPasswordController ::class, 'adminShowForgetPasswordForm'])->name('admin.forget.password.get');
 Route::post('admin/forget-password', [forgotPasswordController ::class, 'adminSubmitForgetPasswordForm'])->name('admin.forget.password.post'); 
 Route::get('admin/reset-password/{token}', [ForgotPasswordController::class, 'adminShowResetPasswordForm'])->name('admin.reset.password.get');
 Route::post('admin/reset-password', [ForgotPasswordController::class, 'adminSubmitResetPasswordForm'])->name('admin.reset.password.post');
 
-//login for farmers
-Route::post('/register', [farmerController::class, 'register']);
+//for farmers CRUD
+Route::post('/register', [farmerController::class, 'store'])->name('farmer.store');
+Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
+Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 
+//for edit user account
+Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+
+//for changing password farmer side
+Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
+Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
+
+//search function
+Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
+Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');
+
+
+//status in insurance report
+Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
+Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
+Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
+Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
+Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
+Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
+
+//validation and storing for insurance
+Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
+//status in insurance report
+Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
+Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
+Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
+Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
+Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
+Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
+
+//for farm list
+Route::get('firms/farmer/farm-list', [farmController::class, 'index'])->name('farm.index'); 
+Route::post('/farm', [farmController::class, 'store'])->name('farm.store');
+Route::get('/farmer/farm/{farm}/edit', [farmController::class, 'edit'])->name('farm.edit');
+Route::put('/farmer/farm/{farm}/update', [farmController::class, 'update'])->name('farm.update');
+
+//for notice of loss
+Route::get('firms/farmer/notice-loss', [damageController::class, 'index'])->name('damage.index'); 
+Route::post('/notice-loss', [damageController::class, 'store'])->name('damage.store');
+Route::get('/farmer/notice-loss/{insurance}/add', [damageController::class, 'add'])->name('damage.add');
+Route::get('/farmer/notice-loss/{damage}/edit', [damageController::class, 'edit'])->name('damage.edit');
+Route::put('/farmer/notice-loss/{damage}/update', [damageController::class, 'update'])->name('damage.update');
+
+//for indemnity
+Route::get('firms/farmer/indemnity', [indemnityController::class, 'index'])->name('indemnity.index'); 
+Route::get('/farmer/indemnity/{damage}/add', [indemnityController::class, 'add'])->name('indemnity.add');
+Route::get('/farmer/indemnity/{indemnity}/edit', [indemnityController::class, 'edit'])->name('indemnity.edit');
+Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 'update'])->name('indemnity.update');
+Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
+
+
+Route::get('firms/admin/login', function () { //admin login
+    return view('admin/admin_login');
+});
+
+//for admin side 
+//register
+//Route::get('firms/admin-register', function () {
+//    return view('admin/register');
+//});
+
 //login for admin
 Route::post('admin/register', [adminController::class, 'register'])->name('admin.index');
+Route::get('firms/admin/register', [adminController::class, 'index'])->name('admin.index'); 
+
 Route::post('admin/login', [adminController::class, 'login'])->name('admin.login');
 Route::post('admin/logout', [adminController::class, 'logout'])->name('admin.logout');
+
+//dashboard for admin
+Route::get('firms/admin/dashboard', [adminInsuranceController::class, 'index'])->name('dashboard.admin.index'); 
+//admin index for 
+
+//adding new farmer
+Route::post('/register/admin', [adminController::class, 'store'])->name('admin.store');
+Route::get('/admin/{admin}/edit', [adminController::class, 'edit'])->name('admin.edit');
+Route::put('/admin/{admin}/update', [adminController::class, 'update'])->name('admin.update');
+Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 ?>

@@ -28,6 +28,7 @@ class User extends Authenticatable
         'sex',
         'age',
         'email',
+        'email_verified_at',
         'password',
         'barangayAddress',
         'cityAddress',
@@ -61,9 +62,9 @@ class User extends Authenticatable
         'isPWD',
         'contactPerson',
         'emergenceNumber',
-        'email',
-        'password',
-
+        'bankName',
+        'bankAccount',
+        'bankBranch',
     ];
 
     /**

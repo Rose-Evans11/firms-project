@@ -22,7 +22,11 @@
           </button>
         </div>
     </nav>
-   
- @yield('content')   
+    <div class="contain-fluid p-5 ">
+        
+        <div  class='container-fluid' style="margin: auto">
+        @yield('content')
+        </div>
+    </div>   
 </body>
 </html>

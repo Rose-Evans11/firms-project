@@ -28,7 +28,7 @@
       </nav>
       <div class="contain-fluid ">
         <div  class='container-fluid' style="margin: auto">
-            <div class="row" style="padding: 80px">
+            <div class="row" style="padding: 5%">
                 <div class="col-md-6" style=" padding-left:50px; padding-right:50px">
                   <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" />
                   <br />

@@ -16,9 +16,9 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-light bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
-        <div class="container-fluid px-5">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+    <nav class="navbar navbar-dark bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
+        <div class="container-fluid" style="padding-left:20% 10% 20%">
+          <a class="navbar-brand navbar-dark" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

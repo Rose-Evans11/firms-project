@@ -1,8 +1,8 @@
 @extends('layouts.master_farmer')
 @section('title','Insurance Program')
 @section('content')
-<div class='container-fluid'style="padding:80px">
-  <div id="demo" class="carousel slide" data-bs-ride="carousel" style="padding-left:80px; padding-right:80px; padding-bottom: 80pxp">
+<div class='container-fluid'style="padding: 5% 7% 5%">
+  <div id="demo" class="carousel slide" data-bs-ride="carousel" style="padding: 5% 7% 5%">
 
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
@@ -17,22 +17,22 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('Images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:100%; height:auto">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:100%; height:auto">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Images/img_hvc.png') }}" alt="High Value Crops Insurance" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_hvc.png') }}" alt="High Value Crops Insurance" class="img-fluid" style="width:100%; height:auto">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Images/img_assets.png') }}" alt="Non-Agricultural Assets" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_assets.png') }}" alt="Non-Agricultural Assets" class="img-fluid" style="width:100%; height:auto">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Images/img_aqua.png') }}" alt="Fisheries/Aquaculture" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_aqua.png') }}" alt="Fisheries/Aquaculture" class="img-fluid" style="width:100%; height:auto">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('Images/img_ls.png') }}" alt="Livestock" class="img-fluid" style="width:100%; height:auto">
+        <img src="{{ asset('images/img_ls.png') }}" alt="Livestock" class="img-fluid" style="width:100%; height:auto">
       </div>
     </div>
     

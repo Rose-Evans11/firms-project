@@ -1,7 +1,7 @@
 @extends('layouts.master_farmer')
 @section('title','About Page')
 @section('content')
-<div class='container-fluid' style="padding-top:50px; padding-left:50px; padding-right:50px">
+<div class='container-fluid' style="padding: 5% 7% 5%">
     <div class="row">
         <div class="col-md-6">
             <br />
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-6">
             
-            <img src="{{ asset('Images/img_about.png') }}" class="img-fluid" alt="" />
+            <img src="{{ asset('images/img_about.png') }}" class="img-fluid" alt="" />
         </div>
     </div>
 </div>

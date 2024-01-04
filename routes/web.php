@@ -24,7 +24,7 @@ use App\Http\Controllers\forgotPasswordController;
 |
 */
 Route::get('', function () { //farmers landing page or redirect to home
-    if (request()->getHost() === 'yourdesireddomain.com') {
+    if (request()->getHost() === 'firms.fun') {
         return redirect('/home');
     }
     return view('/home');

@@ -1,5 +1,7 @@
 @extends('layouts.master_admin_landing')
-@section('title','FIRMS')
+<head>
+  <title> FIRMS</title>
+</head>
 @section('content')
 <div class="container-fluid">
   <div class="row justify-content-center">
@@ -16,8 +18,10 @@
                     </ul>
                 </div>  
               @endif
+              <strong class="text-danger">
               {{Session::get('errmessage')}}
-              <form method="POST" action="/login">
+              </strong>
+              <form method="POST" action="{{route('admin.login')}}">
                 @csrf
                 <div class="form-group">
                   <label for="txt_email" class="col-lg-12 control-label">Email: </label>
@@ -46,6 +50,9 @@
                   </label>
                 </div> -->
                 <div class="col-md-12">
+                  <button class="btn btn-sm mt-3 btn-success" style="width:100%" type="submit">Register</button>
+                </div>
+                <div class="col-md-12">
                   <button class="btn btn-sm mt-3 btn-success" style="width:100%" type="submit">Log in</button>
                 </div>
               </form>
@@ -54,5 +61,6 @@
     </div>
   </div>
 </div>
+
     
-@endsection 
+@endsection

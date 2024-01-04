@@ -13,7 +13,7 @@
                       {{ Session::get('message') }}
                   </div>
               @endif
-              <form action="{{ route('forget.password.post') }}" method="POST">
+              <form action="{{ route('admin.forget.password.post') }}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="email_address" class="col-md-4">Email Address:</label>

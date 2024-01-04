@@ -33,6 +33,7 @@ class adminController extends Controller
             $request->session()->regenerate();
             return redirect('firms/admin/dashboard');
         }
+        
         return redirect()->back()->withErrors(['email' => 'Invalid Login Credentials!']);         
     }
     public function edit(admin $admin){ //to edit and retrive the information

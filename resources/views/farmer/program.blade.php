@@ -51,7 +51,7 @@
   <!-- Rice Crops Content -->
     <div class="row" style="padding-top: 20px">
       <div class="col-md-6" >
-        <img src="{{ asset('Images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+        <img src="{{ asset('images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
       </div>
       <div class="col-md-6 ">
         <h3> Rice Crops Insurance  </h3> 
@@ -71,7 +71,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <img src="{{ asset('Images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+                <img src="{{ asset('images/img_rice.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
                 <br/>
                 <br/>
                 <h6> <b> AMOUNT OF COVER </b></h6>
@@ -194,7 +194,7 @@
   <!-- Corn Crops Content -->
     <div class="row" style="padding-top: 20px"> 
       <div class="col-md-6" >
-        <img src="{{ asset('Images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+        <img src="{{ asset('images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:600px; height:auto">
       </div>
       <div class="col-md-6 ">
         <h3> Corn Crops Insurance  </h3> 
@@ -213,7 +213,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <img src="{{ asset('Images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+              <img src="{{ asset('images/img_corn.png') }}" alt="Corn Crops Insurance" class="img-fluid" style="width:600px; height:auto">
               <br/>
               <br/>
               <h6> <b> AMOUNT OF COVER </b></h6>
@@ -333,7 +333,7 @@
   <!-- HVC Crops Content -->
       <div class="row" style="padding-top: 20px">
         <div class="col-md-6" >
-          <img src="{{ asset('Images/img_hvc.png') }}" alt="High Value Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+          <img src="{{ asset('images/img_hvc.png') }}" alt="High Value Crops Insurance" class="img-fluid" style="width:600px; height:auto">
         </div>
         <div class="col-md-6 ">
           <h3> High Value Crops Insurance  </h3> 
@@ -354,7 +354,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <img src="{{ asset('Images/img_hvc.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
+                  <img src="{{ asset('images/img_hvc.png') }}" alt="Rice Crops Insurance" class="img-fluid" style="width:600px; height:auto">
                   <br/>
                   <br/>
                   <h6> <b> High Value Crops Covered </b></h6>
@@ -443,7 +443,7 @@
   <!-- Non-Agricultural Assets Content -->
   <div class="row" style="padding-top: 20px">
     <div class="col-md-6" >
-      <img src="{{ asset('Images/img_assets.png') }}" alt="Non- Agricultural Assets Insurance" class="img-fluid" style="width:600px; height:auto">
+      <img src="{{ asset('images/img_assets.png') }}" alt="Non- Agricultural Assets Insurance" class="img-fluid" style="width:600px; height:auto">
     </div>
     <div class="col-md-6 ">
       <h3> Non-Agricultural Assets Insurance  </h3> 
@@ -464,7 +464,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <img src="{{ asset('Images/img_assets.png') }}" alt="Non-Agricultural Asset Insurance" class="img-fluid" style="width:600px; height:auto">
+              <img src="{{ asset('images/img_assets.png') }}" alt="Non-Agricultural Asset Insurance" class="img-fluid" style="width:600px; height:auto">
               <br/>
               <br/>
               <h6> <b> NON-AGRICULTURAL ASSETS </b></h6>

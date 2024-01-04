@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-light bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
         <div class="container-fluid px-5">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           </button>
         </div>
     </nav>

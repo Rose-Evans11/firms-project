@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\admin;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\admin;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,13 +13,11 @@ use Illuminate\Support\Facades\Mail;
 
 class forgotPasswordController extends Controller
 {
-    public function showForgetPasswordForm()
-    {
+    public function showForgetPasswordForm(){
          return view('auth.forgetPassword');
     }
     
-    public function submitForgetPasswordForm(Request $request)
-    {
+    public function submitForgetPasswordForm(Request $request){
           $request->validate([
               'email' => 'required|email|exists:users',
           ]);
@@ -39,12 +37,10 @@ class forgotPasswordController extends Controller
   
           return back()->with('message', 'We have emailed your password reset link!');
     }
-    public function showResetPasswordForm($token) 
-    { 
+    public function showResetPasswordForm($token) { 
         return view('auth.forgetPasswordLink', ['token' => $token]);
     }
-    public function submitResetPasswordForm(Request $request)
-    {
+    public function submitResetPasswordForm(Request $request){
         $request->validate([
             'email' => 'required|email|exists:users',
             'password' => 'required|string|min:6|confirmed',
@@ -70,14 +66,11 @@ class forgotPasswordController extends Controller
         return redirect('/firms/farmer/login')->with('message', 'Your password has been changed!');
     }
 
-    //-------------------------------------------------------------------------------------------//
-    public function adminShowForgetPasswordForm()
-    {
+    public function adminShowForgetPasswordForm(){
          return view('auth.adminForgetPassword');
     }
     
-    public function adminSubmitForgetPasswordForm(Request $request)
-    {
+    public function adminSubmitForgetPasswordForm(Request $request){
           $request->validate([
               'email' => 'required|email|exists:admins',
           ]);
@@ -97,12 +90,10 @@ class forgotPasswordController extends Controller
   
           return back()->with('message', 'We have emailed your password reset link!');
     }
-    public function adminShowResetPasswordForm($token) 
-    { 
+    public function adminShowResetPasswordForm($token) { 
         return view('auth.adminForgetPasswordLink', ['token' => $token]);
     }
-    public function adminSubmitResetPasswordForm(Request $request)
-    {
+    public function adminSubmitResetPasswordForm(Request $request){
         $request->validate([
             'email' => 'required|email|exists:admins',
             'password' => 'required|string|min:6|confirmed',
@@ -127,8 +118,5 @@ class forgotPasswordController extends Controller
 
         return redirect('/firms/admin/login')->with('message', 'Your password has been changed!');
     }
-
-
-
       
 }

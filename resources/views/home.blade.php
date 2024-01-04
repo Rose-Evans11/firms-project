@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
         <div class="container-fluid">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +30,7 @@
         <div  class='container-fluid' style="margin: auto">
             <div class="row" style="padding: 80px">
                 <div class="col-md-6" style=" padding-left:50px; padding-right:50px">
-                  <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" />
+                  <img src="{{ asset('Images/img_home.png') }}" class="img-fluid" alt="" />
                   <br />
                   <br />
                   <p class="lead text-center">

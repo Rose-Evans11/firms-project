@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\farmController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\damageController;
-use App\Http\Controllers\farmerController;
 use App\Http\Controllers\indemnityController;
 use App\Http\Controllers\insuranceController;
 use App\Http\Controllers\farmerProfileController;

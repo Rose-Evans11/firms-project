@@ -46,6 +46,11 @@
            <!-- add here the data -->
             </tbody>
         </table>
+        <div class="col-lg-10">
+            <!-- table -->
+        </div>
+        <div class="col-lg-2 d-flex justify-content-end">
+          <button class="btn btn-success m-2 col-md-12" style="width:100%" onclick="javascript:toggleIndemnity()" id="btn_add"> Add Indemnity Claim</Button>
         </div>
     </div>
 

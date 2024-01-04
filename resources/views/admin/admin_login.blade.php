@@ -50,9 +50,6 @@
                   </label>
                 </div> -->
                 <div class="col-md-12">
-                  <button class="btn btn-sm mt-3 btn-success" style="width:100%" type="submit">Register</button>
-                </div>
-                <div class="col-md-12">
                   <button class="btn btn-sm mt-3 btn-success" style="width:100%" type="submit">Log in</button>
                 </div>
               </form>

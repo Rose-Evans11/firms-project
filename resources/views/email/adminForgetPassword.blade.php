@@ -4,7 +4,7 @@ Greetings!
 
    
 You can now reset your password from below link:
-<a href="{{ route('reset.password.get', $token) }}">Reset Password</a>
+<a href="{{ route('admin.reset.password.get', $token) }}">Reset Password</a>
 
 Best regards,
 FIRMS

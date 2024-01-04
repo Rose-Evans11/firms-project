@@ -162,5 +162,6 @@ Route::post('/register', [farmerController::class, 'register']);
 Route::post('/login', [farmerController::class, 'login']);
 Route::post('/logout', [farmerController::class, 'logout']);
 
+Route::post('/forgot/password', [forgotPasswordController::class, 'showForgetPasswordFor'])->name('forget.password.get');
 
 ?>

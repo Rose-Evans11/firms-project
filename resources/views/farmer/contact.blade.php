@@ -2,7 +2,7 @@
 @section('title','Contact Us')
 @section('content')
 <div class="container-fluid">
-    <div class="row" style="padding-top:50px; padding-left:50px; padding-right:50px">
+    <div class="row" style="padding: 5% 7% 5%">
         <div class="col-md-6">
             <br />
             <address>
@@ -20,7 +20,7 @@
             <p> </p>
         </div>
         <div class="col-md-6">
-            <img src="{{asset('Images/img_contact.png')}}" class="img-fluid" alt="" />
+            <img src="{{asset('images/img_contact.png')}}" class="img-fluid" alt="" />
         </div>
 </div>
 @endsection

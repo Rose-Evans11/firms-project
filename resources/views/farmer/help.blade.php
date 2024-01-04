@@ -30,9 +30,9 @@
     }
 </style>
 <div class="container-fluid">
-    <div class="row" style="padding-top:50px; padding-left:50px; padding-right:50px">
+    <div class="row" style="padding: 5% 7% 5%">
         <div class="col-md-12">
-            <h3> <b>Frequently Ask Question </b> </h3>
+            <h5> <b>Frequently Ask Question </b> </h5>
             <br />
             <button class="accordion"> How to create an account? </button>
             <div class="panel">

@@ -151,5 +151,9 @@ Route::get('firms/admin/login', function () { //admin login
 Route::get('firms/admin-register', function () {
     return view('admin/register');
 });
+Route::post('/register', [farmerController::class, 'register']);
+Route::post('/login', [farmerController::class, 'login']);
+Route::post('/logout', [farmerController::class, 'logout']);
+
 
 ?>

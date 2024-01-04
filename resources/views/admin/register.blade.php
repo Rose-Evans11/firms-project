@@ -16,6 +16,21 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">
+ 
+  
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+  {{Session::get('success')}}
+
+  <!--
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">
@@ -76,8 +91,10 @@
         </tbody>
     </table>
     </div>
-
-  <form class="form-horizontal">
+  -->
+    <!-- this is for adding farmer -->
+  <form class="form-horizontal" action="/register" method="POST">
+    @csrf
    <fieldset>
     <div class="m-3" id="panelfarmList">
       <div id="farmDeetInfo">
@@ -86,23 +103,20 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
+                <label for="txt_farmerID" class="col-lg-12 control-label">Farmer's ID:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example"  id="dd_barangay_farm">
-                    <option selected>Barangay</option>
-                    <option value="1">None</option>
-                  </select>
+                  <input type="text" @readonly(true) class="form-control" id="txt_farmerID" value="" placeholder="Farmer's ID" name="farmerID">
                 </div>
               </div>
-          </div>
-          <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
             <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
+              <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
               <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City">
+                <input type="text" class="form-control" id="txt_RSBSA" value="" placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
               </div>
             </div>
-          </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-3">
@@ -140,52 +154,42 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 scontrol-label">Ownership Type:</label>
-                    <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example"  id="dd_own_type">
-                        <option selected>Owner Type</option>
-                        <option value="1">Registered Owner</option>
-                        <option value="2">Tenant</option>
-                        <option value="3">Lesse</option>
-                    </select>
-                    </div>
+              <div class="form-group">
+                <label for="dt_birth" class="col-lg-6 control-label">Birthdate: </label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="dt_birth" value="" name="birthdate" required>
                 </div>
+              </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-6 control-label">Name of the Owner: </label>
-                    <div class="col-lg-12">
-                        <input type="text" class="form-control" id="txt_land_owner" value="">
-                    </div>
+              <div class="form-group">
+                <label for="dd_sex" class="col-lg-2 control-label">Sex :</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example"  id="dd_sex" required name='sex'>
+                    <option selected>Sex</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Within Ancestral Domain:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_domain">
-                        <option selected>Select</option>
-                        <option value="1">Yes</option>
-                        <option value="2"> No </option>
-                      </select>
-                    </div>
+              <div class="form-group">
+                <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
+                <div class="col-lg-12">
+                  <input type="email" class="form-control" id="txt_email" value="" placeholder="Email" name="email" required>
                 </div>
+              </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Agrarian Reform Beneficiary:</label>
-                    <div class="col-lg-12">
-                      <select class="form-select" aria-label="Default select example"  id="dd_ancestral_benefi">
-                        <option selected>Select</option>
-                        <option value="1">Yes</option>
-                        <option value="2"> No </option>
-                      </select>
-                    </div>
+              <div class="form-group">
+                <label for="txt_pass" class="col-lg-6 control-label"> Password: </label>
+                <div class="col-lg-12">
+                  <input type="password" class="form-control" id="txt_pass" value="" placeholder="" name="password" required>
                 </div>
+              </div>
             </div>
           </div>
           <div class="row mt-3">
@@ -198,5 +202,12 @@
       </div>
    </fieldset>
   </form>
+  <script>
+    var now = new Date(),
+    // minimum date the user can choose, in this case now and in the future
+    minDate = now.toISOString().substring(0,10);
 
+$('#dt_birth').prop('min', minDate);
+  </script>
+</div>
 @endsection 

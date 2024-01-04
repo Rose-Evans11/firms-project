@@ -58,6 +58,14 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               @guest
+             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
+              <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer'); ?>">Login</a></li>
+              @endguest
+              @auth
+              @guest
              <li class="nav-item"><a class="nav-link" href="<?= url('firms/'); ?>">Home</a></li>
              <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
@@ -93,8 +101,7 @@
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="<?= url('firms/farmer-change-password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>"> {{Auth::User()->firstName}} </a></li>
                 </ul>
               </li>
               <li class="nav-item">

@@ -64,7 +64,15 @@
       <h5 class="mx-2"> Farm Details</h5>
       <div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+              <div class="col-lg-12">
+                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{$farms->sitio}}" name="sitio">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
             <div class="form-group">
               <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
               <div class="col-lg-12">
@@ -122,7 +130,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
           <div class="form-group">
             <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
             <div class="col-lg-12">
@@ -232,6 +240,24 @@
               </div>
           </div>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txt_contact" class="col-lg-12 scontrol-label">Owned/Lessed since:</label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateFrom">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-12 control-label">Owned/Lessed until: </label>
+                <div class="col-lg-12">
+                    <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
+                </div>
+            </div>
+        </div>
+     </div>
     </div>
     <div id="farmOther">
       <br>

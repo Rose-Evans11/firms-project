@@ -81,7 +81,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="firstName" class="col-lg-2 control-label">First Name: </label>
+              <label for="firstName" class="col-lg-12 control-label">First Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="firstName" value="{{Auth::User()->firstName}}" name="firstName">
               </div>
@@ -89,7 +89,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="middleName" class="col-lg-2 control-label">Middle Name: </label>
+              <label for="middleName" class="col-lg-12 control-label">Middle Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="middleName" value="{{Auth::User()->middleName}}" name="middleName">
               </div>
@@ -97,7 +97,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="lastName" class="col-lg-2 control-label">Last Name: </label>
+              <label for="lastName" class="col-lg-12 control-label">Last Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="lastName" value="{{Auth::User()->lastName}}" name="lastName">
               </div>
@@ -105,7 +105,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="extensionName" class="col-lg-2 control-label">Extension Name: </label>
+              <label for="extensionName" class="col-lg-12 control-label">Extension Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="extensionName" value="{{Auth::User()->extensionName}}" name="extensionName">
               </div>
@@ -116,9 +116,17 @@
         <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{Auth::User()->id}}" name="farmersID" hidden>
         <div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
+                <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+                <div class="col-lg-12">
+                  <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="" name="sitio">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_contact" class="col-lg-12 control-label">Barangay:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example" name="barangayFarm" required>
                     <option value="Altura Bata">Altura Bata</option>
@@ -175,7 +183,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
+                <label for="txt_farmersID" class="col-lg-12 control-label">Municipality/City: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City" name="cityFarm">
                 </div>
@@ -185,7 +193,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Province: </label>
+                <label for="txt_farmersID" class="col-lg-12 control-label">Province: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Batangas" name="provinceFarm">
                 </div>
@@ -193,7 +201,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-2 control-label">Region: </label>
+                <label for="txt_farmersID" class="col-lg-12 control-label">Region: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="CALABARZON" name="regionFarm">
                 </div>
@@ -203,7 +211,7 @@
           <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-6 control-label">Farm Area (ha): </label>
+                  <label for="txt_farmersID" class="col-lg-12 control-label">Farm Area (ha): </label>
                   <div class="col-lg-12">
                     <input type="number" class="form-control" id="txt_farm_size" value="" name="farmArea">
                   </div>
@@ -211,7 +219,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="txt_contact" class="col-lg-2 control-label">Farm Type:</label>
+                    <label for="txt_contact" class="col-lg-12 control-label">Farm Type:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example"  id="dd_farm_type" name="farmType">
                         <option value="Irrigated">Irrigated</option>
@@ -229,7 +237,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Ownership Document Type:</label>
+                    <label for="txt_contact" class="col-lg-12 control-label">Ownership Document Type:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example"  id="dd_doc_type" name="ownershipDocument">
                         <option value="Certificate of Land Transfer">Certificate of Land Transfer</option>
@@ -273,7 +281,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="txt_farmersID" class="col-lg-6 control-label">Name of the Owner: </label>
+                    <label for="txt_farmersID" class="col-lg-12 control-label">Name of the Owner: </label>
                     <div class="col-lg-12">
                         <input type="text" class="form-control" id="txt_land_owner" value="" name="ownerName">
                     </div>
@@ -283,7 +291,7 @@
          <div class="row">
           <div class="col-md-6">
               <div class="form-group">
-                  <label for="txt_contact" class="col-lg-6 scontrol-label">Owned/Lessed since:</label>
+                  <label for="txt_contact" class="col-lg-12 scontrol-label">Owned/Lessed since:</label>
                   <div class="col-lg-12">
                     <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateFrom">
                   </div>
@@ -291,9 +299,9 @@
           </div>
           <div class="col-md-6">
               <div class="form-group">
-                  <label for="txt_farmersID" class="col-lg-6 control-label">Owned/Lessed until: </label>
+                  <label for="txt_farmersID" class="col-lg-12 control-label">Owned/Lessed until: </label>
                   <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
+                      <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
                   </div>
               </div>
           </div>
@@ -305,7 +313,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Within Ancestral Domain:</label>
+                    <label for="txt_contact" class="col-lg-12 control-label">Within Ancestral Domain:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example"  id="dd_ancestral_domain" name="withinAncestralDomain">
                         <option value="Yes">Yes</option>
@@ -316,7 +324,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="txt_contact" class="col-lg-6 control-label">Agrarian Reform Beneficiary:</label>
+                    <label for="txt_contact" class="col-lg-12 control-label">Agrarian Reform Beneficiary:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example"  id="dd_ancestral_benefi" name="isAgraReformBenefi">
                         <option value="Yes">Yes</option>
@@ -329,10 +337,10 @@
           
       </div>
       <div class="row justify-content-end">
-        <div class="col-md-2">
+        <div class="col-md-6">
           <div class="col-lg-12 d-flex justify-content-end">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>
               </div>
             </div>

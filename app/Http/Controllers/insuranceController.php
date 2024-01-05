@@ -332,7 +332,7 @@ class insuranceController extends Controller
                               );
             
             print($message->sid);
-            return redirect(route('insurance.pending'));
+            return back();
 
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');

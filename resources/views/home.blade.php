@@ -19,33 +19,32 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
-        <div class="container-fluid" style="padding-left:20% 10% 20%">
+        <div class="container-fluid">
           <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav>
-        <div  class='container-fluid' style="margin: auto">
-            <div class="row" style="padding: 5%">
-                <div class="col-md-6" style=" padding-left:50px; padding-right:50px">
-                  <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" />
-                  <br />
-                  <br />
-                  <p class="lead text-center">
-                    <h6>
-                      <b>With FIRMS, we protect your crops as we protect your future.</b>
-                    </h6>
-                  </p>
-                </div>
-                <div class="col-md-6" style="padding-top: 50px;padding-left: 90px">
-                  <p> <h5><b>Login to your Account</b> </h5></p>
-                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="<?= url('firms/admin/login'); ?>"> Admin</a>
-                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="<?= url('firms/farmer/login'); ?>"> Farmer</a>
-                  </form>
-                </div>
-              </div>
-        </div>
-      
+      <div  class='container-fluid' style="margin: auto">
+        <div class="row" style="padding: 5%">
+            <div class="col-md-6">
+              <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" style="width:100%" />
+              <br />
+              <br />
+              <p class="lead text-center">
+                <h5>
+                  <b>With FIRMS, we protect your crops as we protect your future.</b>
+                </h5>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p> <h5><b>Login to your Account</b> </h5></p>
+                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/admin/login'); ?>"> Admin</a>
+                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/farmer/login'); ?>"> Farmer</a>
+              </form>
+            </div>
+          </div>
+    </div>
 </body>
 </html>

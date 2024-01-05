@@ -412,7 +412,7 @@
                 <div class="form-group">
                   <label for="barangay" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
-                  <input type="date" class="form-control" id="barangayFarm" value="{{$insurances->barangayFarm}}" name="barangayFarm" required @readonly(true)>
+                  <input type="text" class="form-control" id="barangayFarm" value="{{$insurances->barangayFarm}}" name="barangayFarm" required @readonly(true)>
                   </div>
                 </div>
               </div>

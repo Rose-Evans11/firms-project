@@ -116,7 +116,15 @@
         <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{Auth::User()->id}}" name="farmersID" hidden>
         <div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+                <div class="col-lg-12">
+                  <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="" name="sitio">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-12 control-label">Barangay:</label>
                 <div class="col-lg-12">

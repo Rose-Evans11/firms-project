@@ -141,6 +141,9 @@ class farmerController extends Controller
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
+            'bankNumber'=> 'nullable',
+            'bankname'=> 'nullable',
+            'bankBranch'=> 'nullable',
         ]);
        
         
@@ -209,6 +212,9 @@ class farmerController extends Controller
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
+            'bankNumber'=> 'nullable',
+            'bankname'=> 'nullable',
+            'bankBranch'=> 'nullable',
            
             
         ]);

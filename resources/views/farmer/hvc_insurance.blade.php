@@ -309,7 +309,7 @@
             <div class="form-group">
               <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
               <div class="col-lg-12">
-                <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
+                <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankNumber}}" name="bankAccount" required>
               </div>
             </div>
           </div>

@@ -44,7 +44,7 @@
                         <th>Farm Location</th>
                         <th>Status</th>
                         <th>Notes</th>
-                        <th>Edit</th>
+                        <th>View</th>
                         
                     </tr>
                 </thead>

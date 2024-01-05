@@ -344,7 +344,7 @@
                               <div class="form-group">
                                 <label for="bankBranch" class="col-lg-12 control-label"> Bank Branch: </label>
                                 <div class="col-lg-12">
-                                  <input type="text" class="form-control" id="bankBranch" value="{{Auth::User()->bankAccount}}" name="bankBranch" @required(true)>
+                                  <input type="text" class="form-control" id="bankBranch" value="{{Auth::User()->bankBranch}}" name="bankBranch" @required(true)>
                                 </div>
                               </div>
                             </div>

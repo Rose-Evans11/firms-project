@@ -25,6 +25,12 @@ class farmController extends Controller
     public function store(Request $request){
         $incomingFields = $request ->validate ([
             'farmersID'=> 'required',
+            'firstName'=> 'required',
+            'middleName'=> 'nullable',
+            'lastName'=> 'required',
+            'extensionName'=> 'nullable',
+            'sitio'=> 'nullable',
+            'farmersID'=> 'required',
             'barangayFarm'=> 'required',
             'cityFarm'=> 'required',
             'provinceFarm'=> 'required',
@@ -58,11 +64,12 @@ class farmController extends Controller
         if($user)    
         {
             $incomingFields = $request ->validate ([
-                'farmersID'=> 'nullable',
-                'firstName'=> 'nullable',
+                'farmersID'=> 'required',
+                'firstName'=> 'required',
                 'middleName'=> 'nullable',
-                'lastName'=> 'nullable',
+                'lastName'=> 'required',
                 'extensionName'=> 'nullable',
+                'sitio'=> 'nullable',
                 'barangayFarm'=> 'nullable',
                 'cityFarm'=> 'nullable',
                 'provinceFarm'=> 'nullable',

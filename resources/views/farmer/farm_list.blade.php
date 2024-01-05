@@ -79,6 +79,42 @@
         <h5 class="mx-2"> Farm Details</h5>
         <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{Auth::User()->id}}" name="farmersID" hidden>
         <div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="firstName" class="col-lg-2 control-label">First Name: </label>
+              <div class="col-lg-12">
+                <input type="text" @readonly(true) class="form-control" id="firstName" value="" name="firstName">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="middleName" class="col-lg-2 control-label">Middle Name: </label>
+              <div class="col-lg-12">
+                <input type="text" @readonly(true) class="form-control" id="middleName" value="" name="middleName">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="lastName" class="col-lg-2 control-label">Last Name: </label>
+              <div class="col-lg-12">
+                <input type="text" @readonly(true) class="form-control" id="lastName" value="" name="lastName">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="extensionName" class="col-lg-2 control-label">Extension Name: </label>
+              <div class="col-lg-12">
+                <input type="text" @readonly(true) class="form-control" id="extensionName" value="" name="extensionName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5 class="mx-2"> Farm Details</h5>
+        <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{Auth::User()->id}}" name="farmersID" hidden>
+        <div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -137,14 +173,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
-              <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City" name="cityFarm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-2 control-label">Municipality/City: </label>
+                <div class="col-lg-12">
+                  <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="Tanauan City" name="cityFarm">
+                </div>
               </div>
             </div>
-          </div>
           </div>
           <div class="row">
             <div class="col-md-6">
@@ -243,7 +279,25 @@
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
+         <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="txt_contact" class="col-lg-6 scontrol-label">Owned/Lessed since:</label>
+                  <div class="col-lg-12">
+                    <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateFrom">
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <label for="txt_farmersID" class="col-lg-6 control-label">Owned/Lessed until: </label>
+                  <div class="col-lg-12">
+                      <input type="text" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
+                  </div>
+              </div>
+          </div>
+       </div>
       </div>
       <div id="farmOther">
         <br>

@@ -37,7 +37,7 @@
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/data-privacy'); ?>">Data Privacy</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('/firms/farmer/login'); ?>">Login</a></li>
               @endguest
-              @auth
+              @if (Auth::guard('web')->check())
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="<?= url('firms/dashboard'); ?>"> Dashboard</a>
               </li>
@@ -66,7 +66,7 @@
                   <button type="submit" class="btn btn-success text-white mt-2" style="opacity: .5; height:25px; padding: 0; outline: 0; border: none;background: none;"> Logout</button>
               </form>
               </li>
-              @endauth
+              @endif
             </ul>
           </div>
         </div>

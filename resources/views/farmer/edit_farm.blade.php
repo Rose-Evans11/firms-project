@@ -68,7 +68,7 @@
             <div class="form-group">
               <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
               <div class="col-lg-12">
-                <input type="text" @readonly(true) class="form-control" id="txt_city_farm" value="{{$farms->sitio}}" name="sitio">
+                <input type="text" class="form-control" id="txt_city_farm" value="{{$farms->sitio}}" name="sitio">
               </div>
             </div>
           </div>

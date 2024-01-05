@@ -693,12 +693,16 @@
               </div>
             </div>
             <div class="row justify-content-end">
-              <div class="col-md-2">
+              <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                  <button class="btn btn-success m-2" style="width:100%" id="btn_submit">Submit</Button>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Submit</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>  
+            </div> 
           <br/>
       </div>
     </div>

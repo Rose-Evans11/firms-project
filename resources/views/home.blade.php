@@ -26,7 +26,6 @@
           </button>
         </div>
       </nav>
-      <div class="contain-fluid ">
         <div  class='container-fluid' style="margin: auto">
             <div class="row" style="padding: 5%">
                 <div class="col-md-6" style=" padding-left:50px; padding-right:50px">
@@ -47,6 +46,6 @@
                 </div>
               </div>
         </div>
-      </div>
+      
 </body>
 </html>

@@ -671,12 +671,12 @@
             <div class="row justify-content-end">
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success mt-2" style="width: 100%"> Cancel</a></Button>
+                  <button class="btn btn-success mt-2" style="width:100%" id="btn_submit">Update</Button>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                  <button class="btn btn-success mt-2" style="width:100%" id="btn_submit">Update</Button>
+                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success mt-2" style="width: 100%"> Cancel</a></Button>
                 </div>
               </div>
             </div>  

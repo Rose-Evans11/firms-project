@@ -38,7 +38,20 @@
     } */
   </style>
 <div class='container-fluid' style="margin: auto">
- 
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
+@if (session()->has('success'))
+  <div class="alert alert-success">
+   {{Session::get('success')}}
+  </div> 
+@endif
   <form class="form-horizontal">
     @csrf
    <fieldset>
@@ -566,13 +579,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="from"  class="col-lg-12 control-label">From:</label>
-                    <input type="date" id="from" name="from" class=" form-control col-lg-12" required value="{{$insurances->from}}" @readonly(true)>
+                    <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="to"  class="col-lg-12 control-label">To:</label>
-                    <input type="date" id="to" name="to" class=" form-control col-lg-12" required value="{{$insurances->to}}" readonly>
+                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
                   </div>
                 </div>
               </div>
@@ -588,32 +601,6 @@
                   <div class="form-group">
                     <label for="signBy"  class="col-lg-12 control-label">Issued and Sign by:</label>
                     <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12" required value="{{$insurances->signBy}}" @readonly(true)>
-                  </div>
-                </div>
-              </div>
-            </div>
-          @elseif($insurances->status== 'Partially Rejected')
-            <div>
-              <legend> <strong> Additional Information</strong></legend>
-              <div class="row">
-                 <div class="col-md-6"> 
-                  <div class="form-group">
-                    <label for="status"  class="col-lg-12 control-label">Status:</label>
-                    <input type="text" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12"> 
-                  <div class="form-group">
-                    <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
-                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
                   </div>
                 </div>
               </div>
@@ -636,6 +623,57 @@
               </div>
             </div>
           </div>
+          <div class="row justify-content-end mt-2">
+              <div class="col-md-6">
+                <div class="col-lg-12 d-flex justify-content-end">
+                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+                </div>
+              </div>
+            </div> 
+            @elseif($insurances->status== 'Partially Rejected')
+            <div>
+              <legend> <strong> Additional Information</strong></legend>
+              <div class="row">
+                 <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="status"  class="col-lg-12 control-label">Status:</label>
+                    <input type="text" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form> 
+            <form action="{{route('insurance.requestLetter')}}" method="post">
+              @csrf
+              @method('put')
+              <div class="row">
+                <div class="col-md-12"> 
+                  <div class="form-group">
+                    <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
+                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="row justify-content-end mt-2">
+                <div class="col-md-6">
+                  <div class="col-lg-12 d-flex justify-content-end">
+                   <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Send Request Letter</a></Button>
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                    <div class="col-lg-12 d-flex justify-content-end">
+                     <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+                    </div>
+                  </div>
+                </div> 
+            </form> 
           @else
          
           @endif
@@ -648,17 +686,9 @@
               </div>
             </div>
           -->
-            <div class="row justify-content-end mt-2">
-              <div class="col-md-6">
-                <div class="col-lg-12 d-flex justify-content-end">
-                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
-                </div>
-              </div>
-            </div>  
+             
           <br/>
       </div>
     </div>
-   </fieldset>
-  </form>
 </div>
 @endsection

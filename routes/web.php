@@ -79,7 +79,7 @@ Route::get('firms/hvc-insurance', function () {
 });
 
 //for farmers profile
-Route::get('firms/farmer-profile', function () {
+Route::get('firms/farmer/profile', function () {
     $user = Auth::guard('web')->user();
     if($user) 
     {

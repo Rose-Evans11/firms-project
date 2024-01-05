@@ -142,7 +142,7 @@ class farmerController extends Controller
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
             'bankNumber'=> 'nullable',
-            'bankname'=> 'nullable',
+            'bankName'=> 'nullable',
             'bankBranch'=> 'nullable',
         ]);
        
@@ -213,7 +213,7 @@ class farmerController extends Controller
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
             'bankNumber'=> 'nullable',
-            'bankname'=> 'nullable',
+            'bankName'=> 'nullable',
             'bankBranch'=> 'nullable',
            
             

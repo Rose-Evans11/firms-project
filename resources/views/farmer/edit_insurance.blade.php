@@ -17,7 +17,7 @@
     margin: auto;
   }
   
-  #panelFarmInfo, #panelBenefiInfo, #btn_submit {
+  #panelFarmInfo, #panelBenefiInfo, #btn_submit, # {
     display: none;
     margin: auto;
   }
@@ -672,11 +672,6 @@
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
                   <button class="btn btn-success mt-2" style="width:100%" id="btn_submit">Update</Button>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="col-lg-12 d-flex justify-content-end">
-                 <button href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success mt-2" style="width: 100%"> Cancel</Button>
                 </div>
               </div>
             </div>  

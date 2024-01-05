@@ -18,42 +18,43 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">  
+  <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
     <div class="row">
-        <div class="col-lg-12">
-          <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Farm ID</th>
-                    <th>Farm Area</th>
-                    <th>Farm Location</th>
-                    <th>Ownership Type </th>
-                    <th>Owner Name</th>
-                    <th>Ownership Document</th>
-                    <th>Farm Type</th>
-                </tr>
-            </thead>
-            <tbody>
-              @if(count($farms) > 0)
-              @foreach ($farms as $farm)
+      <div class="col-lg-12">
+        <table class="table table-bordered table-striped">
+          <thead>
               <tr>
-               <td>{{$farm->id}} </td>
-               <td>{{$farm->farmArea}}</td>
-               <td>{{$farm->barangayFarm}}</td>
-               <td>{{$farm->ownershipType}}</td>
-               <td>{{$farm->ownerName}}</td>
-               <td>{{$farm->ownershipDocument}}</td>
-               <td>{{$farm->farmType}}</td>
-               <td><a href="{{route('farm.edit', ['farm'=>$farm->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+                  <th>Farm ID</th>
+                  <th>Farm Area</th>
+                  <th>Farm Location</th>
+                  <th>Ownership Type </th>
+                  <th>Owner Name</th>
+                  <th>Ownership Document</th>
+                  <th>Farm Type</th>
               </tr>
-              @endforeach
-              @else
-               <tr><td>No result found!</td></tr>
-              @endif
-            </tbody>
-        </table>
-        </div>
-        
-    </div>
+          </thead>
+          <tbody>
+            @if(count($farms) > 0)
+            @foreach ($farms as $farm)
+            <tr>
+             <td>{{$farm->id}} </td>
+             <td>{{$farm->farmArea}}</td>
+             <td>{{$farm->barangayFarm}}</td>
+             <td>{{$farm->ownershipType}}</td>
+             <td>{{$farm->ownerName}}</td>
+             <td>{{$farm->ownershipDocument}}</td>
+             <td>{{$farm->farmType}}</td>
+             <td><a href="{{route('farm.edit', ['farm'=>$farm->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+            </tr>
+            @endforeach
+            @else
+             <tr><td>No result found!</td></tr>
+            @endif
+          </tbody>
+      </table>
+      </div>
+</div>
+  </div>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.scss') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5" >
         <div class="container-fluid" style="padding-left:20% 10% 20%">
           <a class="navbar-brand navbar-dark" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

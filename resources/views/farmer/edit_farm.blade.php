@@ -245,7 +245,7 @@
             <div class="form-group">
                 <label for="txt_contact" class="col-lg-12 scontrol-label">Owned/Lessed since:</label>
                 <div class="col-lg-12">
-                  <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateFrom">
+                  <input type="date" class="form-control" id="txt_land_owner"  value="{{$farms->ownDateFrom}}"name="ownDateFrom">
                 </div>
             </div>
         </div>
@@ -253,7 +253,7 @@
             <div class="form-group">
                 <label for="txt_farmersID" class="col-lg-12 control-label">Owned/Lessed until: </label>
                 <div class="col-lg-12">
-                    <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
+                    <input type="date" class="form-control" id="txt_land_owner"  value="{{$farms->ownDateTo}}" name="ownDateTo">
                 </div>
             </div>
         </div>

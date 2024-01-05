@@ -43,6 +43,8 @@ class farmController extends Controller
             'isAgraReformBenefi'=> 'required',
             'ownershipDocumentFile'=> 'nullable',
             'farmType'=> 'required',
+            'ownDateFrom'=> 'nullable',
+            'ownDateTo'=> 'nullable',
         ]);
        $farm = farm::create($incomingFields);
         session()->flash('success', 'Farm Added Successfully!');

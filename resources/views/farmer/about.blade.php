@@ -1,7 +1,7 @@
 @extends('layouts.master_farmer')
 @section('title','About Page')
 @section('content')
-<div class='container-fluid' style="padding: 5% 7% 5%">
+<div class='container-fluid'>
     <div class="row">
         <div class="col-md-6">
             <br />

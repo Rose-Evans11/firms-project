@@ -438,7 +438,7 @@
                           <div class="form-group">
                             <label for="file_id" class="col-lg-12 control-label">Government ID: </label>
                             <div class="col-lg-12">
-                            <input type="file" class="form-control" id="file_id" accept="image/jpg, image/jpeg, image/png" onchange="loadFileID(event)" name='validIDPhoto' @required(true)>
+                            <input type="file" class="form-control" id="file_id" accept="image/jpg, image/jpeg, image/png" onchange="loadFileID(event)" name='validIDPhoto'>
                           </div>
                         </div>
                       </div>

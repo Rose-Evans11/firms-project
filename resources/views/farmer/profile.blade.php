@@ -22,7 +22,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-    <form action="{{ route('admin.update.profile',  Auth::guard('admin')->user()->id )}}" method="POST">
+    <form action="{{ route('farmer.update.profile',  Auth::User()->id )}}" method="POST">
       @csrf
       @method('put')
         <fieldset>
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label for="txt_farmersID" class="col-lg-12 control-label">Farmer's ID: </label>
                             <div class="col-lg-12">
-                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::guard('admin')->user()->id }}" name="farmersID">
+                              <input type="text" @readonly(true) class="form-control" id="txt_farmersID" value="{{Auth::User()->id }}" name="farmersID">
                             </div>
                           </div>
                     </div>

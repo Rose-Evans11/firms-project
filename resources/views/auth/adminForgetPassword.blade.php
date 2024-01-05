@@ -1,4 +1,4 @@
-@extends('layouts.master_admin_landing')
+@extends('layouts.master_admin')
 @section('title','Forgot Password')
 @section('content')
 

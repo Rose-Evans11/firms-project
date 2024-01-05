@@ -191,6 +191,10 @@ Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edi
 Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
 
+//sending request letter
+
+Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'requestLetter'])->name('insurance.requestLetter');
+
 //for farm list
 Route::get('firms/farmer/farm-list', [farmController::class, 'index'])->name('farm.index'); 
 Route::post('/farm', [farmController::class, 'store'])->name('farm.store');

@@ -40,7 +40,8 @@
     </div>
   </div>
     <div class="row">
-        <div class="col-lg-12">
+      <div class="col-lg-12">
+        <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
           <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -77,6 +78,7 @@
             </tbody>
         </table>
         </div>
+      </div>
     </div>
 </div>
 @endsection

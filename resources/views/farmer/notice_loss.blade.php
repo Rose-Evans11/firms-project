@@ -41,43 +41,45 @@
   </div>
     <div class="row">
         <div class="col-lg-12">
-          <table class="table table-bordered table-striped">
-            <thead>
+          <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
+            <table class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                    <th>Notice of Loss ID</th>
+                    <th>Crops</th>
+                    <th>Crop Insurance ID</th>
+                    <th>Damage Cause</th>
+                    <th>Date of Loss</th>
+                    <th>Expected Harvest Date</th>
+                    <th>Farm Location</th>
+                    <th>Date Submitted</th>
+                    <th>Edit</th>
+                    <th>File Indemnity</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                @if(count($damages) > 0)
+                @foreach ($damages as $damage)
                 <tr>
-                  <th>Notice of Loss ID</th>
-                  <th>Crops</th>
-                  <th>Crop Insurance ID</th>
-                  <th>Damage Cause</th>
-                  <th>Date of Loss</th>
-                  <th>Expected Harvest Date</th>
-                  <th>Farm Location</th>
-                  <th>Date Submitted</th>
-                  <th>Edit</th>
-                  <th>File Indemnity</th>
-                    
+                 <td>{{$damage->id}} </td>
+                 <td>{{$damage->cropName}}</td>
+                 <td>{{$damage->cropInsuranceID}} </td>
+                 <td>{{$damage->damageCause}} </td>
+                 <td>{{$damage->dateLoss}}</td>
+                 <td>{{$damage->dateHarvest}}</td>
+                 <td>{{$damage->barangayFarm}}</td>
+                 <td>{{$damage->dateSubmitted}}</td>
+                 <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+                 <td><a href="{{route('indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
                 </tr>
-            </thead>
-            <tbody>
-              @if(count($damages) > 0)
-              @foreach ($damages as $damage)
-              <tr>
-               <td>{{$damage->id}} </td>
-               <td>{{$damage->cropName}}</td>
-               <td>{{$damage->cropInsuranceID}} </td>
-               <td>{{$damage->damageCause}} </td>
-               <td>{{$damage->dateLoss}}</td>
-               <td>{{$damage->dateHarvest}}</td>
-               <td>{{$damage->barangayFarm}}</td>
-               <td>{{$damage->dateSubmitted}}</td>
-               <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-               <td><a href="{{route('indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
-              </tr>
-              @endforeach
-              @else
-               <tr><td>No result found!</td></tr>
-              @endif
-            </tbody>
-        </table>
+                @endforeach
+                @else
+                 <tr><td>No result found!</td></tr>
+                @endif
+              </tbody>
+            </table>
+          </div>
         </div>
        
     </div>

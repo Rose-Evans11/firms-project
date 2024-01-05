@@ -132,7 +132,7 @@
           <div class="col-lg-12 d-flex justify-content-end">
             <div class="row">
               <div class="col-md-6">
-                <a class="btn btn-sm btn-success m-2" href="<?= url('firms/admin/register'); ?>" style="width:100%">Cancel</a>
+                <a class="btn btn-sm btn-success m-2" href="<?= url('firms/admin/register'); ?>" type="cancel" style="width:100%">Cancel</a>
               </div>
               <div class="col-md-6">
                 <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>

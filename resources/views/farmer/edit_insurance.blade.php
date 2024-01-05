@@ -676,7 +676,7 @@
               </div>
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success mt-2" style="width: 100%"> Cancel</a></Button>
+                 <button href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success mt-2" style="width: 100%"> Cancel</Button>
                 </div>
               </div>
             </div>  

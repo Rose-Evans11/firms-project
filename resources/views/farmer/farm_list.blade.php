@@ -328,10 +328,17 @@
           </div>
           
       </div>
-      <div class="d-flex justify-content-center mt-3"> 
-        <br/>
-        <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%"> Add</button>
-       </div>
+      <div class="row justify-content-end">
+        <div class="col-md-2">
+          <div class="col-lg-12 d-flex justify-content-end">
+            <div class="row">
+              <div class="col-md-6">
+                <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
    </fieldset>
    

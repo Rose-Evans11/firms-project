@@ -309,7 +309,7 @@
             <div class="form-group">
               <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
               <div class="col-lg-12">
-                <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
+                <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required @readonly(true)>
               </div>
             </div>
           </div>
@@ -317,7 +317,7 @@
             <div class="form-group">
               <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required>
+                <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required @readonly(true)>
               </div>
             </div>
           </div>
@@ -325,7 +325,7 @@
             <div class="form-group">
               <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required>
+                <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required @readonly(true)>
               </div>
             </div>
           </div>

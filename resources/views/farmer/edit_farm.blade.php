@@ -232,6 +232,24 @@
               </div>
           </div>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txt_contact" class="col-lg-12 scontrol-label">Owned/Lessed since:</label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateFrom">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="txt_farmersID" class="col-lg-12 control-label">Owned/Lessed until: </label>
+                <div class="col-lg-12">
+                    <input type="date" class="form-control" id="txt_land_owner" value="" name="ownDateTo">
+                </div>
+            </div>
+        </div>
+     </div>
     </div>
     <div id="farmOther">
       <br>

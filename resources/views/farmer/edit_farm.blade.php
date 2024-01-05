@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="firstName" class="col-lg-2 control-label">First Name: </label>
+              <label for="firstName" class="col-lg-12 control-label">First Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="firstName" value="{{$farms->firstName}}" name="firstName">
               </div>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="middleName" class="col-lg-2 control-label">Middle Name: </label>
+              <label for="middleName" class="col-lg-12 control-label">Middle Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="middleName" value="{{$farms->middleName}}" name="middleName">
               </div>
@@ -46,7 +46,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="lastName" class="col-lg-2 control-label">Last Name: </label>
+              <label for="lastName" class="col-lg-12 control-label">Last Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="lastName" value="{{$farms->lastName}}" name="lastName">
               </div>
@@ -54,7 +54,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group">
-              <label for="extensionName" class="col-lg-2 control-label">Extension Name: </label>
+              <label for="extensionName" class="col-lg-12 control-label">Extension Name: </label>
               <div class="col-lg-12">
                 <input type="text" @readonly(true) class="form-control" id="extensionName" value="{{$farms->extensionName}}" name="extensionName">
               </div>
@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-2 control-label">Sitio: </label>
+              <label for="txt_farmersID" class="col-lg-12 control-label">Sitio: </label>
               <div class="col-lg-12">
                 <input type="text" class="form-control" id="txt_city_farm" value="{{$farms->sitio}}" name="sitio">
               </div>

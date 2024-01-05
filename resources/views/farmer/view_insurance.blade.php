@@ -664,7 +664,7 @@
               <div class="row justify-content-end mt-2">
                 <div class="col-md-6">
                   <div class="col-lg-12 d-flex justify-content-end">
-                   <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Send Request Letter</a></Button>
+                   <button style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%" type="submit"> Send Request Letter</button>
                   </div>
                 </div>
                   <div class="col-md-6">

@@ -547,12 +547,17 @@
                 </div>
               </div>
         </fieldset>
-        <div class="row">
-          <div class="d-flex justify-content-center mt-3"> 
-            <br/>
-            <button class="btn btn-sm btn-success m-2" type="submit" style="width:20%">Update</button>
-           </div>
+        <div class="row justify-content-end">
+          <div class="col-md-6">
+            <div class="col-lg-12 d-flex justify-content-end">
+              <div class="row">
+                <div class="col-lg-12">
+                  <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+                </div>
+              </div>
+            </div>
           </div>
+        </div> 
         </div>
     </form>
 </div>

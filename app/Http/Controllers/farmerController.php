@@ -14,7 +14,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class farmerController extends Controller
 {
    public function index(){
-    $user = User::all();
+    $user = User::paginate(10);;
     return view('admin/register', ['users'=>$user]);
    }
     
@@ -58,6 +58,10 @@ class farmerController extends Controller
             'farmAssociationID'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
+            'beneficiaries1'=> 'nullable',
+            'relationBeneficiaries1'=> 'nullable',
+            'beneficiaries2'=> 'nullable',
+            'relationbeneficiaries2'=> 'nullable',
             
         ]);
        
@@ -75,7 +79,7 @@ class farmerController extends Controller
             'loginPass' => 'required',
         ]);
 
-        if(auth()->attempt(['email'=>$incomingFields['loginEmail'], 'password' =>$incomingFields['loginPass']])){
+        if (Auth::guard('web')->attempt(['email' => $incomingFields['loginEmail'], 'password' => $incomingFields['loginPass']])){
             $request->session()->regenerate();
             return redirect('firms/dashboard');
         }
@@ -84,10 +88,13 @@ class farmerController extends Controller
     
     public function logout(){ //to logout the farmers
         
-        auth()->logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        return redirect('/firms/farmer/login');
+        if (Auth::guard('web')->check()) {
+            // User is authenticated
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
+            return redirect('/firms/farmer/login');
+        }
     }  
     
     public function edit(User $user){ //to edit and retrive the information
@@ -136,13 +143,13 @@ class farmerController extends Controller
             'householdCount'=> 'nullable',
             'householdMale'=> 'nullable',
             'householdFemale'=> 'nullable',
-            'hasFarmAssociation'=> 'nullable',
             'farmAssociation'=> 'nullable',
+            'hasFarmAssociation'=> 'nullable',
             'isPWD'=> 'nullable',
             'contactPerson'=> 'nullable',
             'emergenceNumber'=> 'nullable',
-            'bankAccount'=> 'nullable',
             'bankName'=> 'nullable',
+            'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
         ]);
        
@@ -180,41 +187,40 @@ class farmerController extends Controller
             'age'=> 'required',
             'sex'=> 'required',
             'email' => 'required',
-            'barangayAddress' => 'nullable',
-            'cityAddress' => 'nullable',
-            'provinceAddress' => 'nullable',
-            'regionAddress' => 'nullable',
-            'contactNumber' => 'nullable',
-            'hasValidID' => 'nullable',
-            'validID' => 'nullable',
+            'barangayAddress' => 'required',
+            'cityAddress' => 'required',
+            'provinceAddress' => 'required',
+            'regionAddress' => 'required',
+            'contactNumber' => 'required',
+            'hasValidID' => 'required',
+            'validID' => 'required',
             'validIDPhoto' => 'nullable',
-            'validIDNumber'=> 'nullable',
-            'isActive' => 'nullable',
-            'photo' => 'nullable',
-            'birthplaceCity' => 'nullable',
-            'birthplaceProvince' => 'nullable',
-            'educationName'=> 'nullable',
-            'religionName'=> 'nullable',
-            'civilName'=> 'nullable',
-            'spouseName'=> 'nullable',
-            'motherName'=> 'nullable',
-            'isFourPs'=> 'nullable',
-            'isIndigenous'=> 'nullable',
-            'indigenous'=> 'nullable',
-            'isHouseholdHead'=> 'nullable',
-            'householdName'=> 'nullable',
-            'householdRelation'=> 'nullable',
-            'householdCount'=> 'nullable',
-            'householdMale'=> 'nullable',
-            'householdFemale'=> 'nullable',
-            'hasFarmAssociation'=> 'nullable',
-            'farmAssociation'=> 'nullable',
-            'isPWD'=> 'nullable',
-            'contactPerson'=> 'nullable',
-            'emergenceNumber'=> 'nullable',
-            'bankAccount'=> 'nullable',
-            'bankName'=> 'nullable',
-            'bankBranch'=> 'nullable',
+            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
+            'photo' => 'required',
+            'birthplaceCity' => 'required',
+            'birthplaceProvince' => 'required',
+            'educationName'=> 'required',
+            'religionName'=> 'required',
+            'civilName'=> 'required',
+            'spouseName'=> 'required',
+            'motherName'=> 'required',
+            'isFourPs'=> 'required',
+            'isIndigenous'=> 'required',
+            'indigenous'=> 'required',
+            'isHouseholdHead'=> 'required',
+            'householdName'=> 'required',
+            'householdRelation'=> 'required',
+            'householdCount'=> 'required',
+            'householdMale'=> 'required',
+            'householdFemale'=> 'required',
+            'hasFarmAssociation'=> 'required',
+            'farmAssociation'=> 'required',
+            'isPWD'=> 'required',
+            'contactPerson'=> 'required',
+            'emergenceNumber'=> 'required',
+            'bankName'=> 'required',
+            'bankAccount'=> 'required',
+            'bankBranch'=> 'required',
            
             
         ]);

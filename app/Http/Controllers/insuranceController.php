@@ -314,6 +314,7 @@ class insuranceController extends Controller
         {
             $incomingFields = $request ->validate ([
                 'requestLetter'=> 'required',
+                'contactNumber'=>'required',
             ]);
     
             $insurance->update ($incomingFields);

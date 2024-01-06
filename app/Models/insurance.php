@@ -87,7 +87,7 @@ class insurance extends Model
         'assessBy',
         'dateSign',
         'signBy',
-        'requestletter',
+        'requestLetter',
     ];
 
     use Sortable;

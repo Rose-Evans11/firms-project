@@ -155,6 +155,7 @@ Route::get('admin/reset-password/{token}', [ForgotPasswordController::class, 'ad
 Route::post('admin/reset-password', [ForgotPasswordController::class, 'adminSubmitResetPasswordForm'])->name('admin.reset.password.post');
 
 //for farmers CRUD
+Route::get('firms/farmer/register', [farmerController::class, 'index'])->name('farmer.index'); 
 Route::post('/register', [farmerController::class, 'store'])->name('farmer.store');
 Route::get('/farmer/{user}/edit', [farmerController::class, 'edit'])->name('farmer.edit');
 Route::put('/farmer/{user}/update', [farmerController::class, 'update'])->name('farmer.update');

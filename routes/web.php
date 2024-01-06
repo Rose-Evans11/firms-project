@@ -193,7 +193,7 @@ Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'u
 
 //sending request letter
 
-Route::put('/farmer/pending/{insurance}/request-letter', [insuranceController::class, 'requestLetter'])->name('insurance.requestLetter');
+Route::put('/farmer/partially-rejected/{insurance}/request-letter', [insuranceController::class, 'sendRequestLetter'])->name('insurance.requestLetter');
 
 //for farm list
 Route::get('firms/farmer/farm-list', [farmController::class, 'index'])->name('farm.index'); 

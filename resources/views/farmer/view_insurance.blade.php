@@ -649,7 +649,7 @@
               </div>
             </fieldset>
           </form> 
-            <form action="{{route('insurance.requestLetter')}}" method="post">
+            <form action="{{route('insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
               @csrf
               @method('put')
               <div class="row">

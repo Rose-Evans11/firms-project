@@ -325,7 +325,7 @@ class insuranceController extends Controller
             $twilio = new Client($sid, $token);
             
             $message = $twilio->messages
-                              ->create($incomingFields['contactNumber'], // to
+                              ->create(Auth::guard('web')->user()->contactNumber, // to
                                        [
                                            "body" => "You just send a request letter. We will validate it, kindly, wait our message for additional information. Thank you!",
                                            "from" => $senderNumber

@@ -25,8 +25,8 @@ class insuranceController extends Controller
         if($user)  
         {
             //$insurance = insurance::all();
-            $insurance=insurance::sortable()
-                ->where('farmersID', Auth::guard('web')->user()->id)->get()
+            $insurance = insurance::sortable()
+                ->where('farmersID', Auth::guard('web')->user()->id)
                 ->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
         }
@@ -62,10 +62,9 @@ class insuranceController extends Controller
         {
             //$insurance = DB::table('insurances')->where('farmersID', Auth::guard('web')->user()->id)->where('status', 'Pending')->get();
             //$insurance=DB::sortable()->paginate(10);
-            $insurance = DB::table('insurances')
+            $insurance = insurance::sortable()
                 ->where('farmersID', Auth::guard('web')->user()->id)
                 ->where('status', 'Pending')
-                ->sortable()
                 ->paginate(10);
             return view('farmer/pending_insurance', ['insurances'=>$insurance]);
         }

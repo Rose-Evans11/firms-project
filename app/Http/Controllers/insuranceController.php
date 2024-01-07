@@ -25,8 +25,9 @@ class insuranceController extends Controller
         if($user)  
         {
             //$insurance = insurance::all();
-        $insurance = insurance::where('farmersID', auth()->id())->get();
-        $insurance=insurance::sortable()->paginate(10);
+            $insurance=insurance::sortable()
+                ->where('farmersID', auth()->id())->get()
+                ->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');

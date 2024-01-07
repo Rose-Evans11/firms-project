@@ -57,8 +57,9 @@ class insuranceController extends Controller
         $user = Auth::guard('web')->user();
         if($user)
         {
-            $insurance = DB::table('insurances')->where('farmersID',  $user->id)->get();
-            $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
+            //$insurance = DB::table('insurances')->where('farmersID',  $user->id)->get();
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Pending')->get();
+            $insurance::sortable()->paginate(10)->where('status', 'Pending');
             return view('farmer/pending_insurance', ['insurances'=>$insurance]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');

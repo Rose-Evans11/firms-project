@@ -99,8 +99,7 @@ class insuranceController extends Controller
             //$insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
             $insurance = insurance::sortable()
             ->where('farmersID', Auth::guard('web')->user()->id)
-            ->where('status', 'Partially Rejected')
-            ->where('status', 'Rejected')
+            ->whereIn('status', ['Rejected', 'Partially Rejected'])
             ->paginate(10);
             return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
 

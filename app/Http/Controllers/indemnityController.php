@@ -25,8 +25,10 @@ class indemnityController extends Controller
         if(Auth::check())   
         {
             //$insurance = insurance::all();
-        $indemnity = indemnity::where('farmersID', auth()->id())->get();
-        $indemnity=indemnity::sortable()->paginate(10);
+        //$indemnity = indemnity::where('farmersID', auth()->id())->get();
+        //$indemnity=indemnity::sortable()->paginate(10);
+        $indemnity = indemnity::where('farmersID', Auth::guard('web')->user()->id)
+            ->paginate(10);
         return view('farmer/indemnity', ['indemnities'=>$indemnity]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');

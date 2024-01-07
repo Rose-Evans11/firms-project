@@ -24,7 +24,7 @@ class insuranceController extends Controller
         if($user)  
         {
             //$insurance = insurance::all();
-        $insurance = insurance::where('farmersID', $user->id)->get();
+        $insurance = insurance::where('farmersID', auth()->id())->get();
         $insurance=insurance::sortable()->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
         }
@@ -54,12 +54,12 @@ class insuranceController extends Controller
     }
 
     public function pending(){
+        //$insurance = insurance::all();
         $user = Auth::guard('web')->user();
-        if($user)
+        if($user)   
         {
-            //$insurance = DB::table('insurances')->where('farmersID',  $user->id)->get();
-            $insurance=insurance::sortable()->paginate(10);
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Pending')->get();
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
             return view('farmer/pending_insurance', ['insurances'=>$insurance]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
@@ -67,10 +67,10 @@ class insuranceController extends Controller
     }
 
     public function approved(){
-        $user = Auth::guard('web')->user();
-        if($user)  
+        //$insurance = insurance::all();
+        if(Auth::check())   
         {
-            $insurance = DB::table('insurances')->where('farmersID', $user->id)->get();
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
             return view('farmer/approved_insurance', ['insurances'=>$insurance]);
 
@@ -80,10 +80,10 @@ class insuranceController extends Controller
          
     }
     public function rejected(){
-        $user = Auth::guard('web')->user();
-        if($user)  
+        //$insurance = insurance::all();
+        if(Auth::check())   
         {
-            $insurance = DB::table('insurances')->where('farmersID', $user->id)->get();
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
             return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
 
@@ -306,37 +306,5 @@ class insuranceController extends Controller
         $request->validate([
           'query'=>'min:2'
        ]);
-    }
-    public function sendRequestLetter(insurance $insurance, Request $request){
-
-        $user = Auth::guard('web')->user();
-        if($user)   
-        {
-            $incomingFields = $request ->validate ([
-                'requestLetter'=> 'required',
-                'contactNumber'=>'nullable',
-            ]);
-    
-            $insurance->update ($incomingFields);
-            session()->flash('success', 'Successfully send request Letter');
-            $sid = getenv("TWILIO_SID");
-            $token = getenv("TWILIO_TOKEN");
-            $senderNumber = getenv("TWILIO_PHONE");
-            $twilio = new Client($sid, $token);
-            
-            $message = $twilio->messages
-                              ->create(Auth::guard('web')->user()->contactNumber, // to
-                                       [
-                                           "body" => "You just send a request letter. We will validate it, kindly, wait our message for additional information. Thank you!",
-                                           "from" => $senderNumber
-                                       ]
-                              );
-            
-            print($message->sid);
-            return back();
-
-        }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-     
     }
 }

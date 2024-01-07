@@ -76,8 +76,12 @@ class insuranceController extends Controller
         //$insurance = insurance::all();
         if(Auth::check())   
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
-            $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
+           // $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+           // $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
+           $insurance = insurance::sortable()
+                ->where('farmersID', Auth::guard('web')->user()->id)
+                ->where('status', 'Approved')
+                ->paginate(10);
             return view('farmer/approved_insurance', ['insurances'=>$insurance]);
 
         }
@@ -89,8 +93,13 @@ class insuranceController extends Controller
         //$insurance = insurance::all();
         if(Auth::check())   
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
-            $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
+            //$insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            //$insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
+            $insurance = insurance::sortable()
+            ->where('farmersID', Auth::guard('web')->user()->id)
+            ->where('status', 'Partially Rejected')
+            ->where('status', 'Rejected')
+            ->paginate(10);
             return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
 
         }
@@ -270,7 +279,8 @@ class insuranceController extends Controller
         {
             $search_text = $request->input('query');
       // $user = User::table('users')
-       $insurance = insurance::Where('barangayFarm', 'like', '%' . $search_text . '%')
+        $insurance = insurance::sortable()
+                 ->where('farmersID', Auth::guard('web')->user()->id)
                   ->orWhere('cropName', 'like', '%' . $search_text . '%')
                   ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
                   ->orWhere('status', 'like', '%' . $search_text . '%')

@@ -299,7 +299,7 @@ class insuranceController extends Controller
 
     public function admin_insurance_find(Request $request, insurance $insurance){ //to search and find
 
-        $user = Auth::guard('web')->user();
+        $user = Auth::guard('admin')->user();
         if($user)  
         {
             $search_text = $request->input('query');

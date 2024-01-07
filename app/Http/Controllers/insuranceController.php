@@ -26,7 +26,7 @@ class insuranceController extends Controller
         {
             //$insurance = insurance::all();
             $insurance=insurance::sortable()
-                ->where('farmersID', auth()->id())->get()
+                ->where('farmersID', Auth::guard('web')->user()->id)->get
                 ->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
         }

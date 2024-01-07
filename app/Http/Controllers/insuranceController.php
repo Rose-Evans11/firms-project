@@ -54,11 +54,12 @@ class insuranceController extends Controller
     }
 
     public function pending(){
-        if(Auth::check()) 
+        $user = Auth::guard('web')->user();
+        if($user)
         {
             //$insurance = DB::table('insurances')->where('farmersID',  $user->id)->get();
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
-            $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
+            $insurance=insurance::sortable()->paginate(10);
+            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Pending')->get();
             return view('farmer/pending_insurance', ['insurances'=>$insurance]);
         }
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
@@ -66,9 +67,10 @@ class insuranceController extends Controller
     }
 
     public function approved(){
-        if(Auth::check())  
+        $user = Auth::guard('web')->user();
+        if($user)  
         {
-            $insurance = DB::table('insurances')->where('farmersID',auth()->id())->get();
+            $insurance = DB::table('insurances')->where('farmersID', $user->id)->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
             return view('farmer/approved_insurance', ['insurances'=>$insurance]);
 
@@ -78,9 +80,10 @@ class insuranceController extends Controller
          
     }
     public function rejected(){
-        if(Auth::check()) 
+        $user = Auth::guard('web')->user();
+        if($user)  
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance = DB::table('insurances')->where('farmersID', $user->id)->get();
             $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
             return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
 

@@ -14,8 +14,11 @@ class farmController extends Controller
         if($user)  
         {
             //$insurance = insurance::all();
-        $farm = farm::where('farmersID', auth()->id())->get();
-        $farm=farm::paginate(10);
+        //$farm = farm::where('farmersID', auth()->id())->get();
+        //$farm=farm::paginate(10);
+        $farm = farm::sortable()
+            ->where('farmersID', Auth::guard('web')->user()->id)
+            ->paginate(10);
         //$farm = DB::select('SELECT * FROM farms LEFT JOIN users ON farms.id = users.id');
         return view('farmer/farm_list', ['farms'=>$farm]);
         }

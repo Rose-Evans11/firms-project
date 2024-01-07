@@ -74,7 +74,8 @@ class insuranceController extends Controller
 
     public function approved(){
         //$insurance = insurance::all();
-        if(Auth::check())   
+        $user = Auth::guard('web')->user();
+        if($user)
         {
            // $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
            // $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
@@ -91,7 +92,8 @@ class insuranceController extends Controller
     }
     public function rejected(){
         //$insurance = insurance::all();
-        if(Auth::check())   
+        $user = Auth::guard('web')->user();
+        if($user)   
         {
             //$insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
             //$insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);

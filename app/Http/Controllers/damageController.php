@@ -23,8 +23,10 @@ class damageController extends Controller
     public function index(){
          if(Auth::check())   
             {
-                $damage = DB::table('damages')->where('farmersID', auth()->id())->get();
-                $damage=damage::sortable()->paginate(10);
+                //$damage = DB::table('damages')->where('farmersID', auth()->id())->get();
+                //$damage=damage::sortable()->paginate(10);
+                $damage = damage::where('farmersID', Auth::guard('web')->user()->id)
+                    ->paginate(10);
                 return view('farmer/notice_loss', ['damages'=>$damage]);
     
             }

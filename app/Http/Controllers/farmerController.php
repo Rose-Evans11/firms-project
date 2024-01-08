@@ -38,10 +38,10 @@ class farmerController extends Controller
             'validID' => 'nullable',
             //'validIDPhoto' => 'nullable',
             'validIDPhoto'=> 'required|image|max:2048',
+            'photo'=> 'required|image|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             //'photo' => 'nullable',
-            'photo'=> 'required|image|max:2048',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -128,10 +128,8 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'hasValidID' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
             'birthplaceCity' => 'nullable',
             'birthplaceProvince' => 'nullable',
             'educationName'=> 'nullable',
@@ -156,9 +154,13 @@ class farmerController extends Controller
             'bankName'=> 'nullable',
             'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
+            'validIDPhoto'=> 'required|image|max:2048',
+            'photo'=> 'required|image|max:2048',
         ]);
        
-        
+        $imagePath = $request->file('image')->store('public/images');
+        $incomingFields['photo'] = $imagePath;
+        $incomingFields['validPhoto'] = $imagePath;
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

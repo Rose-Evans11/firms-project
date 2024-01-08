@@ -37,8 +37,6 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
             //'validIDPhoto' => 'nullable',
-            'validIDPhoto'=> 'required|image|max:2048',
-            'photo'=> 'required|image|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
             //'photo' => 'nullable',
@@ -64,15 +62,15 @@ class farmerController extends Controller
             'relationBeneficiaries1'=> 'nullable',
             'beneficiaries2'=> 'nullable',
             'relationbeneficiaries2'=> 'nullable',
-            
+            'validIDPhoto'=> 'required|image|max:2048',
+            'photo'=> 'required|image|max:2048',
         ]);
        
-        
-
+        $imagePhoto = $request->file('photo')->store('public/images');
+        $imageValidPhoto = $request->file('validIDPhoto')->store('public/images');
+        $incomingFields['photo'] = $imagePhoto;
+        $incomingFields['validIDPhoto'] = $imageValidPhoto;
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $imagePath = $request->file('image')->store('public/images');
-        $incomingFields['photo'] = $imagePath;
-        $incomingFields['validPhoto'] = $imagePath;
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page
@@ -159,9 +157,9 @@ class farmerController extends Controller
         ]);
        
         $imagePhoto = $request->file('photo')->store('public/images');
-        $imageValidPhoto = $request->file('validPhoto')->store('public/images');
+        $imageValidPhoto = $request->file('validIDPhoto')->store('public/images');
         $incomingFields['photo'] = $imagePhoto;
-        $incomingFields['validPhoto'] = $imageValidPhoto;
+        $incomingFields['validIDPhoto'] = $imageValidPhoto;
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

@@ -62,8 +62,6 @@ class farmerController extends Controller
             'relationBeneficiaries1'=> 'nullable',
             'beneficiaries2'=> 'nullable',
             'relationbeneficiaries2'=> 'nullable',
-            'validIDPhoto'=> 'required|image|max:2048',
-            'photo'=> 'required|image|max:2048',
         ]);
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);

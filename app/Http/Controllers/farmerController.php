@@ -36,10 +36,12 @@ class farmerController extends Controller
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
+            //'validIDPhoto' => 'nullable',
+            'validIDPhoto'=> 'required|image|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
+            //'photo' => 'nullable',
+            'photo'=> 'required|image|max:2048',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -68,6 +70,9 @@ class farmerController extends Controller
         
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
+        $imagePath = $request->file('image')->store('public/images');
+        $incomingFields['photo'] = $imagePath;
+        $incomingFields['validPhoto'] = $imagePath;
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page

@@ -158,9 +158,10 @@ class farmerController extends Controller
             'photo'=> 'required|image|max:2048',
         ]);
        
-        $imagePath = $request->file('image')->store('public/images');
-        $incomingFields['photo'] = $imagePath;
-        $incomingFields['validPhoto'] = $imagePath;
+        $imagePhoto = $request->file('photo')->store('public/images');
+        $imageValidPhoto = $request->file('validPhoto')->store('public/images');
+        $incomingFields['photo'] = $imagePhoto;
+        $incomingFields['validPhoto'] = $imageValidPhoto;
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

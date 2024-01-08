@@ -66,10 +66,6 @@ class farmerController extends Controller
             'photo'=> 'required|image|max:2048',
         ]);
        
-        $photo = $request->file('photo')->store('public/images');
-        $validIDPhoto = $request->file('validIDPhoto')->store('public/images');
-        $incomingFields['photo'] = $photo;
-        $incomingFields['validIDPhoto'] = $validIDPhoto;
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
@@ -156,10 +152,7 @@ class farmerController extends Controller
             'photo'=> 'required|image|max:2048',
         ]);
        
-        $imagePhoto = $request->file('photo')->store('public/images');
-        $imageValidPhoto = $request->file('validIDPhoto')->store('public/images');
-        $incomingFields['photo'] = $imagePhoto;
-        $incomingFields['validIDPhoto'] = $imageValidPhoto;
+        
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));

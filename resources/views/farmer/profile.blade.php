@@ -102,7 +102,7 @@
                       </div>
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{ asset('storage/'.Auth::User()->photo->imagePhoto) }}">
+                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
                         </div>
                       </div>
                     </div>
@@ -444,7 +444,7 @@
                       </div>
                       <div class="row">
                        <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
-                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{ asset('storage/'.Auth::User()->validIDPhoto->imageValidPhoto) }}">
+                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
                         </div>
                       </div>
                     </div>

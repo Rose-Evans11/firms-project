@@ -200,9 +200,7 @@ class farmerController extends Controller
             'contactNumber' => 'required',
             'hasValidID' => 'required',
             'validID' => 'required',
-            'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
-            'photo' => 'required',
             'birthplaceCity' => 'required',
             'birthplaceProvince' => 'required',
             'educationName'=> 'required',
@@ -227,10 +225,14 @@ class farmerController extends Controller
             'bankName'=> 'required',
             'bankAccount'=> 'required',
             'bankBranch'=> 'required',
-           
-            
+            'validIDPhoto'=> 'required|image|max:2048',
+            'photo'=> 'required|image|max:2048',
         ]);
        
+        $imagePhoto = $request->file('photo')->store('public/images');
+        $imageValidPhoto = $request->file('validIDPhoto')->store('public/images');
+        $incomingFields['photo'] = $imagePhoto;
+        $incomingFields['validIDPhoto'] = $imageValidPhoto;
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');

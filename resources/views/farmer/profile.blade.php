@@ -22,7 +22,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-    <form action="{{ route('farmer.update.profile',  Auth::User()->id )}}" method="POST">
+    <form action="{{ route('farmer.update.profile',  Auth::User()->id )}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('put')
         <fieldset>

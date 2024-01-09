@@ -1,5 +1,5 @@
 @extends('layouts.master_admin')
-@section('title','Pending Insurance')
+@section('title','Approved Insurance')
 @section('content')
 <style>
   .flip {
@@ -39,18 +39,14 @@
                   <th>Insurance ID</th>
                   <th>Crops</th>
                   <th>@sortablelink('insuranceType','Insurance Type')</th>
-                  <th>Farmers' ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Barangay</th>
-                  <th>City</th>
+                  <th>@sortablelink('created_at', 'Date Created')</th>
                   <th>Expected Harvest Date</th>
                   <th>Farm Location</th>
-                  <th>@sortablelink('created_at', 'Date Created')</th>
                   <th>Status</th>
                   <th>Notes</th>
-                  <th>Edit</th>
                   <th>View</th>
+                  <th>File Notice of Loss</th>
+                  
               </tr>
           </thead>
           <tbody>
@@ -60,18 +56,13 @@
                <td>{{$insurance->id}} </td>
                <td>{{$insurance->cropName}}</td>
                <td>{{$insurance->insuranceType}}</td>
-               <td>{{$insurance->farmersID}}</td>
-               <td>{{$insurance->firstName}}</td>
-               <td>{{$insurance->lastName}}</td>
-               <td>{{$insurance->barangayAddress}}</td>
-               <td>{{$insurance->cityAddress}}</td>
+               <td>{{$insurance->created_at}}</td>
                <td>{{$insurance->dateHarvest}}</td>
                <td>{{$insurance->barangayFarm}}</td>
-               <td>{{$insurance->created_at}}</td>
                <td>{{$insurance->status}}</td>
                <td>{{$insurance->statusNote}}</td>
-               <td><a href="{{route('insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
-               <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
+               <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none">View</a></td>
+               <td><a href="{{route('damage.add', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> File Notice of Loss</a></td>
               </tr>
               @endforeach
               @else
@@ -79,8 +70,8 @@
               @endif
           </tbody>
       </table>
-    </div>
-      </div>
+      </div>  
+      
     </div>
   </div>
     

@@ -146,8 +146,8 @@ class farmerController extends Controller
             'bankName'=> 'nullable',
             'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
-            'validIDPhoto'=> 'required|image|max:2048',
-            'photo'=> 'required|image|max:2048',
+            'validIDPhoto'=> 'nullable',
+            'photo'=> 'nullable',
         ]);
        
         

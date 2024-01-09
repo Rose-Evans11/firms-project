@@ -219,10 +219,16 @@ class farmerController extends Controller
         ]);
        
         //this is for photo
-        $namePhoto = $request->file('photo')->getClientOriginalName();
-        $request->file('photo')->store('public/images');
-        $user = new user();
-        $user->photo= $namePhoto;
+        
+
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/images/', $filename);
+            $incomingFields['photo'] =$filename;
+        }
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');

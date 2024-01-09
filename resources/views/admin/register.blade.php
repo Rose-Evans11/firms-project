@@ -225,7 +225,7 @@
                 <label for="dt_birth" class="col-lg-6 control-label">Birthdate: </label>
                 <div class="col-lg-12">
                   <input type="date"  max="9999-12-31" class="form-control" id="birthdate" name="birthdate" required onchange="ageCount()" data-date="" data-date-format="DD MM YYYY">
-                  <input type="number" class="form-control" id="txt_age"  placeholder="Age" readonly required  name="age">
+                  <input type="number" class="form-control" id="age"  placeholder="Age" readonly required  name="age">
 
                 </div>
               </div>

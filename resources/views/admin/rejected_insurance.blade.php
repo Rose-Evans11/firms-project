@@ -1,5 +1,5 @@
 @extends('layouts.master_admin')
-@section('title','Pending Insurance')
+@section('title','Rejected Insurance')
 @section('content')
 <style>
   .flip {
@@ -78,8 +78,8 @@
                <tr><td>No result found!</td></tr>
               @endif
           </tbody>
-      </table>
-    </div>
+        </table>
+      
       </div>
     </div>
   </div>

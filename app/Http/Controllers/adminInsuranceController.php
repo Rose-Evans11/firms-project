@@ -63,24 +63,24 @@ class adminInsuranceController extends Controller
     public function approved(){
         if (Auth::guard('admin')->check())  
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance = DB::table('insurances')->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
-            return view('farmer/approved_insurance', ['insurances'=>$insurance]);
+            return view('admin/approved_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         
          
     }
     public function rejected(){
         if (Auth::guard('admin')->check())
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance = DB::table('insurances')->get();
             $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
-            return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
+            return view('admin/rejected_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         
          
     }
@@ -171,7 +171,7 @@ class adminInsuranceController extends Controller
             $message = $twilio->messages
                               ->create($incomingFields['contactNumber'], // to
                                        [
-                                           "body" => "You just filed an insurance report. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                           "body" => "Admin just filed an insurance report. We will validate it, kindly, wait our message for additional information. Thank you!",
                                            "from" => $senderNumber
                                        ]
                               );

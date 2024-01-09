@@ -52,11 +52,11 @@ class adminInsuranceController extends Controller
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
         {
-            $insurance = DB::table('insurances')->where('farmersID', auth()->id())->get();
+            $insurance = DB::table('insurances')->get();
             $insurance=insurance::sortable()->paginate(10)->where('status', 'Pending');
-            return view('farmer/pending_insurance', ['insurances'=>$insurance]);
+            return view('admin/pending_insurance', ['insurances'=>$insurance]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         
     }
 

@@ -45,7 +45,7 @@ class adminController extends Controller
         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
     public function logout(){ //to logout the farmers
-        
+        // User is authenticated
         if (Auth::guard('admin')->check()) {
             // User is authenticated
             Auth::logout();

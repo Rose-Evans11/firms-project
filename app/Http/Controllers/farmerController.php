@@ -146,11 +146,9 @@ class farmerController extends Controller
             'bankName'=> 'nullable',
             'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
-            'validIDPhoto'=> 'required|image|max:2048',
-            'photo'=> 'required|image|max:2048',
+            'validIDPhoto'=> 'nullalble',
+            'photo'=> 'nullable',
         ]);
-       
-        
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));
@@ -216,11 +214,21 @@ class farmerController extends Controller
             'bankName'=> 'required',
             'bankAccount'=> 'required',
             'bankBranch'=> 'required',
-            'validIDPhoto'=> 'required|image|max:2048',
-            'photo'=> 'required|image|max:2048',
+            'validIDPhoto'=> 'nullalble',
+            'photo'=> 'nullable',
         ]);
        
+        //this is for photo
         
+
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/images/', $filename);
+            $incomingFields['photo'] =$filename;
+        }
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');

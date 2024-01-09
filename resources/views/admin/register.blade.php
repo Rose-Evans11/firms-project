@@ -101,9 +101,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
+                <label for="rsbsa" class="col-lg-12 control-label">RSBSA Number: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
+                  <input type="text" class="form-control" id="rsbsa"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@
                 <div class="form-group">
                   <label for="dd_barangay" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" required name="barangayAddress">
+                    <select class="form-select" aria-label="Default select example" required name="barangayAddress" id="barangayAddress">
                       <option value="Altura Bata">Altura Bata</option>
                       <option value="Altura Matanda">Altura Matanda</option>
                       <option value="Altura South">Altura South</option>
@@ -174,7 +174,7 @@
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" placeholder="First Name" value="{{Auth::User()->firstName}}" name="firstName" @required(true)>
+                      <input type="text" class="form-control" id="firstName" placeholder="First Name" value="{{Auth::User()->firstName}}" name="firstName" @required(true)>
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@
                   <div class="form-group">
                       <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
                       <div class="col-lg-12">
-                        <input type="text" class="form-control" id="txt_mname" placeholder="Middle Name" value="{{Auth::User()->middleName}}" name="middleName" @required(true)>
+                        <input type="text" class="form-control" id="middleName" placeholder="Middle Name" value="{{Auth::User()->middleName}}" name="middleName" @required(true)>
                       </div>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                   <div class="form-group">
                     <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_lname" placeholder="Last Name" value="{{Auth::User()->lastName}}" name="lastName" @required(true)>
+                      <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="{{Auth::User()->lastName}}" name="lastName" @required(true)>
                     </div>
                   </div>
                 </div>
@@ -204,34 +204,27 @@
                     <div class="form-group">
                         <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
                         <div class="col-lg-12">
-                        <input type="text" class="form-control" id="txt_extname" placeholder="Extension Name" value="{{Auth::User()->extensionName}}" name="extensionName" @required(true)>
+                        <input type="text" class="form-control" id="extensionName" placeholder="Extension Name" value="{{Auth::User()->extensionName}}" name="extensionName" @required(true)>
                         </div>
                     </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="form-group">
-                  <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
-                  <div class="col-lg-12">
-                  <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group my-5 text-center">
-               <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
-                </div>
-              </div>
-            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
+              <div class="col-lg-12">
+              <input type="file" class="form-control" id="photo"  name="photo">
             </div>
           </div>
+        </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="dt_birth" class="col-lg-6 control-label">Birthdate: </label>
                 <div class="col-lg-12">
-                  <input type="date"  max="9999-12-31" class="form-control" id="dt_birth" name="birthdate" required onchange="ageCount()" data-date="" data-date-format="DD MM YYYY">
+                  <input type="date"  max="9999-12-31" class="form-control" id="birthdate" name="birthdate" required onchange="ageCount()" data-date="" data-date-format="DD MM YYYY">
                   <input type="number" class="form-control" id="txt_age"  placeholder="Age" readonly required  name="age">
 
                 </div>
@@ -241,7 +234,7 @@
               <div class="form-group">
                 <label for="dd_sex" class="col-lg-2 control-label">Sex :</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example"  id="dd_sex" name='sex' required>
+                  <select class="form-select" aria-label="Default select example"  id="sex" name='sex' required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
@@ -253,7 +246,7 @@
             <div class="col-md-3">
               <label for="dd_withGovernID" class="col-lg-12 control-label">With Government ID:</label>
               <div class="col-lg-12">
-                <select class="form-select" aria-label="Default select example" id="dd_withGovernID" name="hasValidID" @required(true)>
+                <select class="form-select" aria-label="Default select example" id="hasValidID" name="hasValidID" @required(true)>
                   <option selected> {{Auth::User()->hasValidID}}</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
@@ -263,7 +256,7 @@
             <div class="col-md-3">
               <label for="dd_governID" class="col-lg-12 control-label">Government ID:</label>
               <div class="col-lg-12">
-                <select class="form-select" aria-label="Default select example" id="dd_governID" name="validID" @required(true)>
+                <select class="form-select" aria-label="Default select example" id="validID" name="validID" @required(true)>
                   <option selected> {{Auth::User()->validID}}</option>
                   <option value="National ID">National ID</option>
                   <option value="Passport ID">Passport ID</option>
@@ -280,23 +273,17 @@
               <div class="form-group">
                 <label for="txt_validIDNumber" class="col-lg-12 control-label">Valid ID Number:</label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_validIDNumber" placeholder=" Valid ID Number" name="validIDNumber" value="{{Auth::User()->validIDNumber}}" @required(true)>
+                  <input type="text" class="form-control" id="validIDNumber" placeholder=" Valid ID Number" name="validIDNumber" value="{{Auth::User()->validIDNumber}}" @required(true)>
                 </div> 
               </div>
             </div>
             <div class="col-md-3">
-              <div class="row">
-                <div class="col-md-12"> 
+                <div class="col-lg-12"> 
                   <div class="form-group">
                     <label for="file_id" class="col-lg-12 control-label">Government ID: </label>
                     <div class="col-lg-12">
-                    <input type="file" class="form-control" id="file_id" accept="image/jpg, image/jpeg, image/png" onchange="loadFileID(event)" name='validIDPhoto'>
+                    <input type="file" class="form-control" id="validIDPhoto" name='validIDPhoto'>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-               <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
-               <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
                 </div>
               </div>
             </div>
@@ -306,7 +293,7 @@
               <div class="form-group">
                 <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
                 <div class="col-lg-12">
-                  <input type="email" class="form-control" id="txt_email" value="" placeholder="Email" name="email" required autocomplete="email">
+                  <input type="email" class="form-control" id="email" value="" placeholder="Email" name="email" required autocomplete="email">
                 </div>
               </div>
             </div>
@@ -314,7 +301,7 @@
               <div class="form-group">
                 <label for="txt_pass" class="col-lg-6 control-label"> Password: </label>
                 <div class="col-lg-12">
-                  <input type="password" class="form-control" id="txt_pass" value=""name="password" required autocomplete="new-password"> 
+                  <input type="password" class="form-control" id="password" value=""name="password" required autocomplete="new-password"> 
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.master_admin')
-@section('title','Pending')
+@section('title','Edit Insurance')
 @section('content')
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>

@@ -43,8 +43,14 @@ class farmerController extends Controller
         ]);
         
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $imagePhoto = $request->file('photo')->store('public/storage');
-        $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+        //$imagePhoto = $request->file('photo')->store('public/storage');
+        //$imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            $imagePhoto = $request->file('photo')->store('public/storage');
+        }
+        if ($request->hasFile('validIDPhoto') && $request->file('validIDPhoto')->isValid()) {
+            $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+        }
         $user = new User([
             'rsbsa' => $request->get('rsbsa'),
             'firstName' => $request->get('firstName'),

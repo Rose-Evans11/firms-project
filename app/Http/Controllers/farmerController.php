@@ -36,10 +36,10 @@ class farmerController extends Controller
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
-            //'validIDPhoto' => 'nullable',
+            'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            //'photo' => 'nullable',
+            'photo' => 'nullable',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -146,9 +146,10 @@ class farmerController extends Controller
             'bankName'=> 'nullable',
             'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
-            'validIDPhoto'=> 'nullalble',
+            'validIDPhoto'=> 'nullable',
             'photo'=> 'nullable',
         ]);
+       
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));
@@ -214,19 +215,16 @@ class farmerController extends Controller
             'bankName'=> 'required',
             'bankAccount'=> 'required',
             'bankBranch'=> 'required',
-            'validIDPhoto'=> 'nullalble',
+            'validIDPhoto'=> 'nullable',
             'photo'=> 'nullable',
         ]);
        
-        //this is for photo
-        
-
-        if($request->hasfile('photo'))
+        if($request->hasfile( $incomingFields['photo']))
         {
-            $file = $request->file('photo');
+            $file = $request->file( $incomingFields['photo']);
             $extenstion = $file->getClientOriginalExtension();
             $filename = time().'.'.$extenstion;
-            $file->move('public/images/', $filename);
+            $file->move('public/upload/', $filename);
             $incomingFields['photo'] =$filename;
         }
         $user->update ($incomingFields);

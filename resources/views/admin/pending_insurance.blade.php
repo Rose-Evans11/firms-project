@@ -1,4 +1,4 @@
-@extends('layouts.master_farmer')
+@extends('layouts.master_admin')
 @section('title','Pending Insurance')
 @section('content')
 <style>
@@ -33,41 +33,54 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
-        <table class="table table-bordered table-striped">
-          <thead>
-              <tr>
-                  <th>Insurance ID</th>
-                  <th>Crops</th>
-                  <th>@sortablelink('insuranceType','Insurance Type')</th>
-                  <th>@sortablelink('created_at', 'Date Created')</th>
-                  <th>Expected Harvest Date</th>
-                  <th>Farm Location</th>
-                  <th>Status</th>
-                  <th>Notes</th>
-                  <th>Edit</th>
-                  
-              </tr>
-          </thead>
-          <tbody>
-              @if(count($insurances) > 0)
-              @foreach ($insurances as $insurance)
-              <tr>
-               <td>{{$insurance->id}} </td>
-               <td>{{$insurance->cropName}}</td>
-               <td>{{$insurance->insuranceType}}</td>
-               <td>{{$insurance->created_at}}</td>
-               <td>{{$insurance->dateHarvest}}</td>
-               <td>{{$insurance->barangayFarm}}</td>
-               <td>{{$insurance->status}}</td>
-               <td>{{$insurance->statusNote}}</td>
-               <td><a href="{{route('insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-              </tr>
-              @endforeach
-              @else
-               <tr><td>No result found!</td></tr>
-              @endif
-          </tbody>
-      </table>
+        <div class="col-md-12">
+          <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+            <table class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                      <th>Insurance ID</th>
+                      <th>Crops</th>
+                      <th>@sortablelink('insuranceType','Insurance Type')</th>
+                      <th>Farmers' ID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Barangay</th>
+                      <th>City</th>
+                      <th>Expected Harvest Date</th>
+                      <th>Farm Location</th>
+                      <th>@sortablelink('created_at', 'Date Created')</th>
+                      <th>Status</th>
+                      <th>Notes</th>
+                      <th>View</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @if(count($insurances) > 0)
+                  @foreach ($insurances as $insurance)
+                  <tr>
+                   <td>{{$insurance->id}} </td>
+                   <td>{{$insurance->cropName}}</td>
+                   <td>{{$insurance->insuranceType}}</td>
+                   <td>{{$insurance->farmersID}}</td>
+                   <td>{{$insurance->firstName}}</td>
+                   <td>{{$insurance->lastName}}</td>
+                   <td>{{$insurance->barangayAddress}}</td>
+                   <td>{{$insurance->cityAddress}}</td>
+                   <td>{{$insurance->dateHarvest}}</td>
+                   <td>{{$insurance->barangayFarm}}</td>
+                   <td>{{$insurance->created_at}}</td>
+                   <td>{{$insurance->status}}</td>
+                   <td>{{$insurance->statusNote}}</td>
+                   <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
+                  </tr>
+                  @endforeach
+                  @else
+                   <tr><td>No result found!</td></tr>
+                  @endif
+              </tbody>
+          </table>
+        </div>
+      </div>
       </div>
     </div>
   </div>

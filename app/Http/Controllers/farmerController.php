@@ -45,34 +45,34 @@ class farmerController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         //$imagePhoto = $request->file('photo')->store('public/storage');
         //$imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('photo') &&$request->hasFile('validIDPhoto')) {
             $imagePhoto = $request->file('photo')->store('public/storage');
-        }
-        if ($request->hasFile('validIDPhoto')) {
             $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+
+            $user = new User([
+                'rsbsa' => $request->get('rsbsa'),
+                'firstName' => $request->get('firstName'),
+                'middleName' => $request->get('middleName'),
+                'lastName' => $request->get('lastName'),
+                'extensionName' => $request->get('extensionName'),
+                'sex' => $request->get('sex'),
+                'birthdate' => $request->get('birthdate'),
+                'age' => $request->get('age'),
+                'email' => $request->get('email'),
+                'password' => $request->get('password'),
+                'barangayAddress' => $request->get('barangayAddress'),
+                'contactNumber' => $request->get('contactNumber'),
+                'validIDNumber' => $request->get('validIDNumber'),
+                'isActive' => $request->get('isActive'),
+                'hasValidID' => $request->get('hasValidID'),
+                'validID' => $request->get('validID'),
+                'photo' => $imagePhoto,
+                'validIDPhoto' => $imageValidIDPhoto,
+            ]);
+            //$user = User::create ($incomingFields);
+            $user->save();
         }
-        $user = new User([
-            'rsbsa' => $request->get('rsbsa'),
-            'firstName' => $request->get('firstName'),
-            'middleName' => $request->get('middleName'),
-            'lastName' => $request->get('lastName'),
-            'extensionName' => $request->get('extensionName'),
-            'sex' => $request->get('sex'),
-            'birthdate' => $request->get('birthdate'),
-            'age' => $request->get('age'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
-            'barangayAddress' => $request->get('barangayAddress'),
-            'contactNumber' => $request->get('contactNumber'),
-            'validIDNumber' => $request->get('validIDNumber'),
-            'isActive' => $request->get('isActive'),
-            'hasValidID' => $request->get('hasValidID'),
-            'validID' => $request->get('validID'),
-            'photo' => $imagePhoto,
-            'validIDPhoto' => $imageValidIDPhoto,
-        ]);
-        //$user = User::create ($incomingFields);
-        $user->save();
+        
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page
     }

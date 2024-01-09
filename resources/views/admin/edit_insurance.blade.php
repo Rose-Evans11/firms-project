@@ -52,7 +52,7 @@
    {{Session::get('success')}}
   </div> 
 @endif
-  <form class="form-horizontal" action="{{route('admin.update', ['insurance'=>$insurances])}}" method="Post">
+  <form class="form-horizontal" action="{{route('admin.insurance.update', ['insurance'=>$insurances])}}" method="Post">
     @csrf
     @method('put')
    <fieldset>

@@ -70,7 +70,7 @@ class farmerController extends Controller
                 'validIDPhoto' => $imageValidIDPhoto,
             ]);
             //$user = User::create ($incomingFields);
-            $user->save();
+            $user->create();
         }
         
         session()->flash('success', 'Successfully Registered!');

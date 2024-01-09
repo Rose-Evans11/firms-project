@@ -36,10 +36,10 @@ class farmerController extends Controller
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
+            //'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
+            //'photo' => 'nullable',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -62,10 +62,30 @@ class farmerController extends Controller
             'relationBeneficiaries1'=> 'nullable',
             'beneficiaries2'=> 'nullable',
             'relationbeneficiaries2'=> 'nullable',
+            'hasValidID' => 'required',
+            'validID' => 'required',
+            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
         ]);
-       
+        $user = new User;
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $user = User::create ($incomingFields);
+        $user=$incomingFields;
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/storage/', $filename);
+            $user->photo = $filename;
+        }
+        if($request->hasfile('validIDPhoto'))
+        {
+            $file = $request->file('validIDPhoto');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/storage/', $filename);
+            $user->validIDPhoto = $filename;
+        }
+        $user->save();
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page
     }
@@ -188,9 +208,9 @@ class farmerController extends Controller
             'provinceAddress' => 'required',
             'regionAddress' => 'required',
             'contactNumber' => 'required',
-            'hasValidID' => 'required',
-            'validID' => 'required',
-            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
+            //'hasValidID' => 'required',
+            //'validID' => 'required',
+            //'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
             'birthplaceCity' => 'required',
             'birthplaceProvince' => 'required',
             'educationName'=> 'required',
@@ -215,19 +235,9 @@ class farmerController extends Controller
             'bankName'=> 'required',
             'bankAccount'=> 'required',
             'bankBranch'=> 'required',
-            'validIDPhoto'=> 'nullable',
-            'photo'=> 'nullable',
         ]);
-       
-        if($request->hasfile( $incomingFields['photo']))
-        {
-            $file = $request->file( $incomingFields['photo']);
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('public/upload/', $filename);
-            $incomingFields['photo'] =$filename;
-        }
-        $user->update ($incomingFields);
+        
+        $user->update($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');
     }

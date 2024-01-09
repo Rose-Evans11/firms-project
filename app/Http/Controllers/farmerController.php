@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -31,44 +32,47 @@ class farmerController extends Controller
             'email' => ['required', 'email',Rule::unique('users', 'email') ],
             'password' => ['required', 'min:8', 'max:25'],
             'barangayAddress' => 'required',
-            'cityAddress' => 'nullable',
-            'provinceAddress' => 'nullable',
-            'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
-            'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
+            'validIDPhoto' => 'required|max:2048',
+            'photo' => 'required|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
-            'birthplace' => 'nullable',
-            'educationID'=> 'nullable',
-            'religionID'=> 'nullable',
-            'civilID'=> 'nullable',
-            'spouseName'=> 'nullable',
-            'motherName'=> 'nullable',
-            'fourPs'=> 'nullable',
-            'indigenous'=> 'nullable',
-            'typeIPID'=> 'nullable',
-            'householdHead'=> 'nullable',
-            'householdName'=> 'nullable',
-            'householdRelation'=> 'nullable',
-            'householdCount'=> 'nullable',
-            'householdMale'=> 'nullable',
-            'householdFemale'=> 'nullable',
-            'farmAssociationID'=> 'nullable',
-            'contactPerson'=> 'nullable',
-            'emergenceNumber'=> 'nullable',
-            'beneficiaries1'=> 'nullable',
-            'relationBeneficiaries1'=> 'nullable',
-            'beneficiaries2'=> 'nullable',
-            'relationbeneficiaries2'=> 'nullable',
-            
+            'hasValidID' => 'required',
+            'validID' => 'required',
+            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
         ]);
-       
         
-
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $user = User::create ($incomingFields);
+        //$imagePhoto = $request->file('photo')->store('public/storage');
+        //$imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+        if ($request->hasFile('photo') &&$request->hasFile('validIDPhoto')) {
+            $imagePhoto = $request->file('photo')->store('public/storage');
+            $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+
+            $user = new User([
+                'rsbsa' => $request->get('rsbsa'),
+                'firstName' => $request->get('firstName'),
+                'middleName' => $request->get('middleName'),
+                'lastName' => $request->get('lastName'),
+                'extensionName' => $request->get('extensionName'),
+                'sex' => $request->get('sex'),
+                'birthdate' => $request->get('birthdate'),
+                'age' => $request->get('age'),
+                'email' => $request->get('email'),
+                'password' => $request->get('password'),
+                'barangayAddress' => $request->get('barangayAddress'),
+                'contactNumber' => $request->get('contactNumber'),
+                'validIDNumber' => $request->get('validIDNumber'),
+                'isActive' => $request->get('isActive'),
+                'hasValidID' => $request->get('hasValidID'),
+                'validID' => $request->get('validID'),
+                'photo' => $imagePhoto,
+                'validIDPhoto' => $imageValidIDPhoto,
+            ]);
+            //$user = User::create ($incomingFields);
+            $user->create();
+        }
+        
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page
     }
@@ -123,10 +127,8 @@ class farmerController extends Controller
             'contactNumber' => 'nullable',
             'hasValidID' => 'nullable',
             'validID' => 'nullable',
-            'validIDPhoto' => 'nullable',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            'photo' => 'nullable',
             'birthplaceCity' => 'nullable',
             'birthplaceProvince' => 'nullable',
             'educationName'=> 'nullable',
@@ -151,9 +153,10 @@ class farmerController extends Controller
             'bankName'=> 'nullable',
             'bankAccount'=> 'nullable',
             'bankBranch'=> 'nullable',
+            'validIDPhoto'=> 'nullable',
+            'photo'=> 'nullable',
         ]);
        
-        
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return redirect(route('farmer.index'));
@@ -192,11 +195,9 @@ class farmerController extends Controller
             'provinceAddress' => 'required',
             'regionAddress' => 'required',
             'contactNumber' => 'required',
-            'hasValidID' => 'required',
-            'validID' => 'required',
-            'validIDPhoto' => 'nullable',
-            'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
-            'photo' => 'required',
+            //'hasValidID' => 'required',
+            //'validID' => 'required',
+            //'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
             'birthplaceCity' => 'required',
             'birthplaceProvince' => 'required',
             'educationName'=> 'required',
@@ -221,11 +222,9 @@ class farmerController extends Controller
             'bankName'=> 'required',
             'bankAccount'=> 'required',
             'bankBranch'=> 'required',
-           
-            
         ]);
-       
-        $user->update ($incomingFields);
+        
+        $user->update($incomingFields);
         session()->flash('success', 'Successfully Updated!');
         return view('farmer/profile');
     }

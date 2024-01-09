@@ -36,10 +36,10 @@ class farmerController extends Controller
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
-            //'validIDPhoto' => 'nullable',
+            'validIDPhoto' =>  'required|image|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            //'photo' => 'nullable',
+            'photo' =>  'required|image|max:2048',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -66,25 +66,16 @@ class farmerController extends Controller
             'validID' => 'required',
             'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
         ]);
-        $user = new User;
+        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $user=$incomingFields;
-        if($request->hasfile('photo'))
-        {
-            $file = $request->file('photo');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('public/storage/', $filename);
-            $user->photo = $filename;
-        }
-        if($request->hasfile('validIDPhoto'))
-        {
-            $file = $request->file('validIDPhoto');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('public/storage/', $filename);
-            $user->validIDPhoto = $filename;
-        }
+        $imagePhoto = $request->file('photo')->store('public/storage');
+        $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
+        $user = new User([
+            
+            'photo' => $imagePhoto,
+            'validIDPhoto' => $imageValidIDPhoto,
+        ]);
+        $user = User::create ($incomingFields);
         $user->save();
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page

@@ -215,7 +215,7 @@
             <div class="form-group">
               <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
               <div class="col-lg-12">
-              <input type="file" class="form-control" id="photo"  name="photo">
+              <input type="file" class="form-control" id="photo"  name="photo" accept="image/jpg, image/jpeg, image/png">
             </div>
           </div>
         </div>
@@ -282,7 +282,7 @@
                   <div class="form-group">
                     <label for="file_id" class="col-lg-12 control-label">Government ID: </label>
                     <div class="col-lg-12">
-                    <input type="file" class="form-control" id="validIDPhoto" name='validIDPhoto'>
+                    <input type="file" class="form-control" id="validIDPhoto" name='validIDPhoto' accept="image/jpg, image/jpeg, image/png">
                   </div>
                 </div>
               </div>

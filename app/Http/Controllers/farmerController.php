@@ -42,13 +42,13 @@ class farmerController extends Controller
             'validIDNumber'=> 'required',Rule::unique('users', 'validIDNumber'),
         ]);
         
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
+        //$incomingFields['password'] = bcrypt($incomingFields['password']);
         //$imagePhoto = $request->file('photo')->store('public/storage');
         //$imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
-        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+        if ($request->hasFile('photo')) {
             $imagePhoto = $request->file('photo')->store('public/storage');
         }
-        if ($request->hasFile('validIDPhoto') && $request->file('validIDPhoto')->isValid()) {
+        if ($request->hasFile('validIDPhoto')) {
             $imageValidIDPhoto = $request->file('validIDPhoto')->store('public/storage');
         }
         $user = new User([
@@ -61,7 +61,7 @@ class farmerController extends Controller
             'birthdate' => $request->get('birthdate'),
             'age' => $request->get('age'),
             'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'password' => $request->get('password')->bcrypt(),
             'barangayAddress' => $request->get('barangayAddress'),
             'contactNumber' => $request->get('contactNumber'),
             'validIDNumber' => $request->get('validIDNumber'),

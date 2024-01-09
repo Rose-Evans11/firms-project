@@ -70,8 +70,8 @@
                <td>{{$insurance->created_at}}</td>
                <td>{{$insurance->status}}</td>
                <td>{{$insurance->statusNote}}</td>
-               <td><a href="{{route('insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
-               <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
+               <td><a href="{{route('admin.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
+               <td><a href="{{route('admin.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
               </tr>
               @endforeach
               @else

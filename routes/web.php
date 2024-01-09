@@ -192,6 +192,9 @@ Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edi
 Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
 Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
 
+//validatiion and storing for insurance admin side
+Route::get('firms/admin/pending', [adminInsuranceController::class, 'pending'])->name('admin.pending'); 
+
 //sending request letter
 
 Route::put('/farmer/partially-rejected/{insurance}/request-letter', [insuranceController::class, 'sendRequestLetter'])->name('insurance.requestLetter');

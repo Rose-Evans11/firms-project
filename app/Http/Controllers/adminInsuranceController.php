@@ -32,20 +32,20 @@ class adminInsuranceController extends Controller
     public function edit(insurance $insurance){ //to edit and retrive the information for insurance
         if (Auth::guard('admin')->check())  
         {
-            return view('farmer/edit_insurance', ['insurances'=>$insurance]);
+            return view('admin/edit_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
 
     public function view(insurance $insurance){ //to edit and retrive the information for insurance
         if (Auth::guard('admin')->check()) 
         {
-            return view('farmer/view_insurance', ['insurances'=>$insurance]);
+            return view('admin/view_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
 
     public function pending(){

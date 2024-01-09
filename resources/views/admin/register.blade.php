@@ -317,21 +317,11 @@
    </fieldset>
   </form>
   <script>
-    var img_profile =document.getElementById('img_profile');
-    var img_id =document.getElementById('img_id');
-    window.onload = function() {
-      img_profile.style.display = 'none';
-      img_id.style.display = 'none';
-    }
-    var now = new Date(),
-    // minimum date the user can choose, in this case now and in the future
-    minDate = now.toISOString().substring(0,10);
-
-$('#dt_birth').prop('min', minDate);
+$('#birthdate').prop('min', minDate);
 
       //this following function is for calculating age based to their birthday and display it to input text age
       function ageCount() {
-        var inputDate = document.getElementById("dt_birth").value;
+        var inputDate = document.getElementById("birthdate").value;
     // Convert the input date to a Date object
     var date = new Date(inputDate);
     // Get the current date
@@ -348,7 +338,7 @@ $('#dt_birth').prop('min', minDate);
     // Format the age as a string
     var age = years;
     // Display the age in the output input
-    document.getElementById("txt_age").value = age;
+    document.getElementById("age").value = age;
   }
   $(document).keypress(
     function(event){

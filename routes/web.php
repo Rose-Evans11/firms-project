@@ -196,6 +196,9 @@ Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'u
 Route::get('firms/admin/pending', [adminInsuranceController::class, 'pending'])->name('admin.pending'); 
 Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved'])->name('admin.approved'); 
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
+Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('insurance.edit');
+Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.update');
+Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.view');
 
 
 //sending request letter

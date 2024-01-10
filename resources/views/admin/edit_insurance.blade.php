@@ -548,6 +548,28 @@
               <legend> <strong> Additional Information </strong></legend>
               <div class="row">
                 <div class="col-md-6"> 
+                 <div class="form-group">
+                   <label for="status"  class="col-lg-12 control-label">Status:</label>
+                   <div class="col-lg-12">
+                     <select class="form-select" aria-label="Default select example"  id="status" name="status">
+                       <option selected>{{$insurances->status}}</option>
+                       <option value="Pending">Pending</option>
+                       <option value="Rejected"> Rejected </option>
+                       <option value="Partially Rejected"> Partially Rejected </option>
+                       <option value="Approved"> Aprroved </option>
+                     </select>
+                   </div>
+                 </div>
+                </div>
+               <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+                   <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
+                 </div>
+               </div>
+             </div>
+              <div class="row">
+                <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="cicNumber"  class="col-lg-12 control-label">CIC Number:</label>
                     <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12"  value="{{$insurances->cicNumber}}">
@@ -625,7 +647,7 @@
                   <label for="status"  class="col-lg-12 control-label">Status:</label>
                   <div class="col-lg-12">
                     <select class="form-select" aria-label="Default select example"  id="status" name="status">
-                      <option selected>value="{{$insurances->status}}"</option>
+                      <option selected>{{$insurances->status}}</option>
                       <option value="Pending">Pending</option>
                       <option value="Rejected"> Rejected </option>
                       <option value="Partially Rejected"> Partially Rejected </option>
@@ -662,7 +684,7 @@
                     <label for="status"  class="col-lg-12 control-label">Status:</label>
                     <div class="col-lg-12">
                       <select class="form-select" aria-label="Default select example"  id="status" name="status">
-                        <option selected>value="{{$insurances->status}}"</option>
+                        <option selected>{{$insurances->status}}</option>
                         <option value="Pending">Pending</option>
                         <option value="Rejected"> Rejected </option>
                         <option value="Partially Rejected"> Partially Rejected </option>
@@ -708,6 +730,28 @@
           @else
           <!-- pending-->
           <legend> <strong> Additional Information</strong></legend>
+          <div class="row">
+            <div class="col-md-6"> 
+             <div class="form-group">
+               <label for="status"  class="col-lg-12 control-label">Status:</label>
+               <div class="col-lg-12">
+                 <select class="form-select" aria-label="Default select example"  id="status" name="status">
+                   <option selected>{{$insurances->status}}</option>
+                   <option value="Pending">Pending</option>
+                   <option value="Rejected"> Rejected </option>
+                   <option value="Partially Rejected"> Partially Rejected </option>
+                   <option value="Approved"> Aprroved </option>
+                 </select>
+               </div>
+             </div>
+            </div>
+           <div class="col-md-6">
+             <div class="form-group">
+               <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+               <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
+             </div>
+           </div>
+         </div
           <div class="row">
             <div class="col-md-6"> 
               <div class="form-group">

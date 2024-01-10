@@ -36,21 +36,21 @@
         <table class="table table-bordered table-striped">
           <thead>
               <tr>
-                  <th>Insurance ID</th>
-                  <th>Crops</th>
-                  <th>@sortablelink('insuranceType','Insurance Type')</th>
-                  <th>Farmers' ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Barangay</th>
-                  <th>City</th>
-                  <th>Expected Harvest Date</th>
-                  <th>Farm Location</th>
-                  <th>@sortablelink('created_at', 'Date Created')</th>
-                  <th>Status</th>
-                  <th>Notes</th>
-                  <th>Edit</th>
-                  <th>View</th>
+                <th>Insurance ID</th>
+                <th>@sortablelink('cropName','Crops')</th>
+                <th>@sortablelink('insuranceType','Insurance Type')</th>
+                <th>@sortablelink('farmersID',"Farmer's ID")</th>
+                <th>@sortablelink('firstName',"First Name")</th>
+                <th>@sortablelink('lastName',"Last Name")</th>
+                <th>@sortablelink('barangayAddress',"Barangay")</th>
+                <th>@sortablelink('cityAddress',"City")</th>
+                <th>@sortablelink('dateHarvest',"Date of Harvest")</th>
+                <th>@sortablelink('barangayFarm',"Farm Location")</th>
+                <th>@sortablelink('created_at', 'Date Created')</th>
+                <th>@sortablelink('status',"Status")</th>
+                <th>@sortablelink('statusNote',"Status Note")</th>
+                <th>Edit</th>
+                <th>View</th>
               </tr>
           </thead>
           <tbody>

@@ -48,7 +48,6 @@
                   <th>@sortablelink('barangayFarm',"Farm Location")</th>
                   <th>@sortablelink('created_at', 'Date Created')</th>
                   <th>@sortablelink('status',"Status")</th>
-                  <th>@sortablelink('statusNote',"Status Note")</th>
                   <th>Edit</th>
                   <th>View</th>
               </tr>

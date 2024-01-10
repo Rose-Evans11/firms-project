@@ -261,42 +261,42 @@
               </div>
             </div>
           </div>
-            <br/>
-          <div>
-            <h5> Legal Beneficiaries 2</h5>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
-                  <div class="col-lg-12">
-                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
-                  </div>
+        </div>
+        <br/>
+        <div>
+          <h5> Legal Beneficiaries 2</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                <div class="col-lg-12">
+                  <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
-                  <div class="col-lg-12">
-                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
-                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
+                <div class="col-lg-12">
+                  <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label class="col-lg-12 control-label">Relationships:</label>
-                  <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
-                    <option value="Mother">Mother</option>
-                      <option value="Father">Father</option>
-                      <option value="Sister">Sister</option>
-                      <option value="Brother">Brother</option>
-                      <option value="Wife">Wife</option>
-                      <option value="Husband">Husband</option>
-                      <option value="Daughter">Daughter</option>
-                      <option value="Son">Son</option>
-                      <option value="Guardian">Guardian</option>
-                    </select>
-                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-lg-12 control-label">Relationships:</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
+                  <option value="Mother">Mother</option>
+                    <option value="Father">Father</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Wife">Wife</option>
+                    <option value="Husband">Husband</option>
+                    <option value="Daughter">Daughter</option>
+                    <option value="Son">Son</option>
+                    <option value="Guardian">Guardian</option>
+                  </select>
                 </div>
               </div>
             </div>

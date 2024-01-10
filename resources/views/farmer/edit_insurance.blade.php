@@ -39,19 +39,19 @@
   </style>
 <div class='container-fluid' style="margin: auto">
   @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
-@if (session()->has('success'))
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+  @if (session()->has('success'))
   <div class="alert alert-success">
    {{Session::get('success')}}
   </div> 
-@endif
+  @endif
   <form class="form-horizontal" action="{{route('insurance.update', ['insurance'=>$insurances])}}" method="Post">
     @csrf
     @method('put')

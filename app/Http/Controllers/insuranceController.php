@@ -19,7 +19,20 @@ class insuranceController extends Controller
     public $sortable = [
         'insuranceType',
         'created_at',
+        'cropName',
+        'farmersID',
+        'firstName',
+        'middleName',
+        'lastName',
+        'extensionName',
+        'barangayAddress',
+        'cityAddress',
+        'dateHarvest',
+        'barangayFarm',
+        'status',
+        'statusNote',
     ];
+    
     public function index(){
         $user = Auth::guard('web')->user();
         if($user)  

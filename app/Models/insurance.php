@@ -95,5 +95,17 @@ class insurance extends Model
     public $sortable = [
         'insuranceType',
         'created_at',
+        'cropName',
+        'farmersID',
+        'firstName',
+        'middleName',
+        'lastName',
+        'extensionName',
+        'barangayAddress',
+        'cityAddress',
+        'dateHarvest',
+        'barangayFarm',
+        'status',
+        'statusNote',
     ];
 }

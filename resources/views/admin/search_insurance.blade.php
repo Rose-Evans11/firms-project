@@ -2,56 +2,56 @@
 @section('title','Dashboard')
 @section('content')
 <div>
-    <div class="row">
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder"> <a href="{{route('insurance.pending')}}" style="text-decoration: none; color:white"> Pending Report</a> </p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Pending')->get()->count()}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder">Rejected Report</p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Rejected')->orwhere('status', 'Partially Rejected')->get()->count()}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                    <p class="card-title text-center fw-bolder">Approved Report</p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('farmersID', auth()->id())->where('status', 'Approved')->get()->count()}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder">Notice of Loss</p>
-                  <p class="card-text fs-1 text-center fw-bolder">0</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder">Farm List</p>
-                  <p class="card-text fs-1 text-center fw-bolder">0</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder">Indemnity Report</p>
-                  <p class="card-text fs-1 text-center fw-bolder">0</p>
-                </div>
+  <div class="row">
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+              <p class="card-title text-center fw-bolder"> <a href="{{route('admin.pending')}}" style="text-decoration: none; color:white"> Pending Report</a> </p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Pending')->get()->count()}}</p>
             </div>
         </div>
     </div>
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+              <p class="card-title text-center fw-bolder"><a href="{{route('admin.rejected')}}" style="text-decoration: none; color:white"> Rejected Report</a></p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Rejected')->orwhere('status', 'Partially Rejected')->get()->count()}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+                <p class="card-title text-center fw-bolder"><a href="{{route('admin.approved')}}" style="text-decoration: none; color:white"> Approved Report</a></p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Approved')->get()->count()}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+              <p class="card-title text-center fw-bolder"><a href="{{route('damage.index')}}" style="text-decoration: none; color:white"> Notice of Loss</a></p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('damages')->get()->count()}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+              <p class="card-title text-center fw-bolder"><a href="{{route('farm.index')}}" style="text-decoration: none; color:white"> Farm List</a></p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('farms')->get()->count()}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+            <div class="card-body">
+              <p class="card-title text-center fw-bolder"><a href="{{route('indemnity.index')}}" style="text-decoration: none; color:white"> Indemnity Claim</a></p>
+              <p class="card-text fs-1 text-center fw-bolder">{{DB::table('indemnities')->get()->count()}}</p>
+            </div>
+        </div>
+    </div>
+</div>
     <br/>
     <form action="{{ route('admin.insurance.find') }}" method="GET"> 
       <div class="row">
@@ -111,7 +111,7 @@
                          <td>{{$insurance->barangayFarm}}</td>
                          <td>{{$insurance->status}}</td>
                          <td>{{$insurance->statusNote}}</td>
-                        <td> <a href="{{route('insurance.view', ['insurance'=>$insurance])}}" style="width:100%; text-decoration:none"> View</a></td>
+                        <td> <a href="{{route('admin.insurance.view', ['insurance'=>$insurance])}}" style="width:100%; text-decoration:none"> View</a></td>
                         </tr>
                         @endforeach
                         @else

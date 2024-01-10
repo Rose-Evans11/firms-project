@@ -43,7 +43,7 @@ class insuranceController extends Controller
                 ->paginate(10);
         return view('farmer/dashboard', ['insurances'=>$insurance]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
 
@@ -54,7 +54,7 @@ class insuranceController extends Controller
             return view('farmer/edit_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
 
@@ -65,7 +65,7 @@ class insuranceController extends Controller
             return view('farmer/view_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
     }
 
     public function pending(){
@@ -81,7 +81,7 @@ class insuranceController extends Controller
                 ->paginate(10);
             return view('farmer/pending_insurance', ['insurances'=>$insurance]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         
     }
 
@@ -99,7 +99,7 @@ class insuranceController extends Controller
             return view('farmer/approved_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         
          
     }
@@ -117,7 +117,7 @@ class insuranceController extends Controller
             return view('farmer/rejected_insurance', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         
          
     }
@@ -218,7 +218,7 @@ class insuranceController extends Controller
             return back();
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
 
@@ -283,7 +283,7 @@ class insuranceController extends Controller
             return redirect(route('insurance.pending'));
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
     public function find(Request $request, insurance $insurance){ //to search and find
@@ -305,7 +305,7 @@ class insuranceController extends Controller
         return view('farmer/search_insurance',['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         $request->validate([
           'query'=>'min:2'
        ]);
@@ -332,7 +332,7 @@ class insuranceController extends Controller
         return view('admin/search_insurance',['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         $request->validate([
           'query'=>'min:2'
        ]);

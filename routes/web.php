@@ -172,7 +172,7 @@ Route::post('/update/password', [farmerController::class, 'changePasswordSave'])
 //search function
 Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
 Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');
-Route::get('insurance/find',[adminInsuranceController::class, 'find'])->name('admin.insurance.find');
+Route::get('admin/insurance/find',[adminInsuranceController::class, 'find'])->name('admin.insurance.find');
 
 
 //status in insurance report

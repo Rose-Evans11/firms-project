@@ -638,6 +638,96 @@
                 </div>
               </div>
             </div> 
+          @elseif($insurances->status=='Pending')
+           <!-- pending-->
+           <legend> <strong> Additional Information</strong></legend>
+           <div class="row">
+             <div class="col-md-6"> 
+              <div class="form-group">
+                <label for="status"  class="col-lg-12 control-label">Status:</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example"  id="status" name="status">
+                    <option selected>{{$insurances->status}}</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Rejected"> Rejected </option>
+                    <option value="Partially Rejected"> Partially Rejected </option>
+                    <option value="Approved"> Aprroved </option>
+                  </select>
+                </div>
+              </div>
+             </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
+                <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
+              </div>
+            </div>
+           </div>
+           <div class="row">
+             <div class="col-md-6"> 
+               <div class="form-group">
+                 <label for="cicNumber"  class="col-lg-12 control-label">CIC Number:</label>
+                 <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12"  value="{{$insurances->cicNumber}}">
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div class="form-group">
+                 <label for="cicdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
+                 <input type="date" id="cicdateIssued" name="cicdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cicdateIssued}}">
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-md-6"> 
+               <div class="form-group">
+                 <label for="cocNumber"  class="col-lg-12 control-label">COC Number:</label>
+                 <input type="text" id="cocNumber" name="cocNumber" class=" form-control col-lg-12"  value="{{$insurances->cocNumber}}">
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div class="form-group">
+                 <label for="cocdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
+                 <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cocdateIssued}}">
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Period of Cover: </strong></label>
+             <div class="col-md-6"> 
+               <div class="form-group">
+                 <label for="from"  class="col-lg-12 control-label">From:</label>
+                 <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12"  value="{{$insurances->coverFrom}}">
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div class="form-group">
+                 <label for="to"  class="col-lg-12 control-label">To:</label>
+                 <input type="date" id="to" name="coverTo" class=" form-control col-lg-12"  value="{{$insurances->coverTo}}">
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <label for="cocNumber"  class="col-lg-12 control-label"> <strong> </strong></label>
+             <div class="col-md-6"> 
+               <div class="form-group">
+                 <label for="dateSign"  class="col-lg-12 control-label">Date (Signed):</label>
+                 <input type="date" id="dateSign" name="dateSign" class=" form-control col-lg-12"  value="{{$insurances->dateSign}}">
+               </div>
+             </div>
+             <div class="col-md-6">
+               <div class="form-group">
+                 <label for="signBy"  class="col-lg-12 control-label">Issued and Sign by:</label>
+                 <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12"  value="{{$insurances->signBy}}">
+               </div>
+             </div>
+           </div>
+           <div class="row justify-content-end mt-2">
+             <div class="col-md-6">
+               <div class="col-lg-12 d-flex justify-content-end">
+                <a style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Update</a></Button>
+               </div>
+             </div>
+           </div> 
           @elseif($insurances->status== 'Rejected')
           <div>
             <legend> <strong> Additional Information</strong></legend>
@@ -667,11 +757,7 @@
           <div class="row justify-content-end">
             <div class="col-md-6">
               <div class="col-lg-12 d-flex justify-content-end">
-                <div class="row">
-                  <div class="col-md-6">
-                    <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Back</button>
-                  </div>
-                </div>
+                <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
               </div>
             </div>
           </div> 
@@ -728,95 +814,7 @@
                 </div> 
             </form> 
           @else
-          <!-- pending-->
-          <legend> <strong> Additional Information</strong></legend>
-          <div class="row">
-            <div class="col-md-6"> 
-             <div class="form-group">
-               <label for="status"  class="col-lg-12 control-label">Status:</label>
-               <div class="col-lg-12">
-                 <select class="form-select" aria-label="Default select example"  id="status" name="status">
-                   <option selected>{{$insurances->status}}</option>
-                   <option value="Pending">Pending</option>
-                   <option value="Rejected"> Rejected </option>
-                   <option value="Partially Rejected"> Partially Rejected </option>
-                   <option value="Approved"> Aprroved </option>
-                 </select>
-               </div>
-             </div>
-            </div>
-           <div class="col-md-6">
-             <div class="form-group">
-               <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-               <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
-             </div>
-           </div>
-         </div
-          <div class="row">
-            <div class="col-md-6"> 
-              <div class="form-group">
-                <label for="cicNumber"  class="col-lg-12 control-label">CIC Number:</label>
-                <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12"  value="{{$insurances->cicNumber}}">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="cicdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
-                <input type="date" id="cicdateIssued" name="cicdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cicdateIssued}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6"> 
-              <div class="form-group">
-                <label for="cocNumber"  class="col-lg-12 control-label">COC Number:</label>
-                <input type="text" id="cocNumber" name="cocNumber" class=" form-control col-lg-12"  value="{{$insurances->cocNumber}}">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="cocdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
-                <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cocdateIssued}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Period of Cover: </strong></label>
-            <div class="col-md-6"> 
-              <div class="form-group">
-                <label for="from"  class="col-lg-12 control-label">From:</label>
-                <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12"  value="{{$insurances->coverFrom}}">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="to"  class="col-lg-12 control-label">To:</label>
-                <input type="date" id="to" name="coverTo" class=" form-control col-lg-12"  value="{{$insurances->coverTo}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <label for="cocNumber"  class="col-lg-12 control-label"> <strong> </strong></label>
-            <div class="col-md-6"> 
-              <div class="form-group">
-                <label for="dateSign"  class="col-lg-12 control-label">Date (Signed):</label>
-                <input type="date" id="dateSign" name="dateSign" class=" form-control col-lg-12"  value="{{$insurances->dateSign}}">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="signBy"  class="col-lg-12 control-label">Issued and Sign by:</label>
-                <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12"  value="{{$insurances->signBy}}">
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-end mt-2">
-            <div class="col-md-6">
-              <div class="col-lg-12 d-flex justify-content-end">
-               <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
-              </div>
-            </div>
-          </div> 
+         
           @endif
             <!--
             <div class="row">

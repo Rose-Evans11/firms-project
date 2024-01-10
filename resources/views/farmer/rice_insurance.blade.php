@@ -230,7 +230,7 @@
             <div class="form-group">
               <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_beneficiaries" value="{{$insurances->benefi1}}" name="benefi1" required>
+                <input type="text" class="form-control" id="txt_beneficiaries"  name="benefi1" required>
               </div>
             </div>
           </div>
@@ -247,7 +247,6 @@
               <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
               <div class="col-lg-12">
                 <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
-                  <option selected> {{$insurances->benefi1Relation}}</option>
                   <option value="Mother">Mother</option>
                   <option value="Father">Father</option>
                   <option value="Sister">Sister</option>

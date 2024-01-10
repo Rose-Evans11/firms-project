@@ -648,26 +648,20 @@
             </div>
           </div>
          <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
-                  <input type="text" id="location-lat" name="location_lat" class="form-control col-lg-12" required value="{{$insurances->location_lat}}">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                   <label for="location-long"  class="col-lg-12 control-label">Longitude:</label>
-                   <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required value="{{$insurances->location_long}}">
-                  </div>
-                 </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="location-lat"  class="col-lg-12 control-label">Latitude:</label>
+            <input type="text" id="location-lat" name="location_lat" class="form-control col-lg-12" required value="{{$insurances->location_lat}}">
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="map-container">
-                  <label for="location-map"> Map:</label> 
-                  <div id="location-map"></div>
-              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+             <label for="location-long"  class="col-lg-12 control-label">Longitude:</label>
+             <input type="text" id="location-lng" name="location_long" class=" form-control col-lg-12" required value="{{$insurances->location_long}}">
             </div>
+          </div>
+         </div>
+         
             <div class="row justify-content-end">
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">

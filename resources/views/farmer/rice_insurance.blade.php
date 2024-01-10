@@ -303,6 +303,7 @@
           </div>
         </div>
       </div>
+    </div>
       <div id="bankInfo" class="row">
           <legend> <strong>Bank Account Details </strong></legend>
           <div class="col-md-4">

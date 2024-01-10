@@ -59,251 +59,278 @@
     <button onclick="javascript:displayfarmsInfo()" class="flip" id="panelbutton">Farmer Information </button>
     <button onclick="toggleBeneficiaries()"  class="flip" id="panelbutton"> Beneficiaries </button>
     -->
-    <!-- first panel -->
-    <div id="panelFarmInfo">
-      <div class="m-3" id='farmInfo'>
-        <legend> <strong> Farmer's Information</strong></legend>
+        <!-- first panel -->
+        <div id="panelFarmInfo">
+          <div class="m-3" id='farmInfo'>
+            <legend> <strong> Farmer's Information</strong></legend>
+                <div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="rsbsa" class="col-lg-12 control-label">RSBSA Reference Number: </label>
+                        <div class="col-lg-12">
+                          <input type="text" hidden class="form-control" id="rsbsa" value="{{Auth::User()->id}}" name="farmersID">
+                          <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name" name="firstName">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name" name="middleName">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name" name="lastName">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name" name="extensionName">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="dt_birth" class="col-lg-12 control-label">Birthdate: </label>
+                        <div class="col-lg-12">
+                          <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{Auth::User()->birthdate}}" name="birthdate">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="sex" class="col-lg-12 control-label">Gender: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="sex" value="{{Auth::User()->sex}}" name="sex" @readonly(true)>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="civilName" class="col-lg-12 control-label">Civil Status: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="civilName" value="{{Auth::User()->civilName}}" name="civilName" @readonly(true)>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseName">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_email" class="col-lg-12 control-label">Email: </label>
+                        <div class="col-lg-12">
+                          <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{Auth::User()->email}}" name="email">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
+                        <div class="col-lg-12">
+                          <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="barangayAddress" class="col-lg-12 control-label">Barangay:</label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="baragangayAddress" value="{{Auth::User()->barangayAddress}}" name="barangayAddress" @readonly(true)>
+                        </div>
+                      </div>    
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label  class="col-lg-2 control-label">Municipality: </label>
+                        <div class="col-lg-12">
+                          <input type="text" @readonly(true) class="form-control" value="Tanauan City" name="cityAddress">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label  class="col-lg-2 control-label">Province: </label>
+                        <div class="col-lg-12">
+                          <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="provinceAddress">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label  class="col-lg-2 control-label">Region: </label>
+                        <div class="col-lg-12">
+                          <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="CALABARZON" name="regionAddress">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="isIndigenous" class="col-lg-12 control-label">Members of Indigenous Group:</label>
+                      <div class="col-lg-12">
+                        <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{Auth::User()->isIndigenous}}" name="isIndigenous">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="ip_tribe" class="col-lg-12 control-label">IP Tribe:</label>
+                        <div class="col-lg-12">
+                          <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{Auth::User()->indigenous}}" name="indigenous">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <!-- second panel -->
+        <div class="m-3" id="panelBenefiInfo">
+          <div id="benefiInfo">
+            <legend> <strong>Legal Beneficiary</strong> </legend>
+            <br/>
             <div>
+              <h5> Legal Beneficiaries 1</h5>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="rsbsa" class="col-lg-12 control-label">RSBSA Reference Number: </label>
+                    <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" hidden class="form-control" id="rsbsa" value="{{Auth::User()->id}}" name="farmersID">
-                      <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                      <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
+                    <div class="col-lg-12">
+                      <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
+                        <option value="Mother">Mother</option>
+                        <option value="Father">Father</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Husband">Husband</option>
+                        <option value="Daughter">Daughter</option>
+                        <option value="Son">Son</option>
+                        <option value="Guardian">Guardian</option>
+                      </select>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name" name="firstName">
+                <br/>
+              <div>
+                <h5> Legal Beneficiaries 2</h5>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                      <div class="col-lg-12">
+                        <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name" name="middleName">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
+                      <div class="col-lg-12">
+                        <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name" name="lastName">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name" name="extensionName">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="dt_birth" class="col-lg-12 control-label">Birthdate: </label>
-                    <div class="col-lg-12">
-                      <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{Auth::User()->birthdate}}" name="birthdate">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="sex" class="col-lg-12 control-label">Gender: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="sex" value="{{Auth::User()->sex}}" name="sex" @readonly(true)>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="civilName" class="col-lg-12 control-label">Civil Status: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="civilName" value="{{Auth::User()->civilName}}" name="civilName" @readonly(true)>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseName">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_email" class="col-lg-12 control-label">Email: </label>
-                    <div class="col-lg-12">
-                      <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{Auth::User()->email}}" name="email">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
-                    <div class="col-lg-12">
-                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="barangayAddress" class="col-lg-12 control-label">Barangay:</label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="baragangayAddress" value="{{Auth::User()->barangayAddress}}" name="barangayAddress" @readonly(true)>
-                    </div>
-                  </div>    
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label  class="col-lg-2 control-label">Municipality: </label>
-                    <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" value="Tanauan City" name="cityAddress">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label  class="col-lg-2 control-label">Province: </label>
-                    <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="Batangas" name="provinceAddress">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label  class="col-lg-2 control-label">Region: </label>
-                    <div class="col-lg-12">
-                      <input type="text" @readonly(true) class="form-control" id="txt_sitio" value="CALABARZON" name="regionAddress">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label for="isIndigenous" class="col-lg-12 control-label">Members of Indigenous Group:</label>
-                  <div class="col-lg-12">
-                    <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{Auth::User()->isIndigenous}}" name="isIndigenous">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="ip_tribe" class="col-lg-12 control-label">IP Tribe:</label>
-                    <div class="col-lg-12">
-                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{Auth::User()->indigenous}}" name="indigenous">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="col-lg-12 control-label">Relationships:</label>
+                      <div class="col-lg-12">
+                        <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
+                        <option value="Mother">Mother</option>
+                          <option value="Father">Father</option>
+                          <option value="Sister">Sister</option>
+                          <option value="Brother">Brother</option>
+                          <option value="Wife">Wife</option>
+                          <option value="Husband">Husband</option>
+                          <option value="Daughter">Daughter</option>
+                          <option value="Son">Son</option>
+                          <option value="Guardian">Guardian</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-      </div>
-    </div>
-    <!-- second panel -->
-    <div class="m-3" id="panelBenefiInfo">
-      <div id="benefiInfo">
-        <legend> <strong>Legal Beneficiary</strong> </legend>
-        <br/>
-        <div>
-          <h5> Legal Beneficiaries 1</h5>
-          <div class="row">
+          </div>
+          <div id="bankInfo" class="row">
+            <legend> <strong>Bank Account Details </strong></legend>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1" required>
+                  <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required @readonly(true)>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
+                <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age" required>
+                  <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required @readonly(true)>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
-                    <option value="Mother">Mother</option>
-                    <option value="Father">Father</option>
-                    <option value="Sister">Sister</option>
-                    <option value="Brother">Brother</option>
-                    <option value="Wife">Wife</option>
-                    <option value="Husband">Husband</option>
-                    <option value="Daughter">Daughter</option>
-                    <option value="Son">Son</option>
-                    <option value="Guardian">Guardian</option>
-                  </select>
+                  <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required @readonly(true)>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <br/>
-        <div>
-          <h5> Legal Beneficiaries 2</h5>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
-                <div class="col-lg-12">
-                  <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
-                <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label class="col-lg-12 control-label">Relationships:</label>
-                <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
-                  <option value="Mother">Mother</option>
-                    <option value="Father">Father</option>
-                    <option value="Sister">Sister</option>
-                    <option value="Brother">Brother</option>
-                    <option value="Wife">Wife</option>
-                    <option value="Husband">Husband</option>
-                    <option value="Daughter">Daughter</option>
-                    <option value="Son">Son</option>
-                    <option value="Guardian">Guardian</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
       <!--<div class="row">

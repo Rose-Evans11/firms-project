@@ -238,7 +238,7 @@
             <div class="form-group">
               <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
               <div class="col-lg-12">
-                <input type="number" class="form-control" id="txt_age" value="{{$insurances->benefi1Age}}" name="benefi1Age" required>
+                <input type="number" class="form-control" id="txt_age" name="benefi1Age" required>
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@
               <div class="form-group">
                 <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                 <div class="col-lg-12">
-                  <input type="text"  class="form-control" id="txt_beneficiaries" value="{{$insurances->benefi2}}" name="benefi2" required>
+                  <input type="text"  class="form-control" id="txt_beneficiaries"  name="benefi2" required>
                 </div>
               </div>
             </div>
@@ -278,7 +278,7 @@
               <div class="form-group">
                 <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age" value="{{$insurances->benefi2Age}}" name="benefi2Age" required>
+                  <input type="number" class="form-control" id="txt_age"  name="benefi2Age" required>
                 </div>
               </div>
             </div>
@@ -287,7 +287,6 @@
                 <label class="col-lg-12 control-label">Relationships:</label>
                 <div class="col-lg-12">
                   <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
-                    <option selected> {{$insurances->benefi2Relation}}</option>
                     <option value="Mother">Mother</option>
                     <option value="Father">Father</option>
                     <option value="Sister">Sister</option>
@@ -311,7 +310,7 @@
           <div class="form-group">
             <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_acc_num" value="{{$insurances->bankAccount}}" name="bankAccount" required>
+              <input type="text" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
             </div>
           </div>
         </div>
@@ -319,7 +318,7 @@
           <div class="form-group">
             <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_name" value="{{$insurances->bankName}}" name="bankName" required>
+              <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required>
             </div>
           </div>
         </div>
@@ -327,7 +326,7 @@
           <div class="form-group">
             <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_branch" value="{{$insurances->bankBranch}}" name="bankBranch" required>
+              <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required>
             </div>
           </div>
         </div>

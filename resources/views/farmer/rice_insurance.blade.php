@@ -218,74 +218,35 @@
             </div>
       </div>
     </div>
-   <!-- second panel -->
-   <div class="m-3" id="panelBenefiInfo">
-    <div id="benefiInfo">
-      <legend> <strong>Legal Beneficiary</strong> </legend>
-      <br/>
-      <div>
-        <h5> Legal Beneficiaries 1</h5>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
-              <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_beneficiaries"  name="benefi1" required>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
-              <div class="col-lg-12">
-                <input type="number" class="form-control" id="txt_age" name="benefi1Age" required>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
-              <div class="col-lg-12">
-                <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
-                  <option value="Mother">Mother</option>
-                  <option value="Father">Father</option>
-                  <option value="Sister">Sister</option>
-                  <option value="Brother">Brother</option>
-                  <option value="Wife">Wife</option>
-                  <option value="Husband">Husband</option>
-                  <option value="Daughter">Daughter</option>
-                  <option value="Son">Son</option>
-                  <option value="Guardian">Guardian</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-          <br/>
+    <!-- second panel -->
+    <div class="m-3" id="panelBenefiInfo">
+      <div id="benefiInfo">
+        <legend> <strong>Legal Beneficiary</strong> </legend>
+        <br/>
         <div>
-          <h5> Legal Beneficiaries 2</h5>
+          <h5> Legal Beneficiaries 1</h5>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                <label for="txt_farmersID" class="col-lg-12 control-label">Beneficiary 's Name: </label>
                 <div class="col-lg-12">
-                  <input type="text"  class="form-control" id="txt_beneficiaries"  name="benefi2" required>
+                  <input type="text" class="form-control" id="txt_beneficiaries" value="" name="benefi1" required>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
+                <label for="txt_farmersID" class="col-lg-12 control-label"> Age: </label>
                 <div class="col-lg-12">
-                  <input type="number" class="form-control" id="txt_age"  name="benefi2Age" required>
+                  <input type="number" class="form-control" id="txt_age" value="" name="benefi1Age" required>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label class="col-lg-12 control-label">Relationships:</label>
+                <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
                 <div class="col-lg-12">
-                  <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
+                  <select class="form-select" aria-label="Default select example" name="benefi1Relation" required>
                     <option value="Mother">Mother</option>
                     <option value="Father">Father</option>
                     <option value="Sister">Sister</option>
@@ -300,37 +261,77 @@
               </div>
             </div>
           </div>
+            <br/>
+          <div>
+            <h5> Legal Beneficiaries 2</h5>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="txt_beneficiaries" class="col-lg-12 control-label">Beneficiary 's Name: </label>
+                  <div class="col-lg-12">
+                    <input type="text"  class="form-control" id="txt_beneficiaries" value="" name="benefi2" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="txt_age" class="col-lg-12 control-label"> Age: </label>
+                  <div class="col-lg-12">
+                    <input type="number" class="form-control" id="txt_age" value="" name="benefi2Age" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="col-lg-12 control-label">Relationships:</label>
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example" name="benefi2Relation" required>
+                    <option value="Mother">Mother</option>
+                      <option value="Father">Father</option>
+                      <option value="Sister">Sister</option>
+                      <option value="Brother">Brother</option>
+                      <option value="Wife">Wife</option>
+                      <option value="Husband">Husband</option>
+                      <option value="Daughter">Daughter</option>
+                      <option value="Son">Son</option>
+                      <option value="Guardian">Guardian</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div id="bankInfo" class="row">
-        <legend> <strong>Bank Account Details </strong></legend>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required>
+      <div id="bankInfo" class="row">
+          <legend> <strong>Bank Account Details </strong></legend>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
+              <div class="col-lg-12">
+                <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required @readonly(true)>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required @readonly(true)>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required @readonly(true)>
+              </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
-  </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
       <!--<div class="row">

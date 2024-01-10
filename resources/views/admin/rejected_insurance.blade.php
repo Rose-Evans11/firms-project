@@ -37,7 +37,6 @@
           <thead>
               <tr>
                   <th>Insurance ID</th>
-                  <th>Insurance ID</th>
                   <th>@sortablelink('cropName','Crops')</th>
                   <th>@sortablelink('insuranceType','Insurance Type')</th>
                   <th>@sortablelink('farmersID',"Farmer's ID")</th>

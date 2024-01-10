@@ -68,7 +68,6 @@
                <td>{{$insurance->barangayFarm}}</td>
                <td>{{$insurance->created_at}}</td>
                <td>{{$insurance->status}}</td>
-               <td>{{$insurance->statusNote}}</td>
                <td><a href="{{route('admin.insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
                <td><a href="{{route('admin.insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
               </tr>

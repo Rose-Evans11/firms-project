@@ -290,7 +290,7 @@ class adminInsuranceController extends Controller
         return view('admin/search_insurance',['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         $request->validate([
           'query'=>'min:2'
        ]);

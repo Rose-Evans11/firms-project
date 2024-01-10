@@ -29,7 +29,7 @@
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
               <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer/login'); ?>">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer/'); ?>">Login</a></li>
             </ul>
             
           </div>

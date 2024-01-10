@@ -41,7 +41,7 @@
             <div class="col-md-6">
               <p> <h5><b>Login to your Account</b> </h5></p>
                 <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/admin/login'); ?>"> Admin</a>
-                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/farmer/login'); ?>"> Farmer</a>
+                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/farmer/'); ?>"> Farmer</a>
               </form>
             </div>
           </div>

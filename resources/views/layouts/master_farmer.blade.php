@@ -35,7 +35,7 @@
               <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/data-privacy'); ?>">Data Privacy</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('/firms/farmer/login'); ?>">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('/firms/farmer/'); ?>">Login</a></li>
               @endguest
               @if (Auth::guard('web')->check())
               <li class="nav-item">

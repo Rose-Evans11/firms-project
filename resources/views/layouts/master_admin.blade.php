@@ -25,7 +25,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-              @if (Auth::guard('admin')->check())
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="<?= url('firms/admin/dashboard'); ?>"> Dashboard</a>
               </li>
@@ -58,28 +57,12 @@
                   <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
               </li>
-              <li class="nav-item"> <a class="nav-link" aria-current="page" href="<?= url('firms/farmer/notice-loss'); ?>"> Notice of Loss</a></li>
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/indemnity'); ?>"> Indemnity</a></li>
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/farm-list'); ?>"> Farm List</a></li>
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add</a>
-                <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer/register'); ?>">Add New Farmer</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/register'); ?>">Add New Admin </a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
-                <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/change_password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>"> {{ Auth::guard('admin')->user()->firstName }} </a></li>
-                </ul>
-              </li>
               <li class="nav-item">
                 <form id="logout-form" action="/admin/logout" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-success text-white mt-2" style="opacity: .5; height:25px; padding: 0; outline: 0; border: none;background: none;"> Logout</button>
               </form>
               </li> 
-              @endif        
             </ul>
           </div>
         </div>

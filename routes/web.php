@@ -32,7 +32,7 @@ Route::get('', function () { //farmers landing page or redirect to home
 Route::get('/firms', function () { //farmers landing page
     return view('/home'); 
 });
-Route::get('/firms/farmer/login', function () { //farmers landing page
+Route::get('/firms/farmer/', function () { //farmers landing page
     return view('farmer/login'); 
 });
 Route::get('firms/about', function () {

@@ -63,7 +63,7 @@ class forgotPasswordController extends Controller
 
         DB::table('password_reset_tokens')->where(['email'=> $request->email])->delete();
 
-        return redirect('/firms/farmer/login')->with('message', 'Your password has been changed!');
+        return redirect('/firms/farmer/')->with('message', 'Your password has been changed!');
     }
 
     public function adminShowForgetPasswordForm(){

@@ -612,8 +612,17 @@
                <div class="col-md-6"> 
                 <div class="form-group">
                   <label for="status"  class="col-lg-12 control-label">Status:</label>
-                  <input type="text" id="status" name="status" class=" form-control col-lg-12" >
+                  <div class="col-lg-12">
+                    <select class="form-select" aria-label="Default select example"  id="status" name="status">
+                      <option selected>value="{{$insurances->status}}"</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Rejected"> Rejected </option>
+                      <option value="Partially Rejected"> Partially Rejected </option>
+                      <option value="Approved"> Aprroved </option>
+                    </select>
+                  </div>
                 </div>
+               </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
@@ -637,13 +646,21 @@
                  <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="status"  class="col-lg-12 control-label">Status:</label>
-                    <input type="text" id="status" name="status" class=" form-control col-lg-12"  value="{{$insurances->status}}">
+                    <div class="col-lg-12">
+                      <select class="form-select" aria-label="Default select example"  id="status" name="status">
+                        <option selected>value="{{$insurances->status}}"</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Rejected"> Rejected </option>
+                        <option value="Partially Rejected"> Partially Rejected </option>
+                        <option value="Approved"> Aprroved </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
+                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusNotes}}">
                   </div>
                 </div>
               </div>

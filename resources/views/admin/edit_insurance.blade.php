@@ -908,13 +908,17 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-12 d-flex justify-content-end">
-              <div class="row">
-                <div class="col-md-6">
-                  <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+            <div class="row justify-content-end">
+              <div class="col-md-6">
+                <div class="col-lg-12 d-flex justify-content-end">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Submit</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </div> 
           @else
          
           @endif

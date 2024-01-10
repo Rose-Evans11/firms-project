@@ -53,6 +53,8 @@ class indemnity extends Model
         'dateHarvest',
         'signature',
         'dateSubmitted',
+        'dateClaiming',
+        'amountToClaim',
 
     ];
     use Sortable;

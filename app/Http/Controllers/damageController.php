@@ -30,7 +30,7 @@ class damageController extends Controller
                 return view('farmer/notice_loss', ['damages'=>$damage]);
     
             }
-             return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+             return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
           
     }
     public function store(Request $request){
@@ -98,7 +98,7 @@ class damageController extends Controller
             return back();
             //return view('farmer/notice_loss');
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
     public function add(insurance $insurance){ //to edit and retrive the information for insurance
@@ -107,7 +107,7 @@ class damageController extends Controller
             return view('farmer/add_notice_loss', ['insurances'=>$insurance]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
     public function edit(damage $damage){ //to edit and retrive the information for insurance
@@ -116,7 +116,7 @@ class damageController extends Controller
             return view('farmer/edit_notice_loss', ['damages'=>$damage]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
     public function update(damage $damage, Request $request){
@@ -138,7 +138,7 @@ class damageController extends Controller
             return redirect(route('damage.index'));
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
 }

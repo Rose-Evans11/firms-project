@@ -31,7 +31,7 @@ class indemnityController extends Controller
             ->paginate(10);
         return view('farmer/indemnity', ['indemnities'=>$indemnity]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
     public function store(Request $request){
@@ -102,7 +102,7 @@ class indemnityController extends Controller
 
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
     public function add(damage $damage){ //to edit and retrive the information for insurance
@@ -111,7 +111,7 @@ class indemnityController extends Controller
             return view('farmer/add_indemnity', ['damages'=>$damage]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
     public function edit(indemnity $indemnity){ //to edit and retrive the information for insurance
@@ -120,7 +120,7 @@ class indemnityController extends Controller
             return view('farmer/edit_indemnity', ['indemnities'=>$indemnity]);
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
     public function update(indemnity $indemnity, Request $request){
@@ -142,7 +142,7 @@ class indemnityController extends Controller
             return redirect(route('indemnity.index'));
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
 

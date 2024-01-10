@@ -90,7 +90,7 @@ class farmerController extends Controller
             Auth::logout();
             request()->session()->invalidate();
             request()->session()->regenerateToken();
-            return redirect('/firms/farmer/login');
+            return redirect('/firms/farmer/');
         }
     }  
     

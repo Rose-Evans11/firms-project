@@ -21,7 +21,7 @@ class farmController extends Controller
         //$farm = DB::select('SELECT * FROM farms LEFT JOIN users ON farms.id = users.id');
         return view('farmer/farm_list', ['farms'=>$farm]);
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
     public function store(Request $request){
@@ -95,7 +95,7 @@ class farmController extends Controller
             return redirect(route('farm.index'));
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
 

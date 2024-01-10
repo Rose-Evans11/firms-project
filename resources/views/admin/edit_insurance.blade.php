@@ -321,6 +321,9 @@
     </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
+      <div id="cropInfo">
+        <legend> <strong>Crop Details</strong> </legend>
+        <br/>
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -331,9 +334,6 @@
           </div>
         </div>
       </div> 
-      <div id="cropInfo">
-        <legend> <strong>Crop Details</strong> </legend>
-        <br/>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -550,13 +550,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="cicNumber"  class="col-lg-12 control-label">CIC Number:</label>
-                    <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12" required value="{{$insurances->cicNumber}}" @readonly(true)>
+                    <input type="text" id="cicNumber" name="cicNumber" class=" form-control col-lg-12"  value="{{$insurances->cicNumber}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="cicdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
-                    <input type="date" id="cicdateIssued" name="cicdateIssued" class=" form-control col-lg-12" required value="{{$insurances->cicdateIssued}}" @readonly(true)>
+                    <input type="date" id="cicdateIssued" name="cicdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cicdateIssued}}">
                   </div>
                 </div>
               </div>
@@ -564,13 +564,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="cocNumber"  class="col-lg-12 control-label">COC Number:</label>
-                    <input type="text" id="cocNumber" name="cocNumber" class=" form-control col-lg-12" required value="{{$insurances->cocNumber}}" @readonly(true)>
+                    <input type="text" id="cocNumber" name="cocNumber" class=" form-control col-lg-12"  value="{{$insurances->cocNumber}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="cocdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
-                    <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12" required value="{{$insurances->cocdateIssued}}" @readonly(true)>
+                    <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cocdateIssued}}">
                   </div>
                 </div>
               </div>
@@ -579,13 +579,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="from"  class="col-lg-12 control-label">From:</label>
-                    <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
+                    <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12"  value="{{$insurances->coverFrom}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="to"  class="col-lg-12 control-label">To:</label>
-                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
+                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12"  value="{{$insurances->coverTo}}">
                   </div>
                 </div>
               </div>
@@ -594,13 +594,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="dateSign"  class="col-lg-12 control-label">Date (Signed):</label>
-                    <input type="date" id="dateSign" name="dateSign" class=" form-control col-lg-12" required value="{{$insurances->dateSign}}" @readonly(true)>
+                    <input type="date" id="dateSign" name="dateSign" class=" form-control col-lg-12"  value="{{$insurances->dateSign}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="signBy"  class="col-lg-12 control-label">Issued and Sign by:</label>
-                    <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12" required value="{{$insurances->signBy}}" @readonly(true)>
+                    <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12"  value="{{$insurances->signBy}}">
                   </div>
                 </div>
               </div>
@@ -612,13 +612,13 @@
                <div class="col-md-6"> 
                 <div class="form-group">
                   <label for="status"  class="col-lg-12 control-label">Status:</label>
-                  <input type="text" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
+                  <input type="text" id="status" name="status" class=" form-control col-lg-12" >
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                  <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                  <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
                 </div>
               </div>
             </div>
@@ -637,13 +637,13 @@
                  <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="status"  class="col-lg-12 control-label">Status:</label>
-                    <input type="text" id="status" name="status" class=" form-control col-lg-12" required value="{{$insurances->status}}" @readonly(true)>
+                    <input type="text" id="status" name="status" class=" form-control col-lg-12"  value="{{$insurances->status}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                    <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12"  value="{{$insurances->statusName}}">
                   </div>
                 </div>
               </div>
@@ -656,7 +656,7 @@
                 <div class="col-md-12"> 
                   <div class="form-group">
                     <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
-                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
+                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12"  value="{{$insurances->requestLetter}}"> </textarea>
                   </div>
                 </div>
               </div>

@@ -33,7 +33,7 @@
                  Insurance Report
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/rice-insurance'); ?>">Rice Insurance</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/rice-insurance'); ?>">Rice Insurance</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/corn-insurance'); ?>">Corn Insurance</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/hvc-insurance'); ?>">High Value Crops</a></li>
                 </ul>

@@ -79,6 +79,7 @@
       <h6> Insurance Report </h6>
         <div class="col-md-12">
             <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+             @if(isset($insurances))
               <table class="table table-bordered table-striped">
                 <thead>
                     <th>Insurance ID</th>
@@ -123,7 +124,12 @@
                      <tr><td>No result found!</td></tr>
                     @endif
                 </tbody>
-            </table>
+              </table>
+              <div class="pagination-block">
+                <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+                {{  $insurances->appends(request()->input())->links('layouts.paginationlinks') }}
+              </div>
+             @endif
           </div>
         </div>
     </div>

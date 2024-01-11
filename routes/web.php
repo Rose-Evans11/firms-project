@@ -60,7 +60,14 @@ Route::get('firms/rice-insurance', function () {
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
-
+Route::get('firms/admin/add/rice-insurance', function () {
+    $user = Auth::guard('admin')->user();
+    if($user) 
+    {
+        return view('admin/add_rice_insurance');
+    }
+    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
+});
 
 Route::get('firms/corn-insurance', function () {
     $user = Auth::guard('web')->user();

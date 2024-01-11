@@ -53,7 +53,7 @@
       <div class="col-md-6">
         <div class="col-md-6 mx-3">
           <div class="col-lg-12">
-            <a href="<?= url('firms/admin/rice-insurance'); ?>" style="text-decoration: none; color:white" class="btn btn-success">Add Rice Insurance</a>
+            <a href="<?= url('firms/admin/add/rice-insurance'); ?>" style="text-decoration: none; color:white" class="btn btn-success">Add Rice Insurance</a>
           </div>
         </div>
       </div>

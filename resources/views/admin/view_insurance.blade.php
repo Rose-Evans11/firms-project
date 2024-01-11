@@ -605,6 +605,13 @@
                 </div>
               </div>
             </div>
+            <div class="row justify-content-end mt-2">
+              <div class="col-md-6">
+                <div class="col-lg-12 d-flex justify-content-end">
+                 <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+                </div>
+              </div>
+            </div> 
           @elseif($insurances->status== 'Rejected')
           <div>
             <legend> <strong> Additional Information</strong></legend>
@@ -647,11 +654,6 @@
                   </div>
                 </div>
               </div>
-            </fieldset>
-          </form> 
-            <form action="{{route('insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
-              @csrf
-              @method('put')
               <div class="row">
                 <div class="col-md-12"> 
                   <div class="form-group">
@@ -661,19 +663,18 @@
                 </div>
               </div>
             </div>
-              <div class="row justify-content-end mt-2">
+            <div class="row justify-content-end mt-2">
+              <div class="col-md-6">
+                <div class="col-lg-12 d-flex justify-content-end">
+                 <button style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%" type="submit"> Send Request Letter</button>
+                </div>
+              </div>
                 <div class="col-md-6">
                   <div class="col-lg-12 d-flex justify-content-end">
-                   <button style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%" type="submit"> Send Request Letter</button>
+                   <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
                   </div>
                 </div>
-                  <div class="col-md-6">
-                    <div class="col-lg-12 d-flex justify-content-end">
-                     <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
-                    </div>
-                  </div>
-                </div> 
-            </form> 
+            </div> 
           @else
           <!-- pending-->
           <div class="row justify-content-end mt-2">
@@ -697,5 +698,7 @@
           <br/>
       </div>
     </div>
+  </fieldset>
+</form> 
 </div>
 @endsection

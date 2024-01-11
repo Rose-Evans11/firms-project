@@ -47,16 +47,6 @@ class adminInsuranceController extends Controller
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
-
-    public function view_pending(insurance $insurance){ //to edit and retrive the information for insurance
-        if (Auth::guard('admin')->check()) 
-        {
-            return view('admin/search_insurance_pending_view', ['insurances'=>$insurance]);
-
-        }
-         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
-    }
-
     public function pending(){
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
@@ -298,7 +288,7 @@ class adminInsuranceController extends Controller
                   ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                   ->orWhere('created_at', 'like', '%' . $search_text . '%')
                   ->paginate(5)->where('status', 'Pending');
-        return view('admin/rejeected_insurance',['insurances'=>$insurance]);
+        return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
 
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

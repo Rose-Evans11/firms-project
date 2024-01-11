@@ -175,9 +175,7 @@ Route::get('insurance/find',[insuranceController::class, 'find'])->name('insuran
 
 //search function for admin
 Route::get('admin/insurance/find',[adminInsuranceController::class, 'admin_insurance_find'])->name('admin.insurance.find');
-Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');
 Route::get('admin/insurance/pending/find',[adminInsuranceController::class, 'admin_insurance_pending_find'])->name('admin.insurance.pending.find');
-Route::get('/admin/insurance/pending/{insurance}/view', [adminInsuranceController::class, 'view_pending'])->name('admin.insurance.pending.view');
 
 
 //status in insurance report
@@ -204,7 +202,7 @@ Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved']
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
 Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('admin.insurance.edit');
 Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.insurance.update');
-
+Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');
 
 //sending request letter
 

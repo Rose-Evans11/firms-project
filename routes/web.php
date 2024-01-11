@@ -95,6 +95,14 @@ Route::get('firms/hvc-insurance', function () {
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
+Route::get('firms/admin/add/hvc-insurance', function () {
+    $user = Auth::guard('admin')->user();
+    if($user)  
+    {
+        return view('admin/add_hvc_insurance');
+    }
+    return redirect('firms/admin')->withInput()->with('errmessage', 'Please Login First!');
+});
 
 //for farmers profile
 Route::get('firms/farmer/profile', function () {
@@ -196,6 +204,7 @@ Route::get('admin/insurance/find',[adminInsuranceController::class, 'admin_insur
 Route::get('admin/insurance/pending/find',[adminInsuranceController::class, 'admin_insurance_pending_find'])->name('admin.insurance.pending.find');
 Route::get('admin/insurance/rice/find',[adminInsuranceController::class, 'admin_insurance_rice_find'])->name('admin.insurance.rice.find');
 Route::get('admin/insurance/corn/find',[adminInsuranceController::class, 'admin_insurance_corn_find'])->name('admin.insurance.corn.find');
+Route::get('admin/insurance/hvc/find',[adminInsuranceController::class, 'admin_insurance_hvc_find'])->name('admin.insurance.hvc.find');
 Route::get('admin/insurance/rejected/find',[adminInsuranceController::class, 'admin_insurance_rejected_find'])->name('admin.insurance.rejected.find');
 Route::get('admin/insurance/approved/find',[adminInsuranceController::class, 'admin_insurance_approved_find'])->name('admin.insurance.approved.find');
 
@@ -226,6 +235,7 @@ Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved']
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
 Route::get('firms/admin/rice-insurance', [adminInsuranceController::class, 'rice'])->name('admin.rice'); 
 Route::get('firms/admin/corn-insurance', [adminInsuranceController::class, 'corn'])->name('admin.corn'); 
+Route::get('firms/admin/hvc-insurance', [adminInsuranceController::class, 'hvc'])->name('admin.hvc'); 
 Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('admin.insurance.edit');
 Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.insurance.update');
 Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');

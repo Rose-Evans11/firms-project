@@ -64,6 +64,16 @@ class adminInsuranceController extends Controller
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         
     }
+    public function hvc(){
+        //$insurance = insurance::all();
+        if (Auth::guard('admin')->check())
+        {
+            $insurance = insurance::sortable()->where('insuranceType', 'High-Value Crops')->paginate(10);
+            return view('admin/hvc_insurance', ['insurances'=>$insurance]);
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        
+    }
     public function pending(){
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
@@ -423,6 +433,31 @@ class adminInsuranceController extends Controller
             })->where('insuranceType', 'Corn')->paginate(10);
                   
         return view('admin/search_insurance_corn_view',['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+    }
+    public function admin_insurance_hvc_find(Request $request, insurance $insurance){ //to search and find
+
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = $request->input('query');
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%');
+            })->where('insuranceType', 'High-Value Crops')->paginate(10);
+                  
+        return view('admin/search_insurance_hvc_view',['insurances'=>$insurance]);
 
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

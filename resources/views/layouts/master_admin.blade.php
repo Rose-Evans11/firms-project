@@ -34,15 +34,15 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="<?= url('firms/admin/rice-insurance'); ?>">Rice Insurance</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/corn-insurance'); ?>">Corn Insurance</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/hvc-insurance'); ?>">High Value Crops</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/corn-insurance'); ?>">Corn Insurance</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/hvc-insurance'); ?>">High Value Crops</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-notice-loss'); ?>"> Notice of Loss</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/notice-loss'); ?>"> Notice of Loss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-indemnity'); ?>"> Indemnity</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/indemnity'); ?>"> Indemnity</a>
               </li>
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add</a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
@@ -55,8 +55,8 @@
                  Settings
                 </a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-change-password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/change-password'); ?>">Change Password</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>">Profile</a></li>
                   <li><a class="dropdown-item" href="#">Log Out</a></li>
                 </ul>
               </li>

@@ -255,8 +255,9 @@ class adminInsuranceController extends Controller
              $token = getenv("TWILIO_TOKEN");
              $senderNumber = getenv("TWILIO_PHONE");
              $twilio = new Client($sid, $token);
-             $insuranceID->$request->id;
-             $contactNumber->$request->contactNumber;
+
+             $insuranceID=$request->id;
+             $contactNumber=$request->contactNumber;
              $message = $twilio->messages
                                ->create($contactNumber, // to
                                         [

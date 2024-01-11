@@ -618,7 +618,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                  <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
+                  <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12" required value="{{$insurances->statusNote}}" @readonly(true)>
                 </div>
               </div>
             </div>

@@ -77,6 +77,15 @@ Route::get('firms/corn-insurance', function () {
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
+Route::get('firms/admin/corn-insurance', function () {
+    $user = Auth::guard('admin')->user();
+    if($user)  
+    {
+        return view('admin/add_corn_insurance');
+    }
+    return redirect('firms/admin')->withInput()->with('errmessage', 'Please Login First!');
+});
+
 
 Route::get('firms/hvc-insurance', function () {
     $user = Auth::guard('web')->user();
@@ -186,6 +195,7 @@ Route::get('insurance/find',[insuranceController::class, 'find'])->name('insuran
 Route::get('admin/insurance/find',[adminInsuranceController::class, 'admin_insurance_find'])->name('admin.insurance.find');
 Route::get('admin/insurance/pending/find',[adminInsuranceController::class, 'admin_insurance_pending_find'])->name('admin.insurance.pending.find');
 Route::get('admin/insurance/rice/find',[adminInsuranceController::class, 'admin_insurance_rice_find'])->name('admin.insurance.rice.find');
+Route::get('admin/insurance/corn/find',[adminInsuranceController::class, 'admin_insurance_corn_find'])->name('admin.insurance.corn.find');
 Route::get('admin/insurance/rejected/find',[adminInsuranceController::class, 'admin_insurance_rejected_find'])->name('admin.insurance.rejected.find');
 Route::get('admin/insurance/approved/find',[adminInsuranceController::class, 'admin_insurance_approved_find'])->name('admin.insurance.approved.find');
 

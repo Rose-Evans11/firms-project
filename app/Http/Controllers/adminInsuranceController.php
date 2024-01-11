@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Twilio\Http\Client;
+use Twilio\Rest\Client;
 use App\Models\insurance;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Query\Builder;
 
 class adminInsuranceController extends Controller
 {

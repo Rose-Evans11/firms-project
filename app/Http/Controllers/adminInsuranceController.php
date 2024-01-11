@@ -47,7 +47,7 @@ class adminInsuranceController extends Controller
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
-    public function rice_view(){
+    public function rice(){
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
         {

@@ -50,7 +50,7 @@ Route::get('firms/insurance-program', function () {
 //once user already login then these following routes is accessible by the farmers
 Route::get('firms/dashboard', [insuranceController::class, 'index'])->name('dashboard.farmer.index'); 
 
-//insurance for farmers side
+//add rice insurance for farmers side
 Route::get('firms/rice-insurance', function () {
     $user = Auth::guard('web')->user();
     if($user) 
@@ -59,6 +59,16 @@ Route::get('firms/rice-insurance', function () {
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
+//add rice insurance for admin side
+Route::get('firms/admin/rice-insurance', function () {
+    $user = Auth::guard('admin')->user();
+    if($user) 
+    {
+        return view('admin/add_rice_insurance');
+    }
+    return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+});
+
 
 Route::get('firms/corn-insurance', function () {
     $user = Auth::guard('web')->user();
@@ -190,6 +200,8 @@ Route::get('admin/insurance/approved/find',[adminInsuranceController::class, 'ad
 
 //validation and storing for insurance
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
+Route::post('/admin/insurance', [adminInsuranceController::class, 'store'])->name('admin.insurance.store');
+
 //status in insurance report
 Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
 Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 

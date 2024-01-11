@@ -34,7 +34,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="<?= url('firms/admin/rice-insurance'); ?>">Rice Insurance</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/corn-insurance'); ?>">Corn Insurance</a></li>
+                  <li><a class="dropdown-item" href="{{route('admin.corn')}}">Corn Insurance</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/admin/hvc-insurance'); ?>">High Value Crops</a></li>
                 </ul>
               </li>

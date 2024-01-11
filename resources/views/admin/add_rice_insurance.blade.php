@@ -67,10 +67,17 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
+                    <label for="rsbsa" class="col-lg-12 control-label">Farmer's ID: </label>
+                    <div class="col-lg-12">
+                      <input type="text" @required(true) class="form-control" id="farmersID" value="" name="farmersID" placeholder="Farmer's ID">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
                     <label for="rsbsa" class="col-lg-12 control-label">RSBSA Reference Number: </label>
                     <div class="col-lg-12">
-                      <input type="text" hidden class="form-control" id="rsbsa" value="{{Auth::User()->id}}" name="farmersID">
-                      <input type="text" @readonly(true) class="form-control" id="rsbsa" value="{{Auth::User()->rsbsa}}" name="rsbsa">
+                      <input type="text" class="form-control" id="rsbsa" value="" name="rsbsa" @required(true) placeholder="RSBSA Reference Number">
                     </div>
                   </div>
                 </div>
@@ -80,7 +87,7 @@
                   <div class="form-group">
                     <label for="txt_fname" class="col-lg-12 control-label">First Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_fname" @readonly(true) value="{{Auth::User()->firstName}}" placeholder="First Name" name="firstName">
+                      <input type="text" class="form-control" id="txt_fname" @required(true) placeholder="First Name" name="firstName">
                     </div>
                   </div>
                 </div>
@@ -88,7 +95,7 @@
                   <div class="form-group">
                     <label for="txt_mname" class="col-lg-12 control-label">Middle Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_mname" @readonly(true) value="{{Auth::User()->middleName}}" placeholder="Middle Name" name="middleName">
+                      <input type="text" class="form-control" id="txt_mname" placeholder="Middle Name" name="middleName">
                     </div>
                   </div>
                 </div>
@@ -98,7 +105,7 @@
                   <div class="form-group">
                     <label for="txt_lname" class="col-lg-12 control-label">Last Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_lname" @readonly(true) value="{{Auth::User()->lastName}}"placeholder="Last Name" name="lastName">
+                      <input type="text" class="form-control" id="txt_lname" @required(true) placeholder="Last Name" name="lastName">
                     </div>
                   </div>
                 </div>
@@ -106,7 +113,7 @@
                   <div class="form-group">
                     <label for="txt_extname" class="col-lg-12 control-label">Extension Name: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_extname"@readonly(true) value="{{Auth::User()->extensionName}}" placeholder="Extension Name" name="extensionName">
+                      <input type="text" class="form-control" id="txt_extname"  placeholder="Extension Name" name="extensionName">
                     </div>
                   </div>
                 </div>
@@ -116,15 +123,19 @@
                   <div class="form-group">
                     <label for="dt_birth" class="col-lg-12 control-label">Birthdate: </label>
                     <div class="col-lg-12">
-                      <input type="date" class="form-control" id="dt_birth" @readonly(true) value="{{Auth::User()->birthdate}}" name="birthdate">
+                      <input type="date" class="form-control" id="dt_birth" @required(true) name="birthdate">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="sex" class="col-lg-12 control-label">Gender: </label>
+                    <label for="txt_gender" class="col-lg-2 control-label">Gender: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="sex" value="{{Auth::User()->sex}}" name="sex" @readonly(true)>
+                      <select class="form-select" aria-label="Default select example" name="sex" @required(true)>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -132,9 +143,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="civilName" class="col-lg-12 control-label">Civil Status: </label>
+                    <label for="txt_civil" class="col-lg-12 control-label">Civil Status: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="civilName" value="{{Auth::User()->civilName}}" name="civilName" @readonly(true)>
+                      <select class="form-select" aria-label="Default select example" name="civilName" @required(true)>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Separated">Separated</option>
+                        <option value="Widowed">Widowed</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -142,7 +158,7 @@
                   <div class="form-group">
                     <label for="txt_spouse" class="col-lg-12 control-label">Name of Spouse: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_spouse" @readonly(true) value="{{Auth::User()->spouseName}}" name="spouseName">
+                      <input type="text" class="form-control" id="txt_spouse" @required(true) name="spouseName">
                     </div>
                   </div>
                 </div>
@@ -152,7 +168,7 @@
                   <div class="form-group">
                     <label for="txt_email" class="col-lg-12 control-label">Email: </label>
                     <div class="col-lg-12">
-                      <input type="email" class="form-control" id="txt_email" @readonly(true) value="{{Auth::User()->email}}" name="email">
+                      <input type="email" class="form-control" id="txt_email" @required(true) name="email">
                     </div>
                   </div>
                 </div>
@@ -160,7 +176,7 @@
                   <div class="form-group">
                     <label for="txt_tel" class="col-lg-12 control-label">Contact Number: </label>
                     <div class="col-lg-12">
-                      <input type="tel" class="form-control" id="txt_tel" value="{{Auth::User()->contactNumber}}" name="contactNumber" @readonly(true)>
+                      <input type="tel" class="form-control" id="txt_tel" name="contactNumber" @required(true)>
                     </div>
                   </div>
                 </div>
@@ -168,11 +184,60 @@
               <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="barangayAddress" class="col-lg-12 control-label">Barangay:</label>
+                    <label for="txt_contact" class="col-lg-2 control-label">Barangay:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="baragangayAddress" value="{{Auth::User()->barangayAddress}}" name="barangayAddress" @readonly(true)>
+                      <select class="form-select" aria-label="Default select example" name="barangayAddress" @required(true)>
+                        <option value="Altura Bata">Altura Bata</option>
+                        <option value="Altura Matanda">Altura Matanda</option>
+                        <option value="Altura South">Altura South</option>
+                        <option value="Ambulong">Ambulong</option></option>
+                        <option value="Banadero">Banadero</option>
+                        <option value="Bagbag">Bagbag</option>
+                        <option value="Bagumbayan">Bagumbayan</option>
+                        <option value="Balele">Balele</option>
+                        <option value="Banjo East">Banjo East</option>
+                        <option value="Banjo West">Banjo West</option>
+                        <option value="Bilog-Bilog">Bilog-Bilog</option>
+                        <option value="Boot">Boot</option>
+                        <option value="Cale">Cale</option>
+                        <option value="Darasa">Darasa</option></option>
+                        <option value="Gonzales">Gonzales</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Janopol">Janopol</option>
+                        <option value="Janopol Oriental">Janopol Oriental</option>
+                        <option value="Laurel">Laurel</option>
+                        <option value="Luyos">Luyos</option>
+                        <option value="Mabini">Mabini</option>
+                        <option value="Malaking Pulo">Malaking Pulo</option>
+                        <option value="Maria Paz">Maria Paz</option></option>
+                        <option value="Maugat">Maugat</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Natatas">Natatas</option>
+                        <option value="Pagaspas">Pagaspas</option>
+                        <option value="Pantay Bata">Pantay Bata</option>
+                        <option value="Pantay Matanda">Pantay Matanda</option>
+                        <option value="Poblacion 1">Poblacion 1</option>
+                        <option value="Poblacion 2">Poblacion 2</option>
+                        <option value="Poblacion 3">Poblacion 3</option>
+                        <option value="Poblacion 4">Poblacion 4</option>
+                        <option value="Poblacion 5">Poblacion 5</option>
+                        <option value="Poblacion 6">Poblacion 6</option>
+                        <option value="Poblacion 7">Poblacion 7</option>
+                        <option value="Sala">Sala</option>
+                        <option value="Sambat">Sambat</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Santol">Santol</option>
+                        <option value="Santor">Santor</option>
+                        <option value="Sulpoc">Sulpoc</option>
+                        <option value="Suplang">Suplang</option>
+                        <option value="Talaga">Talaga</option></option>
+                        <option value="Tinurik">Tinurik</option>
+                        <option value="Trapiche">Trapiche</option>
+                        <option value="Ulango">Ulango</option>
+                        <option value="Wawa">Wawa</option>
+                      </select>
                     </div>
-                  </div>    
+                  </div>   
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
@@ -201,16 +266,19 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <label for="isIndigenous" class="col-lg-12 control-label">Members of Indigenous Group:</label>
+                  <label for="txt_ip" class="col-lg-12 control-label">Members of Indigenous Group:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="isIndigenous" placeholder="Tribe" @readonly(true) value="{{Auth::User()->isIndigenous}}" name="isIndigenous">
+                    <select class="form-select" aria-label="Default select example" id="txt_ip" name="isIndigenous" @required(true)>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="ip_tribe" class="col-lg-12 control-label">IP Tribe:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @readonly(true) value="{{Auth::User()->indigenous}}" name="indigenous">
+                      <input type="text" class="form-control" id="ip_tribe" placeholder="Tribe" @@required(true) name="indigenous">
                     </div>
                   </div>
                 </div>
@@ -309,7 +377,7 @@
           <div class="form-group">
             <label for="txt_acc_num" class="col-lg-12 control-label">Account Number: </label>
             <div class="col-lg-12">
-              <input type="number" class="form-control" id="txt_acc_num" value="{{Auth::User()->bankAccount}}" name="bankAccount" required @readonly(true)>
+              <input type="number" class="form-control" id="txt_acc_num"  name="bankAccount" >
             </div>
           </div>
         </div>
@@ -317,7 +385,7 @@
           <div class="form-group">
             <label for="txt_bank_name" class="col-lg-12 control-label"> Bank Name: </label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_name" value="{{Auth::User()->bankName}}" name="bankName" required @readonly(true)>
+              <input type="text" class="form-control" id="txt_bank_name" name="bankName">
             </div>
           </div>
         </div>
@@ -325,7 +393,7 @@
           <div class="form-group">
             <label for="txt_bank_branch" class="col-lg-12 control-label"> Bank Branch: </label>
             <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_bank_branch" value="{{Auth::User()->bankBranch}}" name="bankBranch" required @readonly(true)>
+              <input type="text" class="form-control" id="txt_bank_branch" name="bankBranch" >
             </div>
           </div>
         </div>

@@ -61,8 +61,7 @@ class adminInsuranceController extends Controller
     public function approved(){
         if (Auth::guard('admin')->check())  
         {
-            $insurance = DB::table('insurances')->get();
-            $insurance=insurance::sortable()->paginate(10)->where('status', 'Approved');
+            $insurance = insurance::sortable()->where('status', 'Approved')->paginate(10);
             return view('admin/approved_insurance', ['insurances'=>$insurance]);
 
         }
@@ -73,8 +72,7 @@ class adminInsuranceController extends Controller
     public function rejected(){
         if (Auth::guard('admin')->check())
         {
-            $insurance = DB::table('insurances')->get();
-            $insurance=insurance::sortable()->paginate(10)->whereIn('status', ['Partially Rejected', 'Rejected']);
+            $insurance = insurance::sortable()->whereIn('status', ['Partially Rejected', 'Rejected'])->paginate(10);
             return view('admin/rejected_insurance', ['insurances'=>$insurance]);
 
         }
@@ -292,6 +290,62 @@ class adminInsuranceController extends Controller
             })->paginate(10);
                   
         return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+    }
+    public function admin_insurance_approved_find(Request $request, insurance $insurance){ //to search and find
+
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = $request->input('query');
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                    ->when(request('status') === 'Approved', function($query) {
+                        $query->where('status', 'Approved');
+                    });
+            })->paginate(10);
+                  
+        return view('admin/search_insurance_approved_view',['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+    }
+    public function admin_insurance_rejected_find(Request $request, insurance $insurance){ //to search and find
+
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = $request->input('query');
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                    ->when(request('status') === ['Partially Rejected', 'Rejected'], function($query) {
+                        $query->whereIn('status', ['Partially Rejected', 'Rejected']);
+                    });
+            })->paginate(10);
+                  
+        return view('admin/search_insurance_rejected_view',['insurances'=>$insurance]);
 
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

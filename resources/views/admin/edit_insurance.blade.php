@@ -557,7 +557,7 @@
                        <option value="Pending">Pending</option>
                        <option value="Rejected"> Rejected </option>
                        <option value="Partially Rejected"> Partially Rejected </option>
-                       <option value="Approved"> Aprroved </option>
+                       <option value="Approved"> Approved </option>
                      </select>
                    </div>
                  </div>
@@ -653,7 +653,7 @@
                      <option value="Pending">Pending</option>
                      <option value="Rejected"> Rejected </option>
                      <option value="Partially Rejected"> Partially Rejected </option>
-                     <option value="Approved"> Aprroved </option>
+                     <option value="Approved"> Approved </option>
                    </select>
                  </div>
                </div>
@@ -748,7 +748,7 @@
                      <option value="Pending">Pending</option>
                      <option value="Rejected"> Rejected </option>
                      <option value="Partially Rejected"> Partially Rejected </option>
-                     <option value="Approved"> Aprroved </option>
+                     <option value="Approved"> Approved </option>
                    </select>
                  </div>
                </div>
@@ -843,7 +843,7 @@
                      <option value="Pending">Pending</option>
                      <option value="Rejected"> Rejected </option>
                      <option value="Partially Rejected"> Partially Rejected </option>
-                     <option value="Approved"> Aprroved </option>
+                     <option value="Approved"> Approved </option>
                    </select>
                  </div>
                </div>

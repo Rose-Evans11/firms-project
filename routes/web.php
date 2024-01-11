@@ -207,7 +207,7 @@ Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'u
 Route::get('firms/admin/pending', [adminInsuranceController::class, 'pending'])->name('admin.pending'); 
 Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved'])->name('admin.approved'); 
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
-Route::get('firms/admin/rice', [adminInsuranceController::class, 'rice'])->name('admin.rice'); 
+Route::get('firms/admin/rice-insurance', [adminInsuranceController::class, 'rice'])->name('admin.rice'); 
 Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('admin.insurance.edit');
 Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.insurance.update');
 Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');

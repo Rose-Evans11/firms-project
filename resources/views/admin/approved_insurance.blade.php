@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
-        @if(isset($users))
+        @if(isset($insurances))
         <table class="table table-bordered table-striped">
           <thead>
               <tr>
@@ -82,7 +82,7 @@
         </table>
         <div class="pagination-block">
           <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
-          {{  $users->appends(request()->input())->links('layouts.paginationlinks') }}
+          {{  $insurances->appends(request()->input())->links('layouts.paginationlinks') }}
           </div>
         @endif
       </div> 

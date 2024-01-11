@@ -263,7 +263,7 @@ class adminInsuranceController extends Controller
                       ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('created_at', 'like', '%' . $search_text . '%');
-            })->paginate(5);
+            })->paginate(10);
         return view('admin/search_insurance',['insurances'=>$insurance]);
 
         }
@@ -279,16 +279,18 @@ class adminInsuranceController extends Controller
             $search_text = $request->input('query');
             $insurance = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
-                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
-                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                      ->orWhere('created_at', 'like', '%' . $search_text . '%')
-                      ->where('status', 'Pending');
-            })->paginate(5);
+                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                    ->when(request('status') === 'Pending', function($query) {
+                        $query->where('status', 'Pending');
+                    });
+            })->paginate(10);
                   
         return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
 

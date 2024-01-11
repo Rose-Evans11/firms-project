@@ -59,15 +59,7 @@ Route::get('firms/rice-insurance', function () {
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
-//add rice insurance for admin side
-Route::get('firms/admin/rice-insurance', function () {
-    $user = Auth::guard('admin')->user();
-    if($user) 
-    {
-        return view('admin/rice_insurance');
-    }
-    return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
-});
+
 
 
 Route::get('firms/corn-insurance', function () {
@@ -215,6 +207,7 @@ Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'u
 Route::get('firms/admin/pending', [adminInsuranceController::class, 'pending'])->name('admin.pending'); 
 Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved'])->name('admin.approved'); 
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
+Route::get('firms/admin/rice', [adminInsuranceController::class, 'rice'])->name('admin.rice'); 
 Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('admin.insurance.edit');
 Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.insurance.update');
 Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');

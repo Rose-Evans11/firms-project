@@ -176,11 +176,11 @@ class adminInsuranceController extends Controller
             $token = getenv("TWILIO_TOKEN");
             $senderNumber = getenv("TWILIO_PHONE");
             $twilio = new Client($sid, $token);
-            $insuranceID->$request->id;
+            
             $message = $twilio->messages
                               ->create($incomingFields['contactNumber'], // to
                                        [
-                                           "body" => 'Your filed insurance report with Insurance ID'. $insuranceID . ' ' . ' was ' . $incomingFields['status'] . ' . The comment is '. $incomingFields['statusNotes'] .'. ' ,
+                                           "body" => "The City Agriculture just filed an insurance report for you. We will validate it, kindly, wait our message for additional information. Thank you!",
                                            "from" => $senderNumber
                                        ]
                               );
@@ -255,11 +255,12 @@ class adminInsuranceController extends Controller
              $token = getenv("TWILIO_TOKEN");
              $senderNumber = getenv("TWILIO_PHONE");
              $twilio = new Client($sid, $token);
-             
+             $insuranceID->$request->id;
+             $contactNumber->$request->contactNumber;
              $message = $twilio->messages
-                               ->create($incomingFields['contactNumber'], // to
+                               ->create($contactNumber, // to
                                         [
-                                            "body" => "The City Agriculture just filed an insurance report for you. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                            "body" => 'Your filed insurance report with Insurance ID'. $insuranceID . ' ' . ' was ' . $incomingFields['status'] . ' . The comment is '. $incomingFields['statusNotes'] .'. ' ,
                                             "from" => $senderNumber
                                         ]
                                );

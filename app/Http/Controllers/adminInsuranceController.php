@@ -277,18 +277,18 @@ class adminInsuranceController extends Controller
         if (Auth::guard('admin')->check())
         {
             $search_text = $request->input('query');
-      // $user = User::table('users')
-       $insurance = insurance::Where('farmersID', 'like', '%' . $search_text . '%')
-                  ->orWhere('firstName', 'like', '%' . $search_text . '%')
-                  ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                  ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                  ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                  ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                  ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                  ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                  ->orWhere('created_at', 'like', '%' . $search_text . '%')
-                  ->where('status', 'Pending')
-                  ->paginate(5);
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                      ->where('status', 'Pending');
+            })->paginate(5);
                   
         return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
 

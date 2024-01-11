@@ -64,7 +64,7 @@ Route::get('firms/admin/rice-insurance', function () {
     $user = Auth::guard('admin')->user();
     if($user) 
     {
-        return view('admin/add_rice_insurance');
+        return view('admin/rice_insurance');
     }
     return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
 });

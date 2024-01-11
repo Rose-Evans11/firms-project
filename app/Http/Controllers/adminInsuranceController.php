@@ -47,6 +47,16 @@ class adminInsuranceController extends Controller
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
+    public function rice_view(){
+        //$insurance = insurance::all();
+        if (Auth::guard('admin')->check())
+        {
+            $insurance = insurance::sortable()->where('insuranceType', 'Rice')->paginate(10);
+            return view('admin/rice_insurance', ['insurances'=>$insurance]);
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        
+    }
     public function pending(){
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
@@ -167,7 +177,7 @@ class adminInsuranceController extends Controller
             $message = $twilio->messages
                               ->create($incomingFields['contactNumber'], // to
                                        [
-                                           "body" => "Admin just filed an insurance report. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                           "body" => "The City Agriculture just filed an insurance report for you. We will validate it, kindly, wait our message for additional information. Thank you!",
                                            "from" => $senderNumber
                                        ]
                               );
@@ -176,7 +186,7 @@ class adminInsuranceController extends Controller
             return back();
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
        
     }
 
@@ -237,10 +247,25 @@ class adminInsuranceController extends Controller
     
             $insurance->update ($incomingFields);
             session()->flash('success', 'Successfully Updated!');
-            return redirect(route('insurance.pending'));
+             //this is for sending message
+             $sid = getenv("TWILIO_SID");
+             $token = getenv("TWILIO_TOKEN");
+             $senderNumber = getenv("TWILIO_PHONE");
+             $twilio = new Client($sid, $token);
+             
+             $message = $twilio->messages
+                               ->create($incomingFields['contactNumber'], // to
+                                        [
+                                            "body" => "The City Agriculture just filed an insurance report for you. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                            "from" => $senderNumber
+                                        ]
+                               );
+             
+             print($message->sid);
+            return back();
 
         }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
      
     }
 

@@ -52,8 +52,9 @@
    {{Session::get('success')}}
   </div> 
 @endif
-  <form class="form-horizontal">
-    @csrf
+<form class="form-horizontal" action="{{route('.admin.insurance.update', ['insurance'=>$insurances])}}" method="Post">
+  @csrf
+  @method('put')
    <fieldset>
     <!-- 
     <button onclick="javascript:displayfarmsInfo()" class="flip" id="panelbutton">Farmer Information </button>

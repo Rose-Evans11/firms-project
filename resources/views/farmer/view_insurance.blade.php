@@ -579,13 +579,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="from"  class="col-lg-12 control-label">From:</label>
-                    <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
+                    <input type="date" id="coverFrom" name="coverFrom" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="to"  class="col-lg-12 control-label">To:</label>
-                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
+                    <input type="date" id="coverTo" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
                   </div>
                 </div>
               </div>
@@ -647,9 +647,9 @@
                   </div>
                 </div>
               </div>
-            </fieldset>
-          </form> 
-            <form action="{{route('insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
+              </fieldset>
+              </form> 
+              <form action="{{route('insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
               @csrf
               @method('put')
               <div class="row">
@@ -660,7 +660,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
               <div class="row justify-content-end mt-2">
                 <div class="col-md-6">
                   <div class="col-lg-12 d-flex justify-content-end">

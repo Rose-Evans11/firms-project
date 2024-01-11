@@ -263,7 +263,7 @@ class adminInsuranceController extends Controller
                   ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
                   ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                   ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                  ->orWhere('created_date', 'like', '%' . $search_text . '%')
+                  ->orWhere('created_at', 'like', '%' . $search_text . '%')
                   ->paginate(5);
         return view('admin/search_insurance',['insurances'=>$insurance]);
 

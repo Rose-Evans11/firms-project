@@ -389,13 +389,13 @@ class adminInsuranceController extends Controller
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
                       ->orWhere('firstName', 'like', '%' . $search_text . '%')
                       ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                      //->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
                       ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
                       ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
                       ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('created_at', 'like', '%' . $search_text . '%');
-            })->whereIn('insuranceType', 'Rice')->paginate(10);
+            })->where('insuranceType', 'Rice')->paginate(10);
                   
         return view('admin/search_insurance_rice_view',['insurances'=>$insurance]);
 
@@ -414,13 +414,13 @@ class adminInsuranceController extends Controller
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
                       ->orWhere('firstName', 'like', '%' . $search_text . '%')
                       ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                      //->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
                       ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
                       ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
                       ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('created_at', 'like', '%' . $search_text . '%');
-            })->whereIn('insuranceType', 'Corn')->paginate(10);
+            })->where('insuranceType', 'Corn')->paginate(10);
                   
         return view('admin/search_insurance_corn_view',['insurances'=>$insurance]);
 

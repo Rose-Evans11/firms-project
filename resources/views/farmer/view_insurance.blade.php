@@ -618,7 +618,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                  <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12" required value="{{$insurances->statusNote}}" @readonly(true)>
+                  <input type="text" id="statusName" name="statusName" class=" form-control col-lg-12" required value="{{$insurances->statusName}}" @readonly(true)>
                 </div>
               </div>
             </div>
@@ -647,9 +647,9 @@
                   </div>
                 </div>
               </div>
-              </fieldset>
-              </form> 
-              <form action="{{route('insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
+            </fieldset>
+          </form> 
+            <form action="{{route('insurance.requestLetter')}}" method="post">
               @csrf
               @method('put')
               <div class="row">
@@ -660,7 +660,7 @@
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
               <div class="row justify-content-end mt-2">
                 <div class="col-md-6">
                   <div class="col-lg-12 d-flex justify-content-end">

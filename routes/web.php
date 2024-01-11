@@ -172,16 +172,21 @@ Route::post('/update/password', [farmerController::class, 'changePasswordSave'])
 //search function
 Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
 Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');
+
+//search function for admin
 Route::get('admin/insurance/find',[adminInsuranceController::class, 'admin_insurance_find'])->name('admin.insurance.find');
+Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');
+Route::get('admin/insurance/pending/find',[adminInsuranceController::class, 'admin_insurance_pending_find'])->name('admin.insurance.pending.find');
+Route::get('/admin/insurance/pending/{insurance}/view', [adminInsuranceController::class, 'view_pending'])->name('admin.insurance.pending.view');
 
 
 //status in insurance report
-Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
-Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
-Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
-Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
-Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
-Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
+//Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
+//Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
+//Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
+//Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
+//Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
+//Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
 
 //validation and storing for insurance
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
@@ -199,7 +204,6 @@ Route::get('firms/admin/approved', [adminInsuranceController::class, 'approved']
 Route::get('firms/admin/rejected', [adminInsuranceController::class, 'rejected'])->name('admin.rejected'); 
 Route::get('/admin/insurance/{insurance}/edit', [adminInsuranceController::class, 'edit'])->name('admin.insurance.edit');
 Route::put('/admin/insurance/{insurance}/update', [adminInsuranceController::class, 'update'])->name('admin.insurance.update');
-Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class, 'view'])->name('admin.insurance.view');
 
 
 //sending request letter

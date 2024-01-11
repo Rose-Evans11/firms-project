@@ -262,7 +262,7 @@ class adminInsuranceController extends Controller
              $message = $twilio->messages
                                ->create($contactNumber, // to
                                         [
-                                            "body" => 'Your filed insurance report with Insurance ID'. $insuranceID . ' ' . ' was ' . $incomingFields['status'] . ' . The comment is '. $incomingFields['statusNote'] .'. ' ,
+                                            "body" => 'Your filed insurance report with Insurance ID: '. $insuranceID . ' ' . ' was ' . $incomingFields['status'] . ' . The comment is '. $incomingFields['statusNote'] .'. ' ,
                                             "from" => $senderNumber
                                         ]
                                );

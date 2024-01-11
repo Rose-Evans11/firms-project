@@ -53,7 +53,7 @@
       <div class="col-md-6">
         <div class="col-lg-5">
           <div class="form-group">
-            <a href="<?= url('firms/admin/rice-insurance'); ?>" style="width:100%; text-decoration:none">View All</a>
+            <a href="<?= url('firms/admin/hvc-insurance'); ?>" style="width:100%; text-decoration:none">View All</a>
           </div>
         </div>
       </div>

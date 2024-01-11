@@ -1,5 +1,5 @@
 @extends('layouts.master_admin')
-@section('title','Rejected Insurance')
+@section('title','Pending Insurance')
 @section('content')
 <style>
   .flip {
@@ -30,25 +30,32 @@
      {{Session::get('success')}}
     </div> 
   @endif
-  <form action="{{ route('admin.insurance.find') }}" method="GET"> 
+  <form action="{{ route('admin.insurance.pending.find') }}" method="GET"> 
     <div class="row">
       <div class="col-md-6">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-lg-2">
-            <label for="txt_RSBSA" class="control-label"> <h4> Search: </h4> </label>
-          </div>
-          <div class="col-lg-5">
-            <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
-            <span class="text-danger">@error('query'){{ $message }} @enderror</span>
-          </div>
-          <div class="col-lg-5">
-            <div class="form-group">
-              <button type="submit" class="btn btn-success" style="width:100%">Search</button>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="txt_RSBSA" class="control-label"> <h4> Search: </h4> </label>
+            </div>
+            <div class="col-lg-5">
+              <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
+              <span class="text-danger">@error('query'){{ $message }} @enderror</span>
+            </div>
+            <div class="col-lg-5">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" style="width:100%">Search</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="col-lg-5">
+          <div class="form-group">
+            <a href="{{ URL::previous() }}" style="width:100%; text-decoration:none">View All</a>
+          </div>
+        </div>
       </div>
     </div>
   </form>
@@ -70,7 +77,6 @@
                   <th>@sortablelink('barangayFarm',"Farm Location")</th>
                   <th>@sortablelink('created_at', 'Date Created')</th>
                   <th>@sortablelink('status',"Status")</th>
-                  <th>@sortablelink('statusNote',"Status Note")</th>
                   <th>Edit</th>
                   <th>View</th>
               </tr>
@@ -91,7 +97,6 @@
                <td>{{$insurance->barangayFarm}}</td>
                <td>{{$insurance->created_at}}</td>
                <td>{{$insurance->status}}</td>
-               <td>{{$insurance->statusNote}}</td>
                <td><a href="{{route('admin.insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
                <td><a href="{{route('admin.insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
               </tr>
@@ -100,8 +105,8 @@
                <tr><td>No result found!</td></tr>
               @endif
           </tbody>
-        </table>
-      
+      </table>
+    </div>
       </div>
     </div>
   </div>

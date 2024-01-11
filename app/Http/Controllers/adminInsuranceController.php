@@ -48,6 +48,15 @@ class adminInsuranceController extends Controller
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
 
+    public function view_pending(insurance $insurance){ //to edit and retrive the information for insurance
+        if (Auth::guard('admin')->check()) 
+        {
+            return view('admin/search_insurance_pending_view', ['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+    }
+
     public function pending(){
         //$insurance = insurance::all();
         if (Auth::guard('admin')->check())
@@ -266,6 +275,30 @@ class adminInsuranceController extends Controller
                   ->orWhere('created_at', 'like', '%' . $search_text . '%')
                   ->paginate(5);
         return view('admin/search_insurance',['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+    }
+    public function admin_insurance_pending_find(Request $request, insurance $insurance){ //to search and find
+
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = $request->input('query');
+      // $user = User::table('users')
+       $insurance = insurance::Where('farmersID', 'like', '%' . $search_text . '%')
+                  ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                  ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                  ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                  ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                  ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                  ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                  ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                  ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                  ->paginate(5)->where('status', 'Pending');
+        return view('admin/rejeected_insurance',['insurances'=>$insurance]);
 
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

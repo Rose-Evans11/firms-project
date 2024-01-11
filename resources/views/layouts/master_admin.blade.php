@@ -44,8 +44,11 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-indemnity'); ?>"> Indemnity</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-farm-list'); ?>"> Farm List</a>
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add</a>
+                <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="<?= url('firms/farmer/register'); ?>">Add New Farmer</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/register'); ?>">Add New Admin </a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

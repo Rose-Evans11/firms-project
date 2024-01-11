@@ -247,28 +247,6 @@ class adminInsuranceController extends Controller
          return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
      
     }
-    public function find(Request $request, insurance $insurance){ //to search and find
-
-        if (Auth::guard('admin')->check())  
-        {
-            $search_text = $request->input('query');
-      // $user = User::table('users')
-       $insurance = insurance::Where('barangayFarm', 'like', '%' . $search_text . '%')
-                  ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                  ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                  ->orWhere('status', 'like', '%' . $search_text . '%')
-                  ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                  ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                  ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                  ->paginate(5);
-        return view('farmer/search_insurance',['insurances'=>$insurance]);
-
-        }
-         return redirect('firms/farmer/login')->withInput()->with('errmessage', 'Please Login First!');
-        $request->validate([
-          'query'=>'min:2'
-       ]);
-    }
 
     public function admin_insurance_find(Request $request, insurance $insurance){ //to search and find
 

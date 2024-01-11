@@ -276,17 +276,15 @@ class adminInsuranceController extends Controller
             $search_text = $request->input('query');
             $insurance = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
-                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
-                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
-                    ->when(request('status') === 'Pending', function($query) {
-                        $query->where('status', 'Pending');
-                    });
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                      ->where('status', 'Pending');
             })->paginate(10);
                   
         return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
@@ -304,18 +302,17 @@ class adminInsuranceController extends Controller
             $search_text = $request->input('query');
             $insurance = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
-                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
-                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
-                    ->when(request('status') === 'Approved', function($query) {
-                        $query->where('status', 'Approved');
-                    });
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                      ->where('status', 'Approved');
             })->paginate(10);
+                  
                   
         return view('admin/search_insurance_approved_view',['insurances'=>$insurance]);
 
@@ -332,17 +329,15 @@ class adminInsuranceController extends Controller
             $search_text = $request->input('query');
             $insurance = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
-                    ->orWhere('firstName', 'like', '%' . $search_text . '%')
-                    ->orWhere('lastName', 'like', '%' . $search_text . '%')
-                    ->orWhere('cropName', 'like', '%' . $search_text . '%')
-                    ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
-                    ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
-                    ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                    ->orWhere('created_at', 'like', '%' . $search_text . '%')
-                    ->when(request('status') === ['Partially Rejected', 'Rejected'], function($query) {
-                        $query->whereIn('status', ['Partially Rejected', 'Rejected']);
-                    });
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                      ->whereIn('status', ['Partially Rejected', 'Rejected']);
             })->paginate(10);
                   
         return view('admin/search_insurance_rejected_view',['insurances'=>$insurance]);

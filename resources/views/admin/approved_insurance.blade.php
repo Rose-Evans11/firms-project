@@ -30,6 +30,28 @@
      {{Session::get('success')}}
     </div> 
   @endif
+  <form action="{{ route('admin.approved.insurance.find') }}" method="GET"> 
+    <div class="row">
+      <div class="col-md-6">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-2">
+            <label for="txt_RSBSA" class="control-label"> <h4> Search: </h4> </label>
+          </div>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
+            <span class="text-danger">@error('query'){{ $message }} @enderror</span>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <button type="submit" class="btn btn-success" style="width:100%">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </form>
   <div class="row">
     <div class="col-lg-12">
       <div class="table-wrapper" style=" width:100%; overflow-x:scroll">

@@ -30,7 +30,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-  <form action="{{ route('admin.insurance.find') }}" method="GET"> 
+  <form action="{{ route('admin.rejected.insurance.find') }}" method="GET"> 
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">

@@ -579,13 +579,13 @@
                 <div class="col-md-6"> 
                   <div class="form-group">
                     <label for="from"  class="col-lg-12 control-label">From:</label>
-                    <input type="date" id="coverFrom" name="from" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
+                    <input type="date" id="coverFrom" name="coverFrom" class=" form-control col-lg-12" required value="{{$insurances->coverFrom}}" @readonly(true)>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="to"  class="col-lg-12 control-label">To:</label>
-                    <input type="date" id="to" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
+                    <input type="date" id="coverTo" name="coverTo" class=" form-control col-lg-12" required value="{{$insurances->coverTo}}" readonly>
                   </div>
                 </div>
               </div>

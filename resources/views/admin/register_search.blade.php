@@ -47,6 +47,7 @@
   </form>
   <div class="row">
     <div class="col-lg-12">
+      <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
         @if(isset($users))
             <table class="table table-bordered table-striped">
                 <thead>
@@ -88,6 +89,8 @@
                 {{  $users->appends(request()->input())->links('layouts.paginationlinks') }}
             </div>
         @endif
+      </div>
+        
     </div>
   </div>
   

@@ -286,9 +286,10 @@ class adminInsuranceController extends Controller
                   ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
                   ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                   ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
-                  ->orWhere('created_at', 'like', '%' . $search_text . '%');
+                  ->orWhere('created_at', 'like', '%' . $search_text . '%')
+                  ->where('status', 'Pending')
+                  ->paginate(5);
                   
-        $insurance=insurance::sortable()->paginate(5)->where('status', 'Pending');
         return view('admin/search_insurance_pending_view',['insurances'=>$insurance]);
 
         }

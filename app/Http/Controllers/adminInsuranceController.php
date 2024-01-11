@@ -14,12 +14,6 @@ use Illuminate\Database\Query\Builder;
 
 class adminInsuranceController extends Controller
 {
-    use Sortable;
-
-    public $sortable = [
-        'insuranceType',
-        'created_at',
-    ];
     public function index(){
         if (Auth::guard('admin')->check())
         {
@@ -56,6 +50,16 @@ class adminInsuranceController extends Controller
         {
             $insurance = insurance::sortable()->where('insuranceType', 'Rice')->paginate(10);
             return view('admin/rice_insurance', ['insurances'=>$insurance]);
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        
+    }
+    public function corn(){
+        //$insurance = insurance::all();
+        if (Auth::guard('admin')->check())
+        {
+            $insurance = insurance::sortable()->where('insuranceType', 'Corn')->paginate(10);
+            return view('admin/corn_insurance', ['insurances'=>$insurance]);
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
         
@@ -391,9 +395,34 @@ class adminInsuranceController extends Controller
                       ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('created_at', 'like', '%' . $search_text . '%');
-            })->whereIn('insuranceType', 'Rice')->paginate(10);
+            })->where('insuranceType', 'Rice')->paginate(10);
                   
         return view('admin/search_insurance_rice_view',['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+    }
+    public function admin_insurance_corn_find(Request $request, insurance $insurance){ //to search and find
+
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = $request->input('query');
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%');
+            })->where('insuranceType', 'Corn')->paginate(10);
+                  
+        return view('admin/search_insurance_corn_view',['insurances'=>$insurance]);
 
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

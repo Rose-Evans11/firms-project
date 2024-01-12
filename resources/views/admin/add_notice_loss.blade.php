@@ -143,7 +143,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-group">
-                <label for="txt_insuredCrop" class="col-lg-6 control-label">Insured Crops: </label>
+                <label for="txt_insuredCrop" class="col-lg-12 control-label">Insured Crops: </label>
                 <div class="col-lg-12">
                   <input type="text" class="form-control" id="txt_insuredCrop" value="{{$insurances->cropName}}" name="cropName" @readonly(true)>
                 </div>
@@ -151,7 +151,7 @@
             </div> 
             <div class="col-md-2">
               <div class="form-group">
-                <label for="txt_insuredCrop" class="col-lg-6 control-label">Variety: </label>
+                <label for="txt_insuredCrop" class="col-lg-12 control-label">Variety: </label>
                 <div class="col-lg-12">
                   <input type="text" class="form-control" id="txt_insuredCrop" value="{{$insurances->variety}}" name="variety" @readonly(true)>
                 </div>
@@ -159,7 +159,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-group">
-                <label for="txt_insuredCrop" class="col-lg-6 control-label">Insured Type: </label>
+                <label for="txt_insuredCrop" class="col-lg-12 control-label">Insured Type: </label>
                 <div class="col-lg-12">
                   <input type="text" class="form-control" id="txt_insuredCrop" value="{{$insurances->insuranceType}}" name="insuranceType" @readonly(true)>
                 </div>
@@ -175,7 +175,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-group">
-                <label for="txt_insuredCrop" class="col-lg-6 control-label">CIC Number: </label>
+                <label for="txt_insuredCrop" class="col-lg-12 control-label">CIC Number: </label>
                 <div class="col-lg-12">
                   <input type="text" class="form-control" id="txt_insuredCrop" value="{{$insurances->cicNumber}}" name="cicNumber" @readonly(true)>
                 </div>
@@ -372,7 +372,7 @@
         <div class="d-flex justify-content-center mt-3"> 
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
+              <button class="btn btn-sm btn-success m-2" href="{{route('admin.damage.index') }}" style="width:100%">Cancel</button>
             </div>
             <div class="col-md-6">
               <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>

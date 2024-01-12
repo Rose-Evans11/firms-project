@@ -42,6 +42,7 @@
     <div class="row">
         <div class="col-lg-12">
           <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
+            @if(isset($damages))
             <table class="table table-bordered table-striped">
               <thead>
                   <tr>
@@ -90,6 +91,11 @@
                 @endif
               </tbody>
             </table>
+            <div class="pagination-block">
+              <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+              {{  $damages->appends(request()->input())->links('layouts.paginationlinks') }}
+            </div>
+           @endif
           </div>
         </div>
        

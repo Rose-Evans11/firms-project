@@ -11,6 +11,7 @@ use App\Http\Controllers\indemnityController;
 use App\Http\Controllers\insuranceController;
 use App\Http\Controllers\adminInsuranceController;
 use App\Http\Controllers\forgotPasswordController;
+use App\Http\Controllers\adminDamageController;
 
 /*
 |--------------------------------------------------------------------------

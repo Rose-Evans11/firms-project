@@ -134,25 +134,6 @@ Route::get('firms/farmer/change-password', function () {
 });
 
 
-//for notice of loss
-Route::get('firms/farmer-notice-loss', function () {
-    $user = Auth::guard('web')->user();
-    if($user)  
-    {
-        return view('farmer/notice_loss');
-    }
-    return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
-});
-
-Route::get('firms/admin-notice-loss', function () {
-    $user = Auth::guard('admin')->user();
-    if($user)  
-    {
-        return view('admin/notice_loss');
-    }
-    return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
-});
-
 Route::get('firms/farmer-indemnity', function () { //for indemnity
     $user = Auth::guard('web')->user();
     if($user)  
@@ -219,15 +200,6 @@ Route::get('admin/insurance/hvc/find',[adminInsuranceController::class, 'admin_i
 Route::get('admin/insurance/rejected/find',[adminInsuranceController::class, 'admin_insurance_rejected_find'])->name('admin.insurance.rejected.find');
 Route::get('admin/insurance/approved/find',[adminInsuranceController::class, 'admin_insurance_approved_find'])->name('admin.insurance.approved.find');
 
-
-//status in insurance report
-//Route::get('firms/farmer/pending', [insuranceController::class, 'pending'])->name('insurance.pending'); 
-//Route::get('firms/farmer/approved', [insuranceController::class, 'approved'])->name('insurance.approved'); 
-//Route::get('firms/farmer/rejected', [insuranceController::class, 'rejected'])->name('insurance.rejected'); 
-//Route::get('/farmer/pending/{insurance}/edit', [insuranceController::class, 'edit'])->name('insurance.edit');
-//Route::get('/farmer/insurance/{insurance}/view', [insuranceController::class, 'view'])->name('insurance.view');
-//Route::put('/farmer/pending/{insurance}/update', [insuranceController::class, 'update'])->name('insurance.update');
-
 //validation and storing for insurance
 Route::post('/insurance', [insuranceController::class, 'store'])->name('insurance.store');
 Route::post('/admin/insurance', [adminInsuranceController::class, 'store'])->name('admin.insurance.store');
@@ -263,12 +235,18 @@ Route::get('/farmer/farm/{farm}/edit', [farmController::class, 'edit'])->name('f
 Route::put('/farmer/farm/{farm}/update', [farmController::class, 'update'])->name('farm.update');
 
 //for notice of loss
-Route::get('firms/farmer/notice-loss', [damageController::class, 'index'])->name('damage.index'); 
-Route::get('firms/admin/notice-loss', [adminDamageController::class, 'index'])->name('admin.damage.index'); 
 Route::post('/notice-loss', [damageController::class, 'store'])->name('damage.store');
+Route::get('firms/farmer/notice-loss', [damageController::class, 'index'])->name('damage.index'); 
 Route::get('/farmer/notice-loss/{insurance}/add', [damageController::class, 'add'])->name('damage.add');
 Route::get('/farmer/notice-loss/{damage}/edit', [damageController::class, 'edit'])->name('damage.edit');
 Route::put('/farmer/notice-loss/{damage}/update', [damageController::class, 'update'])->name('damage.update');
+
+//for admin
+Route::post('admin/notice-loss', [adminDamageController::class, 'store'])->name('admin.damage.store');
+Route::get('firms/admin/notice-loss', [adminDamageController::class, 'index'])->name('admin.damage.index'); 
+Route::get('/admin/notice-loss/{insurance}/add', [adminDamageController::class, 'add'])->name('admin.damage.add');
+Route::get('/admin/notice-loss/{damage}/edit', [adminDamageController::class, 'edit'])->name('admin.damage.edit');
+Route::put('/admin/notice-loss/{damage}/update', [adminDamageController::class, 'update'])->name('admin.damage.update');
 
 //for indemnity
 Route::get('firms/farmer/indemnity', [indemnityController::class, 'index'])->name('indemnity.index'); 

@@ -136,15 +136,26 @@ Route::get('firms/farmer/change-password', function () {
 
 //for notice of loss
 Route::get('firms/farmer-notice-loss', function () {
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)  
     {
         return view('farmer/notice_loss');
     }
     return redirect('firms/farmer')->withInput()->with('errmessage', 'Please Login First!');
 });
 
+Route::get('firms/admin-notice-loss', function () {
+    $user = Auth::guard('admin')->user();
+    if($user)  
+    {
+        return view('admin/notice_loss');
+    }
+    return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+});
+
 Route::get('firms/farmer-indemnity', function () { //for indemnity
-    if(Auth::check())   
+    $user = Auth::guard('web')->user();
+    if($user)  
     {
         return view('farmer/indemnity');
     }
@@ -253,6 +264,7 @@ Route::put('/farmer/farm/{farm}/update', [farmController::class, 'update'])->nam
 
 //for notice of loss
 Route::get('firms/farmer/notice-loss', [damageController::class, 'index'])->name('damage.index'); 
+Route::get('firms/admin/notice-loss', [adminDamageController::class, 'index'])->name('admin.damage.index'); 
 Route::post('/notice-loss', [damageController::class, 'store'])->name('damage.store');
 Route::get('/farmer/notice-loss/{insurance}/add', [damageController::class, 'add'])->name('damage.add');
 Route::get('/farmer/notice-loss/{damage}/edit', [damageController::class, 'edit'])->name('damage.edit');

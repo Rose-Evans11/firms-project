@@ -74,7 +74,8 @@
                 <th>@sortablelink('statusNote',"Status Note")</th>
                 <th>Edit</th>
                 <th>View</th>
-              </tr>
+                <th>File Notice of Loss</th>
+                </tr>
           </thead>
           <tbody>
               @if(count($insurances) > 0)
@@ -95,6 +96,7 @@
                <td>{{$insurance->statusNote}}</td>
                <td><a href="{{route('admin.insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
                <td><a href="{{route('admin.insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
+               <td><a href="{{route('admin.damage.add', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none"> File Notice of Loss</a></td>
               </tr>
               @endforeach
               @else

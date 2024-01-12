@@ -564,8 +564,8 @@
                 </div>
                <div class="col-md-6">
                  <div class="form-group">
-                   <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                   <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
+                   <label for="statusNote"  class="col-lg-12 control-label">Comment:</label>
+                   <input type="text" id="statusNote" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
                  </div>
                </div>
              </div>
@@ -660,8 +660,8 @@
               </div>
              <div class="col-md-6">
                <div class="form-group">
-                 <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                 <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
+                 <label for="statusNote"  class="col-lg-12 control-label">Comment:</label>
+                 <input type="text" id="statusNote" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
                </div>
              </div>
             </div>
@@ -755,8 +755,8 @@
               </div>
              <div class="col-md-6">
                <div class="form-group">
-                 <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                 <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
+                 <label for="statusNote"  class="col-lg-12 control-label">Comment:</label>
+                 <input type="text" id="statusNote" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
                </div>
              </div>
            </div>
@@ -850,8 +850,8 @@
               </div>
              <div class="col-md-6">
                <div class="form-group">
-                 <label for="statusName"  class="col-lg-12 control-label">Comment:</label>
-                 <input type="text" id="statusName" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
+                 <label for="statusNote"  class="col-lg-12 control-label">Comment:</label>
+                 <input type="text" id="statusNote" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
                </div>
              </div>
            </div>
@@ -921,7 +921,7 @@
               <div class="col-md-12"> 
                 <div class="form-group">
                   <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
-                  <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
+                  <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required> {{$insurances->requestLetter}}</textarea>
                 </div>
               </div>
             </div>

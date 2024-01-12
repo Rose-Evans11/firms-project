@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\damage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class adminDamageController extends Controller
 {
@@ -17,5 +20,5 @@ class adminDamageController extends Controller
         }
         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     } 
-   }
+   
 }

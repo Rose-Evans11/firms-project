@@ -243,6 +243,7 @@ Route::get('/admin/insurance/{insurance}/view', [adminInsuranceController::class
 //sending request letter
 
 Route::put('/farmer/partially-rejected/{insurance}/request-letter', [insuranceController::class, 'sendRequestLetter'])->name('insurance.requestLetter');
+Route::put('/admin/partially-rejected/{insurance}/request-letter', [adminInsuranceController::class, 'sendRequestLetter'])->name('admin.insurance.requestLetter');
 
 //for farm list
 Route::get('firms/farmer/farm-list', [farmController::class, 'index'])->name('farm.index'); 

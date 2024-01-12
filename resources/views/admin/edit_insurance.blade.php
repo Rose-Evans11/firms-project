@@ -912,27 +912,33 @@
                   <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12"  value="{{$insurances->signBy}}">
                 </div>
               </div>
-            </div>
-              <div class="row">
-                <div class="col-md-12"> 
-                  <div class="form-group">
-                    <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
-                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12"> </textarea>
-                  </div>
+            </div>    </fieldset>
+          </form> 
+          <form action="{{route('admin.insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
+            @csrf
+            @method('put')
+            <div class="row">
+              <div class="col-md-12"> 
+                <div class="form-group">
+                  <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
+                  <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}"> </textarea>
                 </div>
               </div>
+            </div>
           </div>
-            <div class="row justify-content-end">
+            <div class="row justify-content-end mt-2">
               <div class="col-md-6">
                 <div class="col-lg-12 d-flex justify-content-end">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
-                    </div>
-                  </div>
+                 <button style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%" type="submit"> Send Request Letter</button>
                 </div>
               </div>
-            </div> 
+                <div class="col-md-6">
+                  <div class="col-lg-12 d-flex justify-content-end">
+                   <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+                  </div>
+                </div>
+              </div> 
+          </form> 
           @else
          
           @endif

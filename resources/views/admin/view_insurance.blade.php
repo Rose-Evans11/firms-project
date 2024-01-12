@@ -658,7 +658,7 @@
                 <div class="col-md-12"> 
                   <div class="form-group">
                     <label for="requestLetter"  class="col-lg-12 control-label">Request Letter:</label>
-                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required value="{{$insurances->requestLetter}}" @readonly(true)> </textarea>
+                    <textarea id="requestLetter" name="requestLetter" class=" form-control col-lg-12" required @readonly(true)> {{$insurances->requestLetter}}</textarea>
                   </div>
                 </div>
               </div>

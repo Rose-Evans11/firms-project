@@ -465,4 +465,36 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
+    public function sendRequestLetter(insurance $insurance, Request $request){
+
+        $user = Auth::guard('admin')->user();
+        if($user)   
+        {
+            $incomingFields = $request ->validate ([
+                'requestLetter'=> 'required',
+                'contactNumber'=>'nullable',
+            ]);
+    
+            $insurance->update ($incomingFields);
+            session()->flash('success', 'Successfully send request Letter');
+            $sid = getenv("TWILIO_SID");
+            $token = getenv("TWILIO_TOKEN");
+            $senderNumber = getenv("TWILIO_PHONE");
+            $twilio = new Client($sid, $token);
+            
+            $message = $twilio->messages
+                              ->create(Auth::guard('web')->user()->contactNumber, // to
+                                       [
+                                           "body" => "You just send a request letter. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                           "from" => $senderNumber
+                                       ]
+                              );
+            
+            print($message->sid);
+            return back();
+
+        }
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
+     
+    }
 }

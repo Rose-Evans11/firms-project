@@ -912,7 +912,19 @@
                   <input type="text" id="signBy" name="signBy" class=" form-control col-lg-12"  value="{{$insurances->signBy}}">
                 </div>
               </div>
-            </div>    </fieldset>
+            </div>  
+            <div class="row justify-content-end">
+              <div class="col-md-6">
+                <div class="col-lg-12 d-flex justify-content-end">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>   
+          </fieldset>
           </form> 
           <form action="{{route('admin.insurance.requestLetter', ['insurance'=>$insurances])}}" method="post">
             @csrf

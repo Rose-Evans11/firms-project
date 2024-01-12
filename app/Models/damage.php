@@ -56,8 +56,22 @@ class damage extends Model
     use Sortable;
 
     public $sortable = [
-        'insuranceType',
+        'firstName',
+        'lastName',
+        'barangayAddress',
+        'cropInsuranceID',
         'dateSubmitted',
-        'created_at',
+        'cropName',
+        'insuranceType',
+        'areaInsured',
+        'cicNumber',
+        'damageCause',
+        'extentDamage',
+        'dateLoss',
+        'growthStage',
+        'areaDamage',
+        'dateHarvest',
+        'barangayFarm',
+        'dateSubmitted',
     ];
 }

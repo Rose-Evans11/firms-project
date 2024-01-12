@@ -39,7 +39,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/notice-loss'); ?>"> Notice of Loss</a>
+                <a class="nav-link" aria-current="page" href="{{route('admin.damage.index')}}"> Notice of Loss</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="<?= url('firms/admin/indemnity'); ?>"> Indemnity</a>

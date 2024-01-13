@@ -32,7 +32,7 @@
     </div> 
   @endif
 <div class='container-fluid' style="margin: auto">
-     <form class="form-horizontal" method="POST" action="admin/indemnity">
+     <form class="form-horizontal" method="POST" action="{{route('admin.indemnity.store')}}">
       @csrf
    <fieldset>
       <div class="m-3" id="panelIndemnity">

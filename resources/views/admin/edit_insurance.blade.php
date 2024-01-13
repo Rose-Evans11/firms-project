@@ -325,33 +325,23 @@
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
-            </div>
-          </div>
-        </div>
-      </div> 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="insuranceType" class="col-lg-12 control-label">Insurance Type: </label>
                 <div class="col-lg-12">
                   <input type="text" @readonly(true) class="form-control" id="insuranceType" value="{{$insurances->insuranceType}}" name="insuranceType">
                 </div>
               </div>
-            </div><div class="col-md-4">
+            </div><div class="col-md-3">
               <div class="form-group">
                 <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
@@ -359,7 +349,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
                 <div class="col-lg-12">
@@ -606,6 +596,60 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="assessBy" class="col-lg-6 control-label">Assess By:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="assessBy" value="{{$insurances->assessBy}}" @required(true) name="assessBy">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="dateAssess" class="col-lg-6 control-label">Date Assess:</label>
+                    <div class="col-lg-12">
+                      <input type="date" class="form-control" id="dateAssess" value="{{$insurances->dateAssess}}" @required(true) name="dateAssess">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="policyNumber" class="col-lg-6 control-label">Cover Type:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="policyNumber" value="{{$insurances->coverType}}" @required(true) name="coverType">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="amountCover" class="col-lg-6 control-label">Amount Cover:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="amountCover" value="{{$insurances->amountCover}}" @required(true) name="amountCover">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sumInsured" class="col-lg-6 control-label">Sum Insured:</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="sumInsured" value="{{$insurances->sumInsured}}" @required(true) name="sumInsured">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Period of Cover: </strong></label>
                 <div class="col-md-6"> 
                   <div class="form-group">
@@ -702,6 +746,60 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="assessBy" class="col-lg-6 control-label">Assess By:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="assessBy" value="{{$insurances->assessBy}}" @required(true) name="assessBy">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="dateAssess" class="col-lg-6 control-label">Date Assess:</label>
+                  <div class="col-lg-12">
+                    <input type="date" class="form-control" id="dateAssess" value="{{$insurances->dateAssess}}" @required(true) name="dateAssess">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="policyNumber" class="col-lg-6 control-label">Cover Type:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="policyNumber" value="{{$insurances->coverType}}" @required(true) name="coverType">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="amountCover" class="col-lg-6 control-label">Amount Cover:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="amountCover" value="{{$insurances->amountCover}}" @required(true) name="amountCover">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sumInsured" class="col-lg-6 control-label">Sum Insured:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="sumInsured" value="{{$insurances->sumInsured}}" @required(true) name="sumInsured">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <label for="cocNumber"  class="col-lg-12 control-label"> <strong> Period of Cover: </strong></label>
               <div class="col-md-6"> 
                 <div class="form-group">
@@ -768,6 +866,60 @@
                </div>
              </div>
            </div>
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="assessBy" class="col-lg-6 control-label">Assess By:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="assessBy" value="{{$insurances->assessBy}}" @required(true) name="assessBy">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="dateAssess" class="col-lg-6 control-label">Date Assess:</label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="dateAssess" value="{{$insurances->dateAssess}}" @required(true) name="dateAssess">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="policyNumber" class="col-lg-6 control-label">Cover Type:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="policyNumber" value="{{$insurances->coverType}}" @required(true) name="coverType">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="amountCover" class="col-lg-6 control-label">Amount Cover:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="amountCover" value="{{$insurances->amountCover}}" @required(true) name="amountCover">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="sumInsured" class="col-lg-6 control-label">Sum Insured:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="sumInsured" value="{{$insurances->sumInsured}}" @required(true) name="sumInsured">
+                </div>
+              </div>
+            </div>
+          </div>
             <div class="row">
               <div class="col-md-6"> 
                 <div class="form-group">
@@ -862,7 +1014,60 @@
                  <input type="text" id="statusNote" name="statusNote" class=" form-control col-lg-12"  value="{{$insurances->statusNote}}">
                </div>
              </div>
-           </div>
+           </div> <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="assessBy" class="col-lg-6 control-label">Assess By:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="assessBy" value="{{$insurances->assessBy}}" @required(true) name="assessBy">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="dateAssess" class="col-lg-6 control-label">Date Assess:</label>
+                <div class="col-lg-12">
+                  <input type="date" class="form-control" id="dateAssess" value="{{$insurances->dateAssess}}" @required(true) name="dateAssess">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="policyNumber" class="col-lg-6 control-label">Cover Type:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="policyNumber" value="{{$insurances->coverType}}" @required(true) name="coverType">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="amountCover" class="col-lg-6 control-label">Amount Cover:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="amountCover" value="{{$insurances->amountCover}}" @required(true) name="amountCover">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="sumInsured" class="col-lg-6 control-label">Sum Insured:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="sumInsured" value="{{$insurances->sumInsured}}" @required(true) name="sumInsured">
+                </div>
+              </div>
+            </div>
+          </div>
             <div class="row">
               <div class="col-md-6"> 
                 <div class="form-group">
@@ -888,6 +1093,60 @@
                 <div class="form-group">
                   <label for="cocdateIssued"  class="col-lg-12 control-label">Date Issued:</label>
                   <input type="date" id="cocdateIssued" name="cocdateIssued" class=" form-control col-lg-12"  value="{{$insurances->cocdateIssued}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="assessBy" class="col-lg-6 control-label">Assess By:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="assessBy" value="{{$insurances->assessBy}}" @required(true) name="assessBy">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="dateAssess" class="col-lg-6 control-label">Date Assess:</label>
+                  <div class="col-lg-12">
+                    <input type="date" class="form-control" id="dateAssess" value="{{$insurances->dateAssess}}" @required(true) name="dateAssess">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="policyNumber" class="col-lg-6 control-label">Cover Type:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="policyNumber" value="{{$insurances->coverType}}" @required(true) name="coverType">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="amountCover" class="col-lg-6 control-label">Amount Cover:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="amountCover" value="{{$insurances->amountCover}}" @required(true) name="amountCover">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="sumInsured" class="col-lg-6 control-label">Sum Insured:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="sumInsured" value="{{$insurances->sumInsured}}" @required(true) name="sumInsured">
+                  </div>
                 </div>
               </div>
             </div>

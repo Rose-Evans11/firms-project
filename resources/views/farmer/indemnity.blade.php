@@ -54,6 +54,7 @@
                     <th>Expected Harvest Date</th>
                     <th>Date Submitted</th>
                     <th>Edit</th>
+                    <th>View</th>
                     
                 </tr>
             </thead>
@@ -70,6 +71,7 @@
                <td>{{$indemnity->dateHarvest}}</td>
                <td>{{$indemnity->dateSubmitted}}</td>
                <td><a href="{{route('indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>
               @endforeach
               @else

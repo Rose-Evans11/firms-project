@@ -379,15 +379,6 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="col-lg-12 d-flex justify-content-end">
-          <div class="row">
-            <div class="col-lg-12">
-               <button class="btn btn-sm btn-success m-2" href="{{URL::previous()}}" style="width:100%">Cancel</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div> 
   </fieldset>
 </form>

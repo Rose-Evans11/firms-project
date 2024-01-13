@@ -260,6 +260,7 @@ Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnit
 
 //for admin
 Route::get('firms/admin/indemnity', [adminIndemnityController::class, 'index'])->name('admin.indemnity.index'); 
+Route::get('/admin/indemnity/{damage}/add', [adminIndemnityController::class, 'add'])->name('add.indemnity.add');
 
 
 Route::get('firms/admin/login', function () { //admin login

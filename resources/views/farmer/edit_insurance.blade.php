@@ -336,21 +336,19 @@
     </div>
     <!-- third panel -->
     <div class="m-3" id="panelCropInfo"> 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
-            <div class="col-lg-12">
-              <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
-            </div>
-          </div>
-        </div>
-      </div> 
       <div id="cropInfo">
         <legend> <strong>Crop Details</strong> </legend>
         <br/>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_insuredID" class="col-lg-6 control-label">Crops Insurance ID:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_insuredID" value="{{$insurances->id}}" @readonly(true)>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="insuranceType" class="col-lg-12 control-label">Insurance Type: </label>
                 <div class="col-lg-12">
@@ -358,7 +356,7 @@
                   <input type="text" @readonly(true) class="form-control" id="status" value="Pending" name="status" hidden>
                 </div>
               </div>
-            </div><div class="col-md-4">
+            </div><div class="col-md-3">
               <div class="form-group">
                 <label for="txt_crops" class="col-lg-2 control-label">Crops: </label>
                 <div class="col-lg-12">
@@ -366,9 +364,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
-                <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
+                <label for="txt_variety" class="col-lg-12 control-label">Variety :</label>
                 <div class="col-lg-12">
                   <input type="text"  class="form-control" id="txt_variety" value="{{$insurances->variety}}" name="variety" required>
                 </div>

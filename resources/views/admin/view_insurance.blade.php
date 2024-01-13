@@ -350,7 +350,7 @@
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label for="txt_variety" class="col-lg-2 control-label">Variety :</label>
+                <label for="txt_variety" class="col-lg-12 control-label">Variety :</label>
                 <div class="col-lg-12">
                   <input type="text"  class="form-control" id="txt_variety" value="{{$insurances->variety}}" name="variety" required  @readonly(true)>
                 </div>

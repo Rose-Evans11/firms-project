@@ -2,16 +2,17 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\farmerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\farmController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\damageController;
+use App\Http\Controllers\farmerController;
 use App\Http\Controllers\indemnityController;
 use App\Http\Controllers\insuranceController;
+use App\Http\Controllers\adminDamageController;
+use App\Http\Controllers\adminIndemnityController;
 use App\Http\Controllers\adminInsuranceController;
 use App\Http\Controllers\forgotPasswordController;
-use App\Http\Controllers\adminDamageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -257,6 +258,8 @@ Route::get('/farmer/indemnity/{indemnity}/edit', [indemnityController::class, 'e
 Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 'update'])->name('indemnity.update');
 Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
 
+//for admin
+Route::get('firms/admin/indemnity', [adminIndemnityController::class, 'index'])->name('admin.indemnity.index'); 
 
 
 Route::get('firms/admin/login', function () { //admin login

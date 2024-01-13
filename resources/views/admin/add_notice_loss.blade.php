@@ -374,21 +374,20 @@
             <div class="col-md-6">
               <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>
             </div>
-            <div class="col-md-6">
-            </fieldset>
-          </form>
-              <button class="btn btn-sm btn-success m-2" href="{{route('admin.damage.index') }}" style="width:100%">Cancel</button>
-            </div>
           </div>
         </div>
-      </div>
-<script>
-$(document).keypress(
-    function(event){
-        if (event.which == '13') {
-        event.preventDefault();
-        }
-    });
-</script>
+      </fieldset>
+    </form>
+    
+
+  </div>
+  <script>
+  $(document).keypress(
+      function(event){
+          if (event.which == '13') {
+          event.preventDefault();
+          }
+      });
+  </script>
 </div>
 @endsection

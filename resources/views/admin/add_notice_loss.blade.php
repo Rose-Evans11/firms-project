@@ -385,7 +385,7 @@
             <div class="col-lg-12">
             </fieldset>
           </form>
-               <button class="btn btn-sm btn-success m-2" href="{{url::previous() }}" style="width:100%">Cancel</button>
+               <button class="btn btn-sm btn-success m-2" href="{{URL::previous()}}" style="width:100%">Cancel</button>
             </div>
           </div>
         </div>

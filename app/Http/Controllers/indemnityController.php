@@ -125,6 +125,15 @@ class indemnityController extends Controller
          return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
+    public function view(indemnity $indemnity){ //to edit and retrive the information for insurance
+        if(Auth::check())   
+        {
+            return view('farmer/view_indemnity', ['indemnities'=>$indemnity]);
+
+        }
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
+        //return view('farmer/edit_insurance')->with('insurances', $insurance);
+    }
     public function update(indemnity $indemnity, Request $request){
 
         if(Auth::check())   

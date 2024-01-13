@@ -1,4 +1,4 @@
-@extends('layouts.master_admin')
+@extends('layouts.master_farmer')
 @section('title','Indemnity')
 @section('content')
 <style>
@@ -32,9 +32,7 @@
     </div> 
   @endif
 <div class='container-fluid' style="margin: auto">
-     <form class="form-horizontal" method="POST" action="{{route('admin.indemnity.update', ['indemnity'=>$indemnities])}}">
-      @csrf
-      @method('put')
+     <form class="form-horizontal">
    <fieldset>
       <div class="m-3" id="panelIndemnity">
         <div id="indemnityDeet">
@@ -399,7 +397,7 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Type your Name for the Signature:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_sign_name" value="{{$indemnities->signature}}" name="signature">
+                    <input type="text" class="form-control" id="txt_sign_name" value="{{$indemnities->signature}}" name="signature" @readonly(true)> 
                   </div>
               </div>
             </div>
@@ -407,25 +405,13 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Date Submitted :</label>
                   <div class="col-lg-12">
-                    <input type="date" class="form-control" id="dt_submitted" value="{{$indemnities->dateSubmitted}}" name="dateSubmitted">
+                    <input type="date" class="form-control" id="dt_submitted" value="{{$indemnities->dateSubmitted}}" name="dateSubmitted" @readonly(true)>
                   </div>
               </div>
             </div>
         </div>
-        </div>
-        
-        <br/>
-        <div class="d-flex justify-content-end mt-3"> 
-          <br/>
-          <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
-            </div>
-          </div>
-        </div>
+        </div>       
+        <br/>        
       </div>
     </div>
    </fieldset>

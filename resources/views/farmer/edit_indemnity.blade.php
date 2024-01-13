@@ -222,7 +222,7 @@
                   <div class="form-group">
                     <label for="txt_farmersID" class="col-lg-6 control-label">Underwriter/ Cooperative: </label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_plant" value="" name="underwriterName">
+                      <input type="text" class="form-control" id="txt_plant" value="{{$indemnities->underwriterName}}" name="underwriterName">
                     </div>
                   </div>
                 </div>

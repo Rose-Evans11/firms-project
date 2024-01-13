@@ -85,7 +85,10 @@
                  <td>{{$damage->areaInsured}}</td>
                  <td>{{$damage->cicNumber}}</td>
                  <td>{{$damage->damageCause}} </td>
+                 <td>{{$damage->extentDamage}} </td>
                  <td>{{$damage->dateLoss}}</td>
+                 <td>{{$damage->growthStage}}</td>
+                 <td>{{$damage->areaDamage}}</td>
                  <td>{{$damage->dateHarvest}}</td>
                  <td>{{$damage->barangayFarm}}</td>
                  <td>{{$damage->dateSubmitted}}</td>

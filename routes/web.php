@@ -262,6 +262,9 @@ Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnit
 Route::get('firms/admin/indemnity', [adminIndemnityController::class, 'index'])->name('admin.indemnity.index'); 
 Route::post('admin/indemnity', [adminIndemnityController::class, 'store'])->name('admin.indemnity.store');
 Route::get('/admin/indemnity/{damage}/add', [adminIndemnityController::class, 'add'])->name('admin.indemnity.add');
+Route::get('/admin/indemnity/{indemnity}/edit', [adminIndemnityController::class, 'edit'])->name('admin.indemnity.edit');
+Route::put('/admin/indemnity/{indemnity}/update', [adminIndemnityController::class, 'update'])->name('admin.indemnity.update');
+Route::put('/admin/indemnity/{indemnity}/view', [adminIndemnityController::class, 'view'])->name('admin.indemnity.view');
 
 
 Route::get('firms/admin/login', function () { //admin login

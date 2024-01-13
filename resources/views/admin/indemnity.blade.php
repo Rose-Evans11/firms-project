@@ -69,7 +69,7 @@
                <td>{{$indemnity->dateLoss}}</td>
                <td>{{$indemnity->dateHarvest}}</td>
                <td>{{$indemnity->dateSubmitted}}</td>
-               <td><a href="{{route('indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
               </tr>
               @endforeach
               @else

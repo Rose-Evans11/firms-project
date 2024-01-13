@@ -91,7 +91,7 @@
                  <td>{{$damage->dateSubmitted}}</td>
                  <td><a href="{{route('admin.damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
                  <td><a href="{{route('admin.damage.view', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> View</a></td>
-                 <td><a href="{{route('admin.indemnity', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
+                 <td><a href="{{route('admin.indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
                 </tr>
                 @endforeach
                 @else

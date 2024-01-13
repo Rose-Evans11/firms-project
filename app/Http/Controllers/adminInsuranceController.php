@@ -252,6 +252,7 @@ class adminInsuranceController extends Controller
                 'sumInsured' => 'nullable',
                 'phase' => 'nullable',
                 'cicNumber' => 'nullable',
+                'policyNumber' => 'nullable',
                 'cicdateIssued' => 'nullable',
                 'cocNumber' => 'nullable',
                 'cocdateIssued' => 'nullable',

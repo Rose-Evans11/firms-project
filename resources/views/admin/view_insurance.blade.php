@@ -337,7 +337,7 @@
             <div class="form-group">
               <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+                <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @@readonly(true) name="policyNumber">
               </div>
             </div>
           </div>

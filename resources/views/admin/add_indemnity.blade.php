@@ -32,7 +32,7 @@
     </div> 
   @endif
 <div class='container-fluid' style="margin: auto">
-     <form class="form-horizontal" method="POST" action="/indemnity">
+     <form class="form-horizontal" method="POST" action="admin/indemnity">
       @csrf
    <fieldset>
       <div class="m-3" id="panelIndemnity">

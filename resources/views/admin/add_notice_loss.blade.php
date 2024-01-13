@@ -283,14 +283,14 @@
                 <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Program:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_city_farm" value="" name="program">
+                    <input type="text" class="form-control" id="txt_city_farm" value="{{$insurances->program}}" name="program">
                   </div>
                 </div>
             </div> <div class="col-md-3">
               <div class="form-group">
                 <label for="txt_contact" class="col-lg-6 control-label">Growth Stage:</label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_city_farm" value="" name="growthStage">
+                  <input type="text" class="form-control" id="txt_city_farm" value="{{$insurances->growthStage}}" name="growthStage">
                 </div>
               </div>
           </div>
@@ -316,7 +316,7 @@
                   <div class="form-group">
                     <label for="txt_contact" class="col-lg-6 control-label">Nature/Cause of Loss:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="txt_city_farm" value="" name="damageCause">
+                      <input type="text" class="form-control" id="txt_city_farm" value="{{$insurances->damageCause}}" name="damageCause">
                     </div>
                   </div>
               </div>
@@ -324,7 +324,7 @@
                   <div class="form-group">
                       <label for="txt_contact" class="col-lg-6 control-label">Date of Loss:</label>
                       <div class="col-lg-12">
-                        <input type="date" class="form-control" id="dt_farm" value="" name="dateLoss">
+                        <input type="date" class="form-control" id="dt_farm" value="{{$insurances->dateLoss}}" name="dateLoss">
                       </div>
                     </div>
               </div>
@@ -334,7 +334,7 @@
                       <div class="form-group">
                           <label for="txt_contact" class="col-lg-6 control-label">Extent of Loss/Damage:</label>
                           <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_city_farm" value="" name="extentDamage">
+                            <input type="text" class="form-control" id="txt_city_farm" value="{{$insurances->extentDamage}}" name="extentDamage">
                           </div>
                         </div>
                   </div>
@@ -342,7 +342,7 @@
                     <div class="form-group">
                         <label for="txt_contact" class="col-lg-6 control-label"> Area Damage:</label>
                         <div class="col-lg-12">
-                          <input type="text" class="form-control" id="txt_city_farm" value="" name="areaDamage">
+                          <input type="text" class="form-control" id="txt_city_farm" value="{{$insurances->areaDamage}}" name="areaDamage">
                         </div>
                       </div>
                 </div>
@@ -355,7 +355,7 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Type your Name for the Signature:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_sign_name" value="" name="signature">
+                    <input type="text" class="form-control" id="txt_sign_name" value="{{$insurances->signature}}" name="signature">
                   </div>
               </div>
             </div>
@@ -363,7 +363,7 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Date Submitted :</label>
                   <div class="col-lg-12">
-                    <input type="date" class="form-control" id="dt_submitted" value="" name="dateSubmitted">
+                    <input type="date" class="form-control" id="dt_submitted" value="{{$insurances->dateSubmitted}}" name="dateSubmitted">
                   </div>
               </div>
             </div>

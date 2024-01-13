@@ -111,4 +111,37 @@ class adminIndemnityController extends Controller
          return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
         //return view('farmer/edit_insurance')->with('insurances', $insurance);
     }
+    public function edit(indemnity $indemnity){ //to edit and retrive the information for insurance
+        $user=Auth::guard('admin')->user();
+        if($user)   
+        {
+            return view('admin/edit_indemnity', ['indemnities'=>$indemnity]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        //return view('farmer/edit_insurance')->with('insurances', $insurance);
+    }
+    public function update(indemnity $indemnity, Request $request){
+
+        $user=Auth::guard('admin')->user();
+        if($user)  
+        {
+            $incomingFields = $request ->validate ([
+                'damageCause' => 'required',
+                'dateLoss' => 'required',
+                'extentDamage' => 'required',
+                'dateHarvest' => 'required',
+                'signature' => 'required',
+                'dateSubmitted' => 'required',
+            ]);
+           
+    
+            $indemnity->update ($incomingFields);
+            session()->flash('success', 'Successfully Updated!');
+            return redirect(route('admin.indemnity.index'));
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+     
+    }
 }

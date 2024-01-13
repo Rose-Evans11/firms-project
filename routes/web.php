@@ -257,7 +257,7 @@ Route::get('firms/farmer/indemnity', [indemnityController::class, 'index'])->nam
 Route::get('/farmer/indemnity/{damage}/add', [indemnityController::class, 'add'])->name('indemnity.add');
 Route::get('/farmer/indemnity/{indemnity}/edit', [indemnityController::class, 'edit'])->name('indemnity.edit');
 Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 'update'])->name('indemnity.update');
-Route::put('/farmer/indemnity/{indemnity}/view', [indemnityController::class, 'view'])->name('indemnity.view');
+Route::get('/farmer/indemnity/{indemnity}/view', [indemnityController::class, 'view'])->name('indemnity.view');
 Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
 
 //for admin
@@ -266,7 +266,7 @@ Route::post('admin/indemnity', [adminIndemnityController::class, 'store'])->name
 Route::get('/admin/indemnity/{damage}/add', [adminIndemnityController::class, 'add'])->name('admin.indemnity.add');
 Route::get('/admin/indemnity/{indemnity}/edit', [adminIndemnityController::class, 'edit'])->name('admin.indemnity.edit');
 Route::put('/admin/indemnity/{indemnity}/update', [adminIndemnityController::class, 'update'])->name('admin.indemnity.update');
-Route::put('/admin/indemnity/{indemnity}/view', [adminIndemnityController::class, 'view'])->name('admin.indemnity.view');
+Route::get('/admin/indemnity/{indemnity}/view', [adminIndemnityController::class, 'view'])->name('admin.indemnity.view');
 
 
 Route::get('firms/admin/login', function () { //admin login

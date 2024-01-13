@@ -79,6 +79,8 @@ class indemnityController extends Controller
                 'dateHarvest' => 'required',
                 'signature' => 'required',
                 'dateSubmitted' => 'required',
+                'dateClaiming'=>'nullable',
+                'amountToClaim'=>'nullable',
             ]);
             $indemnity = indemnity::create ($incomingFields);
             session()->flash('success', 'Filed Successfully!');

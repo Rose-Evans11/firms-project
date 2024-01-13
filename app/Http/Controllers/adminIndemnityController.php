@@ -71,7 +71,9 @@ class adminIndemnityController extends Controller
                 'extentDamage' => 'required',
                 'dateHarvest' => 'required',
                 'signature' => 'required',
-                'dateSubmitted' => 'required',
+                'dateSubmitted' => 'required',                
+                'dateClaiming'=>'nullable',
+                'amountToClaim'=>'nullable',
             ]);
             $indemnity = indemnity::create ($incomingFields);
             session()->flash('success', 'Filed Successfully!');

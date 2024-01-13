@@ -247,6 +247,7 @@ Route::post('admin/notice-loss', [adminDamageController::class, 'store'])->name(
 Route::get('firms/admin/notice-loss', [adminDamageController::class, 'index'])->name('admin.damage.index'); 
 Route::get('/admin/notice-loss/{insurance}/add', [adminDamageController::class, 'add'])->name('admin.damage.add');
 Route::get('/admin/notice-loss/{damage}/edit', [adminDamageController::class, 'edit'])->name('admin.damage.edit');
+Route::get('/admin/notice-loss/{damage}/view', [adminDamageController::class, 'view'])->name('admin.damage.view');
 Route::put('/admin/notice-loss/{damage}/update', [adminDamageController::class, 'update'])->name('admin.damage.update');
 
 //for indemnity

@@ -138,5 +138,12 @@ class adminDamageController extends Controller
          return redirect('firms/farmadminer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
-   
+    public function view(insurance $insurance){ //to edit and retrive the information for insurance
+        if (Auth::guard('admin')->check()) 
+        {
+            return view('admin/view_insurance', ['insurances'=>$insurance]);
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+    }
 }

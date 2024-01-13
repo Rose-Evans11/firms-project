@@ -411,7 +411,14 @@
             </div>
         </div>
         </div>       
-        <br/>        
+        <br/>  
+        <div class="row justify-content-end mt-2">
+          <div class="col-md-6">
+            <div class="col-lg-12 d-flex justify-content-end">
+             <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+            </div>
+          </div>
+        </div>       
       </div>
     </div>
    </fieldset>

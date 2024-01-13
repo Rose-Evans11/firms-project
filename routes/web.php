@@ -257,6 +257,8 @@ Route::get('/farmer/indemnity/{indemnity}/edit', [indemnityController::class, 'e
 Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 'update'])->name('indemnity.update');
 Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
 
+Route::get('/admin/indemnity/{damage}/add', [adminDamageController::class, 'add'])->name('add.indemnity.add');
+
 
 Route::get('firms/admin/login', function () { //admin login
     return view('admin/admin_login');

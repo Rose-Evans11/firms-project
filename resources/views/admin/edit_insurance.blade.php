@@ -334,6 +334,14 @@
             </div>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="policyNumber" class="col-lg-6 control-label">Policy Number:</label>
+            <div class="col-lg-12">
+              <input type="text" class="form-control" id="policyNumber" value="{{$insurances->policyNumber}}" @required(true) name="policyNumber">
+            </div>
+          </div>
+        </div>
       </div> 
           <div class="row">
             <div class="col-md-4">

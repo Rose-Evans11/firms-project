@@ -379,20 +379,20 @@
           </div>
         </div>
       </div>
-    </div> 
-  </fieldset>
-</form>
-<div class="row justify-content-end">
-  <div class="col-md-6">
-    <div class="col-lg-12 d-flex justify-content-end">
-      <div class="row">
-        <div class="col-lg-12">
-           <button class="btn btn-sm btn-success m-2" href="{{route('admin.damage.index') }}" style="width:100%">Cancel</button>
+      <div class="col-md-6">
+        <div class="col-lg-12 d-flex justify-content-end">
+          <div class="row">
+            <div class="col-lg-12">
+            </fieldset>
+          </form>
+               <button class="btn btn-sm btn-success m-2" href="{{url::previous() }}" style="width:100%">Cancel</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div> 
+
+
   </div>
   <script>
   $(document).keypress(

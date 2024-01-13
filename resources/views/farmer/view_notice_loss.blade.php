@@ -1,4 +1,4 @@
-@extends('layouts.master_admin')
+@extends('layouts.master_farmer')
 @section('title','Notice of Loss')
 @section('content')
 <style>
@@ -214,7 +214,7 @@
                   <div class="form-group">
                     <label for="damageCause" class="col-lg-6 control-label">Nature/Cause of Loss:</label>
                     <div class="col-lg-12">
-                      <input type="text" class="form-control" id="damageCause" value="{{$damages->damageCause}}" name="damageCause" @readonly(true)>
+                      <input type="text" class="form-control" id="damageCause" value="{{$damages->damageCause}}" name="damageCause">
                     </div>
                   </div>
               </div>
@@ -222,7 +222,7 @@
                   <div class="form-group">
                       <label for="txt_contact" class="col-lg-6 control-label">Date of Loss:</label>
                       <div class="col-lg-12">
-                        <input type="date" class="form-control" id="dt_farm" value="{{$damages->dateLoss}}"name="dateLoss" @readonly(true)>
+                        <input type="date" class="form-control" id="dt_farm" value="{{$damages->dateLoss}}"name="dateLoss">
                       </div>
                     </div>
               </div>
@@ -232,7 +232,7 @@
                       <div class="form-group">
                           <label for="txt_contact" class="col-lg-6 control-label">Extent of Loss/Damage:</label>
                           <div class="col-lg-12">
-                            <input type="text" class="form-control" id="txt_city_farm" value="{{$damages->extentDamage}}" name="extentDamage" @readonly(true)>
+                            <input type="text" class="form-control" id="txt_city_farm" value="{{$damages->extentDamage}}" name="extentDamage">
                           </div>
                         </div>
                   </div>
@@ -253,7 +253,7 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Type your Name for the Signature:</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_sign_name" value="{{$damages->signature}}"  name="signature" @readonly(true)>
+                    <input type="text" class="form-control" id="txt_sign_name" value="{{$damages->signature}}"  name="signature">
                   </div>
               </div>
             </div>
@@ -261,19 +261,23 @@
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Date Submitted :</label>
                   <div class="col-lg-12">
-                    <input type="date" class="form-control" id="dt_submitted" value="{{$damages->dateSubmitted}}"  name="dateSubmitted" @readonly(true)>
+                    <input type="date" class="form-control" id="dt_submitted" value="{{$damages->dateSubmitted}}"  name="dateSubmitted">
                   </div>
               </div>
             </div>
         </div>
         <br/>
-        <div class="row justify-content-end mt-2">
-          <div class="col-md-6">
-            <div class="col-lg-12 d-flex justify-content-end">
-             <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
+        <div class="d-flex justify-content-end mt-3"> 
+          <br/>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
    </fieldset>
   </form>

@@ -29,7 +29,8 @@ class adminIndemnityController extends Controller
     }
     public function store(Request $request){
 
-        if(Auth::check())   
+        $user=Auth::guard('admin')->user();
+        if($user)
         {
             $incomingFields = $request ->validate ([
                 'farmersID' => 'required',
@@ -101,7 +102,8 @@ class adminIndemnityController extends Controller
        
     }
     public function add(damage $damage){ //to edit and retrive the information for insurance
-        if(Auth::check())   
+        $user=Auth::guard('admin')->user();
+        if($user)
         {
             return view('admin/add_indemnity', ['damages'=>$damage]);
 

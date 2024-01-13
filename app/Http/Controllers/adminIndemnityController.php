@@ -20,8 +20,8 @@ class adminIndemnityController extends Controller
         if($user)   
         {
             //$insurance = insurance::all();
-            $damage = DB::table('indemnities')->get();
-            $damage=damage::sortable()->paginate(10);
+            $indemnity = DB::table('indemnities')->get();
+            $indemnity=damage::sortable()->paginate(10);
         return view('admin/indemnity', ['indemnities'=>$indemnity]);
         }
          return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');

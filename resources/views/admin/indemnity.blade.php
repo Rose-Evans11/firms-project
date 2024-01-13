@@ -42,6 +42,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
+          
           <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -54,6 +55,7 @@
                     <th>Expected Harvest Date</th>
                     <th>Date Submitted</th>
                     <th>Edit</th>
+                    <th>View</th>
                     
                 </tr>
             </thead>
@@ -70,6 +72,7 @@
                <td>{{$indemnity->dateHarvest}}</td>
                <td>{{$indemnity->dateSubmitted}}</td>
                <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('admin.indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>
               @endforeach
               @else

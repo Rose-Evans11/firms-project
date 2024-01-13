@@ -259,8 +259,8 @@ Route::put('/farmer/indemnity/{indemnity}/update', [indemnityController::class, 
 Route::post('/indemnity', [indemnityController::class, 'store'])->name('indemnity.store');
 
 //for admin
-Route::post('admin/indemnity', [adminIndemnityController::class, 'store'])->name('admin.indemnity.store');
 Route::get('firms/admin/indemnity', [adminIndemnityController::class, 'index'])->name('admin.indemnity.index'); 
+Route::post('admin/indemnity', [adminIndemnityController::class, 'store'])->name('admin.indemnity.store');
 Route::get('/admin/indemnity/{damage}/add', [adminIndemnityController::class, 'add'])->name('admin.indemnity.add');
 
 

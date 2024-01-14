@@ -192,10 +192,22 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ URL::asset('public/valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image">
+                        <div class="form-group">
+                            <label for="img_photo" class="col-lg-2 control-label">Farmer's Photo:</label>
+                            <div class="col-lg-12">
+                            <img src="{{ URL::asset('public/profile_image_location/' . $user->photo) }}" alt="Profile Image">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ URL::asset('public/profile_image_location/' . $user->photo) }}" alt="Profile Image">
+                        <div class="form-group">
+                            <label for="img_validID" class="col-lg-2 control-label">Farmer's Valid ID:</label>
+                            <div class="col-lg-12">
+                            <img src="{{ URL::asset('public/valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                     </div>
                 </div>
             </div>

@@ -23,8 +23,16 @@ class farmerController extends Controller
         $incomingFields = $request->validated();
 
         // File Folder Location 
-        $valid_id_image_location = 'valid_id_image_location';
-        $profile_image_location = 'profile_image_location';
+        $valid_id_image_location = public_path('valid_id_image_location');
+        $profile_image_location = public_path('profile_image_location');
+
+        if(!file_exists($valid_id_image_location)) {
+            mkdir($valid_id_image_location, 0755, true);
+        }
+
+        if(!file_exists($profile_image_location)) {
+            mkdir($profile_image_location, 0755, true);
+        }
 
         $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time(). $incomingFields['photo']->extension();

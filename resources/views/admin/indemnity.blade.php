@@ -104,7 +104,7 @@
           </table>
           <div class="pagination-block">
             <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
-            {{  $damages->appends(request()->input())->links('layouts.paginationlinks') }}
+            {{  $indemnities->appends(request()->input())->links('layouts.paginationlinks') }}
           </div>
          @endif
         </div>

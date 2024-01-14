@@ -38,15 +38,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('farm.index')}}" style="text-decoration: none; color:white"> Farm List</a></p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('farms')->get()->count()}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('indemnity.index')}}" style="text-decoration: none; color:white"> Indemnity Claim</a></p>
+                  <p class="card-title text-center fw-bolder"><a href="{{route('admin.indemnity.index')}}" style="text-decoration: none; color:white"> Indemnity Claim</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('indemnities')->get()->count()}}</p>
                 </div>
             </div>

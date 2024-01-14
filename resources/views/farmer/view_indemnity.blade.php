@@ -412,6 +412,54 @@
         </div>
         </div>       
         <br/>  
+        <div id="claimingInfo">
+          <h5 class="mx-2"> Claiming Information</h5>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="dateClaiming" class="col-lg-6 control-label">Date of Claiming:</label>
+                  <div class="col-lg-12">
+                    <input type="date" class="form-control" id="txt_city_farm" value="{{$indemnities->dateClaiming}}" name="dateClaiming" @readonly(true)>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="amountToClaim" class="col-lg-6 control-label">Amount to Claim:</label>
+                    <div class="col-lg-12">
+                      <input type="date" class="form-control" id="dt_farm" value="{{$indemnities->amountToClaim}}" name="amountToClaim" @readonly(true)>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label for="statusClaim" class="col-lg-12 control-label">Status of Claiming:</label>
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" id="statusClaim" value="{{$indemnities->statusClaim}}"name="statusClaim" @readonly(true)>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="receivedBy" class="col-lg-12 control-label">Received By :</label>
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" id="dt_farm" value="{{$indemnities->receivedBy}}" name="receivedBy" @readonly(true)> 
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                  <label for="receivedBy" class="col-lg-12 control-label">Date Received By :</label>
+                  <div class="col-lg-12">
+                    <input type="date" class="form-control" id="dt_farm" value="{{$indemnities->dateReceivedBy}}" name="dateReceivedBy" @readonly(true)> 
+                  </div>
+                </div>
+          </div>
+          </div>
+        </div>
+        <br/>
         <div class="row justify-content-end mt-2">
           <div class="col-md-6">
             <div class="col-lg-12 d-flex justify-content-end">

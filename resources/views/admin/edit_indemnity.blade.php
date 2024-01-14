@@ -437,12 +437,17 @@
           </div>
           <div class="row">
             <div class="col-md-4">
-                <div class="form-group">
-                  <label for="statusClaim" class="col-lg-12 control-label">Status of Claiming:</label>
-                  <div class="col-lg-12">
-                    <input type="text" class="form-control" id="statusClaim" value="{{$indemnities->statusClaim}}"name="statusClaim">
-                  </div>
+              <div class="form-group">
+                <label for="txt_contact" class="col-lg-12 control-label">Relationships:</label>
+                <div class="col-lg-12">
+                  <select class="form-select" aria-label="Default select example" name="benefi1Relation" name="statusClaim">
+                    <option selected> value="{{$indemnities->statusClaim}}" </option>
+                    <option value="Pending">Pending</option>
+                    <option value="To Receive">To Receive</option>
+                    <option value="Received">Received</option>
+                  </select>
                 </div>
+              </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
@@ -456,7 +461,7 @@
               <div class="form-group">
                   <label for="receivedBy" class="col-lg-12 control-label">Date Received By :</label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="dt_farm" value="{{$indemnities->dateReceivedBy}}" name="dateReceivedBy"> 
+                    <input type="date" class="form-control" id="dt_farm" value="{{$indemnities->dateReceivedBy}}" name="dateReceivedBy"> 
                   </div>
                 </div>
           </div>

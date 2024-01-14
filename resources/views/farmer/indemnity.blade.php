@@ -41,7 +41,8 @@
   </div>
     <div class="row">
       <div class="col-lg-12">
-        <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
+        <div class="table-wrapper" style=" width:100%; overflow-x:scroll"> 
+          @if(isset($indemnities))
           <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -79,8 +80,13 @@
               @endif
             </tbody>
         </table>
+        <div class="pagination-block">
+          <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+          {{  $indemnities->appends(request()->input())->links('layouts.paginationlinks') }}
         </div>
+       @endif
       </div>
     </div>
+  </div>
 </div>
 @endsection

@@ -98,7 +98,7 @@
     </div>
   
     <!-- this is for adding farmer -->
-  <form class="form-horizontal" action="/register" method="POST">
+  <form class="form-horizontal" action="/register" method="POST" enctype="multipart/form-data">
     @csrf
    <fieldset>
     <div class="m-3" id="panelfarmList">

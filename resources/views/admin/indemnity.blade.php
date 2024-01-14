@@ -84,6 +84,7 @@
                <td>{{$indemnity->farmersID}} </td>
                <td>{{$indemnity->firstName}} </td>
                <td>{{$indemnity->LastName}} </td>
+               <td>{{$indemnity->contactNumber}} </td>
                <td>{{$indemnity->barangayAddress}} </td>
                <td>{{$indemnity->cropInsuranceID}} </td>
                <td>{{$indemnity->cropName}}</td>

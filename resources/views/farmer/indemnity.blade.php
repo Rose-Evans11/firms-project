@@ -105,8 +105,8 @@
                <td>{{$indemnity->receivedBy}}</td>
                <td>{{$indemnity->dateReceivedBy}}</td>
                <td>{{$indemnity->statusClaim}}</td>
-               <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-               <td><a href="{{route('admin.indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
+               <td><a href="{{route('indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>
               @endforeach
               @else

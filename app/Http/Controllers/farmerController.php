@@ -33,8 +33,8 @@ class farmerController extends Controller
         $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time(). $incomingFields['photo']->extension();
 
-        Storage::pulFileAs($valid_id_image_location, $incomingFields['validIDPhoto'],  $imageValidID);
-        Storage::pulFileAs($profile_image_location, $incomingFields['photo'],  $imagePhoto);
+        Storage::putFileAs($valid_id_image_location, $incomingFields['validIDPhoto'],  $imageValidID);
+        Storage::putFileAs($profile_image_location, $incomingFields['photo'],  $imagePhoto);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
         //to save new farmers

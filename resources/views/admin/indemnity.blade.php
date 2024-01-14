@@ -68,8 +68,8 @@
                   <th>@sortablelink('dateSubmitted','Date Submitted')</th>
                   <th>@sortablelink('dateClaiming','Date to Claim')</th>
                   <th>@sortablelink('amountToClaim','Amount to Claim')</th>
-                  <th>@sortablelink('receivedBy','receivedBy')</th>
-                  <th>@sortablelink('dateReceivedBy','dateReceivedBy')</th>
+                  <th>@sortablelink('receivedBy','Received By')</th>
+                  <th>@sortablelink('dateReceivedBy','Date Received By')</th>
                   <th>@sortablelink('statusClaim','Status')</th>
                   <th>Edit</th>
                   <th>View</th>

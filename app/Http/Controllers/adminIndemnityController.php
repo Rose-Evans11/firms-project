@@ -75,6 +75,9 @@ class adminIndemnityController extends Controller
                 'dateSubmitted' => 'required',                
                 'dateClaiming'=>'nullable',
                 'amountToClaim'=>'nullable',
+                'statusClaim'=>'nullable',
+                'receivedBy'=>'nullable',
+                'dateReceivedBy'=>'nullable',
             ]);
             $indemnity = indemnity::create ($incomingFields);
             session()->flash('success', 'Filed Successfully!');
@@ -133,6 +136,11 @@ class adminIndemnityController extends Controller
                 'dateHarvest' => 'required',
                 'signature' => 'required',
                 'dateSubmitted' => 'required',
+                'dateClaiming'=>'nullable',
+                'amountToClaim'=>'nullable',
+                'statusClaim'=>'nullable',
+                'receivedBy'=>'nullable',
+                'dateReceivedBy'=>'nullable',
             ]);
            
     

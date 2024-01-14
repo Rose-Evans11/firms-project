@@ -448,14 +448,7 @@
                     -->
                       <div class="row">
                        <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
-                       <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="img_photo" class="col-lg-2 control-label">Farmer's Photo:</label>
-                            <div class="col-lg-12">
-                            <img src="{{ URL::asset('public/profile_image_location/' . Auth::User()->photo) }}" alt="Profile Image">
-                            </div>
-                        </div>
-                    </div>
+                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{ URL::asset('public/profile_image_location/' . Auth::User()->photo) }}">
                         </div>
                       </div>
                     </div>

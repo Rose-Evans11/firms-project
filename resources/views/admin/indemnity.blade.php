@@ -71,30 +71,30 @@
                 </tr>
             </thead>
             <tbody>
-              @if(count($damages) > 0)
-              @foreach ($damages as $damage)
+              @if(count($indemnities) > 0)
+              @foreach ($indemnities as $indemnity)
               <tr>
-               <td>{{$damage->id}} </td>
-               <td>{{$damage->farmersID}} </td>
-               <td>{{$damage->firstName}} </td>
-               <td>{{$damage->LastName}} </td>
-               <td>{{$damage->barangayAddress}} </td>
-               <td>{{$damage->cropInsuranceID}} </td>
-               <td>{{$damage->cropName}}</td>
-               <td>{{$damage->insuranceType}}</td>
-               <td>{{$damage->areaInsured}}</td>
-               <td>{{$damage->cicNumber}}</td>
-               <td>{{$damage->damageID}} </td>
-               <td>{{$damage->damageCause}} </td>
-               <td>{{$damage->extentDamage}} </td>
-               <td>{{$damage->dateLoss}}</td>
-               <td>{{$damage->growthStage}}</td>
-               <td>{{$damage->areaDamage}}</td>
-               <td>{{$damage->dateHarvest}}</td>
-               <td>{{$damage->barangayFarm}}</td>
-               <td>{{$damage->dateSubmitted}}</td>
-               <td><a href="{{route('admin.indemnity.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-               <td><a href="{{route('admin.indemnity.view', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> View</a></td>
+               <td>{{$indemnity->id}} </td>
+               <td>{{$indemnity->farmersID}} </td>
+               <td>{{$indemnity->firstName}} </td>
+               <td>{{$indemnity->LastName}} </td>
+               <td>{{$indemnity->barangayAddress}} </td>
+               <td>{{$indemnity->cropInsuranceID}} </td>
+               <td>{{$indemnity->cropName}}</td>
+               <td>{{$indemnity->insuranceType}}</td>
+               <td>{{$indemnity->areaInsured}}</td>
+               <td>{{$indemnity->cicNumber}}</td>
+               <td>{{$indemnity->damageID}} </td>
+               <td>{{$indemnity->damageCause}} </td>
+               <td>{{$indemnity->extentDamage}} </td>
+               <td>{{$indemnity->dateLoss}}</td>
+               <td>{{$indemnity->growthStage}}</td>
+               <td>{{$indemnity->areaDamage}}</td>
+               <td>{{$indemnity->dateHarvest}}</td>
+               <td>{{$indemnity->barangayFarm}}</td>
+               <td>{{$indemnity->dateSubmitted}}</td>
+               <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('admin.indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>
               @endforeach
               @else

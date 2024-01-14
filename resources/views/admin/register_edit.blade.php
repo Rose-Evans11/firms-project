@@ -192,10 +192,10 @@
                 </div>
                 <div>
                     <div class="col-md-6">
-                        <img src="{{  public_path('valid_id_image_location' .$user->imageValidID) }}" alt="Valid ID Image">
+                        <img src="{{  public_path('valid_id_image_location' .$user->validIDPhoto) }}" alt="Valid ID Image">
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ public_path('profile_image_location' . $user->imagePhoto) }}" alt="Profile Image">
+                        <img src="{{ public_path('profile_image_location' . $user->photo) }}" alt="Profile Image">
                     </div>
                 </div>
             </div>

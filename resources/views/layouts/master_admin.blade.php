@@ -56,8 +56,7 @@
                 </a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="<?= url('firms/admin/change-password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>">{{Auth::guard('admin')->user()->firstName}}</a></li>
                 </ul>
               </li>
               <li class="nav-item">

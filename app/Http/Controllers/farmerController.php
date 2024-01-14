@@ -26,11 +26,14 @@ class farmerController extends Controller
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         //for photo image
-        $imagePhoto=time(). $request->image->extension();
-        $request->image->move(public_path('storage'), $imagePhoto);
+        $imagePhoto= time(). $request->photo->extension();
+
+        
+
+        $request->photo->move(public_path('storage'), $imagePhoto);
         
         //for photo image
-        $imageValidID=time(). $request->image->extension();
+        $imageValidID=time(). $request->photo->extension();
         $request->image->move(public_path('storage'), $imageValidID);
 
         //to save new farmers

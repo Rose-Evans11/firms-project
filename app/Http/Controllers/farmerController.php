@@ -22,19 +22,16 @@ class farmerController extends Controller
     public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
 
-        dd($incomingFields['photo']->extension());
-       
+        // File Folder Location 
+        $valid_id_image_location = 'valid_id_image_location';
+        $profile_image_location = 'profile_image_location';
+
+        $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
+        $imagePhoto = time(). $incomingFields['photo']->extension();
+
+        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
+        $incomingFields['photo']->move($profile_image_location, $imagePhoto);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-        //for photo image
-        $imagePhoto = time(). $request->photo->getClientExtension();
-
-        
-
-        $request->photo->move(public_path('storage'), $imagePhoto);
-        
-        //for photo image
-        $imageValidID = time() . $request->photo->extension();
-        $request->image->move(public_path('storage'), $imageValidID);
 
         //to save new farmers
         $user = User::create ($incomingFields);

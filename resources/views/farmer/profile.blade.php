@@ -448,7 +448,7 @@
                     -->
                       <div class="row">
                        <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
-                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{ URL::asset('public/profile_image_location/' . Auth::User()->photo) }}">
+                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{Auth::User()->photo }}">
                         </div>
                       </div>
                     </div>

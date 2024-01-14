@@ -184,6 +184,7 @@ Route::post('/logout', [farmerController::class, 'logout']);
 
 //for edit user account
 Route::put('/update/{user}/profile', [farmerController::class, 'updateProfile'])->name('farmer.update.profile');
+Route::put('/update/{admin}/profile', [adminController::class, 'updateProfile'])->name('admin.update.profile');
 
 //for changing password farmer side
 Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');

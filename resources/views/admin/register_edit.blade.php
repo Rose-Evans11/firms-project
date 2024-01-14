@@ -190,6 +190,14 @@
                         </div>
                     </div> -->
                 </div>
+                <div>
+                    <div class="col-md-6">
+                        <img src="{{ asset('valid_id_image_location/' . $imageValidID) }}" alt="Valid ID Image">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{ asset('profile_image_location/' . $imagePhoto) }}" alt="Profile Image">
+                    </div>
+                </div>
             </div>
             <div class="row justify-content-end">
                 <div class="col-md-2">

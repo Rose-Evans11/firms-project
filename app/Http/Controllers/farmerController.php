@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\StoreFarmerRequest;
 
@@ -23,22 +24,17 @@ class farmerController extends Controller
         $incomingFields = $request->validated();
 
         // File Folder Location 
-        $valid_id_image_location = public_path('valid_id_image_location');
-        $profile_image_location = public_path('profile_image_location');
+        $valid_id_image_location = 'valid_id_image';
+        $profile_image_location = 'profile_image';
 
-        if(!file_exists($valid_id_image_location)) {
-            mkdir($valid_id_image_location, 0755, true);
-        }
-
-        if(!file_exists($profile_image_location)) {
-            mkdir($profile_image_location, 0755, true);
-        }
+        Storage::makeDirectory($valid_id_image_location);
+        Storage::makeDirectory($profile_image_location);
 
         $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time(). $incomingFields['photo']->extension();
 
-        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
-        $incomingFields['photo']->move($profile_image_location, $imagePhoto);
+        Storage::putFileAs($valid_id_image_location, $incomingFields['validIDPhoto'],  $imageValidID);
+        Storage::putFileAs($profile_image_location, $incomingFields['photo'],  $imagePhoto);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
         //to save new farmers

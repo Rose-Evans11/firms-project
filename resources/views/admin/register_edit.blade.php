@@ -190,9 +190,9 @@
                         </div>
                     </div> -->
                 </div>
-                <div>
+                <div class="row">
                     <div class="col-md-6">
-                        <img src="{{  public_path('valid_id_image_location' .$user->validIDPhoto) }}" alt="Valid ID Image">
+                        <img src="{{ url('public/valid_image_location/'.$user->validIDPhoto) }}" alt="Valid ID Image">
                     </div>
                     <div class="col-md-6">
                         <img src="{{ public_path('profile_image_location' . $user->photo) }}" alt="Profile Image">

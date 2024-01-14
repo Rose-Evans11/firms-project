@@ -419,7 +419,7 @@
                 <div class="form-group">
                   <label for="dateClaiming" class="col-lg-6 control-label">Date of Claiming:</label>
                   <div class="col-lg-12">
-                    <input type="date" class="form-control" id="txt_city_farm" value="{{$indemnities->dateClaiming}}" name="dateClaiming" @readonly(true)>
+                    <input type="text" class="form-control" id="txt_city_farm" value="{{$indemnities->dateClaiming}}" name="dateClaiming" @readonly(true)>
                   </div>
                 </div>
             </div>
@@ -453,7 +453,7 @@
               <div class="form-group">
                   <label for="receivedBy" class="col-lg-12 control-label">Date Received By :</label>
                   <div class="col-lg-12">
-                    <input type="date" class="form-control" id="dt_farm" value="{{$indemnities->dateReceivedBy}}" name="dateReceivedBy" @readonly(true)> 
+                    <input type="text" class="form-control" id="dt_farm" value="{{$indemnities->dateReceivedBy}}" name="dateReceivedBy" @readonly(true)> 
                   </div>
                 </div>
           </div>

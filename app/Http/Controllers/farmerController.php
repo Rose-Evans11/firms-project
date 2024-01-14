@@ -24,17 +24,22 @@ class farmerController extends Controller
         $incomingFields = $request->validated();
 
         // File Folder Location 
-        $valid_id_image_location = 'valid_id_image';
-        $profile_image_location = 'profile_image';
+        $valid_id_image_location = public_path('valid_id_image_location');
+        $profile_image_location = public_path('profile_image_location');
 
-        Storage::makeDirectory($valid_id_image_location);
-        Storage::makeDirectory($profile_image_location);
+        if(!file_exists($valid_id_image_location)) {
+            mkdir($valid_id_image_location, 0755, true);
+        }
+
+        if(!file_exists($profile_image_location)) {
+            mkdir($profile_image_location, 0755, true);
+        }
 
         $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time(). $incomingFields['photo']->extension();
 
-        Storage::putFileAs($valid_id_image_location, $incomingFields['validIDPhoto'],  $imageValidID);
-        Storage::putFileAs($profile_image_location, $incomingFields['photo'],  $imagePhoto);
+        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
+        $incomingFields['photo']->move($profile_image_location, $imagePhoto);
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
         //to save new farmers

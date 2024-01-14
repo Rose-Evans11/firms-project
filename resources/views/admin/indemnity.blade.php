@@ -42,44 +42,72 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  
-          
+          @if(isset($indemnities))
           <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Indemnity ID</th>
-                    <th>Crop Insurance ID</th>
-                    <th>Crops</th>
-                    <th>Notice of Loss ID</th>
-                    <th>Damage Cause</th>
-                    <th>Date of Loss</th>
-                    <th>Expected Harvest Date</th>
-                    <th>Date Submitted</th>
-                    <th>Edit</th>
-                    <th>View</th>
+                  <th>Indemnity ID</th>
+                  <th>@sortablelink('farmersID',"Farmer's ID")</th>
+                  <th>@sortablelink('firstName','First Name')</th>
+                  <th>@sortablelink('lastName','Last Name')</th>
+                  <th>@sortablelink('barangayAddress','Barangay')</th>
+                  <th>@sortablelink('cropInsuranceID','Crop Insurance ID')</th>
+                  <th>@sortablelink('cropName','Crops')</th>
+                  <th>@sortablelink('insuranceType','Insurance Type')</th>
+                  <th>@sortablelink('areaInsured','Area Insured')</th>
+                  <th>@sortablelink('cicNumber','CIC Number')</th>
+                  <th>@sortablelink('damageID','Notice of Loss ID')</th>
+                  <th>@sortablelink('damageCause','Damage Cause')</th>
+                  <th>@sortablelink('extentDamage','Extent of Damage')</th>
+                  <th>@sortablelink('dateLoss','Date of Loss')</th>
+                  <th>@sortablelink('growthStage','Growth Stage')</th>
+                  <th>@sortablelink('AreaDamage','Area Damage')</th>
+                  <th>@sortablelink('expectedHarvest','Expected Harvest Date')</th>
+                  <th>@sortablelink('barangayFarm','Farm Location')</th>
+                  <th>@sortablelink('dateSubmitted','Date Submitted')</th>
+                  <th>Edit</th>
+                  <th>View</th>
                     
                 </tr>
             </thead>
             <tbody>
-              @if(count($indemnities) > 0)
-              @foreach ($indemnities as $indemnity)
+              @if(count($damages) > 0)
+              @foreach ($damages as $damage)
               <tr>
-               <td>{{$indemnity->id}} </td>
-               <td>{{$indemnity->cropInsuranceID}} </td>
-               <td>{{$indemnity->cropName}}</td>
-               <td>{{$indemnity->damageID}} </td>
-               <td>{{$indemnity->damageCause}} </td>
-               <td>{{$indemnity->dateLoss}}</td>
-               <td>{{$indemnity->dateHarvest}}</td>
-               <td>{{$indemnity->dateSubmitted}}</td>
-               <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
-               <td><a href="{{route('admin.indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
+               <td>{{$damage->id}} </td>
+               <td>{{$damage->farmersID}} </td>
+               <td>{{$damage->firstName}} </td>
+               <td>{{$damage->LastName}} </td>
+               <td>{{$damage->barangayAddress}} </td>
+               <td>{{$damage->cropInsuranceID}} </td>
+               <td>{{$damage->cropName}}</td>
+               <td>{{$damage->insuranceType}}</td>
+               <td>{{$damage->areaInsured}}</td>
+               <td>{{$damage->cicNumber}}</td>
+               <td>{{$damage->damageID}} </td>
+               <td>{{$damage->damageCause}} </td>
+               <td>{{$damage->extentDamage}} </td>
+               <td>{{$damage->dateLoss}}</td>
+               <td>{{$damage->growthStage}}</td>
+               <td>{{$damage->areaDamage}}</td>
+               <td>{{$damage->dateHarvest}}</td>
+               <td>{{$damage->barangayFarm}}</td>
+               <td>{{$damage->dateSubmitted}}</td>
+               <td><a href="{{route('admin.indemnity.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+               <td><a href="{{route('admin.indemnity.view', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>
               @endforeach
               @else
                <tr><td>No result found!</td></tr>
               @endif
             </tbody>
-        </table>
+          </table>
+          <div class="pagination-block">
+            <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+            {{  $damages->appends(request()->input())->links('layouts.paginationlinks') }}
+          </div>
+         @endif
+        </div>
         </div>
       </div>
     </div>

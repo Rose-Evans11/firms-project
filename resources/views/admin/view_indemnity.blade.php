@@ -427,7 +427,7 @@
                 <div class="form-group">
                     <label for="amountToClaim" class="col-lg-6 control-label">Amount to Claim:</label>
                     <div class="col-lg-12">
-                      <input type="date" class="form-control" id="dt_farm" value="{{$indemnities->amountToClaim}}" name="amountToClaim" @readonly(true)>
+                      <input type="text" class="form-control" id="dt_farm" value="{{$indemnities->amountToClaim}}" name="amountToClaim" @readonly(true)>
                     </div>
                   </div>
             </div>

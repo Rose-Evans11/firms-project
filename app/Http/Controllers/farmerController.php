@@ -22,18 +22,18 @@ class farmerController extends Controller
     public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
 
-        dd($incomingFields);
+        dd($incomingFields->photo->extension());
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         //for photo image
-        $imagePhoto= time(). $request->photo->extension();
+        $imagePhoto = time(). $request->photo->getClientExtension();
 
         
 
         $request->photo->move(public_path('storage'), $imagePhoto);
         
         //for photo image
-        $imageValidID=time(). $request->photo->extension();
+        $imageValidID = time() . $request->photo->extension();
         $request->image->move(public_path('storage'), $imageValidID);
 
         //to save new farmers

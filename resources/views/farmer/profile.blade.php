@@ -93,6 +93,7 @@
                       </div>
                     </div>
                     <div class="col-md-6">
+                      <!--
                       <div class="row">
                         <div class="form-group">
                           <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
@@ -100,6 +101,7 @@
                           <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
                         </div>
                       </div>
+                    -->
                       <div class="row">
                         <div class="form-group my-5 text-center">
                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
@@ -433,6 +435,7 @@
                       </div>
                     </div>
                     <div class="col-md-3">
+                      <!--
                       <div class="row">
                         <div class="col-md-12"> 
                           <div class="form-group">
@@ -442,6 +445,7 @@
                           </div>
                         </div>
                       </div>
+                    -->
                       <div class="row">
                        <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">

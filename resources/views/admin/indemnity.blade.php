@@ -50,6 +50,7 @@
                   <th>@sortablelink('farmersID',"Farmer's ID")</th>
                   <th>@sortablelink('firstName','First Name')</th>
                   <th>@sortablelink('lastName','Last Name')</th>
+                  <th>@sortablelink('contactNumber','contactNumber')</th>
                   <th>@sortablelink('barangayAddress','Barangay')</th>
                   <th>@sortablelink('cropInsuranceID','Crop Insurance ID')</th>
                   <th>@sortablelink('cropName','Crops')</th>
@@ -65,6 +66,11 @@
                   <th>@sortablelink('expectedHarvest','Expected Harvest Date')</th>
                   <th>@sortablelink('barangayFarm','Farm Location')</th>
                   <th>@sortablelink('dateSubmitted','Date Submitted')</th>
+                  <th>@sortablelink('dateClaiming','Date to Claim')</th>
+                  <th>@sortablelink('amountToClaim','Amount to Claim')</th>
+                  <th>@sortablelink('receivedBy','receivedBy')</th>
+                  <th>@sortablelink('dateReceivedBy','dateReceivedBy')</th>
+                  <th>@sortablelink('statusClaim','Status')</th>
                   <th>Edit</th>
                   <th>View</th>
                     
@@ -93,6 +99,11 @@
                <td>{{$indemnity->dateHarvest}}</td>
                <td>{{$indemnity->barangayFarm}}</td>
                <td>{{$indemnity->dateSubmitted}}</td>
+               <td>{{$indemnity->dateClaiming}}</td>
+               <td>{{$indemnity->amountToClaim}}</td>
+               <td>{{$indemnity->receivedBy}}</td>
+               <td>{{$indemnity->dateReceivedBy}}</td>
+               <td>{{$indemnity->statusClaim}}</td>
                <td><a href="{{route('admin.indemnity.edit', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
                <td><a href="{{route('admin.indemnity.view', ['indemnity'=>$indemnity->id])}}" style="width:100%; text-decoration:none"> View</a></td>
               </tr>

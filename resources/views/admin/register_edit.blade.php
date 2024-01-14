@@ -192,10 +192,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ asset('valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image" hidden>
+                        <img src="{{ {{ URL::asset('public/valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image">
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('profile_image_location/' . $user->photo) }}" alt="Profile Image" hidden>
+                        <img src="{{ {{ URL::asset('public/profile_image_location/' . $user->photo) }}" alt="Profile Image">
                     </div>
                 </div>
             </div>

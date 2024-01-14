@@ -19,8 +19,10 @@ class farmerController extends Controller
     return view('admin/register', ['users'=>$user]);
    }
     
-    public function store(StoreFarmerRequest $request){//to add new farmers
+    public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
+
+        dd($incomingFields);
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         //for photo image

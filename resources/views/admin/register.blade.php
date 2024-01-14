@@ -232,7 +232,48 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
+              <label for="dd_withGovernID" class="col-lg-12 control-label">With Government ID:</label>
+              <div class="col-lg-12">
+                <select class="form-select" aria-label="Default select example" id="dd_withGovernID" name="hasValidID" @required(true)>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="dd_governID" class="col-lg-12 control-label">Government ID:</label>
+              <div class="col-lg-12">
+                <select class="form-select" aria-label="Default select example" id="dd_governID" name="validID" @required(true)>
+                  <option value="National ID">National ID</option>
+                  <option value="Passport ID">Passport ID</option>
+                  <option value="UMID ID">UMID ID</option>
+                  <option value="Driver's License">Driver's License</option>
+                  <option value="PRC ID">PRC ID</option>
+                  <option value="Senior Citizen ID">Senior Citizen ID</option>
+                  <option value="School ID">School ID</option>
+                  <option value="Voter's ID">Voter's ID</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="txt_validIDNumber" class="col-lg-12 control-label">Valid ID Number:</label>
+                <div class="col-lg-12">
+                  <input type="text" class="form-control" id="txt_validIDNumber" placeholder=" Valid ID Number" name="validIDNumber" @required(true)>
+                </div> 
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="file_id" class="col-lg-12 control-label">Government ID: </label>
+                <div class="col-lg-12">
+                <input type="file" class="form-control" id="file_id" accept="image/jpg, image/jpeg, image/png" name='validIDPhoto'>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
                 <div class="col-lg-12">
@@ -240,13 +281,21 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="txt_pass" class="col-lg-6 control-label"> Password: </label>
                 <div class="col-lg-12">
                   <input type="password" class="form-control" id="txt_pass" value=""name="password" required autocomplete="new-password"> 
                 </div>
               </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
+                <div class="col-lg-12">
+                <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png"  name="photo">
+              </div>
+            </div>
             </div>
           </div>
           <div class="row mt-3">

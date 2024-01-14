@@ -110,7 +110,7 @@
               <div class="form-group">
                 <label for="txt_RSBSA" class="col-lg-12 control-label">RSBSA Number: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" required maxlength="19" minlength="19">
+                  <input type="text" class="form-control" id="txt_RSBSA"  placeholder="RSBSA" name="rsbsa" value="{{ old('rsbsa') }}" required maxlength="19" minlength="19">
                 </div>
               </div>
             </div>
@@ -119,7 +119,8 @@
                 <div class="form-group">
                   <label for="dd_barangay" class="col-lg-2 control-label">Barangay:</label>
                   <div class="col-lg-12">
-                    <select class="form-select" aria-label="Default select example" required name="barangayAddress">
+                    <select class="form-select"  aria-label="Default select example" required name="barangayAddress">
+                      <option value="{{ old('barangayAddress') }}" selected>{{ old('barangayAddress') }}</option>
                       <option value="Altura Bata">Altura Bata</option>
                       <option value="Altura Matanda">Altura Matanda</option>
                       <option value="Altura South">Altura South</option>
@@ -179,7 +180,7 @@
                 <div class="form-group">
                   <label for="txt_fname" class="col-lg-6 control-label">First Name: </label>
                   <div class="col-lg-12">
-                    <input type="text" class="form-control" id="txt_fname" value="" placeholder="First Name" name="firstName" required>
+                    <input type="text" class="form-control" id="txt_fname" value="{{ old('firstName') }}" placeholder="First Name" name="firstName" required>
                   </div>
                 </div>
             </div>
@@ -187,7 +188,7 @@
               <div class="form-group">
                 <label for="txt_mname" class="col-lg-6 control-label">Middle Name: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_mname" value="" placeholder="Middle Name" name="middleName">
+                  <input type="text" class="form-control" id="txt_mname" value="{{ old('middleName') }}" placeholder="Middle Name" name="middleName">
                 </div>
               </div>
             </div>
@@ -195,7 +196,7 @@
             <div class="form-group">
               <label for="txt_lname" class="col-lg-6 control-label">Last Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_lname" value="" placeholder="Last Name" name="lastName" required>
+                <input type="text" class="form-control" id="txt_lname" value="{{ old('lastName') }}" placeholder="Last Name" name="lastName" required>
               </div>
             </div>
             </div>
@@ -203,7 +204,7 @@
               <div class="form-group">
                 <label for="txt_ext" class="col-lg-6 control-label">Extension Name: </label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_ext" value="" placeholder="Extension Name" name="extensionName">
+                  <input type="text" class="form-control" id="txt_ext" value="{{ old('firstName') }}" placeholder="Extension Name" name="extensionName">
                 </div>
               </div>
             </div>
@@ -213,8 +214,8 @@
               <div class="form-group">
                 <label for="dt_birth" class="col-lg-6 control-label">Birthdate: </label>
                 <div class="col-lg-12">
-                  <input type="date"  max="9999-12-31" class="form-control" id="dt_birth" name="birthdate" required onchange="ageCount()" data-date="" data-date-format="DD MM YYYY">
-                  <input type="number" class="form-control" id="txt_age"  placeholder="Age" readonly required  name="age">
+                  <input type="date"  max="9999-12-31" class="form-control" id="dt_birth" value="{{ old('birthdate') }}" name="birthdate" required onchange="ageCount()" data-date="" data-date-format="DD MM YYYY">
+                  <input type="number" class="form-control" id="txt_age"  placeholder="Age" value="{{ old('age') }}" readonly required  name="age">
 
                 </div>
               </div>
@@ -260,7 +261,7 @@
               <div class="form-group">
                 <label for="txt_validIDNumber" class="col-lg-12 control-label">Valid ID Number:</label>
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" id="txt_validIDNumber" placeholder=" Valid ID Number" name="validIDNumber" @required(true)>
+                  <input type="text" class="form-control" value="{{ old('validIDNumber') }}" id="txt_validIDNumber" placeholder=" Valid ID Number" name="validIDNumber" @required(true)>
                 </div> 
               </div>
             </div>
@@ -277,7 +278,7 @@
               <div class="form-group">
                 <label for="txt_email" class="col-lg-6 control-label"> Email: </label>
                 <div class="col-lg-12">
-                  <input type="email" class="form-control" id="txt_email" value="" placeholder="Email" name="email" required autocomplete="email">
+                  <input type="email" class="form-control" id="txt_email" value="{{ old('email') }}" placeholder="Email" name="email" required autocomplete="email">
                 </div>
               </div>
             </div>

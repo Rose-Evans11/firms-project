@@ -36,10 +36,10 @@ class farmerController extends Controller
             'regionAddress' => 'nullable',
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
-            //'validIDPhoto' => 'nullable',
+            'validIDPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'validIDNumber'=> 'nullable',
             'isActive' => 'nullable',
-            //'photo' => 'nullable',
+            'photo' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'birthplace' => 'nullable',
             'educationID'=> 'nullable',
             'religionID'=> 'nullable',
@@ -65,6 +65,15 @@ class farmerController extends Controller
         ]);
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
+        //for photo image
+        $imagePhoto=time().$incomingFields['photo']->extension();
+        $incomingFields['photo']->move(public_path('storage'), $imagePhoto);
+        
+        //for photo image
+        $imageValidID=time().$incomingFields['validIDPhoto']->extension();
+        $incomingFields['validIDPhoto']->move(public_path('storage'), $imageValidID);
+
+        //to save new farmers
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
         return redirect('firms/farmer/register'); //going to the same page

@@ -448,7 +448,8 @@
                     -->
                       <div class="row">
                        <!-- <img src="data:image/png;base64, base64_decode()" alt=" Profile Photo" /> -->
-                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
+
+                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid">
                         </div>
                       </div>
                     </div>

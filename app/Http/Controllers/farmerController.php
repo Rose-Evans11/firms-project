@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Requests\StoreFarmerRequest;
 
 class farmerController extends Controller
 {
@@ -18,51 +19,8 @@ class farmerController extends Controller
     return view('admin/register', ['users'=>$user]);
    }
     
-    public function store(Request $request){//to add new farmers
-        $incomingFields = $request ->validate ([
-            'rsbsa' => ['required', Rule::unique('users', 'rsbsa')],
-            'firstName' => 'required',
-            'middleName'=> 'nullable',
-            'lastName' => 'required',
-            'extensionName' => 'nullable',
-            'sex'=> 'required',
-            'birthdate' => 'required',
-            'age'=> 'required',
-            'email' => ['required', 'email',Rule::unique('users', 'email') ],
-            'password' => ['required', 'min:8', 'max:25'],
-            'barangayAddress' => 'required',
-            'cityAddress' => 'nullable',
-            'provinceAddress' => 'nullable',
-            'regionAddress' => 'nullable',
-            'contactNumber' => 'nullable',
-            'validID' => 'nullable',
-            'validIDPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'validIDNumber'=> 'nullable',
-            'isActive' => 'nullable',
-            'photo' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'birthplace' => 'nullable',
-            'educationID'=> 'nullable',
-            'religionID'=> 'nullable',
-            'civilID'=> 'nullable',
-            'spouseName'=> 'nullable',
-            'motherName'=> 'nullable',
-            'fourPs'=> 'nullable',
-            'indigenous'=> 'nullable',
-            'typeIPID'=> 'nullable',
-            'householdHead'=> 'nullable',
-            'householdName'=> 'nullable',
-            'householdRelation'=> 'nullable',
-            'householdCount'=> 'nullable',
-            'householdMale'=> 'nullable',
-            'householdFemale'=> 'nullable',
-            'farmAssociationID'=> 'nullable',
-            'contactPerson'=> 'nullable',
-            'emergenceNumber'=> 'nullable',
-            'beneficiaries1'=> 'nullable',
-            'relationBeneficiaries1'=> 'nullable',
-            'beneficiaries2'=> 'nullable',
-            'relationbeneficiaries2'=> 'nullable',
-        ]);
+    public function store(StoreFarmerRequest $request){//to add new farmers
+        $incomingFields = $request->validated();
        
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         //for photo image

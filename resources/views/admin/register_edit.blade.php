@@ -192,10 +192,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ asset('valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image">
+                        <img src="{{ asset('valid_id_image_location/' .$user->validIDPhoto) }}" alt="Valid ID Image" hidden>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('profile_image_location/' . $user->photo) }}" alt="Profile Image">
+                        <img src="{{ asset('profile_image_location/' . $user->photo) }}" alt="Profile Image" hidden>
                     </div>
                 </div>
             </div>

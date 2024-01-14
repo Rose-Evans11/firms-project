@@ -52,42 +52,49 @@
   </form>
   <div class="row">
     <div class="col-lg-12">
-      <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Farmer's ID</th>
-                <th>RSBSA</th>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Extension Name</th>
-                <th>Barangay</th>
-                <th>Active</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-        @if(count($users) > 0)
-         @foreach ($users as $user)
-         <tr>
-          <td>{{$user->id}} </td>
-          <td>{{$user->rsbsa}}</td>
-          <td>{{$user->email}}</td>
-          <td>{{$user->firstName}}</td>
-          <td>{{$user->middleName}}</td>
-          <td>{{$user->lastName}}</td>
-          <td>{{$user->extensionName}}</td>
-          <td>{{$user->barangayAddress}}</td>
-          <td>{{$user->isActive}}</td>
-          <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
-         </tr>
-         @endforeach
-         @else
-          <tr><td>No result found!</td></tr>
-         @endif
-        </tbody>
-    </table>
+      <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+        @if(isset($users))
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th>Farmer's ID</th>
+                    <th>RSBSA</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Extension Name</th>
+                    <th>Active</th>
+                    <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(count($users) > 0)
+                        @foreach($users as $user)
+                        <tr>
+                            <td>{{$user->id}} </td>
+                            <td>{{$user->rsbsa}}</td>
+                            <td>{{$user->firstName}}</td>
+                            <td>{{$user->middleName}}</td>
+                            <td>{{$user->lastName}}</td>
+                            <td>{{$user->extensionName}}</td>
+                            <td>{{$user->isActive}}</td>
+                            <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
+                        </tr>
+                        @endforeach
+                    @else
+
+                    <tr>
+                        <td colspan="8">No result found!</td>
+                    </tr>
+                    @endif
+                </tbody>
+            </table>
+            <div class="pagination-block">
+                <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+                {{  $users->appends(request()->input())->links('layouts.paginationlinks') }}
+            </div>
+        @endif
+      </div>
     </div>
   
     <!-- this is for adding farmer -->

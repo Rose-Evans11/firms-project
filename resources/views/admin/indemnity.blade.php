@@ -1,4 +1,4 @@
-@extends('layouts.master_farmer')
+@extends('layouts.master_admin')
 @section('title','Indemnity')
 @section('content')
 <style>

@@ -22,7 +22,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-    <form action="{{ route('farmer.update.profile',  Auth::User()->id )}}" method="POST">
+    <form action="{{ route('farmer.update.profile',  Auth::User()->id )}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('put')
         <fieldset>
@@ -104,7 +104,7 @@
                     -->
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                        <img id="img_profile" alt="Your Image" style="width: 150px; height:auto" class="img-fluid"  />
+                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="">
                         </div>
                       </div>
                     </div>
@@ -447,7 +447,6 @@
                       </div>
                     -->
                       <div class="row">
-                        <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid">
                         </div>
                       </div>
                     </div>

@@ -131,7 +131,7 @@ class farmerController extends Controller
         
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
-        return redirect(route('farmer.index'));
+        return view('admin/register', ['users'=>$user]);
     }
     
     public function find(Request $request, User $user){ //to search and find

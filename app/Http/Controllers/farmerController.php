@@ -78,8 +78,6 @@ class farmerController extends Controller
     }
     public function editProfile(User $user){
         //$user =Auth::user();
-        $photo = File::allFiles(public_path('profile_image_location'));
-        $validIDPhoto = File::allFiles(public_path('valid_id_image_location'));
         return view('farmer/profile')->with('user', Auth::user());
         //return view('farmer/profile', ['user'=>$user]);
     }

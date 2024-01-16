@@ -104,7 +104,7 @@
                     -->
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{asset('profile_image_location/'. $photo->getFilename())}}">
+                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src="{{$request->file('photo')->move('public\profile_image_location')->getFilename();)}}">
                         </div>
                       </div>
                     </div>

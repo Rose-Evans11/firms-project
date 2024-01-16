@@ -17,69 +17,54 @@
     <link href="{{ asset('css/app.scss') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5">
-        <div class="container-fluid">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('Images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success px-5" >
+        <div class="container-fluid" style="padding-left:20% 10% 20%">
+          <a class="navbar-brand navbar-dark" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-              @if (Auth::guard('admin')->check())
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/dashboard'); ?>"> Dashboard</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/dashboard'); ?>"> Dashboard</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                  Insurance Report
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/rice-insurance'); ?>">Rice Insurance</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/corn-insurance'); ?>">Corn Insurance</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/hvc-insurance'); ?>">High Value Crops</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/rice-insurance'); ?>">Rice Insurance</a></li>
+                  <li><a class="dropdown-item" href="{{route('admin.corn')}}">Corn Insurance</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/hvc-insurance'); ?>">High Value Crops</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-notice-loss'); ?>"> Notice of Loss</a>
+                <a class="nav-link" aria-current="page" href="{{route('admin.damage.index')}}"> Notice of Loss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-indemnity'); ?>"> Indemnity</a>
+                <a class="nav-link" aria-current="page" href="<?= url('firms/admin/indemnity'); ?>"> Indemnity</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?= url('firms/farmer-farm-list'); ?>"> Farm List</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Settings
-                </a>
-                <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-change-password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/farmer-profile'); ?>">Profile</a></li>
-                  <li><a class="dropdown-item" href="#">Log Out</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"> <a class="nav-link" aria-current="page" href="<?= url('firms/farmer/notice-loss'); ?>"> Notice of Loss</a></li>
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/indemnity'); ?>"> Indemnity</a></li>
-              <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= url('firms/farmer/farm-list'); ?>"> Farm List</a></li>
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add</a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="<?= url('firms/farmer/register'); ?>">Add New Farmer</a></li>
                   <li><a class="dropdown-item" href="<?= url('firms/admin/register'); ?>">Add New Admin </a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Settings
+                </a>
                 <ul class="dropdown-menu" ari`a-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/change_password'); ?>">Change Password</a></li>
-                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>"> {{ Auth::guard('admin')->user()->firstName }} </a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/change-password'); ?>">Change Password</a></li>
+                  <li><a class="dropdown-item" href="<?= url('firms/admin/profile'); ?>">{{Auth::guard('admin')->user()->firstName}}</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <form id="logout-form" action="/logout/admin" method="POST">
+                <form id="logout-form" action="/admin/logout" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-success text-white mt-2" style="opacity: .5; height:25px; padding: 0; outline: 0; border: none;background: none;"> Logout</button>
               </form>
               </li> 
-              @endif        
             </ul>
           </div>
         </div>

@@ -16,13 +16,25 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-light bg-success navbar-inverse navbar-fixed-top navbar-expand-md">
-        <div class="container-fluid px-5">
-          <a class="navbar-brand navbar-light" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+    <nav class="navbar navbar-dark bg-success navbar-inverse navbar-fixed-top navbar-expand-md  px-5">
+        <div class="container-fluid" style="padding-left:20% 10% 20%">
+          <a class="navbar-brand navbar-dark" href="#"><img src="{{ asset('images/firms.png') }}" class="img-fluid" style="width:100px" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="<?= url('/firms'); ?>">Home</a></li>
+            </ul>
+            
+          </div>
         </div>
     </nav>
    
- @yield('content')   
+    <div class="contain-fluid p-5 ">
+      <div  class='container-fluid' style="margin: auto">
+      @yield('content')
+      </div>
+    </div>
 </body>
 </html>

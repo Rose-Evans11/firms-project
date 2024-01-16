@@ -33,6 +33,7 @@ class adminController extends Controller
             $request->session()->regenerate();
             return redirect('firms/admin/dashboard');
         }
+        
         return redirect()->back()->withErrors(['email' => 'Invalid Login Credentials!']);         
     }
     public function edit(admin $admin){ //to edit and retrive the information
@@ -44,7 +45,7 @@ class adminController extends Controller
         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
     public function logout(){ //to logout the farmers
-        
+        // User is authenticated
         if (Auth::guard('admin')->check()) {
             // User is authenticated
             Auth::logout();

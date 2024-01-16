@@ -26,27 +26,25 @@
           </button>
         </div>
       </nav>
-      <div class="contain-fluid ">
-        <div  class='container-fluid' style="margin: auto">
-            <div class="row" style="padding: 80px">
-                <div class="col-md-6" style=" padding-left:50px; padding-right:50px">
-                  <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" />
-                  <br />
-                  <br />
-                  <p class="lead text-center">
-                    <h5>
-                      <b>With FIRMS, we protect your crops as we protect your future.</b>
-                    </h5>
-                  </p>
-                </div>
-                <div class="col-md-6" style="padding-top: 50px;padding-left: 90px">
-                  <h4><b>Login to your Account</b> </h4>
-                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="#"> Admin</a>
-                    <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 60%" href="<?= url('firms/farmer/login'); ?>"> Farmer</a>
-                  </form>
-                </div>
-              </div>
-        </div>
-      </div>
+      <div  class='container-fluid' style="margin: auto">
+        <div class="row" style="padding: 5%">
+            <div class="col-md-6">
+              <img src="{{ asset('images/img_home.png') }}" class="img-fluid" alt="" style="width:100%" />
+              <br />
+              <br />
+              <p class="lead text-center">
+                <h5>
+                  <b>With FIRMS, we protect your crops as we protect your future.</b>
+                </h5>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p> <h5><b>Login to your Account</b> </h5></p>
+                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/admin/login'); ?>"> Admin</a>
+                <a class="btn btn-sm mt-4 btn-success" type="submit" style="width: 100%" href="<?= url('firms/farmer/'); ?>"> Farmer</a>
+              </form>
+            </div>
+          </div>
+    </div>
 </body>
 </html>

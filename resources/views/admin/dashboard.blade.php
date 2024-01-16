@@ -6,7 +6,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder"> <a href="{{route('insurance.pending')}}" style="text-decoration: none; color:white"> Pending Report</a> </p>
+                  <p class="card-title text-center fw-bolder"> <a href="{{route('admin.pending')}}" style="text-decoration: none; color:white"> Pending Report</a> </p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Pending')->get()->count()}}</p>
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('insurance.rejected')}}" style="text-decoration: none; color:white"> Rejected Report</a></p>
+                  <p class="card-title text-center fw-bolder"><a href="{{route('admin.rejected')}}" style="text-decoration: none; color:white"> Rejected Report</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Rejected')->orwhere('status', 'Partially Rejected')->get()->count()}}</p>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                    <p class="card-title text-center fw-bolder"><a href="{{route('insurance.approved')}}" style="text-decoration: none; color:white"> Approved Report</a></p>
+                    <p class="card-title text-center fw-bolder"><a href="{{route('admin.approved')}}" style="text-decoration: none; color:white"> Approved Report</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('insurances')->where('status', 'Approved')->get()->count()}}</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('damage.index')}}" style="text-decoration: none; color:white"> Notice of Loss</a></p>
+                  <p class="card-title text-center fw-bolder"><a href="{{route('admin.damage.index')}}" style="text-decoration: none; color:white"> Notice of Loss</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('damages')->get()->count()}}</p>
                 </div>
             </div>
@@ -38,22 +38,22 @@
         <div class="col-md-2">
             <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
                 <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('farm.index')}}" style="text-decoration: none; color:white"> Farm List</a></p>
-                  <p class="card-text fs-1 text-center fw-bolder">{{DB::table('farms')->get()->count()}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
-                <div class="card-body">
-                  <p class="card-title text-center fw-bolder"><a href="{{route('indemnity.index')}}" style="text-decoration: none; color:white"> Indemnity Claim</a></p>
+                  <p class="card-title text-center fw-bolder"><a href="{{route('admin.indemnity.index')}}" style="text-decoration: none; color:white"> Indemnity Claim</a></p>
                   <p class="card-text fs-1 text-center fw-bolder">{{DB::table('indemnities')->get()->count()}}</p>
                 </div>
             </div>
         </div>
+        <div class="col-md-2">
+          <div class="card text-white mb-3" style="background-color:#6CA26D; max-height: 125px">
+              <div class="card-body">
+                <p class="card-title text-center fw-bolder"><a href="<?= url('firms/farmer/register'); ?>" style="text-decoration: none; color:white"> Farmer</a></p>
+                <p class="card-text fs-1 text-center fw-bolder">{{DB::table('users')->get()->count()}}</p>
+              </div>
+          </div>
+      </div>
     </div>
     <br/>
-    <form action=""> 
+    <form action="{{ route('admin.insurance.find') }}" method="GET"> 
         <div class="row">
           <div class="col-md-6">
           <div class="form-group">
@@ -76,25 +76,27 @@
         </div>
       </form>
     <div class="row">
+      <h6> Insurance Report </h6>
         <div class="col-md-12">
             <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+             @if(isset($insurances))
               <table class="table table-bordered table-striped">
                 <thead>
-                    <tr>
-                        <th>Insurance ID</th>
-                        <th>Crops</th>
-                        <th>@sortablelink('insuranceType','Insurance Type')</th>
-                        <th>Farmers' ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Barangay</th>
-                        <th>City</th>
-                        <th>Expected Harvest Date</th>
-                        <th>Farm Location</th>
-                        <th>@sortablelink('created_at', 'Date Created')</th>
-                        <th>Status</th>
-                        <th>Notes</th>
-                        <th>View</th>
+                    <th>Insurance ID</th>
+                    <th>@sortablelink('cropName','Crops')</th>
+                    <th>@sortablelink('insuranceType','Insurance Type')</th>
+                    <th>@sortablelink('farmersID',"Farmer's ID")</th>
+                    <th>@sortablelink('firstName',"First Name")</th>
+                    <th>@sortablelink('lastName',"Last Name")</th>
+                    <th>@sortablelink('barangayAddress',"Barangay")</th>
+                    <th>@sortablelink('cityAddress',"City")</th>
+                    <th>@sortablelink('dateHarvest',"Date of Harvest")</th>
+                    <th>@sortablelink('barangayFarm',"Farm Location")</th>
+                    <th>@sortablelink('created_at', 'Date Created')</th>
+                    <th>@sortablelink('status',"Status")</th>
+                    <th>@sortablelink('statusNote',"Status Note")</th>
+                    <th>Edit</th>
+                    <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,15 +116,22 @@
                      <td>{{$insurance->created_at}}</td>
                      <td>{{$insurance->status}}</td>
                      <td>{{$insurance->statusNote}}</td>
-                     <td><a href="{{route('insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
+                     <td><a href="{{route('admin.insurance.edit', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> Edit</a></td>
+                     <td><a href="{{route('admin.insurance.view', ['insurance'=>$insurance->id])}}" style="width:100%; text-decoration:none;white-space: nowrap; "> View</a></td>
                     </tr>
                     @endforeach
                     @else
                      <tr><td>No result found!</td></tr>
                     @endif
                 </tbody>
-            </table>
+              </table>
+              <div class="pagination-block">
+                <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
+                {{  $insurances->appends(request()->input())->links('layouts.paginationlinks') }}
+              </div>
+             @endif
           </div>
         </div>
     </div>
+</div>
 @endsection

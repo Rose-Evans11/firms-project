@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -10,8 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\StoreFarmerRequest;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class farmerController extends Controller
 {
@@ -77,6 +78,8 @@ class farmerController extends Controller
     }
     public function editProfile(User $user){
         //$user =Auth::user();
+        $photo = File::allFiles(public_path('profile_image_location'));
+        $validIDPhoto = File::allFiles(public_path('valid_id_image_location'));
         return view('farmer/profile')->with('user', Auth::user());
         //return view('farmer/profile', ['user'=>$user]);
     }

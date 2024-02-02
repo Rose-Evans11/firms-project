@@ -104,8 +104,6 @@
                     -->
                       <div class="row">
                         <div class="form-group my-5 text-center">
-                          adding test
-                       <img id="img_id" alt="Your Image" style="width: 150px; height:auto" class="img-fluid" src>
                         </div>
                       </div>
                     </div>

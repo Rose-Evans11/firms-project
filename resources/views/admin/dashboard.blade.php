@@ -61,7 +61,7 @@
                 <div class="col-lg-2">
                   <label for="txt_RSBSA" class="control-label"> <h4> Search: </h4> </label>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-5">
                   <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
                   <span class="text-danger">@error('query'){{ $message }} @enderror</span>
                 </div>
@@ -74,24 +74,26 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="col-lg-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" style="width:100%">Excel</button>
+            <div class="row">
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success" style="width:100%">Excel</button>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" style="width:100%">Print</button>
+              <div class="col-lg-2">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success" style="width:100%">Print</button>
+                </div>
               </div>
             </div>
           </div>

@@ -82,17 +82,17 @@
               </div>
               <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
+                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">CSV</button>
                 </div>
               </div>
               <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
+                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">PDF</button>
                 </div>
               </div>
               <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">Print</button>
+                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">Print</button>
                 </div>
               </div>
             </div>

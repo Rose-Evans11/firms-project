@@ -55,7 +55,7 @@
     <br/>
     <form action="{{ route('admin.insurance.find') }}" method="GET"> 
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
           <div class="form-group">
             <div class="row">
               <div class="col-lg-2">
@@ -70,28 +70,30 @@
                   <button type="submit" class="btn btn-success" style="width:100%">Search</button>
                 </div>
               </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">Excel</button>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">Print</button>
-                </div>
-              </div>
             </div>
           </div>
+          </div>
+          <div class="row-md-6">
+            <div class="col-lg-2">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" style="width:100%">Excel</button>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" style="width:100%">Print</button>
+              </div>
+            </div>
           </div>
         </div>
       </form>

@@ -55,7 +55,7 @@
     <br/>
     <form action="{{ route('admin.insurance.find') }}" method="GET"> 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
           <div class="form-group">
             <div class="row">
               <div class="col-lg-2">

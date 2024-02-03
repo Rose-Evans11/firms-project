@@ -75,22 +75,22 @@
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-2 mt-1">
+              <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%">Excel</button>
+                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">Excel</button>
                 </div>
               </div>
-              <div class="col-lg-2 mt-1">
+              <div class="col-lg-2">
                 <div class="form-group">
                   <button type="submit" class="btn btn-success" style="width:100%">CSV</button>
                 </div>
               </div>
-              <div class="col-lg-2 mt-1">
+              <div class="col-lg-2">
                 <div class="form-group">
                   <button type="submit" class="btn btn-success" style="width:100%">PDF</button>
                 </div>
               </div>
-              <div class="col-lg-2 mt-1">
+              <div class="col-lg-2">
                 <div class="form-group">
                   <button type="submit" class="btn btn-success" style="width:100%">Print</button>
                 </div>

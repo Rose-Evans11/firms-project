@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
-use Barryvdh\DomPDF\Facade\PDF;
+//use Barryvdh\DomPDF\Facade\PDF;
 //use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\insurance;
 use Illuminate\Http\Request;
@@ -13,11 +13,12 @@ use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
+use PDF;
 
 class insuranceController extends Controller
 {
     use Sortable;
-    use PDF;
+
 
     public $sortable = [
         'insuranceType',

@@ -17,6 +17,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class insuranceController extends Controller
 {
     use Sortable;
+    use PDF;
 
     public $sortable = [
         'insuranceType',

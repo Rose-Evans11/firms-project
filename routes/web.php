@@ -296,4 +296,7 @@ Route::post('/register/admin', [adminController::class, 'store'])->name('admin.s
 Route::get('/admin/{admin}/edit', [adminController::class, 'edit'])->name('admin.edit');
 Route::put('/admin/{admin}/update', [adminController::class, 'update'])->name('admin.update');
 Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
+
+//generate pdf
+Route::get('/insurance/pdf', [insuranceController::class, 'createPDF'])->name(insurance.pdf);
 ?>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
-//use Barryvdh\DomPDF\PDF;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\PDF;
+//use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\insurance;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;

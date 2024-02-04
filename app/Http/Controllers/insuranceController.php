@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
-use Barryvdh\DomPDF\PDF;
+//use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\insurance;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -49,10 +50,10 @@ class insuranceController extends Controller
     }
     public function createPDF() {
         // retreive all records from db
-        $data = insurance::all();
+        $insurance = insurance::all();
         // share data to view
-        view()->share('insurances',$data);
-        $pdf = PDF::loadView('pdf_view', $data);
+        view()->share('insurances',$insurance);
+        $pdf = PDF::loadView('pdf_view', $insurance);
         // download PDF file with download method
         return $pdf->download('pdf_file.pdf');
       }

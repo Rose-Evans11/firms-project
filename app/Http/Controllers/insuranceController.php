@@ -57,8 +57,8 @@ class insuranceController extends Controller
         view()->share('insurances',$insurance);
         $pdf = PDF::loadView('pdf_view', $insurance);
         // download PDF file with download method
-        return $pdf->download('pdf_file.pdf');
-      }
+        return $pdf->stream('report.pdf', array('Attachment' => 0));
+    }
 
     public function edit(insurance $insurance){ //to edit and retrive the information for insurance
         $user = Auth::guard('web')->user();

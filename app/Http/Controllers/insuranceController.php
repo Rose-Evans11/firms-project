@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Twilio\Rest\Client;
+use Barryvdh\DomPDF\PDF;
 use App\Models\insurance;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class insuranceController extends Controller
 {

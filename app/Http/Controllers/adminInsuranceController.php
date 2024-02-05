@@ -35,8 +35,8 @@ class adminInsuranceController extends Controller
         // download PDF file with download method
        // return $pdf->stream('insurance.pdf', array('Attachment' => 0));
 
-       $insurance = insurance::all();
-       $pdf = PDF::loadView('pdf_insurance_view', compact('insurance'))->setPaper('a4', 'landscape');
+       $insurances = insurance::all();
+       $pdf = PDF::loadView('pdf_insurance_view', compact('insurances'))->setPaper('a4', 'landscape');
        
        return $pdf->download('insurance.pdf');
     }

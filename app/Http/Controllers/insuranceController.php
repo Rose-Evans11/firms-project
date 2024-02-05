@@ -59,7 +59,7 @@ class insuranceController extends Controller
         // download PDF file with download method
        // return $pdf->stream('insurance.pdf', array('Attachment' => 0));
 
-       $insurance = insurance::all()->first();
+       $insurance = insurance::all()->first()->id;
        $pdf = PDF::loadView('pdf_insurance_view', compact('insurance'));
        
        return $pdf->download('insurance.pdf');

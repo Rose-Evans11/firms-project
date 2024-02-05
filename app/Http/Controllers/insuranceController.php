@@ -60,7 +60,7 @@ class insuranceController extends Controller
        // return $pdf->stream('insurance.pdf', array('Attachment' => 0));
 
        $insurance = insurance::all();
-       $pdf = PDF::loadView('print_insurance_view', compact('insurance'));
+       $pdf = PDF::loadView('pdf_insurance_view', compact('insurance'));
        
        return $pdf->download('insurance.pdf');
     }

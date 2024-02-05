@@ -2,7 +2,7 @@
     <head></head>
     <body>
         <div class="row">
-            <h6> Insurance Report </h6>
+            <h4> Insurance Report </h4>
               <div class="col-md-12">
                   <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
                     <table class="table table-bordered table-striped">

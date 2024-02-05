@@ -22,21 +22,23 @@
                           <th>Status Note</th>
                       </thead>
                       <tbody>
-                          <tr>
-                           <td>{{$insurance->id}} </td>
-                           <td>{{$insurance->cropName}}</td>
-                           <td>{{$insurance->insuranceType}}</td>
-                           <td>{{$insurance->farmersID}}</td>
-                           <td>{{$insurance->firstName}}</td>
-                           <td>{{$insurance->lastName}}</td>
-                           <td>{{$insurance->barangayAddress}}</td>
-                           <td>{{$insurance->cityAddress}}</td>
-                           <td>{{$insurance->dateHarvest}}</td>
-                           <td>{{$insurance->barangayFarm}}</td>
-                           <td>{{$insurance->created_at}}</td>
-                           <td>{{$insurance->status}}</td>
-                           <td>{{$insurance->statusNote}}</td>
-                          </tr>
+                        @foreach ($insurances as $insurance)
+                        <tr>
+                         <td>{{$insurance->id}} </td>
+                         <td>{{$insurance->cropName}}</td>
+                         <td>{{$insurance->insuranceType}}</td>
+                         <td>{{$insurance->farmersID}}</td>
+                         <td>{{$insurance->firstName}}</td>
+                         <td>{{$insurance->lastName}}</td>
+                         <td>{{$insurance->barangayAddress}}</td>
+                         <td>{{$insurance->cityAddress}}</td>
+                         <td>{{$insurance->dateHarvest}}</td>
+                         <td>{{$insurance->barangayFarm}}</td>
+                         <td>{{$insurance->created_at}}</td>
+                         <td>{{$insurance->status}}</td>
+                         <td>{{$insurance->statusNote}}</td>
+                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                 </div>

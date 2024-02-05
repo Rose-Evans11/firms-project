@@ -298,5 +298,5 @@ Route::put('/admin/{admin}/update', [adminController::class, 'update'])->name('a
 Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 
 //generate pdf
-Route::get('/insurance/pdf/{id}', [insuranceController::class, 'createPDF'])->name('insurance.pdf');
+Route::get('/insurance/pdf/', [insuranceController::class, 'createPDF'])->name('insurance.pdf');
 ?>

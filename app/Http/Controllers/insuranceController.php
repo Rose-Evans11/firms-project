@@ -13,7 +13,6 @@ use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
-use PDF;
 
 class insuranceController extends Controller
 {

@@ -4,7 +4,7 @@
         <div class="row">
             <h4> Insurance Report </h4>
               <div class="col-md-12">
-                  <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+                  <div class="table-wrapper" style=" width:100%;">
                     <table class="table table-bordered table-striped">
                       <thead>
                           <th>Insurance ID</th>

@@ -11,6 +11,7 @@ use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Query\Builder;
+use PDF;
 
 class adminInsuranceController extends Controller
 {

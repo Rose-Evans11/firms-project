@@ -7,7 +7,6 @@
                   <div class="table-wrapper" style=" width:100%;">
                     <table class="table table-bordered table-striped">
                       <thead>
-                          <th>Insurance ID</th>
                           <th>Crops</th>
                           <th>Insurance Type</th>
                           <th>Farmer's ID</th>
@@ -23,7 +22,6 @@
                       </thead>
                       <tbody>
                           <tr>
-                           <td>{{$insurance->id}} </td>
                            <td>{{$insurance->cropName}}</td>
                            <td>{{$insurance->insuranceType}}</td>
                            <td>{{$insurance->farmersID}}</td>

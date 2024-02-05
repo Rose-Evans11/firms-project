@@ -50,20 +50,7 @@ class insuranceController extends Controller
          return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
        
     }
-    public function createPDF() {
-        // retreive all records from db
-        //$insurance = insurance::all();
-        // share data to view
-        //view()->share('insurances',$insurance);
-       // $pdf = PDF::loadView('print_insurance_view');
-        // download PDF file with download method
-       // return $pdf->stream('insurance.pdf', array('Attachment' => 0));
-
-       $insurance = insurance::all();
-       $pdf = PDF::loadView('pdf_insurance_view', compact('insurance'))->setPaper('a4', 'landscape');
-       
-       return $pdf->download('insurance.pdf');
-    }
+  
 
     public function edit(insurance $insurance){ //to edit and retrive the information for insurance
         $user = Auth::guard('web')->user();

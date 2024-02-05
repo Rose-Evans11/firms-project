@@ -54,10 +54,10 @@ class insuranceController extends Controller
         // retreive all records from db
         $insurance = insurance::all();
         // share data to view
-        view()->share('farmer/dashboard',$insurance);
-        $pdf = PDF::loadView('pdf_view');
+        view()->share('insurances',$insurance);
+        $pdf = PDF::loadView('print_insurance_view');
         // download PDF file with download method
-        return $pdf->stream('report.pdf', array('Attachment' => 0));
+        return $pdf->stream('insurance.pdf', array('Attachment' => 0));
     }
 
     public function edit(insurance $insurance){ //to edit and retrive the information for insurance

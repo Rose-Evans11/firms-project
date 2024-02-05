@@ -121,7 +121,6 @@
                     <th>@sortablelink('statusNote',"Status Note")</th>
                     <th>Edit</th>
                     <th>View</th>
-                    </tr>
                 </thead>
                 <tbody>
                     @if(count($insurances) > 0)

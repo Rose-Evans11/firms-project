@@ -5,17 +5,17 @@
       <table style="width:100%">
         <tr padding="0px">
           <td style="width:10%"></td>
-          <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:120px; height:auto;" /> </td>
+          <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:180px; height:auto;" /> </td>
           <td>
             <p>
-            Tanauan City Crofters><br />
+            City of Agriculturist<br />
             New City Hall Building, Laurel Hill, Natatas,<br />
             Tanauan City, Batangas<br />
             Region IV- A (CALABARZON)
            </p>
           </td>
           <td style="width:10%"></td>
-          <td><img src="{{ asset('images/firms.png') }}" style="width:100px; height:auto;"/></td>
+          <td><img src="{{ asset('images/firms.png') }}" style="width:180px; height:auto;"/></td>
         </tr>                  
       </table>
       </div>

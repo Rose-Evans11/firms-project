@@ -335,7 +335,7 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind() {
+    public function createPDFFind(Request $request, insurance $insurance) {
         // retreive all records from db
         //$insurance = insurance::all();
         // share data to view

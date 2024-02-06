@@ -1,5 +1,11 @@
 <html>
-    <head></head>
+    <head>
+      <style>
+        .pagenum:before {
+             content: counter(page);
+         }
+     </style>
+    </head>
     <body>
       <div class="row d-flex justify-content-center">
       <table style="width:100%">
@@ -61,6 +67,7 @@
                     </table>
                 </div>
               </div>
+              <span class="pagenum"></span>
           </div>
     </body>
 </html>

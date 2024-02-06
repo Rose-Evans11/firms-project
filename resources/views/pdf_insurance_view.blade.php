@@ -1,10 +1,26 @@
 <html>
     <head></head>
     <body>
+      <div class="row">
+      <table>
+        <tr padding="0px" text-alignment="center">
+          <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:120px; height:auto;" /> </td>
+          <td>
+            <p>
+            Tanauan City Crofters><br />
+            New City Hall Building, Laurel Hill, Natatas,<br />
+            Tanauan City, Batangas<br />
+            Region IV- A (CALABARZON)
+           </p>
+          </td>
+          <td><img src="{{ asset('images/firms.png') }}" style="width:100px; height:auto;"/></td>
+        </tr>                  
+      </table>
+      </div>
         <div class="row">
             <h4> Insurance Report </h4>
               <div class="col-md-12">
-                  <div class="table-wrapper" style=" width:100%; overflow-x:scroll">
+                  <div class="table-wrapper" style=" width:100%;">
                     <table class="table table-bordered table-striped">
                       <thead>
                           <th>Insurance ID</th>

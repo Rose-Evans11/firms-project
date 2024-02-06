@@ -8,12 +8,12 @@
           <td style="width:5%"></td>
           <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:180px; height:auto;" /> </td>
           <td>
-            <center ><p>
+            <p style="text-center">
             City of Agriculturist<br />
             New City Hall Building, Laurel Hill, Natatas,<br />
             Tanauan City, Batangas<br />
             Region IV- A (CALABARZON)
-           </p> </center>
+           </p>
           </td>
           <td style="width:5%"></td>
           <td><img src="{{ asset('images/firms.png') }}" style="width:180px; height:auto;"/></td>

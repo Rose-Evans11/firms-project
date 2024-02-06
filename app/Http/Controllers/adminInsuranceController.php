@@ -37,10 +37,13 @@ class adminInsuranceController extends Controller
 
        $insurances = insurance::all();
        $pdf = PDF::loadView('pdf_insurance_view', compact('insurances'))->setPaper('a4', 'landscape');
-       
+
        $pdf->render();
        $dompdf = $pdf->getDomPDF();
        $font = $dompdf->getFontMetrics()->get_font("helvetica", "bold");
+       // Add a footer with the current timestamp
+        $footer = "Generated on " . now()->format('Y-m-d H:i:s');
+        $pdf->setOptions(['isPhpEnabled' => true]);
        $dompdf->get_canvas()->page_text(34, 18, "{PAGE_NUM} / {PAGE_COUNT}", $font, 10, array(0, 0, 0));
        
        return $pdf->download('insurance.pdf');

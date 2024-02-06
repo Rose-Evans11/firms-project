@@ -335,17 +335,10 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind(Request $request, insurance $insurance) {
-        // retreive all records from db
-        //$insurance = insurance::all();
-        // share data to view
-        //view()->share('insurances',$insurance);
-       // $pdf = PDF::loadView('print_insurance_view');
-        // download PDF file with download method
-       // return $pdf->stream('insurance.pdf', array('Attachment' => 0));
-
+    public function createPDFFind(Request $request, insurance $insurances) {
+        
        $search_text = $request->input('query');
-       $insurance = insurance::where(function($query) use ($search_text) {
+       $insurances = insurance::where(function($query) use ($search_text) {
            $query->where('farmersID', 'like', '%' . $search_text . '%')
                  ->orWhere('firstName', 'like', '%' . $search_text . '%')
                  ->orWhere('lastName', 'like', '%' . $search_text . '%')

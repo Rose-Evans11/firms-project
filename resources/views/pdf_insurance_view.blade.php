@@ -5,7 +5,7 @@
       <div class="row d-flex justify-content-center">
       <table style="width:100%">
         <tr padding="0px">
-          <td style="width:10%"></td>
+          <td style="width:5%"></td>
           <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:180px; height:auto;" /> </td>
           <td>
             <p>
@@ -15,7 +15,7 @@
             Region IV- A (CALABARZON)
            </p>
           </td>
-          <td style="width:10%"></td>
+          <td style="width:5%"></td>
           <td><img src="{{ asset('images/firms.png') }}" style="width:180px; height:auto;"/></td>
         </tr>                  
       </table>

@@ -1,9 +1,9 @@
 <html>
     <head></head>
     <body>
-      <div class="row">
+      <div class="row d-flex justify-content-center"">
       <table>
-        <tr padding="0px" text-alignment="center">
+        <tr padding="0px">
           <td> <img src="{{ asset('images/img_tanauan.png') }}" style=" width:120px; height:auto;" /> </td>
           <td>
             <p>

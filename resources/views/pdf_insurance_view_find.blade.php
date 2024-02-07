@@ -1,7 +1,7 @@
 <html>
-  <head>
-  </head>
-  <body>
+    <head>
+    </head>
+    <body>
       <div class="row d-flex justify-content-center">
         <table style="width:100%">
         <tr padding="0px">
@@ -41,27 +41,31 @@
                   <th>Status Note</th>
               </thead>
               <tbody>
-                @foreach ($insurances as $insurance)
-                <tr>
-                 <td>{{$insurance->id}} </td>
-                 <td>{{$insurance->cropName}}</td>
-                 <td>{{$insurance->insuranceType}}</td>
-                 <td>{{$insurance->farmersID}}</td>
-                 <td>{{$insurance->firstName}}</td>
-                 <td>{{$insurance->lastName}}</td>
-                 <td>{{$insurance->barangayAddress}}</td>
-                 <td>{{$insurance->cityAddress}}</td>
-                 <td>{{$insurance->dateHarvest}}</td>
-                 <td>{{$insurance->barangayFarm}}</td>
-                 <td>{{$insurance->created_at}}</td>
-                 <td>{{$insurance->status}}</td>
-                 <td>{{$insurance->statusNote}}</td>
-                </tr>
-                @endforeach
+                @if(count($insurances) > 0)
+                    @foreach ($insurances as $insurance)
+                    <tr>
+                     <td>{{$insurance->id}} </td>
+                     <td>{{$insurance->cropName}}</td>
+                     <td>{{$insurance->insuranceType}}</td>
+                     <td>{{$insurance->farmersID}}</td>
+                     <td>{{$insurance->firstName}}</td>
+                     <td>{{$insurance->lastName}}</td>
+                     <td>{{$insurance->barangayAddress}}</td>
+                     <td>{{$insurance->cityAddress}}</td>
+                     <td>{{$insurance->dateHarvest}}</td>
+                     <td>{{$insurance->barangayFarm}}</td>
+                     <td>{{$insurance->created_at}}</td>
+                     <td>{{$insurance->status}}</td>
+                     <td>{{$insurance->statusNote}}</td>
+                    </tr>
+                    @endforeach
+                    @else
+                     <tr><td>No result found!</td></tr>
+                    @endif
               </tbody>
             </table>
         </div>
         </div>
       </div>
-  </body>
+        </body>
 </html>

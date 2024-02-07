@@ -337,7 +337,7 @@ class adminInsuranceController extends Controller
     }
     public function createPDFFind(insurance $insurances) {
          
-       $pdf = PDF::loadView('search_insurance', compact('insurances'))->setPaper('a4', 'landscape');
+       $pdf = PDF::loadView('admin/search_insurance', compact('insurances'))->setPaper('a4', 'landscape');
 
        $pdf->render();
        $dompdf = $pdf->getDomPDF();

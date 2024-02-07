@@ -339,7 +339,7 @@ class adminInsuranceController extends Controller
         
         $this->admin_insurance_find($search_text, $insurances);
       
-       $pdf = PDF::loadView('pdf_insurance_view', compact('insurances'))->setPaper('a4', 'landscape');
+       $pdf = PDF::loadView('search_insurance', compact('insurances'))->setPaper('a4', 'landscape');
 
        $pdf->render();
        $dompdf = $pdf->getDomPDF();

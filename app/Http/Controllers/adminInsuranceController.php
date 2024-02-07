@@ -335,9 +335,24 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind(insurance $insurances) {
-         
-       $pdf = PDF::loadView('admin/search_insurance', compact('insurances'))->setPaper('a4', 'landscape');
+    public function createPDFFind(Request $request) {
+        
+        
+       $search_text = $request->parameter;
+        $insurance = insurance::where(function($query) use ($search_text) {
+            $query->where('farmersID', 'like', '%' . $search_text . '%')
+                  ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                  ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                  ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                  ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                  ->orWhere('status', 'like', '%' . $search_text . '%')
+                  ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                  ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                  ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                  ->orWhere('created_at', 'like', '%' . $search_text . '%');
+        });
+
+        $pdf = PDF::loadView('pdf_insurance_view', compact('insurances'))->setPaper('a4', 'landscape');
 
        $pdf->render();
        $dompdf = $pdf->getDomPDF();

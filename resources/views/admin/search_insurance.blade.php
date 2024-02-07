@@ -92,7 +92,7 @@
             </div>
             <div class="col-lg-2">
               <div class="form-group">
-                <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{route('insurance.find.pdf', ['insurance'=>$query])}}">PDF</a>
+                <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{route('insurance.find.pdf')}}">PDF</a>
               </div>
             </div>
             <div class="col-lg-2">

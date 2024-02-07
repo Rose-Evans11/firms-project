@@ -335,10 +335,8 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind(Request $request, insurance $insurances) {
-        
-        $this->admin_insurance_find($search_text, $insurances);
-      
+    public function createPDFFind(insurance $insurances) {
+         
        $pdf = PDF::loadView('search_insurance', compact('insurances'))->setPaper('a4', 'landscape');
 
        $pdf->render();

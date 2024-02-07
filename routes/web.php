@@ -299,5 +299,5 @@ Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 
 //generate pdf
 Route::get('/insurance/pdf/', [adminInsuranceController::class, 'createPDF'])->name('insurance.pdf');
-Route::get('/insurance/find/pdf/{query}', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
+Route::get('/insurance/find/pdf/', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
 ?>

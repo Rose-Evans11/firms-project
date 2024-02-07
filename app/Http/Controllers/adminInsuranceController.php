@@ -335,10 +335,10 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind(Request $request) {
+    public function createPDFFind($query) {
         
         
-        $user = User::find($query);
+        $search_text = insurance::find($query);
         $insurances = insurance::where(function($query) use ($search_text) {
             $query->where('farmersID', 'like', '%' . $search_text . '%')
                   ->orWhere('firstName', 'like', '%' . $search_text . '%')

@@ -339,8 +339,8 @@ class adminInsuranceController extends Controller
       
         if (Auth::guard('admin')->check())
         {
-            $search_text = Request::input('query');
-           // $search_text = $request->input('query');
+           // $search_text = Request::input('query');
+            $search_text = $this->request->input('query');
             $insurance = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
                       ->orWhere('firstName', 'like', '%' . $search_text . '%')

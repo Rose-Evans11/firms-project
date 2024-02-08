@@ -15,6 +15,13 @@ use PDF;
 
 class adminInsuranceController extends Controller
 {
+    protected $request;
+
+    public function __construct(Request $request) {
+        $this->request = $request;
+    }
+
+    
     public function index(){
         if (Auth::guard('admin')->check())
         {

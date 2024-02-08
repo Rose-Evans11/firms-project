@@ -41,7 +41,6 @@
                   <th>Status Note</th>
               </thead>
               <tbody>
-                @if(count($insurances) > 0)
                     @foreach ($insurances as $insurance)
                     <tr>
                      <td>{{$insurance->id}} </td>
@@ -59,9 +58,6 @@
                      <td>{{$insurance->statusNote}}</td>
                     </tr>
                     @endforeach
-                    @else
-                     <tr><td>No result found!</td></tr>
-                    @endif
               </tbody>
             </table>
         </div>

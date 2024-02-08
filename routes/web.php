@@ -190,6 +190,10 @@ Route::put('/update/{admin}/profile', [adminController::class, 'updateProfile'])
 Route::get('/change/password', [farmerController::class, 'changePassword'])->name('farmer.changePassword');
 Route::post('/update/password', [farmerController::class, 'changePasswordSave'])->name('farmer.updatePassword');
 
+//for changing password admin side
+Route::get('/change/password', [adminController::class, 'changePassword'])->name('admin.changePassword');
+Route::post('/update/password', [adminController::class, 'changePasswordSave'])->name('admin.updatePassword');
+
 //search function
 Route::get('farmer/find',[farmerController::class, 'find'])->name('farmer.find');
 Route::get('insurance/find',[insuranceController::class, 'find'])->name('insurance.find');

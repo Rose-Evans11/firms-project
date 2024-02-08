@@ -362,7 +362,7 @@ class adminInsuranceController extends Controller
             });
 
 
-            $pdf = PDF::loadView('pdf_insurance_view_find')->setPaper('a4', 'landscape');
+            $pdf = PDF::loadView('pdf_insurance_view_find', compact('insurances'))->setPaper('a4', 'landscape');
 
             $pdf->render();
             $dompdf = $pdf->getDomPDF();

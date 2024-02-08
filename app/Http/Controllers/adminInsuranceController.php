@@ -348,7 +348,6 @@ class adminInsuranceController extends Controller
         {
            // $search_text = Request::input('query');
             $search_text = $this->request->input('query');
-            dd($search_text);
             $insurances = insurance::where(function($query) use ($search_text) {
                 $query->where('farmersID', 'like', '%' . $search_text . '%')
                       ->orWhere('firstName', 'like', '%' . $search_text . '%')
@@ -360,7 +359,7 @@ class adminInsuranceController extends Controller
                       ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
                       ->orWhere('created_at', 'like', '%' . $search_text . '%');
-            });
+            })->get();
 
 
             $pdf = PDF::loadView('pdf_insurance_view_find', compact('insurances'))->setPaper('a4', 'landscape');

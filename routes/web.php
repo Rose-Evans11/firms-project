@@ -295,7 +295,7 @@ Route::post('admin/logout', [adminController::class, 'logout'])->name('admin.log
 Route::get('firms/admin/dashboard', [adminInsuranceController::class, 'index'])->name('dashboard.admin.index'); 
 //admin index for 
 
-//adding new farmer
+//adding new admin
 Route::post('/register/admin', [adminController::class, 'store'])->name('admin.store');
 Route::get('/admin/{admin}/edit', [adminController::class, 'edit'])->name('admin.edit');
 Route::put('/admin/{admin}/update', [adminController::class, 'update'])->name('admin.update');

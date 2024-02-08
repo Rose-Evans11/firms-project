@@ -100,10 +100,10 @@ class adminController extends Controller
     }
     public function editProfile(admin $admin){
         //$user =Auth::user();
-        return view('farmer/profile')->with('admins', Auth::guards('admin'));
+        return view('admin/profile')->with('admins', Auth::guards('admin'));
         //return view('farmer/profile', ['user'=>$user]);
     }
-    public function update(admin $admin, Request $request){//to update farmer's information in admin side in registration page
+    public function update(admin $admin, Request $request){//to update admin's information in admin side in registration page
         $incomingFields = $request ->validate ([
             'firstName' => 'required',
             'middleName'=> 'nullable',

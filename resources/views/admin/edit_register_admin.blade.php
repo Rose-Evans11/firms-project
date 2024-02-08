@@ -61,7 +61,7 @@
             <div class="form-group">
               <label for="txt_lname" class="col-lg-6 control-label">Last Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_lname" value="{{$admin->firstName}}" placeholder="Last Name" name="lastName" @required(true)>
+                <input type="text" class="form-control" id="txt_lname" value="{{$admin->lastName}}" placeholder="Last Name" name="lastName" @required(true)>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@
             <div class="form-group">
               <label for="txt_ext" class="col-lg-6 control-label">Extension Name: </label>
               <div class="col-lg-12">
-                <input type="text" class="form-control" id="txt_ext" value="{{$admin->extension}}" placeholder="Extension Name" name="extensionName">
+                <input type="text" class="form-control" id="txt_ext" value="{{$admin->extensionName}}" placeholder="Extension Name" name="extensionName">
               </div>
             </div>
           </div>

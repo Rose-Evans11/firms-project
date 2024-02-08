@@ -37,12 +37,7 @@ class adminController extends Controller
         return redirect()->back()->withErrors(['email' => 'Invalid Login Credentials!']);         
     }
     public function edit(admin $admin){ //to edit and retrive the information
-        $admin = Auth::guard('admin')->user();
-        if($admin)  
-        {
             return view('admin/edit_register_admin', ['admin'=>$admin]);
-        }
-        return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
     }
     public function logout(){ //to logout the farmers
         // User is authenticated

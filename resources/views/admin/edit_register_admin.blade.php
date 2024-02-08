@@ -37,7 +37,7 @@
    <fieldset>
     <div class="m-3" id="panelfarmList">
       <div id="farmDeetInfo">
-        <legend> <strong>Add New Admin</strong> </legend>
+        <legend> <strong>Edit Admin</strong> </legend>
         <br/>
         <div class="row">
           <div class="col-md-3">

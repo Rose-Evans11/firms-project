@@ -335,16 +335,41 @@ class adminInsuranceController extends Controller
           'query'=>'min:2'
        ]);
     }
-    public function createPDFFind() {
+    public function createPDFFind(Request $request) {
       
-        $pdf = PDF::loadView('pdf_insurance_view_find')->setPaper('a4', 'landscape');
+        if (Auth::guard('admin')->check())
+        {
+            $search_text = Request::input('query');
+           // $search_text = $request->input('query');
+            $insurance = insurance::where(function($query) use ($search_text) {
+                $query->where('farmersID', 'like', '%' . $search_text . '%')
+                      ->orWhere('firstName', 'like', '%' . $search_text . '%')
+                      ->orWhere('lastName', 'like', '%' . $search_text . '%')
+                      ->orWhere('cropName', 'like', '%' . $search_text . '%')
+                      ->orWhere('insuranceType', 'like', '%' . $search_text . '%')
+                      ->orWhere('status', 'like', '%' . $search_text . '%')
+                      ->orWhere('rsbsa', 'like', '%' . $search_text . '%')
+                      ->orWhere('cicNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('cocNumber', 'like', '%' . $search_text . '%')
+                      ->orWhere('created_at', 'like', '%' . $search_text . '%');
+            });
 
-       $pdf->render();
-       $dompdf = $pdf->getDomPDF();
-       $font = $dompdf->getFontMetrics()->get_font("helvetica", "bold");
-       $dompdf->get_canvas()->page_text(34, 18, "{PAGE_NUM} / {PAGE_COUNT}", $font, 10, array(0, 0, 0));
-       
-       return $pdf->download('insurance.pdf');
+
+            $pdf = PDF::loadView('pdf_insurance_view_find')->setPaper('a4', 'landscape');
+
+            $pdf->render();
+            $dompdf = $pdf->getDomPDF();
+            $font = $dompdf->getFontMetrics()->get_font("helvetica", "bold");
+            $dompdf->get_canvas()->page_text(34, 18, "{PAGE_NUM} / {PAGE_COUNT}", $font, 10, array(0, 0, 0));
+            
+            return $pdf->download('insurance.pdf');
+
+        }
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
+        $request->validate([
+          'query'=>'min:2'
+       ]);
+        
     }
     public function admin_insurance_pending_find(Request $request, insurance $insurance){ //to search and find
 

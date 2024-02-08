@@ -146,7 +146,7 @@ Route::get('firms/farmer-indemnity', function () { //for indemnity
 });
 
  //admin change password
-Route::get('firms/admin/change_password', function () {
+Route::get('firms/admin/change-password', function () {
     $user = Auth::guard('admin')->user();
     if($user)    
     {

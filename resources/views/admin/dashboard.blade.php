@@ -77,12 +77,12 @@
             <div class="row">
               <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/insurance/excel/') }}">Excel</button>
+                  <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/insurance/excel/') }}">Excel</a>
                 </div>
               </div>
               <div class="col-lg-2">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">CSV</button>
+                  <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px">CSV</a>
                 </div>
               </div>
               <div class="col-lg-2">

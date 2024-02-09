@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use App\Models\insurance;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
 class generateAdminReportController extends Controller
 {
@@ -85,5 +85,85 @@ class generateAdminReportController extends Controller
         header('Cache-Control: max-age=0');
         $writer->save('php://output');
         exit;
+    }
+
+    //exporting csv
+
+    public function exportCsv(){
+        // Fetch insurance data from the database
+        $insurances = Insurance::all();
+
+        // Check if any insurances are found
+        if ($insurances->isEmpty()) {
+            return abort(404, 'No insurance data found');
+        }
+
+        // Create a new Spreadsheet object
+        $spreadsheet = new Spreadsheet();
+
+        // Set the active worksheet
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        // Set the header row
+        $worksheet->setCellValue('A1', 'Insurance ID');
+        $worksheet->setCellValue('B1', 'Crops');
+        $worksheet->setCellValue('C1', 'Insurance Type');
+        $worksheet->setCellValue('D1', 'Farmer\'s ID');
+        $worksheet->setCellValue('E1', 'First Name');
+        $worksheet->setCellValue('F1', 'Last Name');
+        $worksheet->setCellValue('G1', 'Barangay');
+        $worksheet->setCellValue('H1', 'City');
+        $worksheet->setCellValue('I1', 'Date of Harvest');
+        $worksheet->setCellValue('J1', 'Farm Location');
+        $worksheet->setCellValue('K1', 'Date Created');
+        $worksheet->setCellValue('L1', 'Status');
+        $worksheet->setCellValue('M1', 'Status Note');
+
+        // Set data starting from row 2
+        $row = 2;
+        foreach ($insurances as $insurance) {
+            $worksheet->setCellValue('A' . $row, $insurance->id);
+            $worksheet->setCellValue('B' . $row, $insurance->crops);
+            $worksheet->setCellValue('C' . $row, $insurance->insurance_type);
+            $worksheet->setCellValue('D' . $row, $insurance->farmer_id);
+            $worksheet->setCellValue('E' . $row, $insurance->farmer->first_name); // Assuming a 'farmer' relationship
+            $worksheet->setCellValue('F' . $row, $insurance->farmer->last_name);
+            $worksheet->setCellValue('G' . $row, $insurance->farmer->barangay);
+            $worksheet->setCellValue('H' . $row, $insurance->farmer->city);
+            $worksheet->setCellValue('I' . $row, $insurance->date_of_harvest);
+            $worksheet->setCellValue('J' . $row, $insurance->farm_location);
+            $worksheet->setCellValue('K' . $row, $insurance->created_at->format('Y-m-d'));
+            $worksheet->setCellValue('L' . $row, $insurance->status);
+            $worksheet->setCellValue('M' . $row, $insurance->status_note);
+            $row++;
+        }
+
+        // Create the writer object
+        $writer = new Csv($spreadsheet);
+
+        // Set the filename for the exported file
+        $filename = 'insurance_export.csv';
+
+        // Output the file to the browser
+        header('Content-Type: application/csv');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit;
+    }
+}
+
+class MyExport implements FromCollection
+{
+    private $data;
+
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    public function collection()
+    {
+        return collect($this->data);
     }
 }

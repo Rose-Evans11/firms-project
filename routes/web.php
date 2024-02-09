@@ -307,8 +307,9 @@ Route::get('/insurance/pdf/', [adminInsuranceController::class, 'createPDF'])->n
 Route::get('/insurance/find/pdf/', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
 
 //generate excel
-Route::get('/insurance/excel/', [generateAdminReportController::class, 'createExcel'])->name('excel.pdf');
+Route::get('/insurance/excel/', [generateAdminReportController::class, 'createExcel'])->name('insurance.excel');
 
-
+//generate csv
+Route::get('/insurance/csv/', [generateAdminReportController::class, 'exportCsv'])->name('insurance.csv');
 
 ?>

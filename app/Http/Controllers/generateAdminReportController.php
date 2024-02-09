@@ -132,7 +132,7 @@ class generateAdminReportController extends Controller
             $worksheet->setCellValue('H' . $row, $insurance->cityAddress);
             $worksheet->setCellValue('I' . $row, $insurance->dateHarvest);
             $worksheet->setCellValue('J' . $row, $insurance->barangayFarm);
-            $worksheet->setCellValue('K' . $row, $insurance->created_at->format('Y-m-d'));
+            $worksheet->setCellValue('K' . $row, $insurance->created_at);
             $worksheet->setCellValue('L' . $row, $insurance->status);
             $worksheet->setCellValue('M' . $row, $insurance->statusNote);
             $row++;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use App\Models\insurance;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class generateAdminReportController extends Controller

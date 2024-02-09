@@ -122,19 +122,19 @@ class generateAdminReportController extends Controller
         // Set data starting from row 2
         $row = 2;
         foreach ($insurances as $insurance) {
-            $worksheet->setCellValue('A' . $row, $insurance->id);
-            $worksheet->setCellValue('B' . $row, $insurance->crops);
-            $worksheet->setCellValue('C' . $row, $insurance->insurance_type);
-            $worksheet->setCellValue('D' . $row, $insurance->farmer_id);
-            $worksheet->setCellValue('E' . $row, $insurance->farmer->first_name); // Assuming a 'farmer' relationship
-            $worksheet->setCellValue('F' . $row, $insurance->farmer->last_name);
-            $worksheet->setCellValue('G' . $row, $insurance->farmer->barangay);
-            $worksheet->setCellValue('H' . $row, $insurance->farmer->city);
-            $worksheet->setCellValue('I' . $row, $insurance->date_of_harvest);
-            $worksheet->setCellValue('J' . $row, $insurance->farm_location);
+              $worksheet->setCellValue('A' . $row, $insurance->id);
+            $worksheet->setCellValue('B' . $row, $insurance->cropName);
+            $worksheet->setCellValue('C' . $row, $insurance->insuranceType);
+            $worksheet->setCellValue('D' . $row, $insurance->farmersID);
+            $worksheet->setCellValue('E' . $row, $insurance->firstName);
+            $worksheet->setCellValue('F' . $row, $insurance->lastName);
+            $worksheet->setCellValue('G' . $row, $insurance->barangayAddress);
+            $worksheet->setCellValue('H' . $row, $insurance->cityAddress);
+            $worksheet->setCellValue('I' . $row, $insurance->dateHarvest);
+            $worksheet->setCellValue('J' . $row, $insurance->barangayFarm);
             $worksheet->setCellValue('K' . $row, $insurance->created_at->format('Y-m-d'));
             $worksheet->setCellValue('L' . $row, $insurance->status);
-            $worksheet->setCellValue('M' . $row, $insurance->status_note);
+            $worksheet->setCellValue('M' . $row, $insurance->statusNote);
             $row++;
         }
 

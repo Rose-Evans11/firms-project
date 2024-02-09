@@ -13,6 +13,7 @@ use App\Http\Controllers\adminDamageController;
 use App\Http\Controllers\adminIndemnityController;
 use App\Http\Controllers\adminInsuranceController;
 use App\Http\Controllers\forgotPasswordController;
+use App\Http\Controllers\generateAdminReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -304,4 +305,10 @@ Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 //generate pdf
 Route::get('/insurance/pdf/', [adminInsuranceController::class, 'createPDF'])->name('insurance.pdf');
 Route::get('/insurance/find/pdf/', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
+
+//generate excel
+Route::get('/insurance/excel/', [generateAdminReportController::class, 'createExcel'])->name('excel.pdf');
+
+
+
 ?>

@@ -95,11 +95,7 @@
                 <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{URL::to('/insurance/find/pdf/')}}">PDF</a>
               </div>
             </div>
-            <div class="col-lg-2">
-              <div class="form-group">
-                <button type="submit" class="btn btn-success" style="width:100%; margin-top:5px">Print</button>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>

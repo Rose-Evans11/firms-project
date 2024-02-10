@@ -33,7 +33,7 @@
     @endif
 <div class='container-fluid' style="margin: auto">
   <div class="row">
-    <div class="col-lg-2 m-3">
+    <div class="col-lg-2">
       <div class="col-lg-12">
         <a href="{{route('admin.approved')}}" style="text-decoration: none; color:white" class="btn btn-success">Add Notice of Loss</a>
       </div>

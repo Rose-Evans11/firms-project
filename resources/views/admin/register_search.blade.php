@@ -38,9 +38,9 @@
       </div>
       <div class="col-md-6">
         <div class="row">
-          <div class="col-lg-2">
+          <div class="col-lg-4">
             <div class="form-group">
-              <a href="<?= url('firms/farmer/register'); ?>" style="width:100%">View All</a>
+              <a href="<?= url('firms/farmer/register'); ?>" style="width:100%" class="btn btn-success">View All</a>
             </div>
           </div>
           <div class="col-lg-2">

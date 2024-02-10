@@ -77,7 +77,7 @@
           <div class="row">
             <div class="col-lg-4">
               <div class="form-group">
-                <a href="<?= url('firms/admin/dashboard'); ?>" style="width:100%; text-decoration:none;" class="btn btn-success">View All</a>
+                <a href="<?= url('firms/admin/dashboard'); ?>" style="width:100%; text-decoration:none;  margin-top:5px" class="btn btn-success">View All</a>
               </div>
             </div>
             <div class="col-lg-2">

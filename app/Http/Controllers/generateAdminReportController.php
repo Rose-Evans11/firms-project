@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\insurance;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class generateAdminReportController extends Controller

@@ -21,14 +21,14 @@
       <div class="col-md-6">
         <div class="form-group">
           <div class="row">
-            <div class="col-lg-2 mt-1">
+            <div class="col-lg-2">
               <label for="txt_RSBSA" class="control-label"> <h4> Search: </h4> </label>
             </div>
-            <div class="col-lg-5 mt-1">
+            <div class="col-lg-5">
               <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
               <span class="text-danger">@error('query'){{ $message }} @enderror</span>
             </div>
-            <div class="col-lg-2 mt-1">
+            <div class="col-lg-3">
               <div class="form-group">
                 <button type="submit" class="btn btn-success" style="width:100%">Search</button>
               </div>
@@ -38,6 +38,11 @@
       </div>
       <div class="col-md-6">
         <div class="row">
+          <div class="col-lg-2">
+            <div class="form-group">
+              <a href="<?= url('firms/farmer/register'); ?>" style="width:100%">View All</a>
+            </div>
+          </div>
           <div class="col-lg-2">
             <div class="form-group">
               <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/excel/') }}">Excel</a>

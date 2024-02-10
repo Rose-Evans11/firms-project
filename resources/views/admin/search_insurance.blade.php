@@ -65,7 +65,7 @@
                 <input type="text" class="form-control" placeholder="Search here....." name="query" value="{{ request()->input('query') }}" minlength="2" style="width:100%">
                 <span class="text-danger">@error('query'){{ $message }} @enderror</span>
               </div>
-              <div class="col-lg-5">
+              <div class="col-lg-3">
                 <div class="form-group">
                   <button type="submit" class="btn btn-success" style="width:100%">Search</button>
                 </div>

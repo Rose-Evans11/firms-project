@@ -16,7 +16,7 @@
      {{Session::get('success')}}
     </div> 
   @endif
-  <form action="{{ route('web.find') }}" method="GET"> 
+  <form action="{{ route('farmer.find') }}" method="GET"> 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">

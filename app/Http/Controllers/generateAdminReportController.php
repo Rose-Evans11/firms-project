@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PDF;
+
 
 class generateAdminReportController extends Controller
 {

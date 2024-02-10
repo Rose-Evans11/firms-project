@@ -38,6 +38,21 @@
         <a href="{{route('admin.approved')}}" style="text-decoration: none; color:white" class="btn btn-success">Add Notice of Loss</a>
       </div>
     </div>
+    <div class="col-lg-2">
+      <div class="form-group">
+        <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/notice-of-loss/excel/') }}">Excel</a>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="form-group">
+        <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/notice-of-loss/csv/') }}">CSV</a>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="form-group">
+        <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/notice-of-loss/pdf/') }}">PDF</a>
+      </div>
+    </div>
   </div>
     <div class="row">
         <div class="col-lg-12">
@@ -48,6 +63,7 @@
                   <tr>
                     <th>Notice of Loss ID</th>
                     <th>@sortablelink('farmersID',"Farmer's ID")</th>
+                    <th>@sortablelink('rsbsa','RSBSA')</th>
                     <th>@sortablelink('firstName','First Name')</th>
                     <th>@sortablelink('lastName','Last Name')</th>
                     <th>@sortablelink('barangayAddress','Barangay')</th>
@@ -76,6 +92,7 @@
                 <tr>
                  <td>{{$damage->id}} </td>
                  <td>{{$damage->farmersID}} </td>
+                 <td>{{$damage->rsbsa}} </td>
                  <td>{{$damage->firstName}} </td>
                  <td>{{$damage->LastName}} </td>
                  <td>{{$damage->barangayAddress}} </td>

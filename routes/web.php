@@ -305,14 +305,17 @@ Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 //generate pdf
 Route::get('/insurance/pdf/', [adminInsuranceController::class, 'createPDF'])->name('insurance.pdf');
 Route::get('/user/pdf/', [adminInsuranceController::class, 'createPDFUser'])->name('user.pdf');
+Route::get('/notice-of-loss/pdf/', [adminInsuranceController::class, 'createPDFDamage'])->name('notice_of_loss.pdf');
 Route::get('/insurance/find/pdf/', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
 
 //generate excel
 Route::get('/insurance/excel/', [generateAdminReportController::class, 'createExcel'])->name('user.excel');
 Route::get('/user/excel/', [generateAdminReportController::class, 'createExcelUser'])->name('insurance.excel');
+Route::get('/notice-of-loss/excel/', [generateAdminReportController::class, 'createExcelDamage'])->name('notice_of_loss.excel');
 
 //generate csv
 Route::get('/insurance/csv/', [generateAdminReportController::class, 'exportCsv'])->name('insurance.csv');
 Route::get('/user/csv/', [generateAdminReportController::class, 'exportCsvUser'])->name('user.csv');
+Route::get('/notice-of-loss/csv/', [generateAdminReportController::class, 'exportCsvDamage'])->name('notice_of_loss.csv');
 
 ?>

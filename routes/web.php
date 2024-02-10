@@ -304,8 +304,8 @@ Route::get('admin/find',[adminController::class, 'find'])->name('admin.find');
 
 //generate pdf
 Route::get('/insurance/pdf/', [adminInsuranceController::class, 'createPDF'])->name('insurance.pdf');
-Route::get('/user/pdf/', [adminInsuranceController::class, 'createPDFUser'])->name('user.pdf');
-Route::get('/notice-of-loss/pdf/', [adminInsuranceController::class, 'createPDFDamage'])->name('notice_of_loss.pdf');
+Route::get('/user/pdf/', [generateAdminReportController::class, 'createPDFUser'])->name('user.pdf');
+Route::get('/notice-of-loss/pdf/', [generateAdminReportController::class, 'createPDFDamage'])->name('notice_of_loss.pdf');
 Route::get('/insurance/find/pdf/', [adminInsuranceController::class, 'createPDFFind'])->name('insurance.find.pdf');
 
 //generate excel

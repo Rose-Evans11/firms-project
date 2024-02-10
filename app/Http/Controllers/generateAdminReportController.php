@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use App\Models\User;
 use App\Models\insurance;
+use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class generateAdminReportController extends Controller
 {
@@ -235,7 +236,7 @@ class generateAdminReportController extends Controller
     //exporting csv
     public function exportCsvUser(){
         // Fetch insurance data from the database
-        $users = Insurance::all();
+        $users = User::all();
 
         // Check if any insurances are found
         if ($users->isEmpty()) {

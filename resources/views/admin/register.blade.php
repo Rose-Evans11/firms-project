@@ -47,27 +47,28 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/excel/') }}">Excel</a>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/csv/') }}">CSV</a>
-                </div>
-              </div>
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/pdf/') }}">PDF</a>
-                </div>
-              </div>
+
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="form-group">
+              <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/excel/') }}">Excel</a>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/csv/') }}">CSV</a>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <a type="submit" class="btn btn-success" style="width:100%; margin-top:5px" href="{{ URL::to('/user/pdf/') }}">PDF</a>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </form>

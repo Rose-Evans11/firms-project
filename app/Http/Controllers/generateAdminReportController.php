@@ -289,7 +289,7 @@ class generateAdminReportController extends Controller
 //generate report for user
     public function createPDFDamage() {
        $damages = damage::all();
-       $pdf = PDF::loadView('pdf_user_view', compact('damages'))->setPaper('a4', 'landscape');
+       $pdf = PDF::loadView('pdf_damage_view', compact('damages'))->setPaper('a4', 'landscape');
 
        $pdf->render();
        $dompdf = $pdf->getDomPDF();

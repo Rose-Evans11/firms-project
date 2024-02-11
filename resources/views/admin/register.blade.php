@@ -99,16 +99,8 @@
                             <td>{{$user->middleName}}</td>
                             <td>{{$user->lastName}}</td>
                             <td>{{$user->extensionName}}</td>
-                            <td>
-                              @if ($validIdImageUrl)
-                                <img src="{{ $validIdImageUrl }}" alt="Valid ID Image">
-                              @endif 
-                            </td>
-                            <td>                              
-                              @if ($profileImageUrl)
-                                <img src="{{ $profileImageUrl }}" alt="Profile Image">
-                              @endif
-                            </td>
+                            <td><img src="{{ $user->photo }}" alt="Valid ID Image"> </td>
+                            <td> <img src="{{ $user->validIDPhoto }}" alt="Profile Image"></td>
                             <td>{{$user->isActive}}</td>
                             <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
                         </tr>

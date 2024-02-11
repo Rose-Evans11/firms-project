@@ -46,9 +46,9 @@
                     <tr>
                       <td>{{$damage->id}} </td>
                       <td>{{$damage->farmersID}} </td>
-                      <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}} {{$damage->extensionName}}</td>
+                      <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}}</td>
                       <td>{{$damage->barangayAddress}} </td>
-                      <td>{{$damage->cropInsuranceID}}} </td>
+                      <td>{{$damage->cropInsuranceID}} </td>
                       <td>{{$damage->cropName}}</td>
                       <td>{{$damage->insuranceType}}</td>
                       <td>{{$damage->areaInsured}}</td>

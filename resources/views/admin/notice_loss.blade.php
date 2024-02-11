@@ -35,7 +35,7 @@
   <div class="row">
     <div class="col-lg-2">
       <div class="col-lg-12">
-        <a href="{{route('admin.approved')}}" style="text-decoration: none; color:white" class="btn btn-success">Add Notice of Loss</a>
+        <a href="{{route('admin.approved')}}" style="text-decoration: none; color:white;margin-top:5px" class="btn btn-success">Add Notice of Loss</a>
       </div>
     </div>
     <div class="col-lg-2">

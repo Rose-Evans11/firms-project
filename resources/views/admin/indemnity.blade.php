@@ -54,6 +54,7 @@
       </div>
     </div>
   </div>
+  <br/>
     <div class="row">
       <div class="col-lg-12">
         <div class="table-wrapper" style=" width:100%; overflow-x:scroll">  

@@ -51,10 +51,10 @@ class farmerController extends Controller
 
 
     // Retrieve and display images in Blade view
-    $validIdImageUrl = asset('valid_id_image_location/' . $imageValidID);
-    $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
+    //$validIdImageUrl = asset('valid_id_image_location/' . $imageValidID);
+   // $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
 
-        return redirect('firms/farmer/register', compact('validIdImageUrl','profileImageUrl')); //going to the same page
+        return redirect('firms/farmer/register'); //going to the same page
     }
    
     public function login(Request $request){  //to login the farmers

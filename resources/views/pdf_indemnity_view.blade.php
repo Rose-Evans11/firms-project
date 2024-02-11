@@ -34,7 +34,6 @@
                 <th>Insurance ID</th>
                 <th>Crops</th>
                 <th>Insurance Type</th>
-                <th>Area Insured</th>
                 <th>CIC Number</th>
                 <th>Damage Cause</th>
                 <th>Date of Loss</th>
@@ -56,7 +55,6 @@
                       <td>{{$indemnity->cropInsuranceID}} </td>
                       <td>{{$indemnity->cropName}}</td>
                       <td>{{$indemnity->insuranceType}}</td>
-                      <td>{{$indemnity->areaInsured}}</td>
                       <td>{{$indemnity->cicNumber}}</td>
                       <td>{{$indemnity->damageCause}} </td>
                       <td>{{$indemnity->dateLoss}}</td>

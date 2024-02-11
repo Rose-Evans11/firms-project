@@ -480,7 +480,7 @@ class generateAdminReportController extends Controller
     //generate report for indemnity
     public function createPDFIndemnity() {
         $indemnities = indemnity::all();
-        $pdf = PDF::loadView('pdf_indemnity_view', compact('indemnities'))->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('pdf_indemnity_view', compact('indemnities'))->setPaper('8.5x14', 'landscape');
  
         $pdf->render();
         $dompdf = $pdf->getDomPDF();

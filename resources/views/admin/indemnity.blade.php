@@ -33,9 +33,9 @@
      @endif
 <div class='container-fluid' style="margin: auto">
   <div class="row">
-    <div class="col-md-2 m-3">
+    <div class="col-md-2">
       <div class="col-lg-12">
-        <a href="{{route('admin.damage.index')}}" style="text-decoration: none; color:white" class="btn btn-success">Add Indemnity</a>
+        <a href="{{route('admin.damage.index')}}" style="text-decoration: none; color:white;margin-top:5px" class="btn btn-success">Add Indemnity</a>
       </div>
     </div>
     <div class="col-lg-2">

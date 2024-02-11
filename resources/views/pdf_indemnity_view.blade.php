@@ -21,14 +21,15 @@
         </table>
       </div>
       <div class="row">
-        <h4> Notice of Loss </h4>
+        <h4> Indemnity </h4>
         <div class="col-md-12">
           <div class="table-wrapper" style=" width:100%;">
             <table class="table table-bordered table-striped mb-5">
               <thead>
-                <th>Notice of Loss ID</th>
+                <th>Indemnity ID</th>
                 <th>Farmer's ID</th>
                 <th>Farmer's Name</th>
+                <th>Contact Number</th>
                 <th>Barangay</th>
                 <th>Insurance ID</th>
                 <th>Crops</th>
@@ -39,7 +40,10 @@
                 <th>Date of Loss</th>
                 <th>Harvest Date</th>
                 <th>Farm Location</th>
-                <th>Date Submitted</th>
+                <th>Claiming Date</th>
+                <th>Amount to Claim</th>
+                <th>Received By</th>
+                <th>Date Received By</th>
               </thead>
               <tbody>
                     @foreach ($damages as $damage)
@@ -47,6 +51,7 @@
                       <td>{{$damage->id}} </td>
                       <td>{{$damage->farmersID}} </td>
                       <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}}</td>
+                      <td>{{$damage->contactNumber}} </td>
                       <td>{{$damage->barangayAddress}} </td>
                       <td>{{$damage->cropInsuranceID}} </td>
                       <td>{{$damage->cropName}}</td>
@@ -57,7 +62,10 @@
                       <td>{{$damage->dateLoss}}</td>
                       <td>{{$damage->dateHarvest}}</td>
                       <td>{{$damage->barangayFarm}}</td>
-                      <td>{{$damage->dateSubmitted}}</td>
+                      <td>{{$damage->dateClaiming}}</td>
+                      <td>{{$damage->amountToClaim}}</td>
+                      <td>{{$damage->receivedBy}}</td>
+                      <td>{{$damage->dateReceivedBy}}</td>
                     </tr>
                     @endforeach
               </tbody>

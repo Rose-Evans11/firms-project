@@ -46,26 +46,26 @@
                 <th>Date Received By</th>
               </thead>
               <tbody>
-                    @foreach ($damages as $damage)
+                    @foreach ($indemnities as $indemnity)
                     <tr>
-                      <td>{{$damage->id}} </td>
-                      <td>{{$damage->farmersID}} </td>
-                      <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}}</td>
-                      <td>{{$damage->contactNumber}} </td>
-                      <td>{{$damage->barangayAddress}} </td>
-                      <td>{{$damage->cropInsuranceID}} </td>
-                      <td>{{$damage->cropName}}</td>
-                      <td>{{$damage->insuranceType}}</td>
-                      <td>{{$damage->areaInsured}}</td>
-                      <td>{{$damage->cicNumber}}</td>
-                      <td>{{$damage->damageCause}} </td>
-                      <td>{{$damage->dateLoss}}</td>
-                      <td>{{$damage->dateHarvest}}</td>
-                      <td>{{$damage->barangayFarm}}</td>
-                      <td>{{$damage->dateClaiming}}</td>
-                      <td>{{$damage->amountToClaim}}</td>
-                      <td>{{$damage->receivedBy}}</td>
-                      <td>{{$damage->dateReceivedBy}}</td>
+                      <td>{{$indemnity->id}} </td>
+                      <td>{{$indemnity->farmersID}} </td>
+                      <td>{{$indemnity->firstName}} {{$indemnity->middleName}} {{$indemnity->lastName}}</td>
+                      <td>{{$indemnity->contactNumber}} </td>
+                      <td>{{$indemnity->barangayAddress}} </td>
+                      <td>{{$indemnity->cropInsuranceID}} </td>
+                      <td>{{$indemnity->cropName}}</td>
+                      <td>{{$indemnity->insuranceType}}</td>
+                      <td>{{$indemnity->areaInsured}}</td>
+                      <td>{{$indemnity->cicNumber}}</td>
+                      <td>{{$indemnity->damageCause}} </td>
+                      <td>{{$indemnity->dateLoss}}</td>
+                      <td>{{$indemnity->dateHarvest}}</td>
+                      <td>{{$indemnity->barangayFarm}}</td>
+                      <td>{{$indemnity->dateClaiming}}</td>
+                      <td>{{$indemnity->amountToClaim}}</td>
+                      <td>{{$indemnity->receivedBy}}</td>
+                      <td>{{$indemnity->dateReceivedBy}}</td>
                     </tr>
                     @endforeach
               </tbody>

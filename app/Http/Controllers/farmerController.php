@@ -17,13 +17,13 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class farmerController extends Controller
 {
    public function index(){
-    $user = User::paginate(10);;
+    $user = User::paginate(10);
     return view('admin/register', ['users'=>$user]);
    }
     
     public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
-
+        
         // File Folder Location 
         $valid_id_image_location = public_path('valid_id_image_location');
         $profile_image_location = public_path('profile_image_location');
@@ -36,11 +36,12 @@ class farmerController extends Controller
             mkdir($profile_image_location, 0755, true);
         }
 
-        $imageValidID = time() . $incomingFields['validIDPhoto']->extension();
-        $imagePhoto = time(). $incomingFields['photo']->extension();
+        $imageValidID = time().'.'. $incomingFields['validIDPhoto']->extension();
+        $imagePhoto = time().'.'. $incomingFields['photo']->extension();
 
         $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
-        $incomingFields['photo']->move($profile_image_location, $imagePhoto);
+        $incomingFields['photo']->move($profile_image_location, $imagePhoto); 
+
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
         //to save new farmers

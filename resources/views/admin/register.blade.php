@@ -84,6 +84,8 @@
                     <th>Last Name</th>
                     <th>Extension Name</th>
                     <th>Active</th>
+                    <th>Image Photo </th>
+                    <th>Valid ID  </th>
                     <th>Edit</th>
                     </tr>
                 </thead>
@@ -97,6 +99,8 @@
                             <td>{{$user->middleName}}</td>
                             <td>{{$user->lastName}}</td>
                             <td>{{$user->extensionName}}</td>
+                            <td>{{$user->photo}}</td>
+                            <td>{{$user->validIDPhoto}}</td>
                             <td>{{$user->isActive}}</td>
                             <td> <a href="{{route('farmer.edit', ['user'=>$user])}}"> Edit</a></td>
                         </tr>

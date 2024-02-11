@@ -23,7 +23,7 @@ class farmerController extends Controller
     
     public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
-        
+        /*
         // File Folder Location 
         $valid_id_image_location = public_path('valid_id_image_location');
         $profile_image_location = public_path('profile_image_location');
@@ -55,6 +55,28 @@ class farmerController extends Controller
     $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
 
         return redirect('firms/farmer/register', compact('validIdImageUrl','profileImageUrl')); //going to the same page
+    */
+    $incomingFields = $request->validated();
+
+    // Use storage facade and random filenames
+    $disk = 'local'; // Adjust if using a different disk
+    $validIdFileName = Str::random(32) . '.' . $incomingFields['validIDPhoto']->extension();
+    $profileFileName = Str::random(32) . '.' . $incomingFields['photo']->extension();
+
+    // Store files using Storage facade
+    Storage::disk($disk)->putFileAs('valid_id_images', $incomingFields['validIDPhoto'], $validIdFileName);
+    Storage::disk($disk)->putFileAs('profile_images', $incomingFields['photo'], $profileFileName);
+
+    $incomingFields['password'] = bcrypt($incomingFields['password']);
+
+    $user = User::create($incomingFields);
+
+    // Generate secure image URLs
+    $validIdImageUrl = asset(Storage::disk($disk)->url('valid_id_images/' . $validIdFileName));
+    $profileImageUrl = asset(Storage::disk($disk)->url('profile_images/' . $profileFileName));
+
+    // Send only relevant data to view
+    return redirect('firms/farmer/register', compact('validIdImageUrl', 'profileImageUrl'));   
     }
    
     public function login(Request $request){  //to login the farmers

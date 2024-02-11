@@ -28,21 +28,16 @@
               <thead>
                 <th>Notice of Loss ID</th>
                 <th>Farmer's ID</th>
-                <th>RSBSA</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Farmer's Name</th>
                 <th>Barangay</th>
-                <th>'Crop Insurance ID</th>
+                <th>Insurance ID</th>
                 <th>Crops</th>
                 <th>Insurance Type</th>
                 <th>Area Insured</th>
                 <th>CIC Number</th>
                 <th>Damage Cause</th>
-                <th>Extent of Damage</th>
                 <th>Date of Loss</th>
-                <th>Growth Stage</th>
-                <th>Area Damage</th>
-                <th>Expected Harvest Date</th>
+                <th>Harvest Date</th>
                 <th>Farm Location</th>
                 <th>Date Submitted</th>
               </thead>
@@ -51,20 +46,15 @@
                     <tr>
                       <td>{{$damage->id}} </td>
                       <td>{{$damage->farmersID}} </td>
-                      <td>{{$damage->rsbsa}} </td>
-                      <td>{{$damage->firstName}} </td>
-                      <td>{{$damage->LastName}} </td>
+                      <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}} {{$damage->extensionName}}</td>
                       <td>{{$damage->barangayAddress}} </td>
-                      <td>{{$damage->cropInsuranceID}} </td>
+                      <td>{{$damage->cropInsuranceID}}} </td>
                       <td>{{$damage->cropName}}</td>
                       <td>{{$damage->insuranceType}}</td>
                       <td>{{$damage->areaInsured}}</td>
                       <td>{{$damage->cicNumber}}</td>
                       <td>{{$damage->damageCause}} </td>
-                      <td>{{$damage->extentDamage}} </td>
                       <td>{{$damage->dateLoss}}</td>
-                      <td>{{$damage->growthStage}}</td>
-                      <td>{{$damage->areaDamage}}</td>
                       <td>{{$damage->dateHarvest}}</td>
                       <td>{{$damage->barangayFarm}}</td>
                       <td>{{$damage->dateSubmitted}}</td>

@@ -44,10 +44,17 @@ class farmerController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
+
         //to save new farmers
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
-        return redirect('firms/farmer/register'); //going to the same page
+
+
+    // Retrieve and display images in Blade view
+    $validIdImageUrl = asset('valid_id_image_location/' . $imageValidID);
+    $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
+
+        return redirect('firms/farmer/register', compact('validIdImageUrl','profileImageUrl','users')); //going to the same page
     }
    
     public function login(Request $request){  //to login the farmers

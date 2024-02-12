@@ -16,7 +16,7 @@
   }
   </style>
 <div class='container-fluid' style="margin: auto">
-    <form class="form-horizontal" action="{{route('farmer.update', ['user'=>$user])}}" method="POST">
+    <form class="form-horizontal" action="{{route('farmer.update', ['user'=>$user])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <fieldset>

@@ -24,9 +24,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="<?= url('/firms'); ?>">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
+              <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
               <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/farmer/'); ?>">Login</a></li>

@@ -30,10 +30,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               @guest
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/'); ?>">Home</a></li>
-             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/insurance-program'); ?>">Insurance Program</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
+             <li class="nav-item"><a class="nav-link" href="<?= url('firms/about'); ?>">About</a></li>
+             <li class="nav-item"> <a class="nav-link" href="<?= url('firms/contact'); ?>">Contact Us</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/help'); ?>">Help</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('firms/data-privacy'); ?>">Data Privacy</a></li>
               <li class="nav-item"><a class="nav-link" href="<?= url('/firms/farmer/'); ?>">Login</a></li>

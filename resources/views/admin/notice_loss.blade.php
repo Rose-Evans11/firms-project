@@ -109,6 +109,12 @@
                  <td>{{$damage->areaDamage}}</td>
                  <td>{{$damage->dateHarvest}}</td>
                  <td>{{$damage->barangayFarm}}</td>
+                 <td>
+                  <img src="{{('crop_before_location/' . $damage->crop_before)}}" alt="Crop before damage" style="width:150px; height:auto">
+                 </td>
+                 <td>
+                  <img src="{{('crop_after_location/' . $user->photo)}}" alt="Crop after damage" style="width:150px; height:auto">
+                 </td>
                  <td>{{$damage->dateSubmitted}}</td>
                  <td><a href="{{route('admin.damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
                  <td><a href="{{route('admin.damage.view', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> View</a></td>

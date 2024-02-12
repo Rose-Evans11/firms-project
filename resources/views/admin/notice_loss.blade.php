@@ -80,6 +80,8 @@
                     <th>@sortablelink('AreaDamage','Area Damage')</th>
                     <th>@sortablelink('expectedHarvest','Expected Harvest Date')</th>
                     <th>@sortablelink('barangayFarm','Farm Location')</th>
+                    <th>@sortablelink('crop_before','Crop Before')</th>       
+                    <th>@sortablelink('crop_after','Crop After')</th>
                     <th>@sortablelink('dateSubmitted','Date Submitted')</th>
                     <th>Edit</th>
                     <th>View</th>

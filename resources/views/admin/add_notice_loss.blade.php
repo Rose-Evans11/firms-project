@@ -351,6 +351,15 @@
         </div>
         <br/>
         <div class="row">
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_before" accept="image/jpg, image/jpeg, image/png"  name="crop_before">
+          </div>
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_after" accept="image/jpg, image/jpeg, image/png" name='crop_after'>
+          </div>
+      </div>
+        <br/>
+        <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                   <label for="txt_contact" class="col-lg-6 control-label">Type your Name for the Signature:</label>

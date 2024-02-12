@@ -44,7 +44,7 @@ class farmerController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
-        dd($imageValidID, $imagePhoto);
+        dd($imageValidID);
         //to save new farmers
         // $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');

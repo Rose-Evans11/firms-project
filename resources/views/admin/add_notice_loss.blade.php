@@ -31,7 +31,7 @@
     {{Session::get('success')}}
     </div> 
   @endif
-  <form class="form-horizontal" action="{{route('admin.damage.store')}}" method="post">
+  <form class="form-horizontal" action="{{route('admin.damage.store')}}" method="post" enctype="multipart/form-data">
     @csrf
    <fieldset>
       <div class="m-3" id="panelNoticeLoss">

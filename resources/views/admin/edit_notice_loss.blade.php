@@ -31,7 +31,7 @@
     {{Session::get('success')}}
     </div> 
   @endif
-  <form class="form-horizontal"  action="{{route('admin.damage.update', ['damage'=>$damages])}}" method="Post">
+  <form class="form-horizontal"  action="{{route('admin.damage.update', ['damage'=>$damages])}}" method="Post" enctype="multipart/form-data">
     @csrf
     @method('put')
    <fieldset>
@@ -271,7 +271,7 @@
         <div class="row">
           <div class="col-md-6">
               <div class="form-group">
-                  <label for="img_photo" class="col-lg-2 control-label">Crop before damage:</label>
+                  <label for="img_photo" class="col-lg-12 control-label">Crop before damage:</label>
                   <div class="col-lg-12">
                       <img src="{{('crop_before_location/' . $damages->crop_before)}}" style="width:150px; height:auto" alt="Crop before damage">
                   </div>

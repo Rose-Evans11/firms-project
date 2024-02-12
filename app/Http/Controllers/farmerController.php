@@ -39,7 +39,7 @@ class farmerController extends Controller
         $imageValidID = time().'.'. $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time().'.'. $incomingFields['photo']->extension();
 
-        $incomingFields['validIDPhoto']->storeas($valid_id_image_location,  $imageValidID);
+        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
         $incomingFields['photo']->move($profile_image_location, $imagePhoto); 
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);

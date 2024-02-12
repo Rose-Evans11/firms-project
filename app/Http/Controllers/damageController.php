@@ -154,7 +154,31 @@ class damageController extends Controller
                 'dateHarvest' => 'required',
                 'signature' => 'required',
                 'dateSubmitted' => 'required',
+                'crop_before'=>'required',
+                'crop_after'=>'required',
             ]);
+
+            // File Folder Location 
+            $crop_before_location = public_path('crop_before_location');
+            $crop_after_location = public_path('crop_after_location');
+
+            if(!file_exists($crop_before_location)) {
+                mkdir($crop_before_location, 0755, true);
+            }
+
+            if(!file_exists($crop_after_location)) {
+                mkdir($crop_after_location, 0755, true);
+            }
+
+            $imageCropBefore = time().'.'. $incomingFields['crop_before']->extension();
+            $imageCropAfter = time().'.'. $incomingFields['crop_after']->extension();
+
+            $incomingFields['crop_before']->move($crop_before_location,  $imageCropBefore);
+            $incomingFields['crop_after']->move($crop_after_location, $imageCropAfter); 
+
+            $incomingFields['crop_before'] = $imageCropBefore;
+            $incomingFields['crop_after'] = $imageCropAfter;
+
            
     
             $damage->update ($incomingFields);

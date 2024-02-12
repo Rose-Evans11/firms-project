@@ -299,9 +299,6 @@
           <br/>
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" href="{{route('admin.damage.index') }}" style="width:100%">Cancel</button>
-            </div>
-            <div class="col-md-6">
               <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
             </div>
           </div>

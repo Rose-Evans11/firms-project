@@ -249,6 +249,14 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_before" accept="image/jpg, image/jpeg, image/png"  name="crop_before">
+          </div>
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_after" accept="image/jpg, image/jpeg, image/png" name='crop_after'>
+          </div>
+        </div>
         <br/>
         <div class="row">
             <div class="col-md-6">
@@ -272,9 +280,6 @@
         <div class="d-flex justify-content-end mt-3"> 
           <br/>
           <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
-            </div>
             <div class="col-md-6">
               <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
             </div>

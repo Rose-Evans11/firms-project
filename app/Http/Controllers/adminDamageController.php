@@ -183,7 +183,7 @@ class adminDamageController extends Controller
             return redirect(route('admin.damage.index'));
 
         }
-         return redirect('firms/farmadminer/')->withInput()->with('errmessage', 'Please Login First!');
+         return redirect('firms/admin/login')->withInput()->with('errmessage', 'Please Login First!');
      
     }
     public function view(damage $damage){ //to edit and retrive the information for insurance

@@ -286,6 +286,14 @@
               </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_before" accept="image/jpg, image/jpeg, image/png"  name="crop_before">
+          </div>
+          <div class="col-md-6">
+              <input type="file" class="form-control" id="file_crop_after" accept="image/jpg, image/jpeg, image/png" name='crop_after'>
+          </div>
+      </div>
         <br/>
         <div class="d-flex justify-content-end mt-3"> 
           <br/>

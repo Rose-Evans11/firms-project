@@ -79,6 +79,7 @@
                  </td>
                  <td>{{$damage->dateSubmitted}}</td>
                  <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
+                 <td><a href="{{route('damage.view', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> View</a></td>
                  <td><a href="{{route('indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>
                 </tr>
                 @endforeach

@@ -268,6 +268,7 @@
               </div>
             </div>
         </div>
+        <br/>
         <div class="row">
           <div class="col-md-6">
               <div class="form-group">
@@ -286,6 +287,7 @@
               </div>
           </div>
         </div>
+        <br/>
         <div class="row">
           <div class="col-md-6">
               <input type="file" class="form-control" id="file_crop_before" accept="image/jpg, image/jpeg, image/png"  name="crop_before">

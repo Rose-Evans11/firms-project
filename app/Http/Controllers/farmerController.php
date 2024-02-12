@@ -25,9 +25,9 @@ class farmerController extends Controller
         $incomingFields = $request->validated();
         
         // File Folder Location 
-        $valid_id_image_location = public_path('valid_id_image_location');
-        $profile_image_location = public_path('profile_image_location');
-
+        //$valid_id_image_location = public_path('valid_id_image_location');
+        //$profile_image_location = public_path('profile_image_location');
+/*
         if(!file_exists($valid_id_image_location)) {
             mkdir($valid_id_image_location, 0755, true);
         }
@@ -35,24 +35,23 @@ class farmerController extends Controller
         if(!file_exists($profile_image_location)) {
             mkdir($profile_image_location, 0755, true);
         }
-
+*/
         $imageValidID = time().'.'. $incomingFields['validIDPhoto']->extension();
         $imagePhoto = time().'.'. $incomingFields['photo']->extension();
 
-        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
-        $incomingFields['photo']->move($profile_image_location, $imagePhoto); 
+        $incomingFields['validIDPhoto']->storeas('public/farmer_photo',  $imageValidID);
+        $incomingFields['photo']->move('public/farmer_valid_id', $imagePhoto); 
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
-
 
         //to save new farmers
         $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
 
 
-    // Retrieve and display images in Blade view
-    //$validIdImageUrl = asset('valid_id_image_location/' . $imageValidID);
-   // $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
+        // Retrieve and display images in Blade view
+        //$validIdImageUrl = asset('valid_id_image_location/' . $imageValidID);
+        // $profileImageUrl = asset('profile_image_location/' . $imagePhoto);
 
         return redirect('firms/farmer/register'); //going to the same page
     }

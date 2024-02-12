@@ -273,7 +273,7 @@
               <div class="form-group">
                   <label for="img_photo" class="col-lg-2 control-label">Crop before damage:</label>
                   <div class="col-lg-12">
-                      <img src="{{('crop_before_location/' . $damage->crop_before)}}" style="width:150px; height:auto" alt="Crop before damage">
+                      <img src="{{('crop_before_location/' . $damages->crop_before)}}" style="width:150px; height:auto" alt="Crop before damage">
                   </div>
               </div>
           </div>
@@ -281,7 +281,7 @@
               <div class="form-group">
                   <label for="img_validID" class="col-lg-12 control-label">Crop after damage:</label>
                   <div class="col-lg-12">
-                    <img src="{{('crop_after_location/' . $damage->crop_after)}}" style="width:150px; height:auto" alt="Crop after damage">
+                    <img src="{{('crop_after_location/' . $damages->crop_after)}}" style="width:150px; height:auto" alt="Crop after damage">
                   </div>
               </div>
           </div>

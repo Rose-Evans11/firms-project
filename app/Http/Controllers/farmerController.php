@@ -140,7 +140,7 @@ class farmerController extends Controller
             'photo'=> 'nullable',
         ]);
        
-        
+/*        
         // File Folder Location 
         $valid_id_image_location = public_path('valid_id_image_location');
         $profile_image_location = public_path('profile_image_location');
@@ -161,6 +161,21 @@ class farmerController extends Controller
 
         $incomingFields['validIDPhoto'] = $imageValidID;
         $incomingFields['photo'] = $imagePhoto;
+*/
+        // Handle image upload
+        if ($request->hasFile($incomingFields['photo'])) {
+            $imagePhoto = $request->file($incomingFields['photo']);
+            $filenamePhoto = time() . '.' . $imagePhoto->getClientOriginalExtension();
+            $imagePhoto->move($valid_id_image_location, $filenamePhoto); // Save the image to the 'images' folder
+            $user->imagePhoto = $filenamePhoto; // Update the image field in the model
+        }
+
+        if ($request->hasFile($incomingFields['validIDPhoto'])) {
+            $imageValid = $request->file($incomingFields['validIDPhoto']);
+            $filenameValid = time() . '.' . $imageValid->getClientOriginalExtension();
+            $imageValid->move($valid_id_image_location, $filenameValid); // Save the image to the 'images' folder
+            $user->imageValid = $filenameValid; // Update the image field in the model
+        }
         
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');

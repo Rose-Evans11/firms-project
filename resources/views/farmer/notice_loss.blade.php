@@ -52,6 +52,8 @@
                     <th>Date of Loss</th>
                     <th>Expected Harvest Date</th>
                     <th>Farm Location</th>
+                    <th>Crop Before</th>
+                    <th>Crop After</th>
                     <th>Date Submitted</th>
                     <th>Edit</th>
                     <th>File Indemnity</th>
@@ -69,6 +71,12 @@
                  <td>{{$damage->dateLoss}}</td>
                  <td>{{$damage->dateHarvest}}</td>
                  <td>{{$damage->barangayFarm}}</td>
+                 <td>
+                  <img src="{{('crop_before_location/' . $damage->crop_before)}}" alt="Crop before damage" style="width:150px; height:auto">
+                 </td>
+                 <td>
+                  <img src="{{('crop_after_location/' . $damage->crop_after)}}" alt="Crop after damage" style="width:150px; height:auto">
+                 </td>
                  <td>{{$damage->dateSubmitted}}</td>
                  <td><a href="{{route('damage.edit', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> Edit</a></td>
                  <td><a href="{{route('indemnity.add', ['damage'=>$damage->id])}}" style="width:100%; text-decoration:none"> File Indemnity</a></td>

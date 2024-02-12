@@ -52,6 +52,8 @@ class damage extends Model
         'dateHarvest',
         'signature',
         'dateSubmitted',
+        'crop_before',
+        'crop_after',
     ];
     use Sortable;
 

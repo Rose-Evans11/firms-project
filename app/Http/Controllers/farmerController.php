@@ -44,8 +44,9 @@ class farmerController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
+        dd($incomingFields);
         //to save new farmers
-        $user = User::create ($incomingFields);
+        // $user = User::create ($incomingFields);
         session()->flash('success', 'Successfully Registered!');
 
 

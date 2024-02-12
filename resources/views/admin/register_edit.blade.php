@@ -195,7 +195,7 @@
                         <div class="form-group">
                             <label for="img_photo" class="col-lg-2 control-label">Farmer's Photo:</label>
                             <div class="col-lg-12">
-                                <img src="{{('valid_id_image_location/' . $user->photo)}}" alt="Photo">
+                                <img src="{{('valid_id_image_location/' . $user->photo)}}" style="width:150px; height:auto" alt="Photo">
                             </div>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                         <div class="form-group">
                             <label for="img_validID" class="col-lg-12 control-label">Farmer's Valid ID:</label>
                             <div class="col-lg-12">
-                              <img src="{{('profile_image_location/' . $user->validIDPhoto)}}" alt="Valid ID">
+                              <img src="{{('profile_image_location/' . $user->validIDPhoto)}}" style="width:150px; height:auto" alt="Valid ID">
                             </div>
                         </div>
                     </div>

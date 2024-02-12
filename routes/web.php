@@ -29,11 +29,11 @@ Route::get('', function () { //farmers landing page or redirect to home
     if (request()->getHost() === 'firms.fun') {
         return redirect('/firms');
     }
-    return view('/home');
+    return view('/farmer/program');
 });
 
 Route::get('/firms', function () { //farmers landing page
-    return view('/home'); 
+    return view('/farmer/program'); 
 });
 Route::get('/firms/farmer/', function () { //farmers landing page
     return view('farmer/login'); 

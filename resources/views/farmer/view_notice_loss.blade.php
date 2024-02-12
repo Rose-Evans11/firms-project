@@ -267,17 +267,13 @@
             </div>
         </div>
         <br/>
-        <div class="d-flex justify-content-end mt-3"> 
-          <br/>
-          <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" href="{{ URL::previous() }}" style="width:100%">Cancel</button>
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Update</button>
+        <div class="row justify-content-end mt-2">
+          <div class="col-md-6">
+            <div class="col-lg-12 d-flex justify-content-end">
+             <a href="{{ URL::previous() }}" style="text-decoration: none; color:white" class="btn btn-success" style="width: 100%"> Back</a></Button>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
    </fieldset>
   </form>

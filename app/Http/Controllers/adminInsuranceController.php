@@ -221,7 +221,7 @@ class adminInsuranceController extends Controller
             $message = $twilio->messages
                               ->create($incomingFields['contactNumber'], // to
                                        [
-                                           "body" => "The City Agriculture just filed an insurance report for you. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                           "body" => "The City Agriculturist recently submitted an insurance report. We will verify it; please wait for our message to receive more details. Thank you!",
                                            "from" => $senderNumber
                                        ]
                               );
@@ -549,7 +549,7 @@ class adminInsuranceController extends Controller
             $message = $twilio->messages
                               ->create(Auth::guard('web')->user()->contactNumber, // to
                                        [
-                                           "body" => "You just send a request letter. We will validate it, kindly, wait our message for additional information. Thank you!",
+                                           "body" => "You recently submitted a request letter. We will verify it; please wait for our message to receive more details. Thank you!",
                                            "from" => $senderNumber
                                        ]
                               );

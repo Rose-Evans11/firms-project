@@ -180,7 +180,7 @@ class adminDamageController extends Controller
     
             $damage->update($incomingFields);
             session()->flash('success', 'Successfully Updated!');
-            return redirect(route('damage.index'));
+            return redirect(route('admin.damage.index'));
 
         }
          return redirect('firms/farmadminer/')->withInput()->with('errmessage', 'Please Login First!');

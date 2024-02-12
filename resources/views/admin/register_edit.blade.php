@@ -201,13 +201,21 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="img_validID" class="col-lg-2 control-label">Farmer's Valid ID:</label>
+                            <label for="img_validID" class="col-lg-12 control-label">Farmer's Valid ID:</label>
                             <div class="col-lg-12">
                               <img src="{{('profile_image_location/' . $user->validIDPhoto)}}" alt="Valid ID">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png"  name="photo">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="file_id" accept="image/jpg, image/jpeg, image/png" name='validIDPhoto'>
                     </div>
                 </div>
             </div>

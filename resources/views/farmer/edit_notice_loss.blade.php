@@ -301,7 +301,9 @@
           <br/>
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2 col-lg-12" type="submit" style="width:100%">Update</button>
+              <div class="col-lg-12 d-flex justify-content-end">
+                <button class="btn btn-sm btn-success m-2 col-lg-12" type="submit" style="width:100%">Update</button>
+              </div>
             </div>
           </div>
         </div>

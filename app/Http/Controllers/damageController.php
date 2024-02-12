@@ -189,4 +189,12 @@ class damageController extends Controller
          return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
      
     }
+    public function view(damage $damage){ //to edit and retrive the information for insurance
+        if (Auth::check()) 
+        {
+            return view('farmer/view_notice_loss', ['damages'=>$damage]);
+
+        }
+         return redirect('firms/farmer/')->withInput()->with('errmessage', 'Please Login First!');
+    }
 }

@@ -42,11 +42,14 @@ class farmerController extends Controller
         $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
         $incomingFields['photo']->move($profile_image_location, $imagePhoto); 
 
+        $incomingFields['validIDPhoto'] = $imageValidID;
+        $incomingFields['photo'] = $imagePhoto;
+
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
-        print_r($imageValidID);
+       
         //to save new farmers
-        // $user = User::create ($incomingFields);
+        $user = User::save($incomingFields);
         session()->flash('success', 'Successfully Registered!');
 
 
@@ -137,6 +140,27 @@ class farmerController extends Controller
             'photo'=> 'nullable',
         ]);
        
+        
+        // File Folder Location 
+        $valid_id_image_location = public_path('valid_id_image_location');
+        $profile_image_location = public_path('profile_image_location');
+
+        if(!file_exists($valid_id_image_location)) {
+            mkdir($valid_id_image_location, 0755, true);
+        }
+
+        if(!file_exists($profile_image_location)) {
+            mkdir($profile_image_location, 0755, true);
+        }
+
+        $imageValidID = time().'.'. $incomingFields['validIDPhoto']->extension();
+        $imagePhoto = time().'.'. $incomingFields['photo']->extension();
+
+        $incomingFields['validIDPhoto']->move($valid_id_image_location,  $imageValidID);
+        $incomingFields['photo']->move($profile_image_location, $imagePhoto); 
+
+        $incomingFields['validIDPhoto'] = $imageValidID;
+        $incomingFields['photo'] = $imagePhoto;
         
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');

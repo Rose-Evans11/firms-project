@@ -83,9 +83,9 @@
                     <th>Middle Name</th>
                     <th>Last Name</th>
                     <th>Extension Name</th>
-                    <th>Active</th>
-                    <th>Image Photo </th>
                     <th>Valid ID  </th>
+                    <th>Image Photo </th>
+                    <th>Active</th>
                     <th>Edit</th>
                     </tr>
                 </thead>

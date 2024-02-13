@@ -93,15 +93,16 @@
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <!--
+                      
                       <div class="row">
                         <div class="form-group">
                           <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
                           <div class="col-lg-12">
-                          <input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo">
+                          <!--<input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo"> -->
+                          <img src="{{('valid_id_image_location/' . $user->photo)}}" alt="Photo" style="width:150px; height:auto">
                         </div>
                       </div>
-                    -->
+                    
                       <div class="row">
                         <div class="form-group my-5 text-center">
                         </div>

@@ -352,10 +352,16 @@
         <br/>
         <div class="row">
           <div class="col-md-6">
+            <label for="txt_contact" class="col-lg-6 control-label"> Crop before damage:</label>
+            <div class="col-lg-12">
               <input type="file" class="form-control" id="file_crop_before" accept="image/jpg, image/jpeg, image/png"  name="crop_before">
+            </div>
           </div>
           <div class="col-md-6">
+            <label for="txt_contact" class="col-lg-6 control-label"> Crop after damage:</label>
+            <div class="col-lg-12">
               <input type="file" class="form-control" id="file_crop_after" accept="image/jpg, image/jpeg, image/png" name='crop_after'>
+            </div>
           </div>
       </div>
         <br/>
@@ -383,7 +389,7 @@
         <div class="col-lg-12 d-flex justify-content-end">
           <div class="row">
             <div class="col-lg-12">
-              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>
+              <button class="btn btn-sm btn-success m-2" type="submit" style="width:250%">Add</button>
             </div>
           </div>
         </div>

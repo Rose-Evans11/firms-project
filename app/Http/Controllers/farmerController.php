@@ -164,7 +164,8 @@ class farmerController extends Controller
      
         $user->update ($incomingFields);
         session()->flash('success', 'Successfully Updated!');
-        return view('admin/register');
+        //return view('admin/register');
+        return back();
     }
     
     public function find(Request $request, User $user){ //to search and find

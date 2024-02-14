@@ -386,7 +386,7 @@
         <br/>
         <div class="d-flex justify-content-end mt-3"> 
           <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-8">
               <button class="btn btn-sm btn-success m-2" type="submit" style="width:250%">Add</button>
             </div>
           </div>

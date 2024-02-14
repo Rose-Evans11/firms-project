@@ -363,7 +363,7 @@
               <input type="file" class="form-control" id="file_crop_after" accept="image/jpg, image/jpeg, image/png" name='crop_after'>
             </div>
           </div>
-      </div>
+        </div>
         <br/>
         <div class="row">
             <div class="col-md-6">

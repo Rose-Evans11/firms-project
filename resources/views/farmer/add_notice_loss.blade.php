@@ -384,10 +384,10 @@
             </div>
         </div>
         <br/>
-        <div class="d-flex justify-content-center mt-3"> 
+        <div class="d-flex justify-content-end mt-3"> 
           <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-sm btn-success m-2" type="submit" style="width:100%">Add</button>
+            <div class="col-lg-10">
+              <button class="btn btn-sm btn-success m-2" type="submit" style="width:250%">Add</button>
             </div>
           </div>
         </div>

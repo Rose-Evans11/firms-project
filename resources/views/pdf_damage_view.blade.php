@@ -34,7 +34,7 @@
         <h4> Notice of Loss </h4>
         <div class="col-md-12">
           <div class="table-wrapper" style=" width:100%;">
-            <table class="table table-bordered table-striped mb-5" cellpadding="1" cellspacing="1" background-color="black">
+            <table class="table table-bordered table-striped mb-5">
               <thead>
                 <th>Notice of Loss ID</th>
                 <th>Farmer's ID</th>

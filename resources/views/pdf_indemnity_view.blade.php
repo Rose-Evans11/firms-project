@@ -36,12 +36,10 @@
           <div class="table-wrapper" style=" width:100%;">
             <table class="table table-bordered table-striped mb-5">
               <thead>
-                <th>Indemnity ID</th>
                 <th>Farmer's ID</th>
                 <th>Farmer's Name</th>
                 <th>Contact Number</th>
                 <th>Barangay</th>
-                <th>Insurance ID</th>
                 <th>Crops</th>
                 <th>Insurance Type</th>
                 <th>CIC Number</th>
@@ -57,12 +55,10 @@
               <tbody>
                     @foreach ($indemnities as $indemnity)
                     <tr>
-                      <td>{{$indemnity->id}} </td>
                       <td>{{$indemnity->farmersID}} </td>
                       <td>{{$indemnity->firstName}} {{$indemnity->middleName}} {{$indemnity->lastName}}</td>
                       <td>{{$indemnity->contactNumber}} </td>
                       <td>{{$indemnity->barangayAddress}} </td>
-                      <td>{{$indemnity->cropInsuranceID}} </td>
                       <td>{{$indemnity->cropName}}</td>
                       <td>{{$indemnity->insuranceType}}</td>
                       <td>{{$indemnity->cicNumber}}</td>

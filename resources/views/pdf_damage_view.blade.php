@@ -36,7 +36,6 @@
           <div class="table-wrapper" style=" width:100%;">
             <table class="table table-bordered table-striped mb-5">
               <thead>
-                <th>Notice of Loss ID</th>
                 <th>Farmer's ID</th>
                 <th>Farmer's Name</th>
                 <th>Barangay</th>
@@ -54,7 +53,6 @@
               <tbody>
                     @foreach ($damages as $damage)
                     <tr>
-                      <td>{{$damage->id}} </td>
                       <td>{{$damage->farmersID}} </td>
                       <td>{{$damage->firstName}} {{$damage->middleName}} {{$damage->lastName}}</td>
                       <td>{{$damage->barangayAddress}} </td>

@@ -36,7 +36,6 @@
           <div class="table-wrapper" style=" width:100%;">
             <table class="table table-bordered table-striped mb-5">
               <thead>
-                <th>Farmer's ID</th>
                 <th>RSBSA</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
@@ -49,7 +48,6 @@
               <tbody>
                 @foreach ($users as $user)
                 <tr>
-                  <td>{{$user->id}} </td>
                   <td>{{$user->rsbsa}}</td>
                   <td>{{$user->firstName}}</td>
                   <td>{{$user->middleName}}</td>

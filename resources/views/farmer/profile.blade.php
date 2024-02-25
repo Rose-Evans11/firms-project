@@ -99,7 +99,7 @@
                           <label for="file_profile" class="col-lg-12 control-label">Profile Picture: </label>
                           <div class="col-lg-12">
                           <!--<input type="file" class="form-control" id="file_profile" accept="image/jpg, image/jpeg, image/png" onchange="loadFile(event)"  name="photo"> -->
-                          <img src="{{('valid_id_image_location/' . Auth::User()->photo)}}" alt="Photo" style="width:150px; height:auto">
+                          <img src="{{('profile_image_location/' . Auth::User()->photo)}}" alt="Photo" style="width:150px; height:auto">
                         </div>
                       </div>
                     

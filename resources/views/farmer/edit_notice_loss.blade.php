@@ -31,7 +31,7 @@
     {{Session::get('success')}}
     </div> 
   @endif
-  <form class="form-horizontal"  action="{{route('damage.update', ['damage'=>$damages])}}" method="Post">
+  <form class="form-horizontal"  action="{{route('damage.update', ['damage'=>$damages])}}" method="Post" enctype="multipart/form-data">
     @csrf
     @method('put')
    <fieldset>

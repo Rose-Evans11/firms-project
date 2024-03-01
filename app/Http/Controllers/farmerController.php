@@ -49,7 +49,7 @@ class farmerController extends Controller
 
        
         //to save new farmers
-        $user = User::save($incomingFields);
+        $user = User::create($incomingFields);
         session()->flash('success', 'Successfully Registered!');
 
 

@@ -39,7 +39,7 @@ class StoreFarmerRequest extends FormRequest
             'contactNumber' => 'nullable',
             'validID' => 'nullable',
             'validIDPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'validIDNumber'=> 'nullable',
+            'validIDNumber'=> 'required|validIDNumber|unique:users,validIDNumber',
             'isActive' => 'nullable',
             'photo' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'birthplace' => 'nullable',

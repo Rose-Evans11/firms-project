@@ -21,7 +21,7 @@ class farmerController extends Controller
     return view('admin/register', ['users'=>$user]);
    }
     
-    public function store(User $user, StoreFarmerRequest $request) {//to add new farmers
+    public function store(StoreFarmerRequest $request) {//to add new farmers
         $incomingFields = $request->validated();
         
         // File Folder Location 
@@ -49,8 +49,7 @@ class farmerController extends Controller
 
        
         //to save new farmers
-        //$user = User::save($incomingFields);
-        $user->save($incomingFields);
+        $user = User::save($incomingFields);
         session()->flash('success', 'Successfully Registered!');
 
 

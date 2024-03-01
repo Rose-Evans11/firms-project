@@ -146,6 +146,21 @@ class adminIndemnityController extends Controller
     
             $indemnity->update ($incomingFields);
             session()->flash('success', 'Successfully Updated!');
+             //this is for sending message
+             $sid = getenv("TWILIO_SID");
+             $token = getenv("TWILIO_TOKEN");
+             $senderNumber = getenv("TWILIO_PHONE");
+             $twilio = new Client($sid, $token);
+             
+             $message = $twilio->messages
+                               ->create($incomingFields['contactNumber'], // to
+                                        [
+                                            "body" => "Mabuhay! Ito po ang Office of Tanauan City Agriculurist, kayo po ay nakaschedule sa pagclaim ng indmenity sa araw na ito " .$incomingFields['dateClaiming']. ". Kung kayo po ay makatanungan, huwag po kayong mahihiyang lumapit sa ating tanggapan. Salamat po!" ,
+                                            "from" => $senderNumber
+                                        ]
+                               );
+             
+             print($message->sid);
             return redirect(route('admin.indemnity.index'));
 
         }
